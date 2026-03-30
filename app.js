@@ -31,7 +31,7 @@ async function loadIntelData() {
     // This is the primary path. It works on GitHub Pages and when you run
     // `python -m http.server 8080` locally.
     if (window.location.protocol !== 'file:') {
-      const response = await fetch('data/intel.json');
+      const response = await fetch('data/intel.json?v=${Date.now()}');
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       data = await response.json();
     } else {

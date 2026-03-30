@@ -14,24 +14,25 @@ async function loadIntelData(force = false) {
   try {
     let data;
 
-    if (window.location.protocol !== 'file:') {
-      const url = force
-        ? `data/intel.json?v=${Date.now()}`
-        : 'data/intel.json';
+    const url = force
+      ? `data/intel.json?v=${Date.now()}`
+      : 'data/intel.json';
 
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      data = await response.json();
-    } else {
-      if (window.INTEL_DATA) {
-        data = window.INTEL_DATA;
-      } else {
-        throw new Error("No local data");
-      }
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch JSON");
     }
+
+    data = await response.json();
 
     allItems = data.items || [];
 
+    // ✅ FIX: stop infinite loading
+    document.getElementById("loading-state").style.display = "none";
+    document.getElementById("cards-container").style.display = "block";
+
+    // ✅ TIME (UTC + IST)
     if (data.last_updated) {
       const date = new Date(data.last_updated);
 
@@ -47,16 +48,16 @@ async function loadIntelData(force = false) {
         `Last updated: ${utc} | IST: ${ist}`;
     }
 
-    renderSidebar();
-    applyFilters();
-    showContent();
-
+    renderCards();
   } catch (err) {
     console.error(err);
-    showError();
+
+    document.getElementById("loading-state").style.display = "none";
+    document.getElementById("error-state").style.display = "block";
   }
 }
 
+// 🔄 Refresh button
 function initRefresh() {
   const btn = document.getElementById('refresh-btn');
   if (!btn) return;
@@ -69,27 +70,17 @@ function initRefresh() {
   });
 }
 
-function applyFilters() {
-  filteredItems = allItems.filter(item => {
-    const categoryMatch =
-      activeFilter === 'all' || item.category === activeFilter;
+// 🔍 Search
+function initSearch() {
+  const input = document.getElementById('search-input');
 
-    const q = searchQuery.toLowerCase();
-
-    const searchMatch =
-      !q ||
-      (item.title && item.title.toLowerCase().includes(q)) ||
-      (item.description && item.description.toLowerCase().includes(q)) ||
-      (item.cve_id && item.cve_id.toLowerCase().includes(q)) ||
-      (item.source && item.source.toLowerCase().includes(q));
-
-    return categoryMatch && searchMatch;
+  input.addEventListener('input', () => {
+    searchQuery = input.value.toLowerCase();
+    applyFilters();
   });
-
-  renderCards();
-  updateHeaderStats();
 }
 
+// 🔘 Filters
 function initFilters() {
   document.getElementById('filter-tabs').addEventListener('click', e => {
     const btn = e.target.closest('.filter-btn');
@@ -103,15 +94,37 @@ function initFilters() {
   });
 }
 
-function initSearch() {
-  const input = document.getElementById('search-input');
-  let debounceTimer;
+// 🧠 Filter logic
+function applyFilters() {
+  filteredItems = allItems.filter(item => {
+    const matchCategory =
+      activeFilter === 'all' || item.category === activeFilter;
 
-  input.addEventListener('input', () => {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
-      searchQuery = input.value.trim();
-      applyFilters();
-    }, 250);
+    const matchSearch =
+      !searchQuery ||
+      item.title.toLowerCase().includes(searchQuery) ||
+      (item.description && item.description.toLowerCase().includes(searchQuery));
+
+    return matchCategory && matchSearch;
+  });
+
+  renderCards();
+}
+
+// 🧱 Render cards
+function renderCards() {
+  const container = document.getElementById('cards-container');
+  container.innerHTML = "";
+
+  const list = filteredItems.length ? filteredItems : allItems;
+
+  list.forEach(item => {
+    container.innerHTML += `
+      <div class="intel-card">
+        <p><a href="${item.url}" target="_blank">${item.title}</a></p>
+        <p>${item.description || ""}</p>
+        <small>${item.source} | ${item.category}</small>
+      </div>
+    `;
   });
 }

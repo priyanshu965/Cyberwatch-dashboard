@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberWatch — Threat Intelligence Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- JetBrains Mono for terminal feel, Syne for headings -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Animated background grid -->
+  <div class="bg-grid"></div>
+  <div class="scan-line"></div>
+
+  <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+  <header class="site-header">
+    <div class="header-left">
+      <div class="logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">CYBER<span class="logo-accent">WATCH</span></span>
+        <span class="logo-bracket">]</span>
+      </div>
+      <div class="header-meta">
+        <span class="status-dot"></span>
+        <span id="last-updated">Initializing feed...</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="stat-pill" id="stat-critical">
+        <span class="stat-label">CRITICAL</span>
+        <span class="stat-value" id="count-critical">—</span>
+      </div>
+      <div class="stat-pill" id="stat-high">
+        <span class="stat-label">HIGH</span>
+        <span class="stat-value" id="count-high">—</span>
+      </div>
+      <div class="stat-pill" id="stat-items">
+        <span class="stat-label">TOTAL</span>
+        <span class="stat-value" id="count-total">—</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════ CONTROLS ═══════════════════════════ -->
+  <section class="controls-bar">
+    <div class="search-wrapper">
+      <span class="search-icon">⌕</span>
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="Search threats, CVEs, keywords..."
+        autocomplete="off"
+      />
+    </div>
+    <div class="filter-tabs" id="filter-tabs">
+      <button class="filter-btn active" data-filter="all">ALL</button>
+      <button class="filter-btn" data-filter="cve">CVEs</button>
+      <button class="filter-btn" data-filter="news">NEWS</button>
+      <button class="filter-btn" data-filter="advisory">ADVISORIES</button>
+      <button class="filter-btn" data-filter="incident">INCIDENTS</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ MAIN CONTENT ═══════════════════════════ -->
+  <main class="dashboard">
+
+    <!-- Sidebar: Stats + Sources -->
+    <aside class="sidebar">
+
+      <div class="sidebar-card">
+        <div class="sidebar-title">SEVERITY BREAKDOWN</div>
+        <div class="severity-chart" id="severity-chart">
+          <div class="sev-row">
+            <span class="sev-label critical">CRITICAL</span>
+            <div class="sev-bar-wrap"><div class="sev-bar critical" id="bar-critical"></div></div>
+            <span class="sev-count" id="sev-count-critical">0</span>
+          </div>
+          <div class="sev-row">
+            <span class="sev-label high">HIGH</span>
+            <div class="sev-bar-wrap"><div class="sev-bar high" id="bar-high"></div></div>
+            <span class="sev-count" id="sev-count-high">0</span>
+          </div>
+          <div class="sev-row">
+            <span class="sev-label medium">MEDIUM</span>
+            <div class="sev-bar-wrap"><div class="sev-bar medium" id="bar-medium"></div></div>
+            <span class="sev-count" id="sev-count-medium">0</span>
+          </div>
+          <div class="sev-row">
+            <span class="sev-label low">LOW</span>
+            <div class="sev-bar-wrap"><div class="sev-bar low" id="bar-low"></div></div>
+            <span class="sev-count" id="sev-count-low">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title">ACTIVE SOURCES</div>
+        <div class="source-list" id="source-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-title">CATEGORY BREAKDOWN</div>
+        <div class="cat-list" id="cat-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- Main Feed -->
+    <section class="feed">
+      <div class="feed-header">
+        <span id="feed-count">Loading intelligence feed...</span>
+        <span class="feed-sort">↓ LATEST FIRST</span>
+      </div>
+
+      <!-- Loading state -->
+      <div id="loading-state" class="loading-state">
+        <div class="loader-ring"></div>
+        <p>Fetching threat intelligence...</p>
+      </div>
+
+      <!-- Error state -->
+      <div id="error-state" class="error-state" style="display:none;">
+        <p class="error-icon">⚠</p>
+        <p>Failed to load intel feed. Check that <code>data/intel.json</code> exists.</p>
+      </div>
+
+      <!-- Cards container -->
+      <div id="cards-container" class="cards-container" style="display:none;"></div>
+
+      <!-- No results -->
+      <div id="no-results" class="no-results" style="display:none;">
+        <p>No results match your search.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="site-footer">
+    <span>CYBERWATCH DASHBOARD — Personal Threat Intelligence Feed</span>
+    <span>Powered by GitHub Actions + GitHub Pages · Updates daily at 06:00 UTC</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

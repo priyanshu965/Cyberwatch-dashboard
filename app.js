@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ─── Load Data ────────────────────────────────────────────────────────────────
-async function loadIntelData() {
+async function loadIntelData(force = false) {
   try {
     let data;
 

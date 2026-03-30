@@ -1,15 +1,8 @@
-# 🛡️ CyberWatch — Personal Threat Intelligence Dashboard
+# CyberWatch
 
-A free, fully automated cybersecurity threat intelligence dashboard that
-aggregates CVEs, advisories, incidents, and news from multiple sources
-into a single clean interface. Updates itself every day via GitHub Actions.
-No server, no cost, no manual intervention required.
-
----
-
-## 🔴 Live Dashboard
-
-Once deployed → `https://<your-username>.github.io/<repo-name>/`
+A free, cybersecurity threat intelligence dashboard that aggregates CVEs, 
+advisories, incidents, and news from multiple sources into a single clean
+interface. Updates itself every day via GitHub Actions.
 
 ---
 
@@ -24,52 +17,7 @@ Once deployed → `https://<your-username>.github.io/<repo-name>/`
 | Krebs on Security | Investigative News | No |
 | SANS ISC | Threat Diaries | No |
 | Reddit r/netsec | Community Intel | No |
-| AlienVault OTX | Threat Pulses | Optional |
-
----
-
-## 🚀 Setup (One-Time, 10 Minutes)
-
-### 1. Fork / Clone this repo
-
-```bash
-git clone https://github.com/<your-username>/cyberwatch-dashboard.git
-cd cyberwatch-dashboard
-```
-
-### 2. Enable GitHub Pages
-
-1. Go to your repo on GitHub
-2. Click **Settings** → **Pages**
-3. Under **Source**, select `Deploy from a branch`
-4. Choose `main` branch and `/ (root)` folder
-5. Click **Save**
-
-Your dashboard will be live at `https://<your-username>.github.io/<repo-name>/`
-
-### 3. Enable GitHub Actions
-
-1. Go to your repo → **Actions** tab
-2. If prompted, click **"I understand my workflows, go ahead and enable them"**
-3. That's it — it will run daily at 06:00 UTC automatically
-
-### 4. (Optional) Add API Keys for More Sources
-
-To enable AlienVault OTX:
-1. Create a free account at https://otx.alienvault.com
-2. Go to your OTX profile → **API Key**
-3. In your GitHub repo: **Settings** → **Secrets and variables** → **Actions**
-4. Click **New repository secret**
-5. Name: `OTX_API_KEY`, Value: your key
-6. Save
-
-### 5. Test it Right Now
-
-Trigger a manual run:
-1. Go to **Actions** tab in your repo
-2. Click **"Daily Intel Update"** in the left sidebar
-3. Click **"Run workflow"** → **"Run workflow"**
-4. Watch it fetch and update!
+| AlienVault OTX | Threat Pulses | Yes |
 
 ---
 
@@ -89,26 +37,6 @@ Trigger a manual run:
 ├── app.js                    # JavaScript: renders intel.json into the dashboard
 └── README.md
 ```
-
----
-
-## 🛠️ Running Locally
-
-```bash
-# Install Python dependencies
-pip install requests feedparser
-
-# Fetch live data
-python scripts/fetch_intel.py
-
-# Serve locally (Python built-in server)
-python -m http.server 8080
-
-# Open in browser
-# http://localhost:8080
-```
-
----
 
 ## 🔧 Customization
 
@@ -141,14 +69,3 @@ python -m http.server 8080
 - All sources used are completely free with no rate limit issues at this scale
 
 ---
-
-## 📚 Learning Resources
-
-- [GitHub Actions Docs](https://docs.github.com/en/actions)
-- [GitHub Pages Docs](https://docs.github.com/en/pages)
-- [NVD API Docs](https://nvd.nist.gov/developers/vulnerabilities)
-- [feedparser Docs](https://feedparser.readthedocs.io/)
-
----
-
-*Built for personal learning and staying updated with the cybersecurity landscape.*

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════
-   CYBERWATCH DASHBOARD — style.css
+   CYBERWATCH — style.css
    Theme: Dark Terminal / Industrial Cyber
    ═══════════════════════════════════════════════════════════════════ */
 
@@ -51,6 +51,14 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  /* Prevent any child from blowing out the viewport width */
+  max-width: 100vw;
+}
+
+/* Global overflow safety net */
+*, *::before, *::after {
+  max-width: 100%;
+  min-width: 0; /* flex children won't overflow their container */
 }
 
 /* ── Animated Background Grid ───────────────────────────────────── */
@@ -366,6 +374,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 0;          /* Flex child must be able to shrink */
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .feed-header {
@@ -431,6 +443,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .intel-card {
@@ -440,6 +454,9 @@ body {
   border-radius: var(--radius);
   padding: 14px 16px;
   display: block;
+  width: 100%;
+  overflow: hidden;           /* Clip any overflowing content */
+  box-sizing: border-box;
   transition: all var(--transition);
   animation: card-in 0.3s ease backwards;
   text-decoration: none;
@@ -468,6 +485,8 @@ body {
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .card-title {
@@ -477,6 +496,10 @@ body {
   color: var(--text-primary);
   line-height: 1.4;
   flex: 1;
+  /* Prevent long words/URLs from breaking layout */
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 .card-title a {
@@ -513,6 +536,10 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-top: 6px;
+  /* Stop monospace text from blowing out card width */
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .card-meta {
@@ -599,31 +626,28 @@ body {
 /* ── Mobile (≤ 640px): full overhaul ────────────────────────────── */
 @media (max-width: 640px) {
 
-  /* Header: stack logo + meta, hide stat pills */
+  /* === HEADER === */
   .site-header {
-    padding: 0 14px;
+    padding: 10px 14px;
     height: auto;
     flex-wrap: wrap;
-    gap: 6px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    gap: 4px;
   }
 
   .header-left {
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 2px;
+    min-width: 0;
   }
 
   .header-right { display: none; }
+  .logo { font-size: 15px; }
+  .header-meta { font-size: 9px; word-break: break-word; }
 
-  .logo { font-size: 16px; }
-
-  .header-meta { font-size: 10px; }
-
-  /* Controls: search full-width, filters scroll horizontally */
+  /* === CONTROLS === */
   .controls-bar {
-    padding: 10px 14px;
+    padding: 8px 14px;
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
@@ -632,8 +656,10 @@ body {
   .search-wrapper {
     max-width: 100%;
     min-width: unset;
+    width: 100%;
   }
 
+  /* Filter buttons: single horizontal scroll row, no wrap */
   .filter-tabs {
     display: flex;
     flex-wrap: nowrap;
@@ -641,61 +667,115 @@ body {
     gap: 6px;
     padding-bottom: 2px;
     scrollbar-width: none;
+    -ms-overflow-style: none;
   }
-
   .filter-tabs::-webkit-scrollbar { display: none; }
 
   .filter-btn {
     flex-shrink: 0;
-    padding: 6px 14px;
+    padding: 6px 12px;
     font-size: 10px;
+    white-space: nowrap;
   }
 
-  /* Summary bar wraps gracefully */
-  .daily-summary { padding: 8px 14px; }
-  .summary-top { display: none; } /* hide long text on tiny screens */
+  /* === SUMMARY BAR === */
+  .daily-summary { padding: 6px 14px; }
 
-  /* Show the mobile sidebar toggle */
+  .summary-inner {
+    gap: 6px;
+    row-gap: 4px;
+  }
+
+  /* Hide the long "top threat" sentence on small screens */
+  .summary-top,
+  .summary-top + .summary-divider { display: none; }
+
+  /* === MOBILE SIDEBAR TOGGLE === */
   .mobile-stats-toggle { display: block !important; }
 
-  /* Sidebar: hidden by default on mobile, toggled via JS */
   .sidebar {
     display: none;
     flex-direction: column;
-    overflow-x: visible;
+    overflow-x: hidden;
     padding: 12px 14px;
   }
 
-  .sidebar.mobile-open {
-    display: flex;
-  }
+  .sidebar.mobile-open { display: flex; }
 
   .sidebar-card {
     min-width: unset;
     width: 100%;
   }
 
-  /* Feed */
-  .feed { padding: 12px 14px; gap: 10px; }
-
-  /* Cards: slightly more compact */
-  .intel-card { padding: 12px 14px; }
-
-  .card-title { font-size: 12px; }
-
-  .card-description {
-    -webkit-line-clamp: 3;
-    font-size: 11px;
+  /* === FEED === */
+  .feed {
+    padding: 10px 14px;
+    gap: 8px;
   }
 
-  .card-meta { gap: 6px; }
+  .feed-header {
+    font-size: 9px;
+    padding-bottom: 8px;
+  }
 
-  /* Footer: stack */
+  /* === CARDS === */
+  .intel-card {
+    padding: 12px 12px;
+  }
+
+  .card-top {
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .card-title {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .badge {
+    font-size: 8px;
+    padding: 2px 6px;
+    flex-shrink: 0;
+  }
+
+  .card-description {
+    font-size: 11px;
+    -webkit-line-clamp: 3;
+    line-height: 1.55;
+    margin-top: 5px;
+  }
+
+  .card-meta {
+    gap: 5px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+
+  .meta-tag {
+    font-size: 8px;
+    padding: 1px 5px;
+  }
+
+  .meta-date {
+    font-size: 9px;
+    margin-left: auto;
+  }
+
+  .cve-id { font-size: 9px; }
+
+  .new-item-badge {
+    font-size: 7px;
+    padding: 1px 4px;
+  }
+
+  /* === FOOTER === */
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
-    padding: 12px 14px;
+    padding: 10px 14px;
+    font-size: 9px;
   }
 }
 
@@ -727,17 +807,19 @@ body {
 .daily-summary {
   position: relative;
   z-index: 85;
-  background: linear-gradient(90deg, #0d1a14, #0d1117, #0d1117);
+  background: linear-gradient(90deg, #0a1a12, #0d1117 60%);
   border-bottom: 1px solid #00ffe133;
   padding: 8px 24px;
+  overflow: hidden;
 }
 
 .summary-inner {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 10px;
   font-size: 11px;
+  flex-wrap: wrap;
+  row-gap: 4px;
 }
 
 .summary-label {
@@ -746,42 +828,45 @@ body {
   letter-spacing: 0.15em;
   color: var(--accent-cyan);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .summary-stats {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
+  row-gap: 4px;
 }
 
 .summary-stat {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   font-size: 10px;
+  white-space: nowrap;
 }
 
-.summary-stat-val { font-weight: 700; }
-.summary-stat-val.c { color: var(--critical); }
-.summary-stat-val.h { color: var(--high); }
-.summary-stat-val.m { color: var(--medium); }
-.summary-stat-val.n { color: var(--accent-blue); }
+.summary-stat-val          { font-weight: 700; }
+.summary-stat-val.c        { color: var(--critical); }
+.summary-stat-val.h        { color: var(--high); }
+.summary-stat-val.m        { color: var(--medium); }
+.summary-stat-val.n        { color: var(--accent-blue); }
+.summary-stat-lbl          { color: var(--text-muted); font-size: 9px; }
 
-.summary-stat-lbl { color: var(--text-muted); }
-
-.summary-divider { color: var(--border); }
+.summary-divider           { color: var(--border); flex-shrink: 0; }
 
 .summary-top {
   color: var(--text-secondary);
   font-size: 10px;
   flex: 1;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.summary-top strong { color: var(--text-primary); }
+.summary-top strong        { color: var(--text-primary); }
 
 /* ── Mobile Sidebar Toggle ───────────────────────────────────────── */
 .mobile-stats-toggle {
@@ -807,5 +892,3 @@ body {
 }
 
 .toggle-btn:hover { color: var(--accent-cyan); }
-
-

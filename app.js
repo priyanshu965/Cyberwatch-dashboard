@@ -4,7 +4,7 @@
  * No external dependencies — pure vanilla JavaScript.
  *
  * Loading strategy (in order):
- *  1. Try fetch('data/intel.json')  — works on GitHub Pages & local server
+ *  1. Try fetch(`data/intel.json?v=${Date.now()}`)  — works on GitHub Pages & local server
  *  2. Fall back to window.INTEL_DATA — embedded in index.html, works when
  *     opening the file directly (file:// protocol, no server needed)
  */
@@ -31,7 +31,7 @@ async function loadIntelData() {
     // This is the primary path. It works on GitHub Pages and when you run
     // `python -m http.server 8080` locally.
     if (window.location.protocol !== 'file:') {
-      const response = await fetch('data/intel.json');
+      const response = await fetch(`data/intel.json?v=${Date.now()}`);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       data = await response.json();
     } else {

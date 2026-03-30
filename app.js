@@ -2,6 +2,11 @@
  * CYBERWATCH DASHBOARD — app.js
  * Loads data/intel.json and renders the threat intelligence feed.
  * No external dependencies — pure vanilla JavaScript.
+ *
+ * Loading strategy (in order):
+ *  1. Try fetch('data/intel.json')  — works on GitHub Pages & local server
+ *  2. Fall back to window.INTEL_DATA — embedded in index.html, works when
+ *     opening the file directly (file:// protocol, no server needed)
  */
 
 // ─── State ───────────────────────────────────────────────────────────────────
@@ -20,14 +25,31 @@ document.addEventListener('DOMContentLoaded', () => {
 // ─── Load Data ────────────────────────────────────────────────────────────────
 async function loadIntelData() {
   try {
-    // Fetch the JSON file generated daily by the Python script
-    const response = await fetch('data/intel.json');
+    let data;
 
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
+    // ── Strategy 1: HTTP fetch (GitHub Pages / local server) ─────────────────
+    // This is the primary path. It works on GitHub Pages and when you run
+    // `python -m http.server 8080` locally.
+    if (window.location.protocol !== 'file:') {
+      const response = await fetch('data/intel.json');
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      data = await response.json();
+    } else {
+      // ── Strategy 2: Embedded fallback (file:// — opening HTML directly) ────
+      // When the file is opened directly in a browser (double-click), fetch()
+      // is blocked by CORS. We use the data embedded in index.html instead.
+      if (window.INTEL_DATA) {
+        data = window.INTEL_DATA;
+        // Show a subtle notice that embedded data is being used
+        const meta = document.getElementById('last-updated');
+        if (meta) {
+          meta.textContent = '⚠ Preview mode (open via server or GitHub Pages for live data)';
+          meta.style.color = '#f5c518';
+        }
+      } else {
+        throw new Error('No data available — place intel.json in the data/ folder and open via a server');
+      }
     }
-
-    const data = await response.json();
 
     // Store all items
     allItems = data.items || [];

@@ -82,19 +82,27 @@ async function loadIntelData() {
 // ─── Filter & Search Logic ────────────────────────────────────────────────────
 
 function applyFilters() {
+  // Matrix view is a special mode — show matrix, hide feed cards
+  if (activeFilter === 'matrix') {
+    showMatrixView();
+    return;
+  }
+
   filteredItems = allItems.filter(item => {
-    // Category filter
     const categoryMatch =
       activeFilter === 'all' || item.category === activeFilter;
 
-    // Search filter (title + description)
     const q = searchQuery.toLowerCase();
     const searchMatch =
       !q ||
-      (item.title  && item.title.toLowerCase().includes(q)) ||
+      (item.title       && item.title.toLowerCase().includes(q)) ||
       (item.description && item.description.toLowerCase().includes(q)) ||
-      (item.cve_id && item.cve_id.toLowerCase().includes(q)) ||
-      (item.source && item.source.toLowerCase().includes(q));
+      (item.cve_id      && item.cve_id.toLowerCase().includes(q)) ||
+      (item.source      && item.source.toLowerCase().includes(q)) ||
+      // Also search TTP IDs and names
+      (item.ttps        && item.ttps.some(t =>
+        t.id.toLowerCase().includes(q) || t.name.toLowerCase().includes(q)
+      ));
 
     return categoryMatch && searchMatch;
   });
@@ -200,6 +208,23 @@ function buildCard(item, index) {
     ? `<span class="meta-tag meta-cvss">CVSS ${item.cvss_score.toFixed(1)}</span>`
     : '';
 
+  // TTP pills (max 4 shown, rest collapsed)
+  const ttps = item.ttps || [];
+  let ttpHTML = '';
+  if (ttps.length > 0) {
+    const shown   = ttps.slice(0, 4);
+    const hidden  = ttps.length - shown.length;
+    const pills   = shown.map(t =>
+      `<span class="ttp-pill" title="${escapeHTML(t.tactic)}: ${escapeHTML(t.name)}"
+             onclick="event.stopPropagation();filterByTechnique('${t.id}')"
+       >${escapeHTML(t.id)}</span>`
+    ).join('');
+    const more = hidden > 0
+      ? `<span class="ttp-more" title="${ttps.slice(4).map(t=>t.id).join(', ')}">+${hidden}</span>`
+      : '';
+    ttpHTML = `<div class="card-ttps">${pills}${more}</div>`;
+  }
+
   card.innerHTML = `
     <div class="card-top">
       <p class="card-title">
@@ -219,6 +244,7 @@ function buildCard(item, index) {
       ${cvssHTML}
       <span class="meta-date">${dateStr}</span>
     </div>
+    ${ttpHTML}
   `;
 
   return card;
@@ -314,14 +340,27 @@ function updateHeaderStats() {
 // ─── UI State Transitions ─────────────────────────────────────────────────────
 
 function showContent() {
-  document.getElementById('loading-state').style.display = 'none';
-  document.getElementById('error-state').style.display   = 'none';
+  document.getElementById('loading-state').style.display  = 'none';
+  document.getElementById('error-state').style.display    = 'none';
+  document.getElementById('matrix-view').style.display    = 'none';
   document.getElementById('cards-container').style.display = 'flex';
 }
 
 function showError() {
   document.getElementById('loading-state').style.display = 'none';
   document.getElementById('error-state').style.display   = 'block';
+}
+
+function showMatrixView() {
+  document.getElementById('loading-state').style.display   = 'none';
+  document.getElementById('error-state').style.display     = 'none';
+  document.getElementById('cards-container').style.display = 'none';
+  document.getElementById('no-results').style.display      = 'none';
+  document.getElementById('matrix-view').style.display     = 'block';
+  renderMatrixGrid();
+
+  const feedCount = document.getElementById('feed-count');
+  feedCount.textContent = 'MITRE ATT&CK Coverage Map — click any technique to filter feed';
 }
 
 // ─── Utility: Time Ago ────────────────────────────────────────────────────────
@@ -424,4 +463,93 @@ window.toggleMobileSidebar = function() {
 
   const isOpen = sidebar.classList.toggle('mobile-open');
   label.textContent = isOpen ? '▲ HIDE STATS' : '▼ SHOW STATS';
+};
+
+// ─── MITRE ATT&CK Matrix ─────────────────────────────────────────────────────
+
+// Tactic columns in official ATT&CK enterprise order
+const TACTIC_ORDER = [
+  { id: "TA0043", name: "Reconnaissance" },
+  { id: "TA0042", name: "Resource Dev" },
+  { id: "TA0001", name: "Initial Access" },
+  { id: "TA0002", name: "Execution" },
+  { id: "TA0003", name: "Persistence" },
+  { id: "TA0004", name: "Privilege Esc" },
+  { id: "TA0005", name: "Defense Evasion" },
+  { id: "TA0006", name: "Credential Access" },
+  { id: "TA0007", name: "Discovery" },
+  { id: "TA0008", name: "Lateral Movement" },
+  { id: "TA0009", name: "Collection" },
+  { id: "TA0011", name: "Command & Control" },
+  { id: "TA0010", name: "Exfiltration" },
+  { id: "TA0040", name: "Impact" },
+];
+
+function renderMatrixGrid() {
+  const grid = document.getElementById('matrix-grid');
+  if (!grid) return;
+
+  // Build a map: tactic_id → techniques → count of items
+  const tacticMap = {};
+  TACTIC_ORDER.forEach(t => { tacticMap[t.id] = {}; });
+
+  allItems.forEach(item => {
+    (item.ttps || []).forEach(ttp => {
+      if (!tacticMap[ttp.tactic_id]) tacticMap[ttp.tactic_id] = {};
+      if (!tacticMap[ttp.tactic_id][ttp.id]) {
+        tacticMap[ttp.tactic_id][ttp.id] = { name: ttp.name, count: 0, items: [] };
+      }
+      tacticMap[ttp.tactic_id][ttp.id].count++;
+      tacticMap[ttp.tactic_id][ttp.id].items.push(item.title);
+    });
+  });
+
+  grid.innerHTML = TACTIC_ORDER.map(tactic => {
+    const techniques = tacticMap[tactic.id] || {};
+    const techEntries = Object.entries(techniques).sort((a, b) => b[1].count - a[1].count);
+
+    const cells = techEntries.map(([techId, data]) => {
+      const intensity = data.count >= 3 ? 'high' : data.count >= 1 ? 'med' : '';
+      const tooltip   = `${data.count} item${data.count !== 1 ? 's' : ''}: ${data.items.slice(0, 2).join(' | ')}${data.items.length > 2 ? '...' : ''}`;
+      return `
+        <div class="tech-cell active-${intensity}"
+             title="${escapeHTML(tooltip)}"
+             onclick="filterByTechnique('${techId}')">
+          <span class="tech-id">${escapeHTML(techId)}</span>
+          <span class="tech-name">${escapeHTML(data.name)}</span>
+          <span class="tech-count">${data.count}</span>
+        </div>`;
+    }).join('');
+
+    const totalCount = techEntries.reduce((s, [, d]) => s + d.count, 0);
+
+    return `
+      <div class="tactic-col">
+        <div class="tactic-header">
+          <span class="tactic-name">${escapeHTML(tactic.name)}</span>
+          <span class="tactic-count">${techEntries.length > 0 ? totalCount : '—'}</span>
+        </div>
+        <div class="tactic-cells">
+          ${cells || `<div class="tech-cell inactive"><span class="tech-name">No hits</span></div>`}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// Click a technique cell → switch to ALL feed filtered by that technique
+window.filterByTechnique = function(techId) {
+  // Switch to ALL filter
+  activeFilter = 'all';
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.filter === 'all');
+  });
+
+  // Set search to the technique ID so matching items appear
+  searchQuery = techId;
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) searchInput.value = techId;
+
+  // Show feed
+  showContent();
+  applyFilters();
 };

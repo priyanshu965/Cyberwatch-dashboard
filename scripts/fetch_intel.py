@@ -31,6 +31,23 @@ from pathlib import Path
 import requests
 import feedparser
 
+# MITRE ATT&CK full database (246 techniques + 445 sub-techniques)
+# Imported from the companion module in the same directory
+try:
+    from mitre_ttps import MITRE_TECHNIQUES, TACTIC_ORDER, map_ttps
+except ImportError:
+    # Fallback if run from a different working directory
+    import importlib.util, pathlib
+    _spec = importlib.util.spec_from_file_location(
+        "mitre_ttps",
+        pathlib.Path(__file__).parent / "mitre_ttps.py"
+    )
+    _mod = importlib.util.module_from_spec(_spec)
+    _spec.loader.exec_module(_mod)
+    MITRE_TECHNIQUES = _mod.MITRE_TECHNIQUES
+    TACTIC_ORDER     = _mod.TACTIC_ORDER
+    map_ttps         = _mod.map_ttps
+
 # ─── Logging Setup ───────────────────────────────────────────────────────────
 logging.basicConfig(
     level=logging.INFO,
@@ -462,7 +479,6 @@ def extract_cve_id(text: str) -> str | None:
     return match.group(0).upper() if match else None
 
 
-# ─── Deduplication ───────────────────────────────────────────────────────────
 
 def deduplicate(items: list[dict]) -> list[dict]:
     """
@@ -522,6 +538,17 @@ def main():
 
     # Deduplicate
     all_items = deduplicate(all_items)
+
+    # ── Map MITRE ATT&CK TTPs ─────────────────────────────────────────────────
+    # Runs keyword matching on every item's title + description.
+    # Adds a "ttps" list of matched technique dicts to each item.
+    log.info("Mapping MITRE ATT&CK TTPs...")
+    for item in all_items:
+        text = (item.get("title", "") + " " + item.get("description", ""))
+        item["ttps"] = map_ttps(text)
+
+    ttp_total = sum(len(i["ttps"]) for i in all_items)
+    log.info(f"  Mapped {ttp_total} TTP associations across {len(all_items)} items")
 
     # Sort by published date descending
     all_items.sort(

@@ -61,7 +61,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install requests feedparser google-generativeai
+          pip install requests feedparser google-generativeai groq
 
       # ── Step 5: Run the fetch script ──────────────────────────────────────
       - name: Fetch threat intelligence
@@ -70,6 +70,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Optional OTX key — leave unset to skip AlienVault OTX source
           OTX_API_KEY: ${{ secrets.OTX_API_KEY }}
+          GROQAPIKEY: ${{ secrets.GROQAPIKEY }}
         run: |
           python scripts/fetch_intel.py
 
@@ -97,10 +98,10 @@ jobs:
       # ── Step 7: Print summary ─────────────────────────────────────────────
       - name: Print summary
         run: |
-          echo "### CyberWatch Update Complete" >> $GITHUB_STEP_SUMMARY
+          echo "## CyberWatch Update Complete" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- **Run time:** $(date -u)" >> $GITHUB_STEP_SUMMARY
-          echo "- **Items fetched:** $(python -c "import json; d=json.load(open('data/intel.json')); print(d['total_items'])")" >> $GITHUB_STEP_SUMMARY
-          echo "- **Last updated:** $(python -c "import json; d=json.load(open('data/intel.json')); print(d['last_updated'])")" >> $GITHUB_STEP_SUMMARY
+          echo "- Run time: $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "- Items fetched: $(python -c "import json; d=json.load(open('data/intel.json')); print(d['totalitems'])")" >> $GITHUB_STEP_SUMMARY
+          echo "- Last updated: $(python -c "import json; d=json.load(open('data/intel.json')); print(d['lastupdated'])")" >> $GITHUB_STEP_SUMMARY
           echo "- **Archive file:** data/archive/$(date -u '+%Y-%m-%d').json" >> $GITHUB_STEP_SUMMARY
-          echo "- **AI enriched:** top 15 items via gemini-2.5-flash-lite" >> $GITHUB_STEP_SUMMARY
+          echo "- AI enriched via Groq and/or Gemini fallback" >> $GITHUB_STEP_SUMMARY

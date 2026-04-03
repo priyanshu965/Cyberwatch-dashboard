@@ -195,7 +195,9 @@ function buildCard(item, index) {
   if (isNew) card.classList.add('new-item');
 
   // Mark AI-enriched cards (have a real ai_summary, not the pending placeholder)
-  const hasAI = item.ai_summary && item.ai_summary !== 'AI analysis pending';
+  const hasAI = item.aisummary && item.aisummary !== 'AI analysis pending';
+  const providerLabel = (item.ai_provider || 'AI').toUpperCase();
+  const modelLabel = item.ai_model || item.ai_provider || 'AI';
   if (hasAI) card.classList.add('ai-enriched');
 
   card.dataset.category = item.category || 'news';
@@ -208,7 +210,7 @@ function buildCard(item, index) {
   const newBadgeHTML = isNew ? `<span class="new-item-badge">NEW</span>` : '';
 
   const aiBadgeHTML = hasAI
-    ? `<span class="ai-badge" title="AI enriched by Gemini">✦ AI</span>`
+    ? `<span class="ai-badge" title="AI enriched by ${escapeHTML(providerLabel)}">${escapeHTML(providerLabel)}</span>`
     : '';
 
   const cveIdHTML = item.cve_id
@@ -260,8 +262,8 @@ function buildCard(item, index) {
   const analysisHTML = `
     <div class="analysis-section" id="analysis-${index}">
       <div class="analysis-header">
-        <span class="analysis-label">✦ AI THREAT ANALYSIS</span>
-        <span class="analysis-model">gemini-2.5-flash-lite</span>
+        <span class="analysis-label">AI THREAT ANALYSIS</span>
+        <span class="analysis-model">${escapeHTML(modelLabel)}</span>
       </div>
       <p class="analysis-summary">${escapeHTML(aiSummaryText)}</p>
       <div class="analysis-graph-wrap">
@@ -270,7 +272,8 @@ function buildCard(item, index) {
           <pre class="mermaid">${escapeHTML(graphSource)}</pre>
         </div>
       </div>
-    </div>`;
+    </div>
+  `;
 
   // ── Expand hint (only shown if AI data exists) ─────────────────────────────
   const expandHintHTML = `

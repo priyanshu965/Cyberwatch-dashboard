@@ -34,7 +34,7 @@ if (typeof mermaid !== 'undefined') {
       nodeBorder:          '#1e2d3d',
       clusterBkg:          '#0d1117',
     },
-    flowchart: { htmlLabels: false, curve: 'basis', padding: 16 },
+    flowchart: { htmlLabels: false, curve: 'Linear', padding: 24 },
   });
 }
 
@@ -201,9 +201,9 @@ function buildCard(item, index) {
 
   const badgeHTML    = `<span class="badge ${severity}">${severity.toUpperCase()}</span>`;
   const newBadgeHTML = isNew ? `<span class="new-item-badge">NEW</span>` : '';
-  const aiBadgeHTML  = hasAI
-    ? `<span class="ai-badge" title="Enriched by ${escapeHTML(providerLabel)}: ${escapeHTML(modelLabel)}">${escapeHTML(providerLabel)}</span>`
-    : '';
+  // const aiBadgeHTML  = hasAI
+  //  ? `<span class="ai-badge" title="Enriched by ${escapeHTML(providerLabel)}: ${escapeHTML(modelLabel)}">${escapeHTML(providerLabel)}</span>`
+  //  : '';
 
   const cveIdHTML  = item.cve_id ? `<span class="cve-id">${item.cve_id}</span> · ` : '';
   const descHTML   = item.description

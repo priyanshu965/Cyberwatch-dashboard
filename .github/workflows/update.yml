@@ -1,107 +1,92 @@
 # ═══════════════════════════════════════════════════════════════════════════════
 # CYBERWATCH DASHBOARD — .github/workflows/update.yml
 #
-# This GitHub Actions workflow runs every hour.
-# It fetches fresh threat intel, enriches the top 15 items with Gemini AI,
-# saves data/intel.json (overwrite) AND data/archive/YYYY-MM-DD.json (append),
-# then commits + pushes both files back to the repo.
-# GitHub Pages then automatically serves the updated dashboard.
+# Runs every hour. Fetches fresh threat intel, enriches top 15 items with
+# Groq (primary) or Gemini (fallback), saves intel.json + archive snapshot,
+# then commits and pushes.
 #
-# Required GitHub Secrets (Settings → Secrets and variables → Actions):
-#   GEMINI_API_KEY  ← Google AI Studio key for gemini-2.5-flash-lite enrichment
-#   OTX_API_KEY     ← AlienVault OTX (optional; skip to disable OTX source)
-#
-# No manual intervention needed after initial setup!
+# Required Secrets (Settings → Secrets and variables → Actions):
+#   GROQ_API_KEY    ← Groq (primary AI)    https://console.groq.com
+#   GEMINI_API_KEY  ← Gemini (fallback AI) https://aistudio.google.com
+#   OTX_API_KEY     ← AlienVault OTX (optional)
 # ═══════════════════════════════════════════════════════════════════════════════
 
 name: Daily Intel Update
 
 on:
-  # ── Scheduled trigger: every hour ─────────────────────────────────────────
   schedule:
-    - cron: '0 */1 * * *'
-
-  # ── Manual trigger: run from the Actions tab anytime ──────────────────────
-  workflow_dispatch:
+    - cron: '0 */1 * * *'   # Every hour
+  workflow_dispatch:          # Manual trigger from Actions tab
 
 jobs:
   fetch-and-update:
     name: Fetch Threat Intelligence
     runs-on: ubuntu-latest
 
-    # ── CRITICAL: write permission lets the bot commit intel.json AND
-    #    the new data/archive/YYYY-MM-DD.json without a 403 error ────────────
     permissions:
       contents: write
 
     steps:
 
-      # ── Step 1: Check out the repository ──────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # ── Step 2: Set up Python ─────────────────────────────────────────────
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # ── Step 3: Cache pip dependencies (speeds up subsequent runs) ─────────
       - name: Cache pip packages
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('scripts/requirements.txt') }}
+          key: ${{ runner.os }}-pip-cyberwatch-v2
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      # ── Step 4: Install Python dependencies ───────────────────────────────
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install requests feedparser google-generativeai groq
+          pip install requests feedparser google-generativeai
 
-      # ── Step 5: Run the fetch script ──────────────────────────────────────
       - name: Fetch threat intelligence
         env:
-          # Gemini AI enrichment key — set in repo Settings → Secrets
+          GROQ_API_KEY:   ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          # Optional OTX key — leave unset to skip AlienVault OTX source
-          OTX_API_KEY: ${{ secrets.OTX_API_KEY }}
-          GROQAPIKEY: ${{ secrets.GROQAPIKEY }}
+          OTX_API_KEY:    ${{ secrets.OTX_API_KEY }}
         run: |
           python scripts/fetch_intel.py
 
-      # ── Step 6: Commit and push intel.json + archive file ─────────────────
       - name: Commit updated intel data
         run: |
           git config user.name  "CyberWatch Bot"
           git config user.email "cyberwatch-bot@users.noreply.github.com"
 
-          # Stage both the live feed and today's archive snapshot.
-          # `git add` is safe even if archive didn't change (no-op).
           git add data/intel.json
-          git add data/archive/ || true   # archive dir may not exist on first run
+          git add data/archive/ || true
 
-          # Only commit if anything actually changed
           if git diff --staged --quiet; then
             echo "No changes detected — skipping commit."
           else
             TODAY=$(date -u '+%Y-%m-%d %H:%M UTC')
-            git commit -m "chore: daily intel update [${TODAY}]"
+            git commit -m "chore: intel update [${TODAY}]"
             git push
-            echo "Successfully committed and pushed updated intel data."
+            echo "Successfully pushed updated intel data."
           fi
 
-      # ── Step 7: Print summary ─────────────────────────────────────────────
       - name: Print summary
         run: |
           echo "## CyberWatch Update Complete" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- Run time: $(date -u)" >> $GITHUB_STEP_SUMMARY
-          echo "- Items fetched: $(python -c "import json; d=json.load(open('data/intel.json')); print(d['totalitems'])")" >> $GITHUB_STEP_SUMMARY
-          echo "- Last updated: $(python -c "import json; d=json.load(open('data/intel.json')); print(d['lastupdated'])")" >> $GITHUB_STEP_SUMMARY
-          echo "- **Archive file:** data/archive/$(date -u '+%Y-%m-%d').json" >> $GITHUB_STEP_SUMMARY
-          echo "- AI enriched via Groq and/or Gemini fallback" >> $GITHUB_STEP_SUMMARY
+          echo "- **Run time:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          TOTAL=$(python -c "import json; d=json.load(open('data/intel.json')); print(d.get('total_items', len(d.get('items',[]))))" 2>/dev/null || echo "?")
+          echo "- **Items fetched:** ${TOTAL}" >> $GITHUB_STEP_SUMMARY
+          LAST=$(python -c "import json; d=json.load(open('data/intel.json')); print(d.get('last_updated','?'))" 2>/dev/null || echo "?")
+          echo "- **Last updated:** ${LAST}" >> $GITHUB_STEP_SUMMARY
+          GROQ_ITEMS=$(python -c "import json; d=json.load(open('data/intel.json')); print(sum(1 for i in d.get('items',[]) if i.get('ai_provider')=='groq'))" 2>/dev/null || echo "0")
+          GEM_ITEMS=$(python -c "import json; d=json.load(open('data/intel.json')); print(sum(1 for i in d.get('items',[]) if i.get('ai_provider')=='gemini'))" 2>/dev/null || echo "0")
+          echo "- **Groq enriched:** ${GROQ_ITEMS} items" >> $GITHUB_STEP_SUMMARY
+          echo "- **Gemini enriched:** ${GEM_ITEMS} items" >> $GITHUB_STEP_SUMMARY
+          echo "- **Archive:** data/archive/$(date -u '+%Y-%m-%d').json" >> $GITHUB_STEP_SUMMARY

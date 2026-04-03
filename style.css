@@ -1133,3 +1133,229 @@ body {
 }
 
 .toggle-btn:hover { color: var(--accent-cyan); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   AI VISUAL INTELLIGENCE — Appended styles
+   Covers: card expand/collapse, analysis panel, Mermaid graph,
+   AI badge, AI severity score tag, new-item badge.
+   These classes are additive — they do NOT override the Dark Terminal
+   theme defined above.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Card: cursor + expand affordance ───────────────────────────── */
+.intel-card {
+  cursor: pointer;
+}
+
+/* Stop the expand hover transform conflicting with the base hover */
+.intel-card.expanded {
+  transform: translateX(0) !important;
+  border-color: var(--border-glow);
+  background: var(--bg-card-hover);
+}
+
+/* AI-enriched cards get a subtle purple left glow on the border */
+.intel-card.ai-enriched {
+  border-left-color: #a78bfa !important;
+}
+
+/* ── Expand hint bar ─────────────────────────────────────────────── */
+.card-expand-hint {
+  margin-top: 10px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-align: center;
+  transition: color var(--transition);
+  user-select: none;
+}
+
+.intel-card:hover .card-expand-hint {
+  color: var(--accent-cyan);
+}
+
+.intel-card.expanded .card-expand-hint {
+  display: none;           /* Hide hint once the panel is open */
+}
+
+/* ── AI Badge (inline in card title) ────────────────────────────── */
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  margin-left: 6px;
+  border-radius: 3px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background: #2d1f4e;
+  color: #a78bfa;
+  border: 1px solid #5b3fa0;
+  vertical-align: middle;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── AI Severity Score meta-tag ─────────────────────────────────── */
+.meta-ai-score {
+  background: #1e0a3c;
+  color: #a78bfa;
+  border: 1px solid #5b3fa0;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── New-item badge (already rendered by JS, style here) ─────────── */
+.new-item-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 5px;
+  margin-left: 5px;
+  border-radius: 2px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  background: var(--critical-bg);
+  color: var(--critical);
+  border: 1px solid var(--critical);
+  vertical-align: middle;
+  animation: pulse-new 2s ease-in-out infinite;
+}
+
+@keyframes pulse-new {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+/* ── Analysis section (hidden by default) ───────────────────────── */
+.analysis-section {
+  display: none;            /* Hidden; revealed by .expanded on parent */
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-glow);
+  animation: fade-in-panel 0.22s ease;
+}
+
+@keyframes fade-in-panel {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Show analysis section when parent card has .expanded */
+.intel-card.expanded .analysis-section {
+  display: block;
+}
+
+/* Header row inside the panel */
+.analysis-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.analysis-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #a78bfa;
+  text-transform: uppercase;
+}
+
+.analysis-model {
+  font-size: 8px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  font-style: italic;
+}
+
+/* The AI-generated summary paragraph */
+.analysis-summary {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  background: #0a0e14;
+  border: 1px solid #1e2d3d;
+  border-left: 3px solid #5b3fa0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  word-break: break-word;
+}
+
+/* ── Mermaid attack-flow graph ───────────────────────────────────── */
+.analysis-graph-wrap {
+  margin-top: 4px;
+}
+
+.analysis-graph-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.mermaid-container {
+  background: #080b0f;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  overflow-x: auto;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mermaid injects an SVG directly — make it fill the container */
+.mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fallback text when Mermaid fails to parse */
+.mermaid-error {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 8px;
+}
+
+/* Pre block holding raw graph source (pre-render) */
+.mermaid-container pre.mermaid {
+  /* Invisible until Mermaid replaces it with an SVG */
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  width: 100%;
+}
+
+/* ── "AI ENRICHED" count stat in daily summary bar ──────────────── */
+/* Uses inline style color in JS; no extra class needed */
+
+/* ── Responsive: collapse analysis on very small screens ────────── */
+@media (max-width: 480px) {
+  .analysis-summary {
+    font-size: 10px;
+  }
+
+  .mermaid-container {
+    padding: 8px;
+  }
+
+  .analysis-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

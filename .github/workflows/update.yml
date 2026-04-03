@@ -1,9 +1,17 @@
 # ═══════════════════════════════════════════════════════════════════════════════
 # CYBERWATCH DASHBOARD — .github/workflows/update.yml
 #
-# Runs every hour. Fetches threat intel, enriches the top 15 items with
-# Gemini AI (ai_summary, workflow_graph, severity_score), saves intel.json,
-# and commits it back so GitHub Pages serves the latest dashboard.
+# This GitHub Actions workflow runs every hour.
+# It fetches fresh threat intel, enriches the top 15 items with Gemini AI,
+# saves data/intel.json (overwrite) AND data/archive/YYYY-MM-DD.json (append),
+# then commits + pushes both files back to the repo.
+# GitHub Pages then automatically serves the updated dashboard.
+#
+# Required GitHub Secrets (Settings → Secrets and variables → Actions):
+#   GEMINI_API_KEY  ← Google AI Studio key for gemini-2.5-flash-lite enrichment
+#   OTX_API_KEY     ← AlienVault OTX (optional; skip to disable OTX source)
+#
+# No manual intervention needed after initial setup!
 # ═══════════════════════════════════════════════════════════════════════════════
 
 name: Daily Intel Update
@@ -13,17 +21,18 @@ on:
   schedule:
     - cron: '0 */1 * * *'
 
-  # ── Manual trigger: run from the Actions tab anytime ─────────────────────
+  # ── Manual trigger: run from the Actions tab anytime ──────────────────────
   workflow_dispatch:
-
-# ── Top-level permissions: allow the workflow to push commits ─────────────────
-permissions:
-  contents: write
 
 jobs:
   fetch-and-update:
     name: Fetch Threat Intelligence
     runs-on: ubuntu-latest
+
+    # ── CRITICAL: write permission lets the bot commit intel.json AND
+    #    the new data/archive/YYYY-MM-DD.json without a 403 error ────────────
+    permissions:
+      contents: write
 
     steps:
 
@@ -39,7 +48,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      # ── Step 3: Cache pip dependencies ────────────────────────────────────
+      # ── Step 3: Cache pip dependencies (speeds up subsequent runs) ─────────
       - name: Cache pip packages
         uses: actions/cache@v4
         with:
@@ -52,42 +61,46 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install requests feedparser
+          pip install requests feedparser google-generativeai
 
-      # ── Step 5: Fetch + AI-enrich threat intelligence ─────────────────────
+      # ── Step 5: Run the fetch script ──────────────────────────────────────
       - name: Fetch threat intelligence
         env:
-          # Optional API keys — set in:
-          # GitHub repo → Settings → Secrets and variables → Actions → New secret
-          OTX_API_KEY:    ${{ secrets.OTX_API_KEY }}
+          # Gemini AI enrichment key — set in repo Settings → Secrets
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Optional OTX key — leave unset to skip AlienVault OTX source
+          OTX_API_KEY: ${{ secrets.OTX_API_KEY }}
         run: |
           python scripts/fetch_intel.py
 
-      # ── Step 6: Commit and push the updated intel.json ────────────────────
+      # ── Step 6: Commit and push intel.json + archive file ─────────────────
       - name: Commit updated intel data
         run: |
           git config user.name  "CyberWatch Bot"
           git config user.email "cyberwatch-bot@users.noreply.github.com"
 
-          if git diff --quiet data/intel.json; then
-            echo "No changes detected in intel.json — skipping commit."
+          # Stage both the live feed and today's archive snapshot.
+          # `git add` is safe even if archive didn't change (no-op).
+          git add data/intel.json
+          git add data/archive/ || true   # archive dir may not exist on first run
+
+          # Only commit if anything actually changed
+          if git diff --staged --quiet; then
+            echo "No changes detected — skipping commit."
           else
-            git add data/intel.json
-            git commit -m "chore: intel update + AI enrichment [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+            TODAY=$(date -u '+%Y-%m-%d %H:%M UTC')
+            git commit -m "chore: daily intel update [${TODAY}]"
             git push
-            echo "Successfully committed and pushed updated intel.json"
+            echo "Successfully committed and pushed updated intel data."
           fi
 
-      # ── Step 7: Print workflow summary ────────────────────────────────────
+      # ── Step 7: Print summary ─────────────────────────────────────────────
       - name: Print summary
         run: |
           echo "### CyberWatch Update Complete" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Run time:** $(date -u)" >> $GITHUB_STEP_SUMMARY
-          TOTAL=$(python -c "import json; d=json.load(open('data/intel.json')); print(d['total_items'])")
-          AI_ENRICHED=$(python -c "import json; d=json.load(open('data/intel.json')); print(sum(1 for i in d['items'] if i.get('ai_summary')))")
-          echo "- **Items fetched:** $TOTAL" >> $GITHUB_STEP_SUMMARY
-          echo "- **AI-enriched items:** $AI_ENRICHED" >> $GITHUB_STEP_SUMMARY
+          echo "- **Items fetched:** $(python -c "import json; d=json.load(open('data/intel.json')); print(d['total_items'])")" >> $GITHUB_STEP_SUMMARY
           echo "- **Last updated:** $(python -c "import json; d=json.load(open('data/intel.json')); print(d['last_updated'])")" >> $GITHUB_STEP_SUMMARY
-          echo "- **GEMINI_API_KEY set:** ${{ secrets.GEMINI_API_KEY != '' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Archive file:** data/archive/$(date -u '+%Y-%m-%d').json" >> $GITHUB_STEP_SUMMARY
+          echo "- **AI enriched:** top 15 items via gemini-2.5-flash-lite" >> $GITHUB_STEP_SUMMARY

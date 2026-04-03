@@ -2,24 +2,20 @@
 CYBERWATCH DASHBOARD — fetch_intel.py
 ======================================
 Fetches threat intelligence from multiple free sources:
-- NVD (NIST) CVE API     → Latest vulnerabilities
-- CISA Alerts RSS         → US government advisories
-- The Hacker News RSS     → Cybersecurity news
-- Bleeping Computer RSS   → Incidents & breaches
-- Krebs on Security RSS   → Investigative news
-- SANS ISC RSS            → Threat diaries
-- Reddit r/netsec JSON    → Community intel
-- AlienVault OTX API      → Threat pulse (if API key set)
+  - NVD (NIST) CVE API        → Latest vulnerabilities
+  - CISA Alerts RSS           → US government advisories
+  - The Hacker News RSS       → Cybersecurity news
+  - Bleeping Computer RSS     → Incidents & breaches
+  - Krebs on Security RSS     → Investigative news
+  - SANS ISC RSS              → Threat diaries
+  - Reddit r/netsec JSON      → Community intel
+  - AlienVault OTX API        → Threat pulse (if API key set)
+  - Gemini AI                 → AI enrichment for top 15 items
 
-NEW: Gemini AI enrichment for top 15 items:
-  - ai_summary      : 2-sentence BLUF analysis
-  - workflow_graph  : Mermaid.js graph TD attack chain
-  - severity_score  : Float 0.0–10.0
-
-Output: data/intel.json
+Output: data/intel.json  +  data/archive/YYYY-MM-DD.json
 
 Run manually:
-  pip install requests feedparser
+  pip install requests feedparser google-generativeai
   python scripts/fetch_intel.py
 
 Run via GitHub Actions: automatically on schedule (see update.yml)
@@ -38,6 +34,7 @@ import requests
 import feedparser
 
 # MITRE ATT&CK full database (246 techniques + 445 sub-techniques)
+# Imported from the companion module in the same directory
 try:
     from mitre_ttps import MITRE_TECHNIQUES, TACTIC_ORDER, map_ttps
 except ImportError:
@@ -62,37 +59,87 @@ log = logging.getLogger("cyberwatch")
 
 # ─── Configuration ───────────────────────────────────────────────────────────
 
-OUTPUT_PATH          = Path("data/intel.json")
-MAX_ITEMS_PER_SOURCE = 10
-NVD_LOOKBACK_DAYS    = 10
-REQUEST_TIMEOUT      = 30
+# Output paths (relative to repo root)
+OUTPUT_PATH  = Path("data/intel.json")
+ARCHIVE_DIR  = Path("data/archive")
 
-# How many of the most-recent items to enrich via Gemini
-GEMINI_ENRICH_TOP_N  = 15
+# How many items to keep per source
+MAX_ITEMS_PER_SOURCE = 10
+
+# NVD API: fetch CVEs published in the last N days
+NVD_LOOKBACK_DAYS = 10
+
+# Request timeout in seconds
+REQUEST_TIMEOUT = 30
 
 # API keys — set as GitHub Actions Secrets
-OTX_API_KEY    = os.environ.get("OTX_API_KEY",    "")
+OTX_API_KEY    = os.environ.get("OTX_API_KEY", "")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
-HEADERS = {"User-Agent": "CyberWatch/1.0 (GitHub personal project)"}
+# User-Agent header
+HEADERS = {
+    "User-Agent": "CyberWatch/1.0 (GitHub personal project)"
+}
+
+# Default Mermaid graph used when AI enrichment fails
+DEFAULT_WORKFLOW_GRAPH = (
+    "graph LR\n"
+    "    A[Threat Actor] --> B[Initial Access]\n"
+    "    B --> C[Execution]\n"
+    "    C --> D[Impact]"
+)
 
 # ─── RSS Feed Sources ─────────────────────────────────────────────────────────
 
 RSS_SOURCES = [
-    {"name": "CISA",            "url": "https://www.cisa.gov/news.xml",                        "category": "advisory", "severity": "high"},
-    {"name": "The Hacker News", "url": "https://feeds.feedburner.com/TheHackersNews",           "category": "news",     "severity": "medium"},
-    {"name": "Bleeping Computer","url": "https://www.bleepingcomputer.com/feed/",               "category": "news",     "severity": "medium"},
-    {"name": "Krebs on Security","url": "https://krebsonsecurity.com/feed/",                    "category": "news",     "severity": "medium"},
-    {"name": "SANS ISC",        "url": "https://isc.sans.edu/rssfeed_full.xml",                "category": "news",     "severity": "low"},
-    {"name": "TheRecord Media", "url": "https://therecord.media/feed",                         "category": "news",     "severity": "high"},
+    {
+        "name":     "CISA",
+        "url":      "https://www.cisa.gov/news.xml",
+        "category": "advisory",
+        "severity": "high",
+    },
+    {
+        "name":     "The Hacker News",
+        "url":      "https://feeds.feedburner.com/TheHackersNews",
+        "category": "news",
+        "severity": "medium",
+    },
+    {
+        "name":     "Bleeping Computer",
+        "url":      "https://www.bleepingcomputer.com/feed/",
+        "category": "news",
+        "severity": "medium",
+    },
+    {
+        "name":     "Krebs on Security",
+        "url":      "https://krebsonsecurity.com/feed/",
+        "category": "news",
+        "severity": "medium",
+    },
+    {
+        "name":     "SANS ISC",
+        "url":      "https://isc.sans.edu/rssfeed_full.xml",
+        "category": "news",
+        "severity": "low",
+    },
+    {
+        "name":     "TheRecord Media",
+        "url":      "https://therecord.media/feed",
+        "category": "news",
+        "severity": "high",
+    },
 ]
+
 
 # ─── Helpers ─────────────────────────────────────────────────────────────────
 
 def now_utc() -> str:
+    """Return current UTC time as ISO 8601 string."""
     return datetime.now(timezone.utc).isoformat()
 
+
 def parse_date(date_str: str) -> str:
+    """Try to parse a date string into ISO 8601 format."""
     if not date_str:
         return now_utc()
     try:
@@ -101,23 +148,34 @@ def parse_date(date_str: str) -> str:
             return dt.isoformat()
         for fmt in ("%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%d"):
             try:
-                return datetime.strptime(date_str, fmt).replace(tzinfo=timezone.utc).isoformat()
+                return datetime.strptime(date_str, fmt).replace(
+                    tzinfo=timezone.utc
+                ).isoformat()
             except ValueError:
                 continue
     except Exception:
         pass
     return now_utc()
 
+
 def clean_html(text: str) -> str:
+    """Rudimentary HTML tag stripper for RSS descriptions."""
     if not text:
         return ""
     text = re.sub(r"<[^>]+>", "", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text[:999]
 
+
 def make_request(url: str, headers: dict = None, params: dict = None) -> dict | None:
+    """Make an HTTP GET request with error handling."""
     try:
-        resp = requests.get(url, headers=headers or HEADERS, params=params, timeout=REQUEST_TIMEOUT)
+        resp = requests.get(
+            url,
+            headers=headers or HEADERS,
+            params=params,
+            timeout=REQUEST_TIMEOUT
+        )
         resp.raise_for_status()
         return resp.json()
     except requests.exceptions.Timeout:
@@ -130,163 +188,167 @@ def make_request(url: str, headers: dict = None, params: dict = None) -> dict | 
         log.warning(f"Invalid JSON from: {url}")
     return None
 
-# ─── Gemini AI Enrichment ─────────────────────────────────────────────────────
 
-def call_gemini(title: str, description: str, api_key: str) -> dict | None:
+# ─── AI Severity Scoring Helper ──────────────────────────────────────────────
+
+def ai_score_to_severity(score: float) -> str:
     """
-    Call Gemini 2.5 Flash Lite to produce AI analysis for a threat intel item.
-    Retries up to MAX_RETRIES times on 429 with exponential backoff + jitter.
-    Returns a dict with ai_summary, workflow_graph, severity_score, or None.
+    Convert a Gemini AI severity score (0.0–10.0) into a categorical
+    severity string that matches the dashboard UI colour scheme.
+
+      9.0–10.0  →  critical  (red)
+      7.0– 8.9  →  high      (orange)
+      4.0– 6.9  →  medium    (yellow)
+      0.0– 3.9  →  low       (cyan)
     """
-    import random
+    if score >= 9.0:
+        return "critical"
+    if score >= 7.0:
+        return "high"
+    if score >= 4.0:
+        return "medium"
+    return "low"
 
-    MAX_RETRIES    = 3
-    BASE_BACKOFF_S = 15   # seconds — first retry wait
 
-    prompt = (
-        "You are a senior cybersecurity analyst. Analyze this threat intelligence item "
-        "and respond with ONLY a valid JSON object — no markdown, no code fences, no extra text.\n\n"
-        f"Title: {title}\n"
-        f"Description: {description[:600]}\n\n"
-        "Return exactly this JSON structure:\n"
-        "{\n"
-        '  "ai_summary": "First sentence: core threat/impact. '
-        'Second sentence: affected systems/actors/mitigations.",\n'
-        '  "workflow_graph": "graph TD\\n  A[Initial Access] --> B[Execution]\\n'
-        '  B --> C[Persistence]\\n  C --> D[Exfiltration]",\n'
-        '  "severity_score": 7.5\n'
-        "}\n\n"
-        "Rules:\n"
-        "- ai_summary: EXACTLY 2 sentences. Technical BLUF. Specific, not generic.\n"
-        "- workflow_graph: Valid Mermaid.js graph TD. 3–6 nodes using real MITRE ATT&CK "
-        "tactic names. Short labels. No subgraphs.\n"
-        "- severity_score: Float 0.0–10.0. "
-        "9–10=Critical, 7–8=High, 4–6=Medium, 1–3=Low.\n"
-    )
+# ─── AI Enrichment ───────────────────────────────────────────────────────────
 
-    url = (
-        "https://generativelanguage.googleapis.com/v1beta/models/"
-        f"gemini-2.5-flash-lite:generateContent?key={api_key}"
-    )
-    payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 600},
-    }
-
-    for attempt in range(MAX_RETRIES + 1):
-        try:
-            resp = requests.post(url, json=payload, timeout=30)
-
-            # ── Rate-limited: back off and retry ──────────────────────────
-            if resp.status_code == 429:
-                if attempt == MAX_RETRIES:
-                    log.warning(f"Gemini 429 — max retries exhausted, skipping item")
-                    return None
-
-                # Honour Retry-After if present, else use exponential backoff
-                retry_after = resp.headers.get("Retry-After") or resp.headers.get("retry-after")
-                if retry_after:
-                    wait = int(retry_after) + random.uniform(1, 3)
-                else:
-                    wait = BASE_BACKOFF_S * (2 ** attempt) + random.uniform(0, 5)
-
-                log.warning(
-                    f"Gemini 429 (attempt {attempt+1}/{MAX_RETRIES}) — "
-                    f"backing off {wait:.0f}s…"
-                )
-                time.sleep(wait)
-                continue   # retry the request
-
-            resp.raise_for_status()
-            data     = resp.json()
-            raw_text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
-
-            # Strip any accidental markdown fences
-            raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text, flags=re.MULTILINE)
-            raw_text = re.sub(r"\s*```$",           "", raw_text, flags=re.MULTILINE)
-
-            result = json.loads(raw_text)
-
-            ai_summary     = str(result.get("ai_summary",     "")).strip() or None
-            workflow_graph = str(result.get("workflow_graph", "")).strip() or None
-            severity_score = result.get("severity_score")
-            if isinstance(severity_score, (int, float)):
-                severity_score = round(float(max(0.0, min(10.0, severity_score))), 1)
-            else:
-                severity_score = None
-
-            return {
-                "ai_summary":     ai_summary,
-                "workflow_graph": workflow_graph,
-                "severity_score": severity_score,
-            }
-
-        except requests.exceptions.Timeout:
-            log.warning(f"Gemini timeout (attempt {attempt+1})")
-            if attempt < MAX_RETRIES:
-                time.sleep(BASE_BACKOFF_S)
-        except (requests.exceptions.RequestException, KeyError,
-                json.JSONDecodeError, IndexError) as e:
-            log.warning(f"Gemini enrichment failed: {e}")
-            return None   # non-recoverable error — skip immediately
-
-    return None
-
-def enrich_with_gemini(items: list[dict], api_key: str) -> None:
+def enrich_with_ai(items: list[dict]) -> list[dict]:
     """
-    In-place enrichment of the top GEMINI_ENRICH_TOP_N items (by published date).
-    Skips gracefully if api_key is not set or any individual call fails.
-    Adds ai_summary, workflow_graph, and severity_score keys to each item.
+    Use Gemini gemini-2.5-flash-lite to enrich the top 15 items with:
+      - ai_summary      : 2-3 sentence threat analysis + mitigations
+      - severity_score  : float 0.0–10.0
+      - workflow_graph  : Mermaid LR diagram of the attack flow
+
+    Strict 6-second sleep between calls to avoid 429 rate-limit errors.
+    Robust regex stripping handles markdown code-fence wrapping.
+    On any failure the item gets safe fallback values.
     """
-    if not api_key:
+    if not GEMINI_API_KEY:
         log.info("GEMINI_API_KEY not set — skipping AI enrichment")
+        # Apply fallback defaults to all items
         for item in items:
-            item.setdefault("ai_summary",     None)
-            item.setdefault("workflow_graph",  None)
-            item.setdefault("severity_score",  None)
-        return
+            item.setdefault("ai_summary",     "AI analysis pending")
+            item.setdefault("severity_score", None)
+            item.setdefault("workflow_graph", DEFAULT_WORKFLOW_GRAPH)
+        return items
 
-    top_items  = items[:GEMINI_ENRICH_TOP_N]
-    rest_items = items[GEMINI_ENRICH_TOP_N:]
+    try:
+        import google.generativeai as genai
+        genai.configure(api_key=GEMINI_API_KEY)
+        model = genai.GenerativeModel("gemini-2.5-flash-lite")
+    except ImportError:
+        log.warning("google-generativeai not installed — skipping AI enrichment")
+        for item in items:
+            item.setdefault("ai_summary",     "AI analysis pending")
+            item.setdefault("severity_score", None)
+            item.setdefault("workflow_graph", DEFAULT_WORKFLOW_GRAPH)
+        return items
 
-    log.info(f"Enriching top {len(top_items)} items with Gemini AI...")
+    log.info(f"Starting AI enrichment for top {min(15, len(items))} items...")
 
-    for i, item in enumerate(top_items):
-        title       = item.get("title", "")
-        description = item.get("description", "")
-        log.info(f"  [{i+1}/{len(top_items)}] Calling Gemini for: {title[:60]}...")
+    for i, item in enumerate(items[:15]):
+        try:
+            ttp_str = ", ".join(
+                f"{t['id']} {t['name']}"
+                for t in item.get("ttps", [])[:5]
+            ) or "None detected"
 
-        result = call_gemini(title, description, api_key)
-        if result:
-            item["ai_summary"]     = result.get("ai_summary")
-            item["workflow_graph"] = result.get("workflow_graph")
-            item["severity_score"] = result.get("severity_score")
-            log.info(f"    ✓ Score={item['severity_score']}  summary={str(item['ai_summary'])[:60]}...")
-        else:
-            item["ai_summary"]     = None
-            item["workflow_graph"] = None
+            prompt = f"""You are a senior threat intelligence analyst. Analyze the following cybersecurity item and respond ONLY with a valid JSON object — no markdown, no code fences, no extra text before or after the JSON.
+
+Return exactly this structure:
+{{
+  "ai_summary": "2-3 sentence analysis covering: what the threat is, its real-world impact, and recommended mitigations for defenders",
+  "severity_score": <float between 0.0 and 10.0 representing overall threat severity>,
+  "workflow_graph": "a Mermaid graph LR diagram (single line using \\n for newlines) showing the attack kill chain"
+}}
+
+THREAT ITEM:
+Title: {item.get('title', '')}
+Description: {item.get('description', '')}
+Category: {item.get('category', '')}
+MITRE TTPs: {ttp_str}
+CVE ID: {item.get('cve_id') or 'N/A'}
+CVSS Score: {item.get('cvss_score') or 'N/A'}"""
+
+            response = model.generate_content(prompt)
+            raw = response.text.strip()
+
+            # ── Robust JSON extraction: strip ALL markdown code fences ────────
+            # Handles ```json ... ```, ``` ... ```, leading/trailing whitespace
+            raw = re.sub(r"^```(?:json)?\s*\n?", "", raw, flags=re.MULTILINE)
+            raw = re.sub(r"\n?```\s*$",           "", raw, flags=re.MULTILINE)
+            raw = raw.strip()
+
+            # Extract just the JSON object in case there's surrounding text
+            json_match = re.search(r'\{.*\}', raw, re.DOTALL)
+            if json_match:
+                raw = json_match.group(0)
+
+            parsed = json.loads(raw)
+
+            # ── Apply AI results ──────────────────────────────────────────────
+            item["ai_summary"] = str(
+                parsed.get("ai_summary", "AI analysis pending")
+            )
+
+            item["workflow_graph"] = str(
+                parsed.get("workflow_graph", DEFAULT_WORKFLOW_GRAPH)
+            )
+
+            raw_score = parsed.get("severity_score", 5.0)
+            try:
+                score = float(raw_score)
+                score = max(0.0, min(10.0, score))   # clamp to valid range
+            except (TypeError, ValueError):
+                score = 5.0
+
+            item["severity_score"] = round(score, 1)
+            # Overwrite keyword-based severity with AI-derived one
+            item["severity"] = ai_score_to_severity(score)
+
+            log.info(
+                f"  ✓ AI [{i+1:02d}/15] score={score:.1f} "
+                f"sev={item['severity']} | {item['title'][:55]}"
+            )
+
+        except json.JSONDecodeError as e:
+            log.warning(f"  ✗ AI [{i+1:02d}/15] JSON parse error: {e} — using fallback")
+            item["ai_summary"]     = "AI analysis pending"
+            item["workflow_graph"] = DEFAULT_WORKFLOW_GRAPH
             item["severity_score"] = None
 
-        # Respect Gemini free-tier rate limit (~15 RPM)
-        if i < len(top_items) - 1:
+        except Exception as e:
+            log.warning(f"  ✗ AI [{i+1:02d}/15] enrichment failed: {e} — using fallback")
+            item["ai_summary"]     = "AI analysis pending"
+            item["workflow_graph"] = DEFAULT_WORKFLOW_GRAPH
+            item["severity_score"] = None
+
+        # ── Strict rate limiting: 6 seconds between each Gemini call ─────────
+        # This keeps us well under the free-tier RPM limit (10 RPM for Flash).
+        # Total delay for 15 items: ~90 seconds — acceptable for a daily job.
+        if i < min(14, len(items) - 1):
             time.sleep(6)
 
-    # Ensure all remaining items have the new fields (as null)
-    for item in rest_items:
-        item.setdefault("ai_summary",     None)
-        item.setdefault("workflow_graph",  None)
-        item.setdefault("severity_score",  None)
+    # Apply fallback defaults to items beyond the top 15
+    for item in items[15:]:
+        item.setdefault("ai_summary",     "AI analysis pending")
+        item.setdefault("severity_score", None)
+        item.setdefault("workflow_graph", DEFAULT_WORKFLOW_GRAPH)
 
-    log.info(f"  AI enrichment complete for {len(top_items)} items")
+    log.info("AI enrichment complete.")
+    return items
 
 
 # ─── Fetchers ────────────────────────────────────────────────────────────────
 
 def fetch_rss(source: dict) -> list[dict]:
+    """Fetch and parse an RSS/Atom feed."""
     log.info(f"Fetching RSS: {source['name']} ({source['url']})")
     items = []
+
     try:
         feed = feedparser.parse(source["url"])
+
         if feed.bozo and not feed.entries:
             log.warning(f"Feed parse error for {source['name']}: {feed.bozo_exception}")
             return items
@@ -302,7 +364,10 @@ def fetch_rss(source: dict) -> list[dict]:
                 description += " " + clean_html(entry.content[0].get("value", ""))
             description = description.strip()[:999]
 
-            pub_date = parse_date(entry.get("published_parsed") or entry.get("updated_parsed"))
+            pub_date = parse_date(
+                entry.get("published_parsed") or entry.get("updated_parsed")
+            )
+
             severity = infer_severity(title + " " + description, source["severity"])
             category = infer_category(title + " " + description, source["category"])
 
@@ -317,6 +382,7 @@ def fetch_rss(source: dict) -> list[dict]:
                 "cvss_score":  None,
                 "published":   pub_date,
             })
+
     except Exception as e:
         log.error(f"Unexpected error fetching {source['name']}: {e}")
 
@@ -325,38 +391,53 @@ def fetch_rss(source: dict) -> list[dict]:
 
 
 def fetch_nvd_cves() -> list[dict]:
+    """Fetch recent CVEs from the NIST NVD API (free, no key needed)."""
     log.info("Fetching CVEs from NVD API...")
     items = []
+
     end_date   = datetime.now(timezone.utc)
     start_date = end_date - timedelta(days=NVD_LOOKBACK_DAYS)
 
     params = {
-        "pubStartDate":    start_date.strftime("%Y-%m-%dT%H:%M:%S.000"),
-        "pubEndDate":      end_date.strftime("%Y-%m-%dT%H:%M:%S.000"),
-        "resultsPerPage":  MAX_ITEMS_PER_SOURCE,
+        "pubStartDate":   start_date.strftime("%Y-%m-%dT%H:%M:%S.000"),
+        "pubEndDate":     end_date.strftime("%Y-%m-%dT%H:%M:%S.000"),
+        "resultsPerPage": MAX_ITEMS_PER_SOURCE,
     }
 
-    data = make_request("https://services.nvd.nist.gov/rest/json/cves/2.0", params=params)
+    data = make_request(
+        "https://services.nvd.nist.gov/rest/json/cves/2.0",
+        params=params
+    )
+
     if not data:
         log.warning("NVD API returned no data")
         return items
 
-    for vuln in data.get("vulnerabilities", []):
-        cve        = vuln.get("cve", {})
-        cve_id     = cve.get("id", "")
-        descs      = cve.get("descriptions", [])
-        description = next((d["value"] for d in descs if d.get("lang") == "en"),
-                          "No description available.")[:400]
+    vulnerabilities = data.get("vulnerabilities", [])
+
+    for vuln in vulnerabilities:
+        cve = vuln.get("cve", {})
+        cve_id = cve.get("id", "")
+
+        descriptions = cve.get("descriptions", [])
+        description  = next(
+            (d["value"] for d in descriptions if d.get("lang") == "en"),
+            "No description available."
+        )[:400]
 
         cvss_score = None
         severity   = "medium"
         metrics    = cve.get("metrics", {})
-        for mk in ["cvssMetricV31", "cvssMetricV30", "cvssMetricV2"]:
-            ml = metrics.get(mk, [])
-            if ml:
-                cvss_score = ml[0].get("cvssData", {}).get("baseScore")
+
+        for metric_key in ["cvssMetricV31", "cvssMetricV30", "cvssMetricV2"]:
+            metric_list = metrics.get(metric_key, [])
+            if metric_list:
+                cvss_data  = metric_list[0].get("cvssData", {})
+                cvss_score = cvss_data.get("baseScore")
                 severity   = cvss_to_severity(cvss_score)
                 break
+
+        published = parse_date(cve.get("published", ""))
 
         items.append({
             "title":       f"{cve_id}: {description[:80]}...",
@@ -367,7 +448,7 @@ def fetch_nvd_cves() -> list[dict]:
             "category":    "cve",
             "severity":    severity,
             "cvss_score":  cvss_score,
-            "published":   parse_date(cve.get("published", "")),
+            "published":   published,
         })
 
     log.info(f"  Got {len(items)} CVEs from NVD")
@@ -375,24 +456,36 @@ def fetch_nvd_cves() -> list[dict]:
 
 
 def fetch_reddit_netsec() -> list[dict]:
+    """Fetch top posts from r/netsec using Reddit's public JSON endpoint."""
     log.info("Fetching Reddit r/netsec...")
     items = []
-    hdrs  = {**HEADERS, "User-Agent": "CyberWatch/1.0 (personal dashboard)"}
-    data  = make_request("https://www.reddit.com/r/netsec.json?limit=15", headers=hdrs)
+
+    headers = {**HEADERS, "User-Agent": "CyberWatch/1.0 (personal dashboard)"}
+    data    = make_request(
+        "https://www.reddit.com/r/netsec.json?limit=15", headers=headers
+    )
+
     if not data:
         log.warning("Reddit r/netsec returned no data")
         return items
 
-    for post in data.get("data", {}).get("children", []):
+    posts = data.get("data", {}).get("children", [])
+
+    for post in posts:
         p = post.get("data", {})
+
         if p.get("stickied"):
             continue
-        title    = p.get("title", "Untitled")
-        url      = p.get("url", "")
-        selftext = clean_html(p.get("selftext", ""))
-        created  = p.get("created_utc")
-        published = datetime.fromtimestamp(created, tz=timezone.utc).isoformat() if created else now_utc()
-        score    = p.get("score", 0)
+
+        title     = p.get("title", "Untitled")
+        url       = p.get("url", "")
+        selftext  = clean_html(p.get("selftext", ""))
+        created   = p.get("created_utc")
+        published = (
+            datetime.fromtimestamp(created, tz=timezone.utc).isoformat()
+            if created else now_utc()
+        )
+        score = p.get("score", 0)
 
         items.append({
             "title":       title,
@@ -411,18 +504,21 @@ def fetch_reddit_netsec() -> list[dict]:
 
 
 def fetch_otx_pulse(api_key: str) -> list[dict]:
+    """Fetch recent threat pulses from AlienVault OTX."""
     if not api_key:
         log.info("OTX_API_KEY not set — skipping AlienVault OTX")
         return []
 
     log.info("Fetching AlienVault OTX pulses...")
     items = []
-    hdrs  = {**HEADERS, "X-OTX-API-KEY": api_key}
-    data  = make_request(
+
+    headers = {**HEADERS, "X-OTX-API-KEY": api_key}
+    data    = make_request(
         "https://otx.alienvault.com/api/v1/pulses/subscribed",
-        headers=hdrs,
+        headers=headers,
         params={"limit": MAX_ITEMS_PER_SOURCE}
     )
+
     if not data:
         log.warning("OTX API returned no data")
         return items
@@ -430,6 +526,7 @@ def fetch_otx_pulse(api_key: str) -> list[dict]:
     for pulse in data.get("results", []):
         name        = pulse.get("name", "Untitled")
         description = (pulse.get("description") or "")[:400]
+        created     = pulse.get("created", now_utc())
         pulse_id    = pulse.get("id", "")
 
         items.append({
@@ -441,7 +538,7 @@ def fetch_otx_pulse(api_key: str) -> list[dict]:
             "category":    "incident",
             "severity":    infer_severity(name + " " + description, "medium"),
             "cvss_score":  None,
-            "published":   parse_date(pulse.get("created", now_utc())),
+            "published":   parse_date(created),
         })
 
     log.info(f"  Got {len(items)} pulses from AlienVault OTX")
@@ -451,45 +548,77 @@ def fetch_otx_pulse(api_key: str) -> list[dict]:
 # ─── Intel Inference Helpers ─────────────────────────────────────────────────
 
 def cvss_to_severity(score: float | None) -> str:
-    if score is None: return "medium"
-    if score >= 9.0:  return "critical"
-    if score >= 7.0:  return "high"
-    if score >= 4.0:  return "medium"
+    """Convert a CVSS numeric score to a severity label."""
+    if score is None:
+        return "medium"
+    if score >= 9.0:
+        return "critical"
+    if score >= 7.0:
+        return "high"
+    if score >= 4.0:
+        return "medium"
     return "low"
 
+
 def infer_severity(text: str, default: str = "medium") -> str:
+    """Guess severity from keywords in the text."""
     t = text.lower()
-    if any(kw in t for kw in ["critical","zero-day","0-day","actively exploited","rce","remote code execution","unauthenticated","wormable"]):
+    if any(kw in t for kw in [
+        "critical", "zero-day", "0-day", "actively exploited",
+        "rce", "remote code execution", "unauthenticated", "wormable"
+    ]):
         return "critical"
-    if any(kw in t for kw in ["high","privilege escalation","authentication bypass","ransomware","data breach","nation-state","apt"]):
+    if any(kw in t for kw in [
+        "high", "privilege escalation", "authentication bypass",
+        "ransomware", "data breach", "nation-state", "apt"
+    ]):
         return "high"
-    if any(kw in t for kw in ["medium","xss","csrf","injection","phishing","malware"]):
+    if any(kw in t for kw in [
+        "medium", "xss", "csrf", "injection", "phishing", "malware"
+    ]):
         return "medium"
-    if any(kw in t for kw in ["low","informational","advisory","guide","best practice"]):
+    if any(kw in t for kw in [
+        "low", "informational", "advisory", "guide", "best practice"
+    ]):
         return "low"
     return default
 
+
 def infer_category(text: str, default: str = "news") -> str:
+    """Guess the item category from keywords."""
     t = text.lower()
-    if any(kw in t for kw in ["cve-","vulnerability","patch","exploit","nvd"]):
+    if any(kw in t for kw in ["cve-", "vulnerability", "patch", "exploit", "nvd"]):
         return "cve"
-    if any(kw in t for kw in ["breach","attack","ransomware","hack","intrusion","stolen","compromised","leaked","incident"]):
+    if any(kw in t for kw in [
+        "breach", "attack", "ransomware", "hack", "intrusion",
+        "stolen", "compromised", "leaked", "incident"
+    ]):
         return "incident"
-    if any(kw in t for kw in ["advisory","alert","directive","guidance","warning","cisa","recommendation","patch tuesday"]):
+    if any(kw in t for kw in [
+        "advisory", "alert", "directive", "guidance", "warning",
+        "cisa", "recommendation", "patch tuesday"
+    ]):
         return "advisory"
     return default
 
+
 def extract_cve_id(text: str) -> str | None:
+    """Extract the first CVE ID found in text."""
     match = re.search(r"CVE-\d{4}-\d{4,7}", text, re.IGNORECASE)
     return match.group(0).upper() if match else None
 
+
 def deduplicate(items: list[dict]) -> list[dict]:
-    seen, unique = set(), []
+    """Remove duplicate items by title similarity."""
+    seen_titles = set()
+    unique      = []
+
     for item in items:
-        key = item["title"].lower().strip()[:80]
-        if key not in seen:
-            seen.add(key)
+        title_key = item["title"].lower().strip()[:80]
+        if title_key not in seen_titles:
+            seen_titles.add(title_key)
             unique.append(item)
+
     return unique
 
 
@@ -505,7 +634,8 @@ def main():
     # 1. RSS feeds
     for source in RSS_SOURCES:
         try:
-            all_items.extend(fetch_rss(source))
+            items = fetch_rss(source)
+            all_items.extend(items)
         except Exception as e:
             log.error(f"Failed fetching {source['name']}: {e}")
         time.sleep(1)
@@ -515,6 +645,7 @@ def main():
         all_items.extend(fetch_nvd_cves())
     except Exception as e:
         log.error(f"NVD fetch failed: {e}")
+
     time.sleep(1)
 
     # 3. Reddit r/netsec
@@ -523,7 +654,7 @@ def main():
     except Exception as e:
         log.error(f"Reddit fetch failed: {e}")
 
-    # 4. AlienVault OTX
+    # 4. AlienVault OTX (only if API key is set)
     try:
         all_items.extend(fetch_otx_pulse(OTX_API_KEY))
     except Exception as e:
@@ -535,32 +666,53 @@ def main():
     # ── Map MITRE ATT&CK TTPs ─────────────────────────────────────────────────
     log.info("Mapping MITRE ATT&CK TTPs...")
     for item in all_items:
-        text         = item.get("title", "") + " " + item.get("description", "")
+        text = item.get("title", "") + " " + item.get("description", "")
         item["ttps"] = map_ttps(text)
+
     ttp_total = sum(len(i["ttps"]) for i in all_items)
     log.info(f"  Mapped {ttp_total} TTP associations across {len(all_items)} items")
 
-    # Sort by published date descending (newest first)
+    # Sort by published date descending (newest first, so AI enriches top items)
     all_items.sort(key=lambda x: x.get("published", ""), reverse=True)
 
-    # ── Gemini AI Enrichment ──────────────────────────────────────────────────
-    # Enriches top GEMINI_ENRICH_TOP_N items with ai_summary, workflow_graph,
-    # and severity_score. All other items get null values for these fields.
-    enrich_with_gemini(all_items, GEMINI_API_KEY)
+    # ── AI Enrichment (Gemini gemini-2.5-flash-lite) ──────────────────────────
+    # Enriches the top 15 items with ai_summary, severity_score, workflow_graph.
+    # Overwrites the keyword-based severity with AI-derived severity.
+    # Falls back gracefully if GEMINI_API_KEY is not set or calls fail.
+    try:
+        all_items = enrich_with_ai(all_items)
+    except Exception as e:
+        log.error(f"AI enrichment pipeline failed: {e}")
+        for item in all_items:
+            item.setdefault("ai_summary",     "AI analysis pending")
+            item.setdefault("severity_score", None)
+            item.setdefault("workflow_graph", DEFAULT_WORKFLOW_GRAPH)
 
-    # Build final output
+    # Build final output payload
     output = {
         "last_updated": now_utc(),
         "total_items":  len(all_items),
         "items":        all_items,
     }
 
+    # ── Save primary intel.json ───────────────────────────────────────────────
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
+    log.info(f"✓ Wrote {len(all_items)} items to {OUTPUT_PATH}")
+
+    # ── Save dated archive copy ───────────────────────────────────────────────
+    # Creates data/archive/YYYY-MM-DD.json for historical tracking.
+    # The directory is created automatically if it doesn't exist yet.
+    today_str    = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    archive_path = ARCHIVE_DIR / f"{today_str}.json"
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    with open(archive_path, "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+    log.info(f"✓ Archived to {archive_path}")
 
     log.info("═" * 60)
-    log.info(f"✓ Wrote {len(all_items)} items to {OUTPUT_PATH}")
+    log.info(f"CYBERWATCH — Fetch complete. {len(all_items)} items ready.")
     log.info("═" * 60)
 
 

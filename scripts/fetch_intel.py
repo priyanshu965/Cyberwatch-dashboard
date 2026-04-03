@@ -6,6 +6,8 @@ import logging
 from datetime import datetime, timezone
 from pathlib import Path
 from mitre_ttps import map_ttps
+import os
+from pathlib import Path
 
 # Config
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -68,3 +70,20 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+def save_data(output_json):
+    # Ensure directories exist
+    data_path = Path("data")
+    archive_path = data_path / "archive"
+    
+    data_path.mkdir(exist_ok=True)
+    archive_path.mkdir(exist_ok=True)
+
+    # Save main file
+    with open(data_path / "intel.json", "w") as f:
+        json.dump(output_json, f, indent=2)
+
+    # Save daily snapshot
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    with open(archive_path / f"{today}.json", "w") as f:
+        json.dump(output_json, f, indent=2)

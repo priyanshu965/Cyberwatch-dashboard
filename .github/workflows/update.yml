@@ -1,29 +1,48 @@
 name: CyberWatch AI Update
+
 on:
   schedule:
-    - cron: '0 */6 * * *' # Every 6 hours
+    - cron: '0 */6 * * *' # Runs every 6 hours
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    
+    # This block fixes the 403 error by allowing the bot to push code
+    permissions:
+      contents: write
+      
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      - name: Install dependencies
+
+      - name: Install Dependencies
         run: pip install requests feedparser
+
       - name: Run Pipeline
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OTX_API_KEY: ${{ secrets.OTX_API_KEY }}
         run: python scripts/fetch_intel.py
-      - name: Commit & Push
+
+      - name: Commit & Push Changes
         run: |
-          git config user.name "CyberWatch Bot"
-          git config user.email "bot@cyberwatch.io"
-          git add data/
-          git commit -m "Update intel with AI enrichment [skip ci]" || echo "No changes"
-          git push
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Check if there are changes to avoid empty commit errors
+          if [ -n "$(git status --porcelain)" ]; then
+            git add data/
+            git commit -m "Update intel with AI enrichment [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi

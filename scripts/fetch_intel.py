@@ -134,10 +134,15 @@ def make_request(url: str, headers: dict = None, params: dict = None) -> dict | 
 
 def call_gemini(title: str, description: str, api_key: str) -> dict | None:
     """
-    Call Gemini 2.0 Flash to produce AI analysis for a threat intel item.
-    Returns a dict with keys: ai_summary, workflow_graph, severity_score.
-    Returns None on any failure so the caller can gracefully skip enrichment.
+    Call Gemini 2.5 Flash Lite to produce AI analysis for a threat intel item.
+    Retries up to MAX_RETRIES times on 429 with exponential backoff + jitter.
+    Returns a dict with ai_summary, workflow_graph, severity_score, or None.
     """
+    import random
+
+    MAX_RETRIES    = 3
+    BASE_BACKOFF_S = 15   # seconds — first retry wait
+
     prompt = (
         "You are a senior cybersecurity analyst. Analyze this threat intelligence item "
         "and respond with ONLY a valid JSON object — no markdown, no code fences, no extra text.\n\n"
@@ -145,63 +150,87 @@ def call_gemini(title: str, description: str, api_key: str) -> dict | None:
         f"Description: {description[:600]}\n\n"
         "Return exactly this JSON structure:\n"
         "{\n"
-        '  "ai_summary": "First sentence: state the core threat/impact. Second sentence: state the affected systems/actors/mitigations.",\n'
-        '  "workflow_graph": "graph TD\\n  A[Initial Access] --> B[Execution]\\n  B --> C[Persistence]\\n  C --> D[Exfiltration]",\n'
+        '  "ai_summary": "First sentence: core threat/impact. '
+        'Second sentence: affected systems/actors/mitigations.",\n'
+        '  "workflow_graph": "graph TD\\n  A[Initial Access] --> B[Execution]\\n'
+        '  B --> C[Persistence]\\n  C --> D[Exfiltration]",\n'
         '  "severity_score": 7.5\n'
         "}\n\n"
         "Rules:\n"
         "- ai_summary: EXACTLY 2 sentences. Technical BLUF. Specific, not generic.\n"
-        "- workflow_graph: Valid Mermaid.js graph TD. 3–6 nodes using realistic MITRE ATT&CK tactic names "
-        "(e.g. Initial Access, Execution, Persistence, Privilege Escalation, Defense Evasion, "
-        "Credential Access, Discovery, Lateral Movement, Collection, Exfiltration, Impact). "
-        "Use short labels. Escape any special chars. No subgraphs.\n"
-        "- severity_score: Float 0.0–10.0. 9–10=Critical, 7–8=High, 4–6=Medium, 1–3=Low, 0=Informational.\n"
+        "- workflow_graph: Valid Mermaid.js graph TD. 3–6 nodes using real MITRE ATT&CK "
+        "tactic names. Short labels. No subgraphs.\n"
+        "- severity_score: Float 0.0–10.0. "
+        "9–10=Critical, 7–8=High, 4–6=Medium, 1–3=Low.\n"
     )
 
     url = (
         "https://generativelanguage.googleapis.com/v1beta/models/"
-        f"gemini-2.0-flash:generateContent?key={api_key}"
+        f"gemini-2.5-flash-lite:generateContent?key={api_key}"
     )
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "temperature": 0.2,
-            "maxOutputTokens": 600,
-        },
+        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 600},
     }
 
-    try:
-        resp = requests.post(url, json=payload, timeout=30)
-        resp.raise_for_status()
-        data = resp.json()
-        raw_text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
+    for attempt in range(MAX_RETRIES + 1):
+        try:
+            resp = requests.post(url, json=payload, timeout=30)
 
-        # Strip any accidental markdown fences
-        raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text, flags=re.MULTILINE)
-        raw_text = re.sub(r"\s*```$",           "", raw_text, flags=re.MULTILINE)
+            # ── Rate-limited: back off and retry ──────────────────────────
+            if resp.status_code == 429:
+                if attempt == MAX_RETRIES:
+                    log.warning(f"Gemini 429 — max retries exhausted, skipping item")
+                    return None
 
-        result = json.loads(raw_text)
+                # Honour Retry-After if present, else use exponential backoff
+                retry_after = resp.headers.get("Retry-After") or resp.headers.get("retry-after")
+                if retry_after:
+                    wait = int(retry_after) + random.uniform(1, 3)
+                else:
+                    wait = BASE_BACKOFF_S * (2 ** attempt) + random.uniform(0, 5)
 
-        # Validate required keys and types
-        ai_summary     = str(result.get("ai_summary", "")).strip()
-        workflow_graph = str(result.get("workflow_graph", "")).strip()
-        severity_score = result.get("severity_score")
+                log.warning(
+                    f"Gemini 429 (attempt {attempt+1}/{MAX_RETRIES}) — "
+                    f"backing off {wait:.0f}s…"
+                )
+                time.sleep(wait)
+                continue   # retry the request
 
-        if isinstance(severity_score, (int, float)):
-            severity_score = round(float(max(0.0, min(10.0, severity_score))), 1)
-        else:
-            severity_score = None
+            resp.raise_for_status()
+            data     = resp.json()
+            raw_text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
 
-        return {
-            "ai_summary":     ai_summary     or None,
-            "workflow_graph": workflow_graph  or None,
-            "severity_score": severity_score,
-        }
+            # Strip any accidental markdown fences
+            raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text, flags=re.MULTILINE)
+            raw_text = re.sub(r"\s*```$",           "", raw_text, flags=re.MULTILINE)
 
-    except (requests.exceptions.RequestException, KeyError, json.JSONDecodeError, IndexError) as e:
-        log.warning(f"Gemini enrichment failed: {e}")
-        return None
+            result = json.loads(raw_text)
 
+            ai_summary     = str(result.get("ai_summary",     "")).strip() or None
+            workflow_graph = str(result.get("workflow_graph", "")).strip() or None
+            severity_score = result.get("severity_score")
+            if isinstance(severity_score, (int, float)):
+                severity_score = round(float(max(0.0, min(10.0, severity_score))), 1)
+            else:
+                severity_score = None
+
+            return {
+                "ai_summary":     ai_summary,
+                "workflow_graph": workflow_graph,
+                "severity_score": severity_score,
+            }
+
+        except requests.exceptions.Timeout:
+            log.warning(f"Gemini timeout (attempt {attempt+1})")
+            if attempt < MAX_RETRIES:
+                time.sleep(BASE_BACKOFF_S)
+        except (requests.exceptions.RequestException, KeyError,
+                json.JSONDecodeError, IndexError) as e:
+            log.warning(f"Gemini enrichment failed: {e}")
+            return None   # non-recoverable error — skip immediately
+
+    return None
 
 def enrich_with_gemini(items: list[dict], api_key: str) -> None:
     """
@@ -240,7 +269,7 @@ def enrich_with_gemini(items: list[dict], api_key: str) -> None:
 
         # Respect Gemini free-tier rate limit (~15 RPM)
         if i < len(top_items) - 1:
-            time.sleep(4)
+            time.sleep(6)
 
     # Ensure all remaining items have the new fields (as null)
     for item in rest_items:

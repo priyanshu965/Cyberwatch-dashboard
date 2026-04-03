@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-03T21:26:39.572665+00:00",
+  "last_updated": "2026-04-03T22:25:25.258917+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T21:24:47.962983+00:00",
+      "published": "2026-04-03T22:23:34.579864+00:00",
       "ttps": [
         {
           "id": "T1608",
@@ -32,7 +32,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Xloader is an information-stealing malware that targets web browsers, email clients, and FTP applications, with capabilities to execute arbitrary commands and download second-stage payloads. The malware uses obfuscation methods to evade detection, making it challenging for defenders to identify and mitigate. To defend against Xloader, it is essential to implement robust endpoint detection and response systems to detect and block suspicious activities.",
+      "ai_summary": "Xloader is an information stealing malware that targets web browsers, email clients, and FTP applications, with capabilities to execute arbitrary commands and download second-stage payloads. The malware uses obfuscation methods to evade detection, making it challenging for defenders to identify and mitigate. To defend against Xloader, it is essential to implement robust endpoint detection and response systems to detect and block suspicious activities.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Defense Evasion]:::tactic\n    B -->|T1608| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1027| E[Persistence]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T21:24:47.962959+00:00",
+      "published": "2026-04-03T22:23:34.579840+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -56,7 +56,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The North Korea-nexus threat actor compromised the widely used Axios NPM package in a supply chain attack by introducing a malicious dependency. This attack can lead to unauthorized access and data breaches. The most important defender action is to immediately update or patch the affected Axios NPM package to prevent further exploitation.",
+      "ai_summary": "The North Korea-Nexus threat actor has compromised the widely used Axios NPM package in a supply chain attack by introducing a malicious dependency. This attack has real-world impact as Axios is the most popular JavaScript library used to simplify HTTP requests. The most important defender action is to immediately update or patch the affected Axios NPM package versions 1.14.1 and 0.30.4.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -71,7 +71,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T21:24:47.962933+00:00",
+      "published": "2026-04-03T22:23:34.579814+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -92,11 +92,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing public-facing application exploitation and data exfiltration to encrypt data for impact. The real-world impact includes data breaches and ransom demands, with a low number of victims listed on the operator's Tor data leak site. The most important defender action is to ensure robust security measures are in place to prevent public-facing application exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1486| E[Data Encrypted]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Yurei Ransomware is a double extortion campaign using a custom toolkit derived from Prince Ransomware. It exploits public-facing applications and exfiltrates data over C2 channels. Defenders should prioritize monitoring for T1190 and T1041 TTPs.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Cisco Talos: Qilin EDR killer infection chain",
@@ -107,7 +107,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T21:24:47.962911+00:00",
+      "published": "2026-04-03T22:23:34.579793+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -122,9 +122,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Qilin ransomware uses a multi-stage infection chain to target and disable EDR systems, employing an EDR killer to evade detection. This allows the malware to terminate over 300 different EDR drivers from various vendors. Defenders should prioritize updating and hardening EDR systems to prevent such attacks.",
+      "ai_summary": "Qilin ransomware uses a multi-stage infection chain to target EDR systems, disabling or bypassing them to maintain persistence. The infection chain terminates over 300 different EDR drivers from various vendors. Defenders should prioritize monitoring for EDR killer activity to prevent Qilin ransomware infections.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -137,11 +137,11 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T21:24:47.962887+00:00",
+      "published": "2026-04-03T22:23:34.579769+00:00",
       "ttps": [],
-      "ai_summary": "A threat actor is abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick users into downloading malicious apps. This campaign shares similarities with VexTrio and previous incidents. Defenders should monitor AdTech network activity and scrutinize Microsoft Store app downloads for suspicious behavior.",
+      "ai_summary": "A threat actor is abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick victims into downloading malicious apps. This campaign shares similarities with VexTrio and previous incidents. Defenders should monitor AdTech network activity and scrutinize Microsoft Store app downloads for suspicious behavior.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -152,9 +152,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T21:24:47.962860+00:00",
+      "published": "2026-04-03T22:23:34.579742+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -183,7 +183,7 @@
       ],
       "ai_summary": "Signed malware impersonating workplace apps deploys RMM backdoors via phishing campaigns, using digitally signed executables to install persistence tools. This allows attackers to maintain access and control over compromised systems. Defenders should prioritize monitoring for suspicious RMM tool activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -196,7 +196,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-03T21:24:47.962834+00:00",
+      "published": "2026-04-03T22:23:34.579716+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -211,8 +211,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update dependencies in their JavaScript ecosystems.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A North Korean state actor hijacked Axios's npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics, impacting approximately 100 million weekly downloads. Defenders should prioritize validating software dependencies and monitoring for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -226,7 +226,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T21:24:47.962808+00:00",
+      "published": "2026-04-03T22:23:34.579690+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -235,7 +235,7 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 via a 5-stage attack chain, using T1595.002 (Vulnerability Scanning) to gain initial access. This technique-based approach to HTTP body hunting is effective in discovering web-delivered malware. Defenders should prioritize monitoring for T1595.002 to prevent similar attacks.",
+      "ai_summary": "This threat involves a 5-stage attack chain delivering XWorm V5.6 via ClickFix campaign. The attack chain starts with vulnerability scanning (T1595.002). Defenders should implement HTTP body hunting using Censys to detect and prevent such attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -250,7 +250,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T21:24:47.962784+00:00",
+      "published": "2026-04-03T22:23:34.579666+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -289,9 +289,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure to evade detection. The attacks employ a multi-stage scripting process and have been tracked since 2024. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
+      "ai_summary": "A DPRK-related threat actor uses LNK files targeting South Korean users, leveraging a multi-stage scripting process and GitHub C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions containing less obfuscation and metadata. Defenders should monitor for similar attacks and track GitHub C2 infrastructure.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T21:24:47.962750+00:00",
+      "published": "2026-04-03T22:23:34.579631+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -319,9 +319,26 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors exploit geopolitical tensions to map and disrupt potential cyber operations. They gather victim host info and steal or forge authentication certificates to achieve their goals. Proactive infrastructure monitoring is crucial to detect and disrupt these operations.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Iranian state-aligned threat actors are leveraging infrastructure patterns to conduct cyber operations, with a focus on gathering victim host information and stealing or forging authentication certificates. The threat actors' tactics, techniques, and procedures (TTPs) include T1592 and T1649, which can be used to gain unauthorized access to sensitive information. To defend against these threats, organizations should prioritize proactive infrastructure monitoring to detect and disrupt potential cyber operations.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Discovery]:::tactic\n    B -->|T1649| C[Credential Access]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-20633: This issue was addressed with improved handling of symlinks. This issue is fixed...",
+      "description": "This issue was addressed with improved handling of symlinks. This issue is fixed in macOS Sequoia 15.7.5, macOS Sonoma 14.8.5, macOS Tahoe 26.4. An app may be able to access user-sensitive data.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20633",
+      "cve_id": "CVE-2026-20633",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.5,
+      "published": "2026-04-03T22:23:24.597425+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-20633 is a vulnerability in macOS that allows an app to access user-sensitive data. This issue is fixed in macOS Sequoia 15.7.5, macOS Sonoma 14.8.5, and macOS Tahoe 26.4. Defenders should ensure all systems are updated to the latest version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Command and Control]:::tactic\n    B -->|T1210| C[Initial Access]:::tactic\n    C -->|T1068| D[Discovery]:::tactic\n    D -->|T1071| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -334,10 +351,10 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-03T21:24:45.462303+00:00",
+      "published": "2026-04-03T22:23:24.597410+00:00",
       "ttps": [],
       "ai_summary": "CVE-2026-20632 is a parsing issue in macOS Tahoe 26.4 that allows an app to access sensitive user data. This vulnerability is fixed in the latest version. Defenders should ensure all systems are updated to the latest macOS version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1068| D[Valid Accounts]:::tactic\n    D -->|T1071| E[Account Manipulation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1055| D[Process Injection]:::tactic\n    D -->|T1074| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -351,7 +368,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-03T21:24:45.462287+00:00",
+      "published": "2026-04-03T22:23:24.597393+00:00",
       "ttps": [
         {
           "id": "T1068",
@@ -360,7 +377,7 @@
           "tactic_id": "TA0004"
         }
       ],
-      "ai_summary": "CVE-2026-20631 is a privilege escalation vulnerability in macOS Tahoe 26.4, allowing a user to potentially elevate privileges. This issue is fixed in the latest version. Defenders should ensure all systems are updated to the latest macOS version.",
+      "ai_summary": "CVE-2026-20631 is a privilege escalation vulnerability in macOS Tahoe 26.4, allowing a user to potentially elevate privileges. This issue is fixed in the latest macOS update. Defenders should ensure all systems are up-to-date to prevent exploitation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1068| B[Exploitation for Privilege Escalation]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -375,7 +392,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.5,
-      "published": "2026-04-03T21:24:45.462271+00:00",
+      "published": "2026-04-03T22:23:24.597374+00:00",
       "ttps": [],
       "ai_summary": "CVE-2026-20622 is a privacy issue in macOS Sequoia 15.7.4 and macOS Tahoe 26.3, allowing an app to potentially capture a user's screen. This issue is fixed in the latest updates. Defenders should ensure all systems are up-to-date to prevent exploitation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1056| D[Execution]:::tactic\n    D -->|T1071| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -392,10 +409,10 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.0,
-      "published": "2026-04-03T21:24:45.462251+00:00",
+      "published": "2026-04-03T22:23:24.597360+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-20607 is a permissions issue fixed in macOS versions 15.7.5, 14.8.5, and 26.4. An app may access protected user data. Defenders should ensure macOS is updated to the latest version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|None| B[Initial Access]:::tactic\n    B -->|None| C[Execution]:::tactic\n    C -->|None| D[Privilege Escalation]:::tactic\n    D -->|None| E[Data Leak]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-20607 is a permissions issue addressed in macOS updates, allowing an app to access protected user data. This vulnerability has a CVSS score of 4.0, indicating a medium severity threat. Defenders should ensure macOS updates are applied to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1068| D[Exfiltration]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 4.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -409,13 +426,13 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.8,
-      "published": "2026-04-03T21:24:45.462235+00:00",
+      "published": "2026-04-03T22:23:24.597345+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2025-43534 is a path handling issue in iOS and iPadOS that allows a physically present attacker to bypass Activation Lock. This vulnerability has a CVSS score of 6.8, indicating a medium severity. Defenders should ensure all devices are updated to the latest patched versions.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1110| B[Reconnaissance]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Application Access]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-4781: A flaw has been found in SourceCodester Sales and Inventory System 1.0. The affe...",
@@ -426,7 +443,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.3,
-      "published": "2026-04-03T21:24:45.462220+00:00",
+      "published": "2026-04-03T22:23:24.597329+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -450,7 +467,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.3,
-      "published": "2026-04-03T21:24:45.462203+00:00",
+      "published": "2026-04-03T22:23:24.597313+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -474,7 +491,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.3,
-      "published": "2026-04-03T21:24:45.462186+00:00",
+      "published": "2026-04-03T22:23:24.597291+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -498,31 +515,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.3,
-      "published": "2026-04-03T21:24:45.462164+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-4777: A security flaw has been discovered in SourceCodester Sales and Inventory System...",
-      "description": "A security flaw has been discovered in SourceCodester Sales and Inventory System 1.0. This affects an unknown part of the file view_supplier.php of the component POST Parameter Handler. The manipulation of the argument searchtxt results in sql injection. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4777",
-      "cve_id": "CVE-2026-4777",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.3,
-      "published": "2026-04-03T21:24:45.462125+00:00",
+      "published": "2026-04-03T22:23:24.597253+00:00",
       "ttps": [
         {
           "id": "T1190",

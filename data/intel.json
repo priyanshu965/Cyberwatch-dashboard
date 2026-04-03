@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-03T17:28:34.167111+00:00",
+  "last_updated": "2026-04-03T18:37:01.206618+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:42.425404+00:00",
+      "published": "2026-04-03T18:35:09.103976+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -26,8 +26,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat is a supply chain compromise of the axios npm package, delivering a cross-platform Remote Access Trojan to systems through a malicious postinstall script. This has a significant real-world impact due to the package's widespread use, with approximately 100 million weekly downloads. The most important defender action is to verify the integrity of axios packages and monitor for suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat is a supply chain compromise of the axios npm package, delivering a cross-platform Remote Access Trojan to systems. This has a significant real-world impact due to the package's widespread use, with approximately 100 million weekly downloads. The most important defender action is to monitor for and update any dependencies on the compromised package versions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1566| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -41,7 +41,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:42.425378+00:00",
+      "published": "2026-04-03T18:35:09.103950+00:00",
       "ttps": [
         {
           "id": "T1608",
@@ -77,7 +77,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:42.425352+00:00",
+      "published": "2026-04-03T18:35:09.103927+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -86,11 +86,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "North Korea-nexus threat actors compromised the Axios NPM package through a supply chain attack, introducing a malicious dependency named 'plain-crypto-js'. This attack targeted versions 1.14.1 and 0.30.4 of the package, which is widely used for simplifying HTTP requests. Defenders should immediately update their dependencies and monitor for similar supply chain attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The North Korea-nexus threat actor compromised the widely used Axios NPM package in a supply chain attack by introducing a malicious dependency. This attack has a significant real-world impact as Axios is the most popular JavaScript library for HTTP requests. The most important defender action is to immediately update or patch the affected Axios NPM package versions 1.14.1 and 0.30.4.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Stranger Strings: Yurei Ransomware Operator Toolkit Exposed",
@@ -101,7 +101,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:42.425323+00:00",
+      "published": "2026-04-03T18:35:09.103898+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -122,7 +122,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Yurei ransomware, a double extortion campaign, uses T1190 to exploit public-facing applications, T1041 to exfiltrate data, and T1486 to encrypt data for impact. This toolkit is reportedly derived from Prince Ransomware. Defenders should monitor for suspicious activity from Morocco and Morocco-based IP addresses.",
+      "ai_summary": "Yurei Ransomware is a double extortion campaign using a custom toolkit derived from Prince Ransomware. It exploits public-facing applications and exfiltrates data over C2 channels. Defenders should monitor for suspicious activity from Morocco.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -137,7 +137,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:42.425305+00:00",
+      "published": "2026-04-03T18:35:09.103869+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -152,7 +152,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Qilin EDR killer infection chain is a multi-stage attack targeting endpoint detection and response (EDR) tools, disabling or bypassing them to facilitate ransomware attacks. The attack uses a malicious DLL to terminate over 300 EDR drivers from various vendors. Defenders should prioritize updating EDR systems and monitoring for suspicious activity.",
+      "ai_summary": "The Qilin EDR killer infection chain is a multi-stage attack targeting endpoint detection and response (EDR) tools, disabling or bypassing them to facilitate ransomware attacks. This attack uses a malicious DLL to terminate over 300 EDR drivers from various vendors. Defenders should prioritize updating EDR systems and monitoring for suspicious activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -167,11 +167,11 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:42.425280+00:00",
+      "published": "2026-04-03T18:35:09.103845+00:00",
       "ttps": [],
-      "ai_summary": "A threat actor is abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick visitors into downloading malicious apps. This campaign shares similarities with VexTrio and previous incidents. Defenders should monitor AdTech network abuse and Microsoft Store app downloads for suspicious activity.",
+      "ai_summary": "A threat actor is abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick users into downloading malicious apps. This campaign shares similarities with VexTrio and previous incidents. Defenders should monitor AdTech network abuse and Microsoft Store app downloads for suspicious activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -182,9 +182,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "high",
+      "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:42.425253+00:00",
+      "published": "2026-04-03T18:35:09.103818+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -213,7 +213,7 @@
       ],
       "ai_summary": "Signed malware impersonating workplace apps deploys RMM backdoors via phishing campaigns, using digitally signed executables to install persistence tools. This allows attackers to maintain access and control over compromised systems. Defenders should prioritize monitoring for suspicious RMM tool activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 9.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -226,7 +226,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:42.425215+00:00",
+      "published": "2026-04-03T18:35:09.103794+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -241,7 +241,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update their Axios dependencies.",
+      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update their npm dependencies to prevent similar attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
@@ -256,7 +256,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:42.425168+00:00",
+      "published": "2026-04-03T18:35:09.103766+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -265,11 +265,11 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "The threat involves a 5-stage attack chain delivering XWorm V5.6 malware through a ClickFix campaign, utilizing HTTP body hunting tactics. This technique-based approach highlights the importance of monitoring web-delivered malware. Defenders should prioritize implementing robust HTTP body inspection and vulnerability scanning detection to mitigate such threats.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Discovery]:::tactic\n    B -->|T1566| C[Initial Access]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 through a 5-stage attack chain, using a technique-based approach to HTTP body hunting. The attack chain involves T1595.002 (Vulnerability Scanning) as the initial step. Defenders should implement HTTP body hunting using Censys to detect similar campaigns.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "DPRK-Related Campaigns with LNK and GitHub C2",
@@ -280,7 +280,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:42.425137+00:00",
+      "published": "2026-04-03T18:35:09.103736+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -319,93 +319,22 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The DPRK-related campaign uses LNK files with a multi-stage scripting process and GitHub as C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions having less obfuscation and metadata. Defenders should monitor GitHub for suspicious activity and implement detection for TTPs T1583.006, T1027, T1562, T1071, T1102, and T1104.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1102| E[Web Service]:::tactic\n    E -->|T1104| F[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The DPRK-related campaign uses LNK files with a multi-stage scripting process, leveraging GitHub as C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions containing less obfuscation and metadata. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33399: Wallos is an open-source, self-hostable personal subscription tracker. Prior to ...",
-      "description": "Wallos is an open-source, self-hostable personal subscription tracker. Prior to version 4.7.0, the SSRF fix applied in version 4.6.2 for CVE-2026-30839 and CVE-2026-30840 is incomplete. The validate_webhook_url_for_ssrf() protection was added to the test* notification endpoints but not to the corresponding save* endpoints. An authenticated user can save an internal/private IP address as a notifica",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33399",
-      "cve_id": "CVE-2026-33399",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.7,
-      "published": "2026-04-03T17:26:40.136566+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-33399 is a SSRF vulnerability in Wallos prior to version 4.7.0, allowing an authenticated user to save internal/private IP addresses. This can be exploited by a threat actor to gain unauthorized access. Defenders should update Wallos to version 4.7.0 or later to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33162: Craft CMS is a content management system (CMS). From version 5.3.0 to before ver...",
-      "description": "Craft CMS is a content management system (CMS). From version 5.3.0 to before version 5.9.14, an authenticated control panel user with only accessCp can move entries across sections via POST /actions/entries/move-to-section, even when they do not have saveEntries:{sectionUid} permission for either source or destination section. This issue has been patched in version 5.9.14.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33162",
-      "cve_id": "CVE-2026-33162",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-03T17:26:40.136551+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "CVE-2026-33162 is a vulnerability in Craft CMS, allowing authenticated users to move entries across sections without proper permissions. This issue has been patched in version 5.9.14. Defenders should update Craft CMS to the latest version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33161: Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before...",
-      "description": "Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before version 4.17.8 and from version 5.0.0-RC1 to before version 5.9.14, a low-privileged authenticated user can call assets/image-editor with the ID of a private asset they cannot view and still receive editor response data, including focalPoint. The endpoint returns private editing metadata without per-asset authorizatio",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33161",
-      "cve_id": "CVE-2026-33161",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.3,
-      "published": "2026-04-03T17:26:40.136536+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33161 is a low-privileged authenticated vulnerability in Craft CMS, allowing attackers to access private asset editing metadata. This vulnerability has a CVSS score of 4.3, indicating a medium severity impact. Defenders should update Craft CMS to version 4.17.8 or later, or version 5.9.14 or later, to mitigate this issue.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1068| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33160: Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before...",
-      "description": "Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before version 4.17.8 and from version 5.0.0-RC1 to before version 5.9.14, an unauthenticated user can call assets/generate-transform with a private assetId, receive a valid transform URL, and fetch transformed image bytes. The endpoint is anonymous and does not enforce per-asset authorization before returning the transform ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33160",
-      "cve_id": "CVE-2026-33160",
+      "title": "CVE-2026-33323: Parse Server is an open source backend that can be deployed to any infrastructur...",
+      "description": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.51 and 9.6.0-alpha.40, the Pages route and legacy PublicAPI route for resending email verification links return distinguishable responses depending on whether the provided username exists and has an unverified email. This allows an unauthenticated attacker to enumerate vali",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33323",
+      "cve_id": "CVE-2026-33323",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-03T17:26:40.136520+00:00",
+      "published": "2026-04-03T18:35:04.709911+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -414,56 +343,22 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-33160 is a public-facing application exploit (T1190) in Craft CMS, allowing unauthenticated users to fetch transformed image bytes. This vulnerability has a CVSS score of 5.3, indicating a medium severity impact. Defenders should prioritize patching affected versions of Craft CMS to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-33323 is a vulnerability in Parse Server that allows unauthenticated attackers to enumerate valid usernames via distinguishable responses. This can be exploited using T1190 (Exploit Public-Facing Application). Defenders should update to versions 8.6.51 and 9.6.0-alpha.40 or later to mitigate this threat.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 5.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33159: Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before...",
-      "description": "Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before version 4.17.8 and from version 5.0.0-RC1 to before version 5.9.14, guest users can access Config Sync updater index, obtain signed data, and execute state-changing Config Sync actions (regenerate-yaml, apply-yaml-changes) without authentication. This issue has been patched in versions 4.17.8 and 5.9.14.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33159",
-      "cve_id": "CVE-2026-33159",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-03T17:26:40.136504+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33159 is a vulnerability in Craft CMS, allowing guest users to access and execute Config Sync actions without authentication. This issue has been patched in versions 4.17.8 and 5.9.14. Patching to these versions is the most important defender action.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Initial Access]:::tactic\n    B -->|T1210| C[Execution]:::tactic\n    C -->|T1212| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33158: Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before...",
-      "description": "Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before version 4.17.8 and from version 5.0.0-RC1 to before version 5.9.14, a low-privileged authenticated user can read private asset content by calling assets/edit-image with an arbitrary assetId that they are not authorized to view. The endpoint returns image bytes (or a preview redirect) without enforcing a per-asset view",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33158",
-      "cve_id": "CVE-2026-33158",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-03T17:26:40.136488+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-33157: Craft CMS is a content management system (CMS). From version 5.6.0 to before ver...",
-      "description": "Craft CMS is a content management system (CMS). From version 5.6.0 to before version 5.9.13, a Remote Code Execution (RCE) vulnerability exists in Craft CMS, it can be exploited by any authenticated user with control panel access. This is a bypass of a previous fix. The existing patches add cleanseConfig() to assembleLayoutFromPost() and various FieldsController actions to strip Yii2 behavior/even",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33157",
-      "cve_id": "CVE-2026-33157",
+      "title": "CVE-2026-30932: Froxlor is open source server administration software. Prior to version 2.3.5, t...",
+      "description": "Froxlor is open source server administration software. Prior to version 2.3.5, the DomainZones.add API endpoint (accessible to customers with DNS enabled) does not validate the content field for several DNS record types (LOC, RP, SSHFP, TLSA). An attacker can inject newlines and BIND zone file directives (e.g. $INCLUDE) into the zone file that gets written to disk when the DNS rebuild cron job run",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30932",
+      "cve_id": "CVE-2026-30932",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.2,
-      "published": "2026-04-03T17:26:40.136467+00:00",
+      "cvss_score": 8.8,
+      "published": "2026-04-03T18:35:04.709895+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -472,89 +367,279 @@
           "tactic_id": "TA0001"
         },
         {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
+          "id": "T1053",
+          "name": "Scheduled Task/Job",
           "tactic": "Execution",
           "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "CVE-2026-30932 is a high-severity vulnerability in Froxlor server administration software, allowing attackers to inject malicious DNS records via the DomainZones.add API endpoint. This can lead to unauthorized access and data tampering. Defenders should update Froxlor to version 2.3.5 or later to mitigate this threat.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1053| C[Scheduled Task/Job]:::tactic\n    C -->|T1053| D[Execution]:::tactic\n    D -->|T1059.001| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-32854: LibVNCServer versions 0.9.15 and prior (fixed in commit dc78dee) contain null po...",
-      "description": "LibVNCServer versions 0.9.15 and prior (fixed in commit dc78dee) contain null pointer dereference vulnerabilities in the HTTP proxy handlers within httpProcessInput() in httpd.c that allow remote attackers to cause a denial of service by sending specially crafted HTTP requests. Attackers can exploit missing validation of strchr() return values in the CONNECT and GET proxy handling paths to trigger",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32854",
-      "cve_id": "CVE-2026-32854",
+      "title": "CVE-2026-2417: A Missing Authentication for Critical Function vulnerability in Pharos Controls ...",
+      "description": "A Missing Authentication for Critical Function vulnerability in Pharos Controls Mosaic Show Controller firmware version 2.15.3 could allow an unauthenticated attacker to bypass authentication and execute arbitrary commands with root privileges.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2417",
+      "cve_id": "CVE-2026-2417",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-03T18:35:04.709879+00:00",
+      "ttps": [
+        {
+          "id": "T1592.001",
+          "name": "Hardware",
+          "tactic": "Reconnaissance",
+          "tactic_id": "TA0043"
+        },
+        {
+          "id": "T1592.003",
+          "name": "Firmware",
+          "tactic": "Reconnaissance",
+          "tactic_id": "TA0043"
+        },
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-2417 is a Missing Authentication for Critical Function vulnerability in Pharos Controls Mosaic Show Controller firmware, allowing an unauthenticated attacker to execute arbitrary commands with root privileges. This vulnerability is critical, as it enables remote code execution. Defenders should immediately update the firmware to the latest version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592.001| B[Exploit Hardware]:::tactic\n    B -->|T1592.003| C[Exploit Firmware]:::tactic\n    C -->|T1190| D[Exploit Public-Facing Application]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-29772: Astro is a web framework. Prior to version 10.0.0, Astro's Server Islands POST h...",
+      "description": "Astro is a web framework. Prior to version 10.0.0, Astro's Server Islands POST handler buffers and parses the full request body as JSON without enforcing a size limit. Because JSON.parse() allocates a V8 heap object for every element in the input, a crafted payload of many small JSON objects achieves ~15x memory amplification (wire bytes to heap bytes), allowing a single unauthenticated request to",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29772",
+      "cve_id": "CVE-2026-29772",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.9,
+      "published": "2026-04-03T18:35:04.709863+00:00",
+      "ttps": [
+        {
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-29772 is a server-side request forgery (SSRF) vulnerability in Astro's Server Islands POST handler, allowing an attacker to achieve memory amplification via crafted JSON payloads. This vulnerability can be exploited by sending a single unauthenticated request, potentially leading to a denial-of-service (DoS) condition. Defenders should update Astro to version 10.0.0 or later to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1586.002| C[Email Accounts]:::tactic\n    C -->|T1586.002| D[Server Islands POST Handler]:::tactic\n    D -->|T1586.002| E[Memory Amplification]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.9,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-23924: Zabbix Agent 2 Docker plugin does not properly sanitize the 'docker.container_in...",
+      "description": "Zabbix Agent 2 Docker plugin does not properly sanitize the 'docker.container_info' parameters when forwarding them to the Docker daemon. An attacker capable of invoking Agent 2 can read arbitrary files from running Docker containers by injecting them via the Docker archive API.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23924",
+      "cve_id": "CVE-2026-23924",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-03T17:26:40.136451+00:00",
+      "cvss_score": null,
+      "published": "2026-04-03T18:35:04.709847+00:00",
       "ttps": [
         {
-          "id": "T1498",
-          "name": "Network Denial of Service",
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "CVE-2026-23924 is a vulnerability in Zabbix Agent 2 Docker plugin that allows an attacker to read arbitrary files from running Docker containers. This is achieved by injecting malicious parameters via the Docker archive API. Defenders should update the Zabbix Agent 2 Docker plugin to the latest version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1486| B[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-32853: LibVNCServer versions 0.9.15 and prior (fixed in commit 009008e) contain a heap ...",
-      "description": "LibVNCServer versions 0.9.15 and prior (fixed in commit 009008e) contain a heap out-of-bounds read vulnerability in the UltraZip encoding handler that allows a malicious VNC server to cause information disclosure or application crash. Attackers can exploit improper bounds checking in the HandleUltraZipBPP() function by manipulating subrectangle header counts to read beyond the allocated heap buffe",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32853",
-      "cve_id": "CVE-2026-32853",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.1,
-      "published": "2026-04-03T17:26:40.136429+00:00",
-      "ttps": [
-        {
-          "id": "T1021.005",
-          "name": "VNC",
-          "tactic": "Lateral Movement",
-          "tactic_id": "TA0008"
-        },
-        {
-          "id": "T1499",
-          "name": "Endpoint Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-26809: Rejected reason: DO NOT USE THIS CVE RECORD. ConsultIDs: none. Reason: This reco...",
-      "description": "Rejected reason: DO NOT USE THIS CVE RECORD. ConsultIDs: none. Reason: This record was withdrawn by its CNA. Further investigation showed that it was not a security issue. Notes: none.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26809",
-      "cve_id": "CVE-2026-26809",
+      "title": "CVE-2026-23923: An unauthenticated attacker can exploit the Frontend 'validate' action to blindl...",
+      "description": "An unauthenticated attacker can exploit the Frontend 'validate' action to blindly instantiate arbitrary PHP classes. The impact depends on environment setup but appears limited at this time.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23923",
+      "cve_id": "CVE-2026-23923",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-03T17:26:40.136388+00:00",
+      "published": "2026-04-03T18:35:04.709830+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-23921: A low privilege Zabbix user with API access can exploit a blind SQL injection vu...",
+      "description": "A low privilege Zabbix user with API access can exploit a blind SQL injection vulnerability in include/classes/api/CApiService.php to execute arbitrary SQL selects via the sortfield parameter. Although query results are not returned directly, an attacker can exfiltrate arbitrary database data through time-based techniques, potentially leading to session identifier disclosure and administrator acco",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23921",
+      "cve_id": "CVE-2026-23921",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-03T18:35:04.709812+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "tactic_id": "TA0010"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-23920: Host and event action script input is validated with a regex (set by the adminis...",
+      "description": "Host and event action script input is validated with a regex (set by the administrator), but the validation runs in multiline mode. If ^ and $ anchors are used in user input validation, an injected newline lets authenticated users bypass the check and inject shell commands.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23920",
+      "cve_id": "CVE-2026-23920",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-03T18:35:04.709793+00:00",
+      "ttps": [
+        {
+          "id": "T1059.004",
+          "name": "Unix Shell",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-23919: For performance reasons Zabbix Server/Proxy reuses JavaScript (Duktape) contexts...",
+      "description": "For performance reasons Zabbix Server/Proxy reuses JavaScript (Duktape) contexts (used in script items, JavaScript reprocessing, Webhooks). This can lead to confidentiality loss where a regular (non-super) Zabbix administrator leaks data for hosts they do not have access to. A fix has been released that makes the built in Zabbix JavaScript objects read-only, but please be advised that usage of glo",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23919",
+      "cve_id": "CVE-2026-23919",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-03T18:35:04.709770+00:00",
       "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-1995: IDrive’s id_service.exe process runs with elevated privileges and regularly read...",
+      "description": "IDrive’s id_service.exe process runs with elevated privileges and regularly reads from several files under the C:\\ProgramData\\IDrive\\ directory. The UTF16-LE encoded contents of these files are used as arguments for starting a process, but they can be edited by any standard user logged into the system. An attacker can overwrite or edit the files to specify a path to an arbitrary executable, which ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1995",
+      "cve_id": "CVE-2026-1995",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-03T18:35:04.709730+00:00",
+      "ttps": [
+        {
+          "id": "T1068",
+          "name": "Exploitation for Privilege Escalation",
+          "tactic": "Privilege Escalation",
+          "tactic_id": "TA0004"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "EU cyber agency attributes major data breach to TeamPCP hacking group",
+      "description": "The European Union’s cybersecurity agency said the hacking group TeamPCP was behind a massive recent data breach at the European Commission.",
+      "url": "https://therecord.media/european-commission-cyberattack-teampcp",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-03T18:15:00+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Hims & Hers warns of data breach after Zendesk support ticket breach",
+      "description": "Telehealth giant Hims & Hers Health is warning that it suffered a data breach after support tickets were stolen from a third-party customer service platform. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/hims-and-hers-warns-of-data-breach-after-zendesk-support-ticket-breach/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-03T17:41:11+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "China-Linked TA416 Targets European Governments with PlugX and OAuth-Based Phishing",
+      "description": "A China-aligned threat actor has set its sights on European government and diplomatic organizations since mid-2025,&nbsp;following a two-year&nbsp;period of minimal targeting in the&nbsp;region. The campaign has been attributed&nbsp;to TA416, a cluster of activity that overlaps with DarkPeony, RedDelta, Red Lich, SmugX, UNC6384, and Vertigo&nbsp;Panda. \"This TA416 activity included multiple",
+      "url": "https://thehackernews.com/2026/04/china-linked-ta416-targets-european.html",
+      "cve_id": null,
+      "source": "The Hacker News",
+      "category": "news",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-03T17:34:00+00:00",
+      "ttps": [
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -1097,30 +1182,6 @@
       "ai_model": "none"
     },
     {
-      "title": "Adversaries Exploit Vacant Homes to Intercept Mail in Hybrid Cybercrime",
-      "description": "Threat actors are exploiting vacant homes as \"drop addresses\" to intercept mail and enable fraud. Flare shows how postal services and fake identities are abused to turn mail into a fraud vector. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/adversaries-exploit-vacant-homes-to-intercept-mail-in-hybrid-cybercrime/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-02T14:01:11+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
       "title": "ThreatsDay Bulletin: Pre-Auth Chains, Android Rootkits, CloudTrail Evasion & 10 More Stories",
       "description": "The&nbsp;latest ThreatsDay Bulletin is basically a cheat sheet for everything breaking on the internet right now. No&nbsp;corporate fluff or boring lectures here, just a quick and honest look at the messy reality of keeping systems safe this&nbsp;week. Things&nbsp;are moving fast. The&nbsp;list includes researchers chaining small bugs together to create massive backdoors, old software flaws",
       "url": "https://thehackernews.com/2026/04/threatsday-bulletin-pre-auth-chains.html",
@@ -1193,30 +1254,6 @@
       "ai_model": "none"
     },
     {
-      "title": "The State of Trusted Open Source Report",
-      "description": "In December&nbsp;2025, we shared the first-ever The State of Trusted Open&nbsp;Source report, featuring insights from our product data and customer base on open source consumption across our catalog of container image projects, versions, images, language libraries, and builds. These&nbsp;insights shed light on what teams pull, deploy, and maintain day to day, alongside the vulnerabilities and",
-      "url": "https://thehackernews.com/2026/04/the-state-of-trusted-open-source-report.html",
-      "cve_id": null,
-      "source": "The Hacker News",
-      "category": "news",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-02T11:30:00+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
       "title": "ISC Stormcast For Thursday, April 2nd, 2026 https://isc.sans.edu/podcastdetail/9876, (Thu, Apr 2nd)",
       "description": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
       "url": "https://isc.sans.edu/diary/rss/32858",
@@ -1226,23 +1263,6 @@
       "severity": "low",
       "cvss_score": null,
       "published": "2026-04-02T02:00:02+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "WhatsApp warns users of fake app used to distribute spyware",
-      "description": "The Meta subsidiary alleges that Italy’s SIO spyware manufacturer designed the phony app specifically for iPhones. Most of the impacted users are in Italy, according to a WhatsApp announcement.",
-      "url": "https://therecord.media/whatsapp-warns-users-of-fake-app-used-for-spyware",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-01T23:52:00+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",

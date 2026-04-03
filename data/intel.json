@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-03T20:28:20.474760+00:00",
+  "last_updated": "2026-04-03T21:26:39.572665+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T20:26:23.605346+00:00",
+      "published": "2026-04-03T21:24:47.962983+00:00",
       "ttps": [
         {
           "id": "T1608",
@@ -32,7 +32,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Xloader is an information stealing malware that targets web browsers, email clients, and FTP applications, with capabilities to execute arbitrary commands and download second-stage payloads. Its latest versions employ advanced obfuscation methods, making detection challenging. To defend against Xloader, prioritize implementing robust endpoint detection and response tools to identify and mitigate potential infections.",
+      "ai_summary": "Xloader is an information-stealing malware that targets web browsers, email clients, and FTP applications, with capabilities to execute arbitrary commands and download second-stage payloads. The malware uses obfuscation methods to evade detection, making it challenging for defenders to identify and mitigate. To defend against Xloader, it is essential to implement robust endpoint detection and response systems to detect and block suspicious activities.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Defense Evasion]:::tactic\n    B -->|T1608| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1027| E[Persistence]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T20:26:23.605322+00:00",
+      "published": "2026-04-03T21:24:47.962959+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -56,7 +56,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The North Korea-nexus threat actor compromised the widely used Axios NPM package in a supply chain attack by introducing a malicious dependency. This attack can lead to unauthorized access and data breaches. To defend, developers should immediately review and update their dependencies to ensure they are not using the compromised Axios versions.",
+      "ai_summary": "The North Korea-nexus threat actor compromised the widely used Axios NPM package in a supply chain attack by introducing a malicious dependency. This attack can lead to unauthorized access and data breaches. The most important defender action is to immediately update or patch the affected Axios NPM package to prevent further exploitation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -71,7 +71,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T20:26:23.605296+00:00",
+      "published": "2026-04-03T21:24:47.962933+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -92,11 +92,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Yurei Ransomware, a double extortion campaign, uses T1190 to exploit public-facing applications, then T1041 to exfiltrate data over C2 channels, ultimately encrypting data with T1486 for impact. This results in significant financial and reputational damage to victims. Defenders should prioritize monitoring for T1190 and T1041 to prevent initial access and data exfiltration.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing public-facing application exploitation and data exfiltration to encrypt data for impact. The real-world impact includes data breaches and ransom demands, with a low number of victims listed on the operator's Tor data leak site. The most important defender action is to ensure robust security measures are in place to prevent public-facing application exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1486| E[Data Encrypted]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Cisco Talos: Qilin EDR killer infection chain",
@@ -107,7 +107,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T20:26:23.605275+00:00",
+      "published": "2026-04-03T21:24:47.962911+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -122,7 +122,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Qilin ransomware uses a multi-stage infection chain to target and disable EDR systems, employing an EDR killer to evade detection. This allows the malware to terminate over 300 different EDR drivers from various vendors. Defenders should prioritize updating and hardening their EDR systems to prevent such attacks.",
+      "ai_summary": "Qilin ransomware uses a multi-stage infection chain to target and disable EDR systems, employing an EDR killer to evade detection. This allows the malware to terminate over 300 different EDR drivers from various vendors. Defenders should prioritize updating and hardening EDR systems to prevent such attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -137,9 +137,9 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T20:26:23.605252+00:00",
+      "published": "2026-04-03T21:24:47.962887+00:00",
       "ttps": [],
-      "ai_summary": "A threat actor is abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick users into downloading malicious apps. This campaign shares similarities with VexTrio and previous incidents. Defenders should monitor AdTech network abuse and Microsoft Store app downloads for suspicious activity.",
+      "ai_summary": "A threat actor is abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick users into downloading malicious apps. This campaign shares similarities with VexTrio and previous incidents. Defenders should monitor AdTech network activity and scrutinize Microsoft Store app downloads for suspicious behavior.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -154,7 +154,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-03T20:26:23.605225+00:00",
+      "published": "2026-04-03T21:24:47.962860+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -181,7 +181,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Signed malware impersonating workplace apps deploys RMM backdoors via phishing campaigns, using digitally signed executables to install persistence tools. This allows attackers to maintain access and control over compromised systems. Defenders should immediately block suspicious workplace meeting lures and PDF attachments.",
+      "ai_summary": "Signed malware impersonating workplace apps deploys RMM backdoors via phishing campaigns, using digitally signed executables to install persistence tools. This allows attackers to maintain access and control over compromised systems. Defenders should prioritize monitoring for suspicious RMM tool activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.0,
       "ai_provider": "groq",
@@ -196,7 +196,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-03T20:26:23.605202+00:00",
+      "published": "2026-04-03T21:24:47.962834+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -211,7 +211,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update their Axios dependencies.",
+      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update dependencies in their JavaScript ecosystems.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
@@ -226,7 +226,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T20:26:23.605175+00:00",
+      "published": "2026-04-03T21:24:47.962808+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -250,7 +250,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T20:26:23.605151+00:00",
+      "published": "2026-04-03T21:24:47.962784+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -289,7 +289,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure and a multi-stage scripting process to evade detection. This campaign has been active since 2024, with earlier versions containing less obfuscation and metadata. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
+      "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure to evade detection. The attacks employ a multi-stage scripting process and have been tracked since 2024. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T20:26:23.605117+00:00",
+      "published": "2026-04-03T21:24:47.962750+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -319,273 +319,120 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors are using infrastructure patterns to gather victim host info and steal or forge authentication certificates, highlighting the need for proactive infrastructure monitoring to detect and disrupt potential cyber operations.",
+      "ai_summary": "Iranian state-aligned threat actors exploit geopolitical tensions to map and disrupt potential cyber operations. They gather victim host info and steal or forge authentication certificates to achieve their goals. Proactive infrastructure monitoring is crucial to detect and disrupt these operations.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-24141: NVIDIA Model Optimizer for Windows and Linux contains a vulnerability in the ONN...",
-      "description": "NVIDIA Model Optimizer for Windows and Linux contains a vulnerability in the ONNX quantization feature, where a user could cause unsafe deserialization by providing a specially crafted input file. A successful exploit of this vulnerability might lead to code execution, escalation of privileges, data tampering, and information disclosure.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24141",
-      "cve_id": "CVE-2026-24141",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-03T20:26:20.677919+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1565",
-          "name": "Data Manipulation",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "CVE-2026-24141 is a vulnerability in NVIDIA Model Optimizer's ONNX quantization feature, allowing for code execution, escalation of privileges, and data tampering. A specially crafted input file can cause unsafe deserialization, leading to potential exploitation. Defenders should update NVIDIA Model Optimizer to the latest version to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1565| E[Data Manipulation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-21790: HCL Traveler is susceptible to a weak default HTTP header validation vulnerabili...",
-      "description": "HCL Traveler is susceptible to a weak default HTTP header validation vulnerability, which could allow an attacker to bypass additional authentication checks.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21790",
-      "cve_id": "CVE-2026-21790",
+      "title": "CVE-2026-20632: A parsing issue in the handling of directory paths was addressed with improved p...",
+      "description": "A parsing issue in the handling of directory paths was addressed with improved path validation. This issue is fixed in macOS Tahoe 26.4. An app may be able to access sensitive user data.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20632",
+      "cve_id": "CVE-2026-20632",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.3,
-      "published": "2026-04-03T20:26:20.677903+00:00",
+      "cvss_score": 5.3,
+      "published": "2026-04-03T21:24:45.462303+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-21790 is a weak default HTTP header validation vulnerability in HCL Traveler, allowing attackers to bypass additional authentication checks. This vulnerability has a CVSS score of 6.3, indicating a medium severity risk. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
+      "ai_summary": "CVE-2026-20632 is a parsing issue in macOS Tahoe 26.4 that allows an app to access sensitive user data. This vulnerability is fixed in the latest version. Defenders should ensure all systems are updated to the latest macOS version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1068| D[Valid Accounts]:::tactic\n    D -->|T1071| E[Account Manipulation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-33254: NVIDIA Triton Inference Server contains a vulnerability where an attacker may ca...",
-      "description": "NVIDIA Triton Inference Server contains a vulnerability where an attacker may cause internal state corruption. A successful exploit of this vulnerability may lead to a denial of service.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-33254",
-      "cve_id": "CVE-2025-33254",
+      "title": "CVE-2026-20631: A logic issue was addressed with improved checks. This issue is fixed in macOS T...",
+      "description": "A logic issue was addressed with improved checks. This issue is fixed in macOS Tahoe 26.4. A user may be able to elevate privileges.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20631",
+      "cve_id": "CVE-2026-20631",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-03T20:26:20.677886+00:00",
+      "cvss_score": 8.8,
+      "published": "2026-04-03T21:24:45.462287+00:00",
       "ttps": [
         {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
+          "id": "T1068",
+          "name": "Exploitation for Privilege Escalation",
+          "tactic": "Privilege Escalation",
+          "tactic_id": "TA0004"
         }
       ],
-      "ai_summary": "CVE-2025-33254 is a vulnerability in NVIDIA Triton Inference Server that allows an attacker to cause internal state corruption, resulting in a denial of service. This vulnerability has a CVSS score of 7.5, indicating a high severity. To defend against this threat, ensure that NVIDIA Triton Inference Server is updated with the latest security patches.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1498| B[Network Denial of Service]:::tactic\n    B -->|T1498| C[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2025-33248: NVIDIA Megatron-LM contains a vulnerability in the hybrid conversion script wher...",
-      "description": "NVIDIA Megatron-LM contains a vulnerability in the hybrid conversion script where an Attacker may cause an RCE by convincing a user to load a maliciously crafted file. A successful exploit of this vulnerability may lead to code execution, escalation of privileges, information disclosure, and data tampering.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-33248",
-      "cve_id": "CVE-2025-33248",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-03T20:26:20.677865+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1565",
-          "name": "Data Manipulation",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "CVE-2025-33248 is a vulnerability in NVIDIA Megatron-LM's hybrid conversion script that allows RCE via a maliciously crafted file. An attacker can exploit this vulnerability to execute code, escalate privileges, disclose information, and tamper with data. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1565| E[Data Manipulation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-20631 is a privilege escalation vulnerability in macOS Tahoe 26.4, allowing a user to potentially elevate privileges. This issue is fixed in the latest version. Defenders should ensure all systems are updated to the latest macOS version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1068| B[Exploitation for Privilege Escalation]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-33247: NVIDIA Megatron LM contains a vulnerability in quantization configuration loadin...",
-      "description": "NVIDIA Megatron LM contains a vulnerability in quantization configuration loading, which could allow remote code execution. A successful exploit of this vulnerability might lead to code execution, escalation of privileges, information disclosure, and data tampering.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-33247",
-      "cve_id": "CVE-2025-33247",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-03T20:26:20.677850+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1565",
-          "name": "Data Manipulation",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "CVE-2025-33247 is a vulnerability in NVIDIA Megatron LM's quantization configuration loading, allowing remote code execution. This could lead to code execution, escalation of privileges, information disclosure, and data tampering. Defenders should patch the vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1565| E[Data Manipulation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2025-33244: NVIDIA APEX for Linux contains a vulnerability where an unauthorized attacker co...",
-      "description": "NVIDIA APEX for Linux contains a vulnerability where an unauthorized attacker could cause a deserialization of untrusted data. This vulnerability affects environments that use PyTorch versions earlier than 2.6. A successful exploit of this vulnerability might lead to code execution, denial of service, escalation of privileges, data tampering, and information disclosure.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-33244",
-      "cve_id": "CVE-2025-33244",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.0,
-      "published": "2026-04-03T20:26:20.677834+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        },
-        {
-          "id": "T1565",
-          "name": "Data Manipulation",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2025-33242: NVIDIA B300 MCU contains a vulnerability in the CX8 MCU that could allow a malic...",
-      "description": "NVIDIA B300 MCU contains a vulnerability in the CX8 MCU that could allow a malicious actor to modify unsupported registries, causing a bad state. A successful exploit of this vulnerability might lead to denial of service and data tampering.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-33242",
-      "cve_id": "CVE-2025-33242",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.9,
-      "published": "2026-04-03T20:26:20.677817+00:00",
-      "ttps": [
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        },
-        {
-          "id": "T1565",
-          "name": "Data Manipulation",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2025-33238: NVIDIA Triton Inference Server Sagemaker HTTP server contains a vulnerability wh...",
-      "description": "NVIDIA Triton Inference Server Sagemaker HTTP server contains a vulnerability where an attacker may cause an exception. A successful exploit of this vulnerability may lead to denial of service.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-33238",
-      "cve_id": "CVE-2025-33238",
+      "title": "CVE-2026-20622: A privacy issue was addressed with improved handling of temporary files. This is...",
+      "description": "A privacy issue was addressed with improved handling of temporary files. This issue is fixed in macOS Sequoia 15.7.4, macOS Tahoe 26.3. An app may be able to capture a user's screen.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20622",
+      "cve_id": "CVE-2026-20622",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.5,
-      "published": "2026-04-03T20:26:20.677800+00:00",
+      "published": "2026-04-03T21:24:45.462271+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-20622 is a privacy issue in macOS Sequoia 15.7.4 and macOS Tahoe 26.3, allowing an app to potentially capture a user's screen. This issue is fixed in the latest updates. Defenders should ensure all systems are up-to-date to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1056| D[Execution]:::tactic\n    D -->|T1071| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-20607: A permissions issue was addressed with additional restrictions. This issue is fi...",
+      "description": "A permissions issue was addressed with additional restrictions. This issue is fixed in macOS Sequoia 15.7.5, macOS Sonoma 14.8.5, macOS Tahoe 26.4. An app may be able to access protected user data.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20607",
+      "cve_id": "CVE-2026-20607",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.0,
+      "published": "2026-04-03T21:24:45.462251+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-20607 is a permissions issue fixed in macOS versions 15.7.5, 14.8.5, and 26.4. An app may access protected user data. Defenders should ensure macOS is updated to the latest version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|None| B[Initial Access]:::tactic\n    B -->|None| C[Execution]:::tactic\n    C -->|None| D[Privilege Escalation]:::tactic\n    D -->|None| E[Data Leak]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-43534: A path handling issue was addressed with improved validation. This issue is fixe...",
+      "description": "A path handling issue was addressed with improved validation. This issue is fixed in iOS 18.7.7 and iPadOS 18.7.7, iOS 26.2 and iPadOS 26.2. A user with physical access to an iOS device may be able to bypass Activation Lock.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-43534",
+      "cve_id": "CVE-2025-43534",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.8,
+      "published": "2026-04-03T21:24:45.462235+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2025-43534 is a path handling issue in iOS and iPadOS that allows a physically present attacker to bypass Activation Lock. This vulnerability has a CVSS score of 6.8, indicating a medium severity. Defenders should ensure all devices are updated to the latest patched versions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1110| B[Reconnaissance]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Application Access]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-4781: A flaw has been found in SourceCodester Sales and Inventory System 1.0. The affe...",
+      "description": "A flaw has been found in SourceCodester Sales and Inventory System 1.0. The affected element is an unknown function of the file update_purchase.php of the component HTTP GET Parameter Handler. Executing a manipulation of the argument sid can lead to sql injection. The attack may be performed from remote. The exploit has been published and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4781",
+      "cve_id": "CVE-2026-4781",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-03T21:24:45.462220+00:00",
       "ttps": [
         {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
       "ai_summary": "AI analysis pending",
@@ -595,21 +442,21 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2025-33216: NVIDIA SNAP-4 Container contains a vulnerability in the configuration interface ...",
-      "description": "NVIDIA SNAP-4 Container contains a vulnerability in the configuration interface where an attacker on a VM may cause an incorrect calculation of buffer size by sending crafted configurations. A successful exploit of this vulnerability may lead to crash of the SNAP service, causing denial of service of the storage service to the host.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-33216",
-      "cve_id": "CVE-2025-33216",
+      "title": "CVE-2026-4780: A vulnerability was detected in SourceCodester Sales and Inventory System 1.0. I...",
+      "description": "A vulnerability was detected in SourceCodester Sales and Inventory System 1.0. Impacted is an unknown function of the file update_out_standing.php of the component HTTP GET Parameter Handler. Performing a manipulation of the argument sid results in sql injection. The attack is possible to be carried out remotely. The exploit is now public and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4780",
+      "cve_id": "CVE-2026-4780",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.8,
-      "published": "2026-04-03T20:26:20.677778+00:00",
+      "cvss_score": 6.3,
+      "published": "2026-04-03T21:24:45.462203+00:00",
       "ttps": [
         {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
       "ai_summary": "AI analysis pending",
@@ -619,23 +466,88 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2025-33215: NVIDIA SNAP-4 Container contains a vulnerability in the VIRTIO-BLK component whe...",
-      "description": "NVIDIA SNAP-4 Container contains a vulnerability in the VIRTIO-BLK component where a malicious guest VM may cause use of out-of-range pointer offset by sending crafted messages. A successful exploit of this vulnerability may lead to a denial of service of the DPA and impact the availability of storage to other VMs.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-33215",
-      "cve_id": "CVE-2025-33215",
+      "title": "CVE-2026-4779: A security vulnerability has been detected in SourceCodester Sales and Inventory...",
+      "description": "A security vulnerability has been detected in SourceCodester Sales and Inventory System 1.0. This issue affects some unknown processing of the file update_customer_details.php of the component HTTP GET Parameter Handler. Such manipulation of the argument sid leads to sql injection. The attack can be executed remotely. The exploit has been disclosed publicly and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4779",
+      "cve_id": "CVE-2026-4779",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.8,
-      "published": "2026-04-03T20:26:20.677738+00:00",
+      "cvss_score": 6.3,
+      "published": "2026-04-03T21:24:45.462186+00:00",
       "ttps": [
         {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-4778: A weakness has been identified in SourceCodester Sales and Inventory System 1.0....",
+      "description": "A weakness has been identified in SourceCodester Sales and Inventory System 1.0. This vulnerability affects unknown code of the file update_category.php of the component HTTP GET Parameter Handler. This manipulation of the argument sid causes sql injection. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4778",
+      "cve_id": "CVE-2026-4778",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-03T21:24:45.462164+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-4777: A security flaw has been discovered in SourceCodester Sales and Inventory System...",
+      "description": "A security flaw has been discovered in SourceCodester Sales and Inventory System 1.0. This affects an unknown part of the file view_supplier.php of the component POST Parameter Handler. The manipulation of the argument searchtxt results in sql injection. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4777",
+      "cve_id": "CVE-2026-4777",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-03T21:24:45.462125+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "LinkedIn secretely scans for 6,000+ Chrome extensions, collects data",
+      "description": "A new report dubbed \"BrowserGate\" warns that Microsoft's LinkedIn is using hidden JavaScript scripts on its website to scan visitors' browsers for installed extensions and collect device data. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/linkedin-secretely-scans-for-6-000-plus-chrome-extensions-collects-data/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "news",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-03T20:40:22+00:00",
+      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -1155,7 +1067,7 @@
       "ai_model": "none"
     },
     {
-      "title": "Drift loses $280 million North Korean hackers seize Security Council powers",
+      "title": "Drift loses $280 million as North Korean hackers seize Security Council powers",
       "description": "The Drift Protocol lost at least $280 million after a threat actor took control of its Security Council administrative powers in a planned, sophisticated operation. [...]",
       "url": "https://www.bleepingcomputer.com/news/security/drift-loses-280-million-north-korean-hackers-seize-security-council-powers/",
       "cve_id": null,
@@ -1164,23 +1076,6 @@
       "severity": "medium",
       "cvss_score": null,
       "published": "2026-04-02T19:03:39+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Residential proxies evaded IP reputation checks in 78% of 4B sessions",
-      "description": "Researchers warn that residential proxies used to route malicious traffic are a big problem for IP reputation systems, as there is no clear distinction between attackers and legitimate users. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/residential-proxies-evaded-ip-reputation-checks-in-78-percent-of-4b-sessions/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "incident",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-02T15:21:02+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",

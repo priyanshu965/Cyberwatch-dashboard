@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-03T05:09:51.533223+00:00",
-  "total_items": 75,
+  "last_updated": "2026-04-03T09:41:30.007318+00:00",
+  "total_items": 70,
   "items": [
     {
       "title": "Unpacking Augmented Marauder’s Multi-Pronged Casbaneiro Campaigns",
@@ -9,9 +9,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T05:09:51.485558+00:00",
+      "published": "2026-04-03T09:40:34.740656+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -19,7 +19,12 @@
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
-      ]
+      ],
+      "ai_summary": "The Augmented Marauder group is conducting a phishing campaign targeting Spanish-speaking users, utilizing WhatsApp to deliver banking trojans. This campaign has real-world impact as it can lead to financial loss and sensitive information theft. The most important defender action is to educate users about phishing attacks and implement robust email and messaging filters.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "From Inbox to Intrusion: Multi‑Stage Remcos RAT and C2‑Delivered Payloads in Network",
@@ -28,9 +33,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T05:09:51.485531+00:00",
+      "published": "2026-04-03T09:40:34.740628+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -74,7 +79,12 @@
           "tactic": "Command & Control",
           "tactic_id": "TA0011"
         }
-      ]
+      ],
+      "ai_summary": "The threat is a multi-stage fileless Remcos RAT attack that uses a JavaScript dropper delivered via phishing to execute payloads in memory, utilizing obfuscation techniques to evade detection. The real-world impact is significant as it allows attackers to maintain stealth and execute malicious code without leaving a disk-based footprint. The most important defender action is to implement robust email security controls to prevent phishing attacks and monitor for suspicious PowerShell activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1027| D[Persistence]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Funnull Resurfaces: Exposing RingH23 Arsenal and MacCMS Supply Chain Attacks",
@@ -83,9 +93,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T05:09:51.485491+00:00",
+      "published": "2026-04-03T09:40:34.740587+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -99,7 +109,12 @@
           "tactic": "Execution",
           "tactic_id": "TA0002"
         }
-      ]
+      ],
+      "ai_summary": "The Funnull group has resurfaced with a new arsenal called RingH23, compromising GoEdge CDN nodes and poisoning the MacCMS supply chain through tactics like T1195 and T1059.007. To defend, prioritize securing software supply chains and monitoring for suspicious JavaScript injections.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1059.007| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.2,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Inside the Axios supply chain compromise - one RAT to rule them all",
@@ -108,9 +123,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T05:09:51.485464+00:00",
+      "published": "2026-04-03T09:40:34.740560+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -124,7 +139,12 @@
           "tactic": "Command & Control",
           "tactic_id": "TA0011"
         }
-      ]
+      ],
+      "ai_summary": "The threat is a supply chain compromise of the axios npm package, delivering a cross-platform Remote Access Trojan to systems through a malicious postinstall script. This has a significant real-world impact due to axios' widespread use, with approximately 100 million weekly downloads. The most important defender action is to verify the integrity of axios packages and monitor for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1078| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Latest Xloader Obfuscation Methods and Network Protocol",
@@ -133,9 +153,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T05:09:51.485439+00:00",
+      "published": "2026-04-03T09:40:34.740535+00:00",
       "ttps": [
         {
           "id": "T1608",
@@ -155,7 +175,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
+      ],
+      "ai_summary": "Xloader is an information-stealing malware that targets web browsers, email clients, and FTP applications, with capabilities to execute arbitrary commands and download second-stage payloads. The malware's codebase is continuously updated, with recent versions incorporating obfuscation methods and data encryption. To defend against Xloader, it is essential to implement robust endpoint security measures, including regular software updates and monitoring for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Defense Evasion]:::tactic\n    B -->|T1608| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1027| E[Persistence]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "North Korea-Nexus Threat Actor Compromises Widely Used Axios NPM Package in Supply Chain Attack",
@@ -164,9 +189,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T05:09:51.485416+00:00",
+      "published": "2026-04-03T09:40:34.740510+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -174,7 +199,12 @@
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
-      ]
+      ],
+      "ai_summary": "The North Korea-nexus threat actor compromised the widely used Axios NPM package in a supply chain attack by introducing a malicious dependency. This attack can lead to unauthorized access and data breaches. To defend, developers should immediately review and update their dependencies to ensure they are not using the compromised Axios versions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Stranger Strings: Yurei Ransomware Operator Toolkit Exposed",
@@ -183,9 +213,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T05:09:51.485389+00:00",
+      "published": "2026-04-03T09:40:34.740482+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -205,7 +235,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
+      ],
+      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing public-facing application exploitation and data exfiltration to encrypt data for impact. The real-world impact includes data breaches and financial losses for affected organizations. The most important defender action is to ensure robust security measures are in place to prevent public-facing application exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D --> E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Cisco Talos: Qilin EDR killer infection chain",
@@ -216,7 +251,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T05:09:51.485371+00:00",
+      "published": "2026-04-03T09:40:34.740462+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -230,7 +265,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
+      ],
+      "ai_summary": "The Qilin EDR killer is a multi-stage infection chain that targets endpoint detection and response systems, using a malicious 'msimg32.dll' to terminate over 300 different EDR drivers. This allows attackers to bypass security measures and encrypt data for ransom. To defend against this threat, organizations should prioritize implementing robust EDR solutions and regularly updating their security software.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1055| D[Unmanaged Windows Services]:::tactic\n    D -->|T1218| E[Exploitation for Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Blurred Lines: AdTech Abuse Delivers Browser Hijackers Through the Microsoft Store",
@@ -241,8 +281,13 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T05:09:51.485345+00:00",
-      "ttps": []
+      "published": "2026-04-03T09:40:34.740435+00:00",
+      "ttps": [],
+      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijackers through the Microsoft Store, tricking visitors of typo-squatted domains into downloading malicious apps. This campaign utilizes tactics similar to VexTrio, highlighting the ongoing abuse of AdTech networks for malware delivery. Defenders should prioritize monitoring Microsoft Store app downloads and implementing robust browser security measures.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059| C[Privilege Escalation]:::tactic\n    C -->|T1112| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Signed malware impersonating workplace apps deploys RMM backdoors",
@@ -251,9 +296,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-03T05:09:51.485311+00:00",
+      "published": "2026-04-03T09:40:34.740398+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -279,49 +324,23 @@
           "tactic": "Command & Control",
           "tactic_id": "TA0011"
         }
-      ]
+      ],
+      "ai_summary": "The threat involves signed malware masquerading as legitimate workplace software, delivered through phishing campaigns, to deploy RMM backdoors. This enables attackers to establish persistence and gain remote access. The most important defender action is to implement robust email filtering and user education to prevent initial phishing attempts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
-      "title": "CVE-2026-4746: Out-of-bounds Write vulnerability in timeplus-io proton (base/poco/Foundation/sr...",
-      "description": "Out-of-bounds Write vulnerability in timeplus-io proton (base/poco/Foundation/src‎ modules). This vulnerability is associated with program files inflate.C.\n\nThis issue affects proton: before 1.6.16.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4746",
-      "cve_id": "CVE-2026-4746",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-03T05:09:46.612911+00:00",
-      "ttps": []
-    },
-    {
-      "title": "CVE-2026-4745: Improper Control of Generation of Code ('Code Injection') vulnerability in dendi...",
-      "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in dendibakh perf-ninja (labs/misc/pgo/lua modules). This vulnerability is associated with program files ldo.C.\n\nThis issue affects perf-ninja.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4745",
-      "cve_id": "CVE-2026-4745",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-03T05:09:46.612897+00:00",
-      "ttps": [
-        {
-          "id": "T1055",
-          "name": "Process Injection",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
-        }
-      ]
-    },
-    {
-      "title": "CVE-2026-4662: The JetEngine plugin for WordPress is vulnerable to SQL Injection via the `listi...",
-      "description": "The JetEngine plugin for WordPress is vulnerable to SQL Injection via the `listing_load_more` AJAX action in all versions up to, and including, 3.8.6.1. This is due to the `filtered_query` parameter being excluded from the HMAC signature validation (allowing attacker-controlled input to bypass security checks) combined with the `prepare_where_clause()` method in the SQL Query Builder not sanitizin",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4662",
-      "cve_id": "CVE-2026-4662",
+      "title": "CVE-2019-25635: Zeeways Matrimony CMS contains multiple SQL injection vulnerabilities that allow...",
+      "description": "Zeeways Matrimony CMS contains multiple SQL injection vulnerabilities that allow unauthenticated attackers to manipulate database queries through the profile_list endpoint. Attackers can inject SQL code via the up_cast, s_mother, and s_religion parameters to extract sensitive database information using time-based or error-based techniques.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25635",
+      "cve_id": "CVE-2019-25635",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-03T05:09:46.612880+00:00",
+      "cvss_score": 8.2,
+      "published": "2026-04-03T09:40:32.337769+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -329,18 +348,77 @@
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
-      ]
+      ],
+      "ai_summary": "CVE-2019-25635 is a SQL injection vulnerability in Zeeways Matrimony CMS, allowing unauthenticated attackers to extract sensitive database information. The vulnerability can be exploited through the profile_list endpoint by injecting SQL code via specific parameters. To defend against this threat, prioritize input validation and sanitization for all user-supplied data.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
-      "title": "CVE-2026-4640: Vitals ESP developed by Galaxy Software Services has a Missing Authentication vu...",
-      "description": "Vitals ESP developed by Galaxy Software Services has a Missing Authentication vulnerability, allowing unauthenticated remote attackers to execute certain functions to obtain sensitive information.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4640",
-      "cve_id": "CVE-2026-4640",
+      "title": "CVE-2019-25634: Base64 Decoder 1.1.2 contains a stack-based buffer overflow vulnerability that a...",
+      "description": "Base64 Decoder 1.1.2 contains a stack-based buffer overflow vulnerability that allows local attackers to execute arbitrary code by triggering a structured exception handler (SEH) overwrite. Attackers can craft a malicious input file that overflows a buffer, overwrites the SEH chain with a POP-POP-RET gadget address, and uses an egghunter payload to locate and execute shellcode for code execution.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25634",
+      "cve_id": "CVE-2019-25634",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-03T05:09:46.612860+00:00",
+      "cvss_score": 8.4,
+      "published": "2026-04-03T09:40:32.337752+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2019-25634 is a stack-based buffer overflow vulnerability in Base64 Decoder 1.1.2 that allows local attackers to execute arbitrary code. The vulnerability can be exploited by crafting a malicious input file that overflows a buffer and overwrites the SEH chain. To defend against this threat, prioritize patching vulnerable systems and implementing exploit mitigation techniques such as address space layout randomization (ASLR) and data execution prevention (DEP).",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1210| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.2,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2019-25633: AIDA64 Extreme 5.99.4900 contains a structured exception handling buffer overflo...",
+      "description": "AIDA64 Extreme 5.99.4900 contains a structured exception handling buffer overflow vulnerability that allows local attackers to execute arbitrary code by supplying malicious input through the email preferences and report wizard interfaces. Attackers can inject crafted payloads into the Display name field and Load from file parameter to trigger the overflow and execute shellcode with application pri",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25633",
+      "cve_id": "CVE-2019-25633",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.4,
+      "published": "2026-04-03T09:40:32.337735+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2019-25633 is a buffer overflow vulnerability in AIDA64 Extreme 5.99.4900, allowing local attackers to execute arbitrary code through malicious input in the email preferences and report wizard interfaces. This vulnerability can lead to code execution with application privileges. To defend, prioritize patching vulnerable AIDA64 Extreme versions to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.2,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2019-25632: phpFileManager 1.7.8 contains a local file inclusion vulnerability that allows u...",
+      "description": "phpFileManager 1.7.8 contains a local file inclusion vulnerability that allows unauthenticated attackers to read arbitrary files by manipulating the action, fm_current_dir, and filename parameters. Attackers can send GET requests to index.php with crafted parameter values to access sensitive files like /etc/passwd from the server.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25632",
+      "cve_id": "CVE-2019-25632",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.2,
+      "published": "2026-04-03T09:40:32.337714+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -348,118 +426,249 @@
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
-      ]
+      ],
+      "ai_summary": "CVE-2019-25632 is a local file inclusion vulnerability in phpFileManager 1.7.8, allowing unauthenticated attackers to read arbitrary files by manipulating parameters in GET requests to index.php. This can lead to exposure of sensitive files like /etc/passwd. To defend, patch or update phpFileManager to a version that fixes this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1566| C[Initial Access]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.2,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
-      "title": "CVE-2026-4639: Vitals ESP developed by Galaxy Software Services has a Incorrect Authorization v...",
-      "description": "Vitals ESP developed by Galaxy Software Services has a Incorrect Authorization vulnerability, allowing authenticated remote attackers to perform certain administrative functions, thereby escalating privileges.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4639",
-      "cve_id": "CVE-2026-4639",
+      "title": "CVE-2019-25631: AIDA64 Business 5.99.4900 contains a structured exception handling buffer overfl...",
+      "description": "AIDA64 Business 5.99.4900 contains a structured exception handling buffer overflow vulnerability that allows local attackers to execute arbitrary code by overwriting SEH pointers with malicious shellcode. Attackers can inject egg hunter shellcode through the SMTP display name field in preferences or report wizard functionality to trigger the overflow and execute code with application privileges.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25631",
+      "cve_id": "CVE-2019-25631",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.4,
+      "published": "2026-04-03T09:40:32.337697+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2019-25631 is a structured exception handling buffer overflow vulnerability in AIDA64 Business 5.99.4900, allowing local attackers to execute arbitrary code with application privileges. The vulnerability can be triggered by injecting malicious shellcode through the SMTP display name field. To defend, prioritize patching the vulnerable AIDA64 Business version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2019-25630: PhreeBooks ERP 5.2.3 contains an arbitrary file upload vulnerability in the Imag...",
+      "description": "PhreeBooks ERP 5.2.3 contains an arbitrary file upload vulnerability in the Image Manager component that allows authenticated attackers to upload malicious files by submitting requests to the image upload endpoint. Attackers can upload PHP files through the imgFile parameter to the bizuno/image/manager endpoint and execute them via the bizunoFS.php script for remote code execution.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25630",
+      "cve_id": "CVE-2019-25630",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-03T05:09:46.612843+00:00",
-      "ttps": [
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ]
-    },
-    {
-      "title": "CVE-2026-4632: A weakness has been identified in itsourcecode Online Enrollment System 1.0. Thi...",
-      "description": "A weakness has been identified in itsourcecode Online Enrollment System 1.0. This vulnerability affects unknown code of the file /sms/user/index.php?view=add of the component Parameter Handler. Executing a manipulation of the argument Name can lead to sql injection. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4632",
-      "cve_id": "CVE-2026-4632",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.3,
-      "published": "2026-04-03T05:09:46.612828+00:00",
+      "published": "2026-04-03T09:40:32.337679+00:00",
       "ttps": [
         {
           "id": "T1190",
           "name": "Exploit Public-Facing Application",
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2026-4627: A vulnerability was found in D-Link DIR-825 and DIR-825R 1.0.5/4.5.1. Affected i...",
-      "description": "A vulnerability was found in D-Link DIR-825 and DIR-825R 1.0.5/4.5.1. Affected is the function handler_update_system_time of the file libdeuteron_modules.so of the component NTP Service. The manipulation results in os command injection. The attack may be launched remotely. This vulnerability only affects products that are no longer supported by the maintainer.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4627",
-      "cve_id": "CVE-2026-4627",
+      "title": "CVE-2019-25629: AIDA64 Extreme 5.99.4900 contains a structured exception handler buffer overflow...",
+      "description": "AIDA64 Extreme 5.99.4900 contains a structured exception handler buffer overflow vulnerability in the logging functionality that allows local attackers to execute arbitrary code by supplying a malicious CSV log file path. Attackers can inject shellcode through the Hardware Monitoring logging preferences to overflow the buffer and trigger code execution when the application processes the log file p",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25629",
+      "cve_id": "CVE-2019-25629",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.2,
-      "published": "2026-04-03T05:09:46.612811+00:00",
-      "ttps": []
+      "cvss_score": 8.4,
+      "published": "2026-04-03T09:40:32.337662+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2026-4283: The WP DSGVO Tools (GDPR) plugin for WordPress is vulnerable to unauthorized acc...",
-      "description": "The WP DSGVO Tools (GDPR) plugin for WordPress is vulnerable to unauthorized account destruction in all versions up to, and including, 3.1.38. This is due to the `super-unsubscribe` AJAX action accepting a `process_now` parameter from unauthenticated users, which bypasses the intended email-confirmation flow and immediately triggers irreversible account anonymization. This makes it possible for un",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4283",
-      "cve_id": "CVE-2026-4283",
+      "title": "CVE-2019-25628: Download Accelerator Plus DAP 10.0.6.0 contains a structured exception handler b...",
+      "description": "Download Accelerator Plus DAP 10.0.6.0 contains a structured exception handler buffer overflow vulnerability that allows remote attackers to execute arbitrary code by crafting malicious URLs. Attackers can create specially crafted URLs with overflowing buffer data that overwrites SEH pointers and executes embedded shellcode when imported through the application's web page import functionality.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25628",
+      "cve_id": "CVE-2019-25628",
       "source": "NVD",
       "category": "cve",
       "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-03T05:09:46.612792+00:00",
+      "cvss_score": 9.8,
+      "published": "2026-04-03T09:40:32.337643+00:00",
       "ttps": [
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2026-3260: A flaw was found in Undertow. A remote attacker could exploit this vulnerability...",
-      "description": "A flaw was found in Undertow. A remote attacker could exploit this vulnerability by sending an HTTP GET request containing multipart/form-data content. If the underlying application processes parameters using methods like `getParameterMap()`, the server prematurely parses and stores this content to disk. This could lead to resource exhaustion, potentially resulting in a Denial of Service (DoS).",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3260",
-      "cve_id": "CVE-2026-3260",
+      "title": "CVE-2019-25627: FlexHEX 2.71 contains a local buffer overflow vulnerability in the Stream Name f...",
+      "description": "FlexHEX 2.71 contains a local buffer overflow vulnerability in the Stream Name field that allows local attackers to execute arbitrary code by triggering a structured exception handler (SEH) overflow. Attackers can craft a malicious text file with carefully aligned shellcode and SEH chain pointers, paste the contents into the Stream Name dialog, and execute arbitrary commands like calc.exe when the",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25627",
+      "cve_id": "CVE-2019-25627",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.9,
-      "published": "2026-04-03T05:09:46.612765+00:00",
+      "severity": "high",
+      "cvss_score": 8.4,
+      "published": "2026-04-03T09:40:32.337619+00:00",
       "ttps": [
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        },
-        {
-          "id": "T1499",
-          "name": "Endpoint Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2026-3138: The Product Filter for WooCommerce by WBW plugin for WordPress is vulnerable to ...",
-      "description": "The Product Filter for WooCommerce by WBW plugin for WordPress is vulnerable to unauthorized data loss due to a missing capability check in all versions up to, and including, 3.1.2. This is due to the plugin's MVC framework dynamically registering unauthenticated AJAX handlers via `wp_ajax_nopriv_` hooks without verifying user capabilities, combined with the base controller's `__call()` magic meth",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3138",
-      "cve_id": "CVE-2026-3138",
+      "title": "CVE-2019-25626: River Past Cam Do 3.7.6 contains a local buffer overflow vulnerability in the ac...",
+      "description": "River Past Cam Do 3.7.6 contains a local buffer overflow vulnerability in the activation code input field that allows local attackers to execute arbitrary code by supplying a malicious activation code string. Attackers can craft a buffer containing 608 bytes of junk data followed by shellcode and SEH chain overwrite values to trigger code execution when the activation dialog processes the input.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25626",
+      "cve_id": "CVE-2019-25626",
       "source": "NVD",
       "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.4,
+      "published": "2026-04-03T09:40:32.337573+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "New SparkCat Variant in iOS, Android Apps Steals Crypto Wallet Recovery Phrase Images",
+      "description": "Cybersecurity researchers&nbsp;have discovered a new version of&nbsp;the SparkCat malware on the Apple App Store and Google Play Store, more than a year after the&nbsp;trojan was discovered targeting both the mobile operating&nbsp;systems. The&nbsp;malware&nbsp;has&nbsp;been found to conceal itself within seemingly benign apps, such as enterprise messengers and food delivery services, while",
+      "url": "https://thehackernews.com/2026/04/new-sparkcat-variant-in-ios-android.html",
+      "cve_id": null,
+      "source": "The Hacker News",
+      "category": "news",
       "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-03T05:09:46.612723+00:00",
+      "cvss_score": null,
+      "published": "2026-04-03T09:10:00+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Man admits to locking thousands of Windows devices in extortion plot",
+      "description": "A former core infrastructure engineer has pleaded guilty to locking Windows admins out of 254 servers as part of a failed extortion plot targeting his employer, an industrial company headquartered in Somerset County, New Jersey. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/man-admits-to-extortion-plot-locking-coworkers-out-of-thousands-of-windows-devices/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "news",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-03T09:04:54+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Drift Loses $285 Million in Durable Nonce Social Engineering Attack Linked to DPRK",
+      "description": "Solana-based decentralized exchange Drift has confirmed that attackers drained about $285 million from the platform during a security incident that took place on April 1,&nbsp;2026. \"Earlier today, a malicious actor gained unauthorized access to Drift Protocol through a novel attack involving durable nonces, resulting in a rapid takeover of Drift’s Security Council administrative powers,\" the&",
+      "url": "https://thehackernews.com/2026/04/drift-loses-285-million-in-durable.html",
+      "cve_id": null,
+      "source": "The Hacker News",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-03T08:35:00+00:00",
+      "ttps": [
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Microsoft now force upgrades unmanaged Windows 11 24H2 PCs",
+      "description": "Starting this week, Microsoft has begun force-upgrading unmanaged devices running Windows 11 24H2 Home and Pro editions to Windows 11 25H2. [...]",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-now-force-upgrades-unmanaged-windows-11-24h2-pcs/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "news",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-03T07:55:40+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -467,7 +676,29 @@
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CERT-EU: European Commission hack exposes data of 30 EU entities",
+      "description": "The European Union's Cybersecurity Service (CERT-EU) has attributed the European Commission cloud hack to the TeamPCP threat group, saying the resulting breach exposed the data of at least 29 other Union entities. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/cert-eu-european-commission-hack-exposes-data-of-30-eu-entities/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-03T06:33:34+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "ISC Stormcast For Friday, April 3rd, 2026 https://isc.sans.edu/podcastdetail/9878, (Fri, Apr 3rd)",
@@ -479,7 +710,12 @@
       "severity": "low",
       "cvss_score": null,
       "published": "2026-04-03T02:00:02+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Claude Code leak used to push infostealer malware on GitHub",
@@ -498,7 +734,12 @@
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Hackers Exploit CVE-2025-55182 to Breach 766 Next.js Hosts, Steal Credentials",
@@ -529,50 +770,29 @@
           "tactic": "Exfiltration",
           "tactic_id": "TA0010"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "Drift loses $280 million as hackers seize Security Council powers",
+      "title": "Drift loses $280 million North Korean hackers seize Security Council powers",
       "description": "The Drift Protocol lost at least $280 million after a threat actor took control of its Security Council administrative powers in a planned, sophisticated operation. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/drift-loses-280-million-as-hackers-seize-security-council-powers/",
+      "url": "https://www.bleepingcomputer.com/news/security/drift-loses-280-million-north-korean-hackers-seize-security-council-powers/",
       "cve_id": null,
       "source": "Bleeping Computer",
       "category": "incident",
       "severity": "medium",
       "cvss_score": null,
       "published": "2026-04-02T19:03:39+00:00",
-      "ttps": []
-    },
-    {
-      "title": "Drift crypto platform confirms $280 million stolen in hack as researchers point finger at North Korea",
-      "description": "The platform released a post-mortem on Wednesday night explaining that malicious actors gained access to Drift systems through a “novel attack” that involved the “rapid takeover” of the company’s security council administrative powers.",
-      "url": "https://therecord.media/drift-crypto-confirms-280-million-stolen-north-korea",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-02T17:25:00+00:00",
-      "ttps": []
-    },
-    {
-      "title": "French Senate passes bill that would ban children under 15 from social media",
-      "description": "If the French effort becomes law, it would make France the first European country to follow Australia’s lead by banning social media for young teenagers.",
-      "url": "https://therecord.media/french-senate-passes-bill-child-ban-social-media",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "low",
-      "cvss_score": null,
-      "published": "2026-04-02T16:48:00+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        }
-      ]
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Residential proxies evaded IP reputation checks in 78% of 4B sessions",
@@ -584,7 +804,12 @@
       "severity": "medium",
       "cvss_score": null,
       "published": "2026-04-02T15:21:02+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Cisco Patches 9.8 CVSS IMC and SSM Flaws Allowing Remote System Compromise",
@@ -609,7 +834,12 @@
           "tactic": "Privilege Escalation",
           "tactic_id": "TA0004"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Attempts to Exploit Exposed \"Vite\" Installs (CVE-2025-30208), (Thu, Apr 2nd)",
@@ -621,7 +851,12 @@
       "severity": "low",
       "cvss_score": null,
       "published": "2026-04-02T14:49:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Adversaries Exploit Vacant Homes to Intercept Mail in Hybrid Cybercrime",
@@ -640,7 +875,12 @@
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "New Progress ShareFile flaws can be chained in pre-auth RCE attacks",
@@ -665,7 +905,12 @@
           "tactic": "Exfiltration",
           "tactic_id": "TA0010"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Medtech giant Stryker fully operational after data-wiping attack",
@@ -684,7 +929,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "ThreatsDay Bulletin: Pre-Auth Chains, Android Rootkits, CloudTrail Evasion & 10 More Stories",
@@ -715,7 +965,12 @@
           "tactic": "Command & Control",
           "tactic_id": "TA0011"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Researchers Uncover Mining Operation Using ISO Lures to Spread RATs and Crypto Miners",
@@ -746,7 +1001,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "The State of Trusted Open Source Report",
@@ -765,7 +1025,12 @@
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Critical Cisco IMC auth bypass gives attackers Admin access",
@@ -784,7 +1049,12 @@
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "WhatsApp Alerts 200 Users After Fake iOS App Installed Spyware; Italian Firm Faces Action",
@@ -803,44 +1073,12 @@
           "tactic": "Execution",
           "tactic_id": "TA0002"
         }
-      ]
-    },
-    {
-      "title": "Microsoft links Classic Outlook issue to email delivery problems",
-      "description": "Microsoft is investigating a known issue that prevents some Classic Outlook users from sending emails via Outlook.com. [...]",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-links-classic-outlook-bug-to-email-delivery-issues/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-02T09:12:12+00:00",
-      "ttps": []
-    },
-    {
-      "title": "Over 14,000 F5 BIG-IP APM instances still exposed to RCE attacks",
-      "description": "Internet security watchdog Shadowserver has found over 14,000 BIG-IP APM instances exposed online amid ongoing attacks exploiting a critical-severity remote code execution (RCE) vulnerability. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/over-14-000-f5-big-ip-apm-instances-still-exposed-to-rce-attacks/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-02T08:25:50+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Apple Expands iOS 18.7.7 Update to More Devices to Block DarkSword Exploit",
@@ -859,7 +1097,12 @@
           "tactic": "Resource Development",
           "tactic_id": "TA0042"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "ISC Stormcast For Thursday, April 2nd, 2026 https://isc.sans.edu/podcastdetail/9876, (Thu, Apr 2nd)",
@@ -871,68 +1114,12 @@
       "severity": "low",
       "cvss_score": null,
       "published": "2026-04-02T02:00:02+00:00",
-      "ttps": []
-    },
-    {
-      "title": "WhatsApp warns users of fake app used to distribute spyware",
-      "description": "The Meta subsidiary alleges that Italy’s SIO spyware manufacturer designed the phony app specifically for iPhones. Most of the impacted users are in Italy, according to a WhatsApp announcement.",
-      "url": "https://therecord.media/whatsapp-warns-users-of-fake-app-used-for-spyware",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-01T23:52:00+00:00",
-      "ttps": []
-    },
-    {
-      "title": "New CrystalRAT malware adds RAT, stealer and prankware features",
-      "description": "A new malware-as-a-service called CrystalRAT is being promoted on Telegram, offering remote access, data theft, keylogging, and clipboard hijacking capabilities. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/new-crystalrat-malware-adds-rat-stealer-and-prankware-features/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-01T23:17:09+00:00",
-      "ttps": [
-        {
-          "id": "T1588",
-          "name": "Obtain Capabilities",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1056",
-          "name": "Input Capture",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1115",
-          "name": "Clipboard Data",
-          "tactic": "Collection",
-          "tactic_id": "TA0009"
-        },
-        {
-          "id": "T1041",
-          "name": "Exfiltration Over C2 Channel",
-          "tactic": "Exfiltration",
-          "tactic_id": "TA0010"
-        }
-      ]
-    },
-    {
-      "title": "Crypto platform Drift suspends services after millions stolen in security incident",
-      "description": "Security experts believe hundreds of millions of dollars worth of cryptocurrency were stolen from decentralized finance platform Drift on Wednesday after the site confirmed it was experiencing a cyberattack.",
-      "url": "https://therecord.media/drift-crypto-heist-solana-hacker",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-01T20:45:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Malicious Script That Gets Rid of ADS, (Wed, Apr 1st)",
@@ -951,26 +1138,12 @@
           "tactic": "Resource Development",
           "tactic_id": "TA0042"
         }
-      ]
-    },
-    {
-      "title": "Nissan says stolen data came from third-party vendor after hacking group claims breach",
-      "description": "A hacking group claimed this week to have breached the file-transfer system used by a company that offers services to Nissan and Infiniti dealerships across North America. Nissan said there was no indication \"customer information was accessed or put at risk.\"",
-      "url": "https://therecord.media/nissan-hackers-data-breach",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-01T20:00:00+00:00",
-      "ttps": [
-        {
-          "id": "T1041",
-          "name": "Exfiltration Over C2 Channel",
-          "tactic": "Exfiltration",
-          "tactic_id": "TA0010"
-        }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CERT-UA Impersonation Campaign Spread AGEWHEEZE Malware to 1 Million Emails",
@@ -1007,44 +1180,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
-    },
-    {
-      "title": "Microsoft Warns of WhatsApp-Delivered VBS Malware Hijacking Windows via UAC Bypass",
-      "description": "Microsoft is calling attention to a new campaign that has leveraged WhatsApp messages to distribute malicious Visual Basic Script (VBS) files. The activity, beginning in late February 2026, leverages these scripts to initiate a multi-stage infection chain for establishing persistence and enabling remote access. It's currently not known what lures the threat actors use to trick users into",
-      "url": "https://thehackernews.com/2026/04/microsoft-warns-of-whatsapp-delivered.html",
-      "cve_id": null,
-      "source": "The Hacker News",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-01T14:10:00+00:00",
-      "ttps": [
-        {
-          "id": "T1059.005",
-          "name": "Visual Basic",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1548",
-          "name": "Abuse Elevation Control Mechanism",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
-        },
-        {
-          "id": "T1104",
-          "name": "Multi-Stage Channels",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "TeamPCP Supply Chain Campaign: Update 005 - First Confirmed Victim Disclosure, Post-Compromise Cloud Enumeration Documented, and Axios Attribution Narrows, (Wed, Apr 1st)",
@@ -1075,19 +1216,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
-    },
-    {
-      "title": "Block the Prompt, Not the Work: The End of \"Doctor No\"",
-      "description": "There is a character that keeps appearing in enterprise security departments, and most CISOs know exactly who that is. It doesn&rsquo;t build. It doesn&rsquo;t enable. Its entire function is to say \"No.\" No to ChatGPT. No to DeepSeek. No to the file-sharing tool the product team swears by. For years, this looked like security. But in 2026, \"Doctor No\" is no longer just a management headache &",
-      "url": "https://thehackernews.com/2026/04/block-prompt-not-work-end-of-doctor-no.html",
-      "cve_id": null,
-      "source": "The Hacker News",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-01T12:46:00+00:00",
-      "ttps": []
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "ISC Stormcast For Wednesday, April 1st, 2026 https://isc.sans.edu/podcastdetail/9874, (Wed, Apr 1st)",
@@ -1099,7 +1233,12 @@
       "severity": "low",
       "cvss_score": null,
       "published": "2026-04-01T02:05:11+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Application Control Bypass for Data Exfiltration, (Tue, Mar 31st)",
@@ -1124,7 +1263,12 @@
           "tactic": "Exfiltration",
           "tactic_id": "TA0010"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "ISC Stormcast For Tuesday, March 31st, 2026 https://isc.sans.edu/podcastdetail/9872, (Tue, Mar 31st)",
@@ -1136,7 +1280,12 @@
       "severity": "low",
       "cvss_score": null,
       "published": "2026-03-31T02:00:02+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "TeamPCP Supply Chain Campaign: Update 004 - Databricks Investigating Alleged Compromise, TeamPCP Runs Dual Ransomware Operations, and AstraZeneca Data Released, (Mon, Mar 30th)",
@@ -1173,7 +1322,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "DShield (Cowrie) Honeypot Stats and When Sessions Disconnect, (Mon, Mar 30th)",
@@ -1192,7 +1346,12 @@
           "tactic": "Reconnaissance",
           "tactic_id": "TA0043"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "‘CanisterWorm’ Springs Wiper Attack Targeting Iran",
@@ -1223,7 +1382,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Feds Disrupt IoT Botnets Behind Huge DDoS Attacks",
@@ -1248,7 +1412,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Iran-Backed Hackers Claim Wiper Attack on Medtech Firm Stryker",
@@ -1279,7 +1448,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Microsoft Patch Tuesday, March 2026 Edition",
@@ -1291,7 +1465,12 @@
       "severity": "critical",
       "cvss_score": null,
       "published": "2026-03-11T00:32:51+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "How AI Assistants are Moving the Security Goalposts",
@@ -1303,7 +1482,12 @@
       "severity": "medium",
       "cvss_score": null,
       "published": "2026-03-08T23:35:42+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Who is the Kimwolf Botmaster “Dort”?",
@@ -1328,7 +1512,12 @@
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CISA Issues Updated RESURGE Malware Analysis Highlighting a Stealthy but Active Threat",
@@ -1340,7 +1529,12 @@
       "severity": "high",
       "cvss_score": null,
       "published": "2026-02-26T12:00:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Immediate Action Required: CISA Issues Emergency Directive to Secure Cisco SD-WAN Systems",
@@ -1352,7 +1546,12 @@
       "severity": "high",
       "cvss_score": null,
       "published": "2026-02-25T12:00:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "‘Starkiller’ Phishing Service Proxies Real Login Pages, MFA",
@@ -1377,7 +1576,12 @@
           "tactic": "Defense Evasion",
           "tactic_id": "TA0005"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CISA Announces New Town Halls to Engage with Stakeholders on Cyber Incident Reporting for Critical Infrastructure",
@@ -1389,7 +1593,12 @@
       "severity": "critical",
       "cvss_score": null,
       "published": "2026-02-13T12:00:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Kimwolf Botnet Swamps Anonymity Network I2P",
@@ -1408,7 +1617,12 @@
           "tactic": "Resource Development",
           "tactic_id": "TA0042"
         }
-      ]
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CISA’s 2025 Year in Review: Driving Security and Resilience Across Critical Infrastructure",
@@ -1420,7 +1634,12 @@
       "severity": "critical",
       "cvss_score": null,
       "published": "2026-02-11T12:00:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Patch Tuesday, February 2026 Edition",
@@ -1432,7 +1651,12 @@
       "severity": "critical",
       "cvss_score": null,
       "published": "2026-02-10T21:49:53+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CISA Releases Guide to Help Critical Infrastructure Users Adopt More Secure Communication",
@@ -1444,7 +1668,12 @@
       "severity": "critical",
       "cvss_score": null,
       "published": "2026-02-10T12:00:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CISA Orders Federal Agencies to Strengthen Edge Device Security Amid Rising Cyber Threats",
@@ -1456,7 +1685,12 @@
       "severity": "high",
       "cvss_score": null,
       "published": "2026-02-05T12:00:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Please Don’t Feed the Scattered Lapsus ShinyHunters",
@@ -1468,7 +1702,12 @@
       "severity": "medium",
       "cvss_score": null,
       "published": "2026-02-02T16:15:16+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CISA Urges Critical Infrastructure Organizations to Take Action Against Insider Threats",
@@ -1480,7 +1719,12 @@
       "severity": "critical",
       "cvss_score": null,
       "published": "2026-01-28T12:00:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CISA Releases Product Categories List to Propel Post-Quantum Cryptography Adoption Pursuant to President Trump’s Executive Order 14306",
@@ -1492,7 +1736,12 @@
       "severity": "high",
       "cvss_score": null,
       "published": "2026-01-23T12:00:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CISA, UK NCSC, FBI Unveil Principles to Combat Cyber Risks in OT",
@@ -1504,7 +1753,12 @@
       "severity": "high",
       "cvss_score": null,
       "published": "2026-01-14T12:00:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CISA Retires Ten Emergency Directives, Marking an Era in Federal Cybersecurity",
@@ -1516,7 +1770,12 @@
       "severity": "high",
       "cvss_score": null,
       "published": "2026-01-08T12:00:00+00:00",
-      "ttps": []
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     }
   ]
 }

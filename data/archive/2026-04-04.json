@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-04T21:24:52.404218+00:00",
+  "last_updated": "2026-04-04T22:21:42.281821+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:59.286247+00:00",
+      "published": "2026-04-04T22:19:51.102413+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -32,9 +32,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing Go and exploiting public-facing applications. Its real-world impact includes data encryption and exfiltration, with a low number of victims listed on its Tor data leak site. The most important defender action is to secure public-facing applications against exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D --> E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing Go and exploiting public-facing applications. Its real-world impact includes data encryption and exfiltration, with a limited number of victims listed on its Tor data leak site. The most important defender action is to secure public-facing applications and monitor for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:59.286230+00:00",
+      "published": "2026-04-04T22:19:51.102391+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -63,7 +63,7 @@
         }
       ],
       "ai_summary": "The Qilin EDR killer is a multi-stage infection chain that targets endpoint detection and response systems, using a malicious 'msimg32.dll' to terminate over 300 EDR drivers. This allows attackers to bypass security measures and encrypt data for ransom. To defend against this threat, organizations should prioritize implementing robust EDR solutions and regularly updating their security software.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1055| D[Unmanaged Windows Services]:::tactic\n    D -->|T1218| E[Exploitation for Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -77,13 +77,13 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:59.286204+00:00",
+      "published": "2026-04-04T22:19:51.102347+00:00",
       "ttps": [],
-      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijackers through the Microsoft Store, leveraging typo-squatted domains to trick users into downloading malicious apps. This campaign exhibits tactics similar to VexTrio, highlighting the ongoing abuse of AdTech networks for malware delivery. Defenders should prioritize monitoring and filtering of Microsoft Store apps to prevent such infections.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1218| D[Persistence]:::tactic\n    D -->|T1172| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "A threat actor is abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick victims into downloading malicious apps. This campaign shares similarities with VexTrio and previous incidents. Defenders should monitor AdTech network abuse and Microsoft Store app downloads for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Signed malware impersonating workplace apps deploys RMM backdoors",
@@ -92,9 +92,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:59.286152+00:00",
+      "published": "2026-04-04T22:19:51.102319+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -121,11 +121,11 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Signed malware impersonating workplace apps deploys RMM backdoors via phishing campaigns, using digitally signed executables to install persistence tools. This allows attackers to maintain access and control over compromised systems. Defenders should prioritize monitoring for suspicious RMM tool activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "ai_summary": "The threat involves signed malware masquerading as legitimate workplace software, delivered through phishing campaigns, to deploy RMM backdoors. This allows attackers to establish persistence and gain remote access. The most important defender action is to implement robust email filtering and user education to prevent initial phishing attempts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Securing the Supply Chain: How SentinelOne's AI EDR Stops the ...",
@@ -136,7 +136,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:59.286116+00:00",
+      "published": "2026-04-04T22:19:51.102285+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -151,7 +151,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A North Korean state actor hijacked Axios npm credentials to deploy a cross-platform RAT via two backdoored releases. The attack affected Windows, macOS, and Linux systems, leveraging T1195 (Supply Chain Compromise) and T1219 (Remote Access Software). Defenders should prioritize validating software dependencies and monitoring for suspicious network activity.",
+      "ai_summary": "A North Korean state actor hijacked Axios's npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics, impacting approximately 100 million weekly downloads. Defenders should prioritize validating software dependencies and monitoring for suspicious network activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
@@ -166,7 +166,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:59.286090+00:00",
+      "published": "2026-04-04T22:19:51.102260+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -175,7 +175,7 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 via a 5-stage attack chain, using T1595.002 (Vulnerability Scanning) to gain initial access. This technique-based approach to HTTP body hunting can help identify web-delivered malware. Defenders should prioritize monitoring for T1595.002 to prevent similar attacks.",
+      "ai_summary": "A threat actor uses a 5-stage attack chain to deliver XWorm V5.6 via ClickFix campaign. The attack chain involves T1595.002 (Vulnerability Scanning) as the initial access method. Defenders should implement HTTP body hunting using Censys to detect and prevent similar attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -190,7 +190,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:59.286064+00:00",
+      "published": "2026-04-04T22:19:51.102232+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -229,9 +229,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The DPRK-related campaign uses LNK files with a multi-stage scripting process and GitHub as C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions having less obfuscation and metadata. Defenders should monitor GitHub for suspicious activity and implement controls to prevent LNK file execution.",
+      "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure to evade detection. The attacks employ a multi-stage scripting process and have been tracked since 2024. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -244,7 +244,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:59.286037+00:00",
+      "published": "2026-04-04T22:19:51.102206+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -259,7 +259,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors exploit geopolitical tensions to map and disrupt potential cyber operations by gathering victim host info and stealing or forging authentication certificates.",
+      "ai_summary": "Iranian state-aligned threat actors exploit heightened geopolitical tensions to map and disrupt potential cyber operations by gathering victim host info and stealing or forging authentication certificates.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -274,7 +274,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:59.286015+00:00",
+      "published": "2026-04-04T22:19:51.102185+00:00",
       "ttps": [
         {
           "id": "T1071",
@@ -289,8 +289,8 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "MuddyWater, an Iranian APT, uses reconnaissance, exploits vulnerabilities, and custom C2 frameworks to exfiltrate data from targets in multiple countries. Their tactics include Application Layer Protocol and Exfiltration Over C2 Channel. Defenders should focus on monitoring for suspicious network activity and blocking potential vulnerabilities.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Reconnaissance]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "MuddyWater, an Iranian APT, uses reconnaissance, exploits vulnerabilities, and custom C2 frameworks to exfiltrate data from targets in multiple countries. Their tactics include Application Layer Protocol and Exfiltration Over C2 Channel. Defenders should monitor for suspicious network activity and implement vulnerability patching.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Reconnaissance]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:59.285983+00:00",
+      "published": "2026-04-04T22:19:51.102153+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -332,15 +332,15 @@
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33910: OpenEMR is a free and open source electronic health records and medical practice...",
-      "description": "OpenEMR is a free and open source electronic health records and medical practice management application. Versions up to and including 8.0.0.2 contain a SQL injection vulnerability in the patient selection feature that can be exploited by authenticated attackers. The vulnerability exists due to insufficient input validation in the patient selection feature. Version 8.0.0.3 contains a patch.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33910",
-      "cve_id": "CVE-2026-33910",
+      "title": "CVE-2026-4825: A vulnerability was found in SourceCodester Sales and Inventory System 1.0. This...",
+      "description": "A vulnerability was found in SourceCodester Sales and Inventory System 1.0. This affects an unknown part of the file /update_sales.php of the component HTTP GET Parameter Handler. The manipulation of the argument sid results in sql injection. The attack may be launched remotely. The exploit has been made public and could be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4825",
+      "cve_id": "CVE-2026-4825",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.2,
-      "published": "2026-04-04T21:22:55.399146+00:00",
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-04T22:19:48.669272+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -349,7 +349,109 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-33910 is a SQL injection vulnerability in OpenEMR versions up to 8.0.0.2, allowing authenticated attackers to exploit it. This vulnerability can be patched by upgrading to version 8.0.0.3. Defenders should prioritize patching OpenEMR installations to prevent exploitation.",
+      "ai_summary": "CVE-2026-4825 is a publicly disclosed SQL injection vulnerability in SourceCodester Sales and Inventory System 1.0, exploitable via HTTP GET Parameter Handler. An attacker can remotely exploit this vulnerability to achieve an impact. Defenders should update the system to the latest version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.3,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33913: OpenEMR is a free and open source electronic health records and medical practice...",
+      "description": "OpenEMR is a free and open source electronic health records and medical practice management application. Prior to version 8.0.0.3, an authenticated user with access to the Carecoordination module can upload a crafted CCDA document containing `<xi:include href=\"file:///etc/passwd\" parse=\"text\"/>` to read arbitrary files from the server. Version 8.0.0.3 patches the issue.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33913",
+      "cve_id": "CVE-2026-33913",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.7,
+      "published": "2026-04-04T22:19:48.669257+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-33913 is a file inclusion vulnerability in OpenEMR prior to version 8.0.0.3, allowing an authenticated user to read arbitrary files. This vulnerability can be exploited by an attacker to gain sensitive information. Defenders should update OpenEMR to version 8.0.0.3 or later to mitigate this threat.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.7,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33912: OpenEMR is a free and open source electronic health records and medical practice...",
+      "description": "OpenEMR is a free and open source electronic health records and medical practice management application. Prior to version 8.0.0.3, an authenticated attacker could craft a malicious form that, when submitted by a victim, executes arbitrary JavaScript in the victim's browser session. Version 8.0.0.3 patches the issue.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33912",
+      "cve_id": "CVE-2026-33912",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-04T22:19:48.669240+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-33912 is a stored XSS vulnerability in OpenEMR prior to version 8.0.0.3, allowing an authenticated attacker to execute arbitrary JavaScript in the victim's browser session. This vulnerability is exploitable via a malicious form submission. Defenders should update OpenEMR to version 8.0.0.3 or later to mitigate this threat.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.4,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33911: OpenEMR is a free and open source electronic health records and medical practice...",
+      "description": "OpenEMR is a free and open source electronic health records and medical practice management application. Prior to version 8.0.0.3, the POST parameter `title` is reflected back in a JSON response built with `json_encode()`. Because the response is served with a `text/html` Content-Type, the browser interprets injected HTML/script tags rather than treating the output as JSON. An authenticated attack",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33911",
+      "cve_id": "CVE-2026-33911",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-04T22:19:48.669224+00:00",
+      "ttps": [
+        {
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-33911 is a reflected XSS vulnerability in OpenEMR prior to version 8.0.0.3, allowing an authenticated attacker to inject malicious HTML/script tags. This can lead to data theft or unauthorized actions. Defenders should update OpenEMR to version 8.0.0.3 or later.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    E -->|T1486| F[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.4,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33910: OpenEMR is a free and open source electronic health records and medical practice...",
+      "description": "OpenEMR is a free and open source electronic health records and medical practice management application. Versions up to and including 8.0.0.2 contain a SQL injection vulnerability in the patient selection feature that can be exploited by authenticated attackers. The vulnerability exists due to insufficient input validation in the patient selection feature. Version 8.0.0.3 contains a patch.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33910",
+      "cve_id": "CVE-2026-33910",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.2,
+      "published": "2026-04-04T22:19:48.669208+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-33910 is a SQL injection vulnerability in OpenEMR versions up to 8.0.0.2, allowing authenticated attackers to exploit it. This vulnerability can be patched by updating to version 8.0.0.3. Defenders should prioritize updating OpenEMR to the latest patched version.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -364,7 +466,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.9,
-      "published": "2026-04-04T21:22:55.399129+00:00",
+      "published": "2026-04-04T22:19:48.669190+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -373,11 +475,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-33909 is a SQL injection vulnerability in OpenEMR prior to version 8.0.0.3, allowing attackers to exploit public-facing applications. This vulnerability has a CVSS score of 5.9, indicating a medium severity impact. Defenders should update OpenEMR to version 8.0.0.3 or later to mitigate this threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.9,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-33348: OpenEMR is a free and open source electronic health records and medical practice...",
@@ -388,7 +490,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.7,
-      "published": "2026-04-04T21:22:55.399112+00:00",
+      "published": "2026-04-04T22:19:48.669166+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -397,11 +499,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The CVE-2026-33348 vulnerability in OpenEMR allows stored cross-site scripting (XSS) attacks via the 'Notes - my encounters' role, enabling threat actors to exploit public-facing applications. This vulnerability has a high CVSS score of 8.7, indicating a high severity threat. Defenders should prioritize patching versions prior to 8.0.0.3 to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-32120: OpenEMR is a free and open source electronic health records and medical practice...",
@@ -412,7 +514,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.5,
-      "published": "2026-04-04T21:22:55.399095+00:00",
+      "published": "2026-04-04T22:19:48.669145+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -421,11 +523,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-32120 is an Insecure Direct Object Reference (IDOR) vulnerability in OpenEMR, allowing authenticated users with fee sheet ACL access to delete, modify, or read arbitrary patient records. This vulnerability can be exploited using T1190 (Exploit Public-Facing Application). Defenders should prioritize patching OpenEMR to version 8.0.0.3 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-29187: OpenEMR is a free and open source electronic health records and medical practice...",
@@ -436,7 +538,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.1,
-      "published": "2026-04-04T21:22:55.399078+00:00",
+      "published": "2026-04-04T22:19:48.669117+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -445,11 +547,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-29187 is a Blind SQL Injection vulnerability in OpenEMR's Patient Search functionality, allowing authenticated attackers to execute arbitrary SQL commands. This vulnerability has a CVSS score of 8.1, indicating a high severity. Defenders should prioritize patching OpenEMR to version 8.0.0.3 or later to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2025-2535: Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering...",
@@ -460,82 +562,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-04T21:22:55.399059+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-4824: A vulnerability has been found in Enter Software Iperius Backup up to 8.7.3. Aff...",
-      "description": "A vulnerability has been found in Enter Software Iperius Backup up to 8.7.3. Affected by this issue is some unknown functionality of the component Backup Job Configuration File Handler. The manipulation leads to improper privilege management. The attack must be carried out locally. The attack is considered to have high complexity. The exploitation is known to be difficult. The exploit has been dis",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4824",
-      "cve_id": "CVE-2026-4824",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.0,
-      "published": "2026-04-04T21:22:55.399040+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-4823: A flaw has been found in Enter Software Iperius Backup up to 8.7.3. Affected by ...",
-      "description": "A flaw has been found in Enter Software Iperius Backup up to 8.7.3. Affected by this vulnerability is an unknown functionality of the component NTLM2 Handler. Executing a manipulation can lead to information disclosure. The attack is restricted to local execution. Attacks of this nature are highly complex. The exploitation appears to be difficult. The exploit has been published and may be used. Up",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4823",
-      "cve_id": "CVE-2026-4823",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": 2.5,
-      "published": "2026-04-04T21:22:55.399023+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2025-36187: IBM Knowledge Catalog Standard Cartridge 5.0.0, 5.0.1, 5.0.2, 5.0.3, 5.1, 5.1.1,...",
-      "description": "IBM Knowledge Catalog Standard Cartridge 5.0.0, 5.0.1, 5.0.2, 5.0.3, 5.1, 5.1.1, 5,1.2, 5.1.3, 5.2.0, 5.2.1 stores potentially sensitive information in log files that could be read by a local privileged user.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-36187",
-      "cve_id": "CVE-2025-36187",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.4,
-      "published": "2026-04-04T21:22:55.399001+00:00",
-      "ttps": [
-        {
-          "id": "T1068",
-          "name": "Exploitation for Privilege Escalation",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2025-14684: IBM Maximo Application Suite - Monitor Component 9.1, 9.0, 8.11, and 8.10 could ...",
-      "description": "IBM Maximo Application Suite - Monitor Component 9.1, 9.0, 8.11, and 8.10 could allow an unauthorized user to inject data into log messages due to improper neutralization of special elements when written to log files.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14684",
-      "cve_id": "CVE-2025-14684",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.0,
-      "published": "2026-04-04T21:22:55.398959+00:00",
+      "published": "2026-04-04T22:19:48.669066+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",

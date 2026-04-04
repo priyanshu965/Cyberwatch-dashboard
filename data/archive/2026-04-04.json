@@ -1,144 +1,281 @@
 {
-  "last_updated": "2026-04-04T19:27:04.239342+00:00",
-  "total_items": 65,
+  "last_updated": "2026-04-04T20:21:42.566170+00:00",
+  "total_items": 75,
   "items": [
     {
-      "title": "CVE-2026-33246: NATS-Server is a High-Performance server for NATS.io, a cloud and edge native me...",
-      "description": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. The nats-server offers a `Nats-Request-Info:` message header, providing information about a request. This is supposed to provide enough information to allow for account/user identification, such that NATS clients could make their own decisions on how to trust a message, provided that they trust the nats",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33246",
-      "cve_id": "CVE-2026-33246",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.4,
-      "published": "2026-04-04T19:24:37.695544+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33246 is a vulnerability in NATS-Server, a high-performance server for NATS.io, a cloud and edge native messaging system, with a CVSS score of 6.4. The vulnerability could potentially allow for unauthorized access or data breaches. To defend against this, users should prioritize updating their NATS-Server to the latest version and implementing additional security measures such as authentication and authorization mechanisms.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Initial Access| B[Initial Access]:::tactic\n    B -->|Execution| C[Execution]:::tactic\n    C -->|Persistence| D[Persistence]:::tactic\n    D -->|Exfiltration| E[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.4,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "CVE-2026-33219: NATS-Server is a High-Performance server for NATS.io, a cloud and edge native me...",
-      "description": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, a malicious client which can connect to the WebSockets port can cause unbounded memory use in the nats-server before authentication; this requires sending a corresponding amount of data. This is a milder variant of CVE-2026-27571. That earlier issue was a compressio",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33219",
-      "cve_id": "CVE-2026-33219",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-04T19:24:37.695527+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33219 is a vulnerability in NATS-Server that allows a malicious client to cause unbounded memory use before authentication, potentially leading to a denial-of-service. The impact is limited to the NATS-Server instance, and defenders should prioritize updating to versions 2.11.15 or 2.12.6 to mitigate the issue. Defenders should apply the patch as soon as possible to prevent potential disruptions.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation for Client Execution]:::tactic\n    B -->|T1499| C[Collection]:::tactic\n    C -->|T1082| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.3,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "CVE-2026-33218: NATS-Server is a High-Performance server for NATS.io, a cloud and edge native me...",
-      "description": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, a client which can connect to the leafnode port can crash the nats-server with a certain malformed message pre-authentication. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, disable leafnode support if not needed or restrict network connections to the l",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33218",
-      "cve_id": "CVE-2026-33218",
-      "source": "NVD",
-      "category": "cve",
+      "title": "North Korea-Nexus Threat Actor Compromises Widely Used Axios NPM Package in Supply Chain Attack",
+      "description": "Google Threat Intelligence Group (GTIG) is tracking an active software supply chain attack targeting the popular Node Package Manager (NPM) package \"axios.\" Between March 31, 2026, 00:21 and 03:20 UTC, an attacker introduced a malicious dependency named \"plain-crypto-js\" into axios NPM releases versions 1.14.1 and 0.30.4. Axios is the most popular JavaScript library used to simplify HTTP requests,",
+      "url": "https://otx.alienvault.com/pulse/69cd1d9aae74cc11b50ba18e",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-04T19:24:37.695510+00:00",
+      "cvss_score": null,
+      "published": "2026-04-04T20:19:51.115126+00:00",
       "ttps": [
         {
-          "id": "T1049",
-          "name": "System Network Connections Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
+          "id": "T1195",
+          "name": "Supply Chain Compromise",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-33218 is a high-severity vulnerability in NATS-Server, a cloud and edge native messaging system, allowing a client to crash the server with a malformed message pre-authentication. This issue affects versions prior to 2.11.15 and 2.12.6. To mitigate, disable leafnode support if not needed or restrict network connections to the leafnode port.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1049| B[System Network Connections Discovery]:::tactic\n    B -->|T1049| C[Execution]:::tactic\n    C -->|T1059.001| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The North Korea-nexus threat actor compromised the widely used Axios NPM package by introducing a malicious dependency, allowing for potential supply chain attacks. This attack can lead to unauthorized access and data breaches. To defend, developers should immediately review and update their dependencies to ensure they are not using the compromised Axios versions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "Stranger Strings: Yurei Ransomware Operator Toolkit Exposed",
+      "description": "Active since September 2025, Yurei is a double extortion ransomware campaign. The operators run their own Tor data leak site with a low number of victims listed at the time of writing. It is reportedly derived from Prince Ransomware, an open-source ransomware family written in Go. Check Point researchers noted that all samples were first submitted to VirusTotal from Morocco, and that one sample di",
+      "url": "https://otx.alienvault.com/pulse/69cd66412a30a525e66b507d",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-04T20:19:51.115100+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "tactic_id": "TA0010"
+        },
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing Go and exploiting public-facing applications. Its real-world impact includes data encryption and exfiltration, with a low number of victims listed on its Tor data leak site. The most important defender action is to secure public-facing applications and monitor for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "Cisco Talos: Qilin EDR killer infection chain",
+      "description": "Endpoint detection and response (EDR) tools are widely deployed and far more capable than traditional antivirus. As a result, attackers use EDR killers to disable or bypass them. The malicious “msimg32.dll” used in Qilin ransomware attacks, which is a multi-stage infection chain targeting EDR systems. It can terminate over 300 different EDR drivers from almost every vendor in the market.",
+      "url": "https://otx.alienvault.com/pulse/69ce8a077d7ad13478a8e495",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-04T20:19:51.115083+00:00",
+      "ttps": [
+        {
+          "id": "T1104",
+          "name": "Multi-Stage Channels",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        },
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "ai_summary": "The Qilin EDR killer is a multi-stage infection chain that targets endpoint detection and response systems, using a malicious 'msimg32.dll' to terminate over 300 EDR drivers. This allows attackers to bypass security measures and encrypt data for ransom. To defend against this threat, organizations should prioritize implementing robust EDR solutions and regularly updating their security software.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "Blurred Lines: AdTech Abuse Delivers Browser Hijackers Through the Microsoft Store",
+      "description": "A newly uncovered campaign abuses the Trillion (formerly Trellian) AdTech network, mimicking the flow of a Traffic Direction System (TDS) to trick visitors of typo-squatted domains into downloading Microsoft Store apps that contain browser hijacking malware. While the abuse of AdTech networks to deliver malware isn’t new, this campaign highlights incredibly similar tactics to VexTrio and previous ",
+      "url": "https://otx.alienvault.com/pulse/69cea64baa48265a8127fe22",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-04T20:19:51.115056+00:00",
+      "ttps": [],
+      "ai_summary": "A threat actor is abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick victims into downloading malicious apps. This campaign shares similarities with VexTrio and previous incidents. Defenders should monitor AdTech network abuse and Microsoft Store app downloads for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33217: NATS-Server is a High-Performance server for NATS.io, a cloud and edge native me...",
-      "description": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, when using ACLs on message subjects, these ACLs were not applied in the `$MQTT.>` namespace, allowing MQTT clients to bypass ACL checks for MQTT subjects. Versions 2.11.15 and 2.12.6 contain a fix. No known workarounds are available.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33217",
-      "cve_id": "CVE-2026-33217",
-      "source": "NVD",
-      "category": "cve",
+      "title": "Signed malware impersonating workplace apps deploys RMM backdoors",
+      "description": "Multiple phishing campaigns were identified using workplace meeting lures, PDF attachments, and abuse of legitimate binaries to deliver signed malware. The attacks used digitally signed executables masquerading as legitimate software to install remote monitoring and management (RMM) tools like ScreenConnect, Tactical RMM, and Mesh Agent. These tools enabled attackers to establish persistence and m",
+      "url": "https://otx.alienvault.com/pulse/69a77ace20faf9114cbb120b",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
       "severity": "high",
-      "cvss_score": 7.1,
-      "published": "2026-04-04T19:24:37.695490+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33217 is a high-severity vulnerability in NATS-Server, allowing MQTT clients to bypass ACL checks for MQTT subjects. This can lead to unauthorized access and data exposure. Defenders should update to versions 2.11.15 or 2.12.6 to mitigate the issue.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "cvss_score": null,
+      "published": "2026-04-04T20:19:51.115029+00:00",
+      "ttps": [
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1036",
+          "name": "Masquerading",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        },
+        {
+          "id": "T1219",
+          "name": "Remote Access Software",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        }
+      ],
+      "ai_summary": "Signed malware impersonating workplace apps deploys RMM backdoors via phishing campaigns, using digitally signed executables to install persistence tools. This allows attackers to maintain access and control over compromised systems. Defenders should prioritize monitoring for suspicious RMM tool activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "Securing the Supply Chain: How SentinelOne's AI EDR Stops the ...",
+      "description": "On March 31, 2026, a North Korean state actor hijacked the npm credentials of the primary Axios maintainer and published two backdoored releases that deployed a cross-platform remote access trojan (RAT) to Windows, macOS, and Linux systems. Axios is the most widely used HTTP client in the JavaScript ecosystem, with approximately 100 million weekly downloads and a presence in roughly 80% of cloud a",
+      "url": "https://otx.alienvault.com/pulse/69cf03e05f6b299dc3efd2cd",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-04T20:19:51.115004+00:00",
+      "ttps": [
+        {
+          "id": "T1195",
+          "name": "Supply Chain Compromise",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1219",
+          "name": "Remote Access Software",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        }
+      ],
+      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update dependencies to prevent similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "A Technique-Based Approach to Hunting Web-Delivered Malware",
+      "description": "This report presents a technique-based approach to HTTP body hunting using Censys that addresses this tension directly, and demonstrates its effectiveness by walking through a live discovery: a ClickFix campaign delivering XWorm V5.6 through a 5-stage attack chain.",
+      "url": "https://otx.alienvault.com/pulse/69cf8d0d1edba26a610bb8bd",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-04T20:19:51.114954+00:00",
+      "ttps": [
+        {
+          "id": "T1595.002",
+          "name": "Vulnerability Scanning",
+          "tactic": "Reconnaissance",
+          "tactic_id": "TA0043"
+        }
+      ],
+      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 via a 5-stage attack chain, using T1595.002 (Vulnerability Scanning) to gain initial access. This technique-based approach to HTTP body hunting is effective in discovering web-delivered malware. Defenders should prioritize monitoring for T1595.002 to prevent similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33216: NATS-Server is a High-Performance server for NATS.io, a cloud and edge native me...",
-      "description": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, for MQTT deployments using usercodes/passwords: MQTT passwords are incorrectly classified as a non-authenticating identity statement (JWT) and exposed via monitoring endpoints. Versions 2.11.14 and 2.12.6 contain a fix. As a workaround, ensure monitoring end-points ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33216",
-      "cve_id": "CVE-2026-33216",
-      "source": "NVD",
-      "category": "cve",
+      "title": "DPRK-Related Campaigns with LNK and GitHub C2",
+      "description": "FortiGuard Labs recently detected a series of LNK files targeting users in South Korea. These attacks use a multi-stage scripting process and leverage GitHub as Command and Control (C2) infrastructure to evade detection. Although these LNK files can be traced back to 2024, earlier versions had less obfuscation and contained significant metadata, allowing us to track similar attacks spreading the X",
+      "url": "https://otx.alienvault.com/pulse/69cfceee4f7a6c4305b3d1a4",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
       "severity": "high",
-      "cvss_score": 8.6,
-      "published": "2026-04-04T19:24:37.695474+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33216 is a high-severity vulnerability in NATS-Server, allowing exposure of MQTT passwords via monitoring endpoints. This issue affects versions prior to 2.11.15 and 2.12.6. To mitigate, ensure monitoring endpoints are secured.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "cvss_score": null,
+      "published": "2026-04-04T20:19:51.114931+00:00",
+      "ttps": [
+        {
+          "id": "T1583.006",
+          "name": "Web Services",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1027",
+          "name": "Obfuscated Files or Information",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        },
+        {
+          "id": "T1562",
+          "name": "Impair Defenses",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        },
+        {
+          "id": "T1071",
+          "name": "Application Layer Protocol",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        },
+        {
+          "id": "T1102",
+          "name": "Web Service",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        },
+        {
+          "id": "T1104",
+          "name": "Multi-Stage Channels",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        }
+      ],
+      "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure to evade detection. The attacks employ a multi-stage scripting process and have been traced back to 2024. Defenders should monitor GitHub for suspicious activity and block LNK files.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-29785: NATS-Server is a High-Performance server for NATS.io, a cloud and edge native me...",
-      "description": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.14 and 2.12.5, if the nats-server has the \"leafnode\" configuration enabled (not default), then anyone who can connect can crash the nats-server by triggering a panic. This happens pre-authentication and requires that compression be enabled (which it is, by default, when leafnodes ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29785",
-      "cve_id": "CVE-2026-29785",
-      "source": "NVD",
-      "category": "cve",
+      "title": "Iranian APT Infrastructure in Focus: Mapping State-Aligned Clusters During Geopolitical Escalation",
+      "description": "The analysis examines Iranian state-aligned threat actors and their infrastructure patterns during heightened geopolitical tensions. It focuses on mapping network infrastructure, ASN patterns, TLS fingerprints, and hosting clusters associated with various Iranian APT groups. The report highlights the importance of proactive infrastructure monitoring to detect and disrupt potential cyber operations",
+      "url": "https://otx.alienvault.com/pulse/69a88b31c4401f717710f864",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-04T19:24:37.695457+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-29785 is a high-severity vulnerability in NATS-Server, a cloud and edge native messaging system, allowing pre-authentication crash attacks via panic triggering. This occurs when 'leafnode' configuration is enabled and compression is enabled by default. Defenders should update to versions 2.11.14 and 2.12.5 to mitigate this threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-27889: NATS-Server is a High-Performance server for NATS.io, a cloud and edge native me...",
-      "description": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Starting in version 2.2.0 and prior to versions 2.11.14 and 2.12.5, a missing sanity check on a WebSockets frame could trigger a server panic in the nats-server.  This happens before authentication, and so is exposed to anyone who can connect to the websockets port. Versions 2.11.14 and 2.12.5 contains ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27889",
-      "cve_id": "CVE-2026-27889",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-04T19:24:37.695441+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-27889 is a high-severity vulnerability in NATS-Server, a cloud and edge native messaging system, allowing unauthenticated attackers to trigger a server panic via a missing sanity check on a WebSockets frame. This vulnerability affects versions 2.2.0 to 2.11.14 and 2.12.5. To defend, update to patched versions 2.11.14 or 2.12.5.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1210| C[Initial Access]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2025-70888: An issue in mtrojnar Osslsigncode affected at v2.10 and before allows a remote a...",
-      "description": "An issue in mtrojnar Osslsigncode affected at v2.10 and before allows a remote attacker to escalate privileges via the osslsigncode.c component",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70888",
-      "cve_id": "CVE-2025-70888",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-04T19:24:37.695423+00:00",
+      "cvss_score": null,
+      "published": "2026-04-04T20:19:51.114903+00:00",
       "ttps": [
+        {
+          "id": "T1592",
+          "name": "Gather Victim Host Info",
+          "tactic": "Reconnaissance",
+          "tactic_id": "TA0043"
+        },
         {
           "id": "T1649",
           "name": "Steal or Forge Authentication Certificates",
@@ -146,45 +283,251 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2025-70888 is a remote privilege escalation vulnerability in mtrojnar Osslsigncode v2.10 and before. An attacker can exploit this issue to escalate privileges via the osslsigncode.c component. Defenders should update mtrojnar Osslsigncode to a version after v2.10 to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
+      "ai_summary": "Iranian state-aligned threat actors are gathering victim host info and stealing or forging authentication certificates, highlighting the need for proactive infrastructure monitoring to detect and disrupt potential cyber operations.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-14790: IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 could allow an attac...",
-      "description": "IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 could allow an attacker to obtain sensitive information due to insufficiently protected credentials.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14790",
-      "cve_id": "CVE-2025-14790",
+      "title": "MuddyWater Exposed: Inside an Iranian APT operation",
+      "description": "Researchers identified and analyzed exposed infrastructure of MuddyWater, an Iranian cyber espionage group linked to the Ministry of Intelligence and Security. The investigation revealed their reconnaissance methods, exploitation of vulnerabilities, custom command and control frameworks, and exfiltration techniques. Targets included organizations in Israel, Jordan, Egypt, UAE, Portugal, and the US",
+      "url": "https://otx.alienvault.com/pulse/69a99ec6f661182b3a0c1aa5",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-04T20:19:51.114872+00:00",
+      "ttps": [
+        {
+          "id": "T1071",
+          "name": "Application Layer Protocol",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        },
+        {
+          "id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "tactic_id": "TA0010"
+        }
+      ],
+      "ai_summary": "MuddyWater, an Iranian APT, uses reconnaissance, exploits vulnerabilities, and custom C2 frameworks to exfiltrate data from targets in multiple countries. Their tactics include Application Layer Protocol and Exfiltration Over C2 Channel. Defenders should monitor for suspicious network activity and implement vulnerability patching.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Reconnaissance]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-36438: IBM Concert 1.0.0 through 2.2.0 could allow a privileged user to perform unautho...",
+      "description": "IBM Concert 1.0.0 through 2.2.0 could allow a privileged user to perform unauthorized actions due to improper restriction of channel communication to intended endpoints.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-36438",
+      "cve_id": "CVE-2025-36438",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.1,
+      "published": "2026-04-04T20:19:48.483695+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2025-36438 is a privilege escalation vulnerability in IBM Concert 1.0.0 through 2.2.0, allowing a privileged user to perform unauthorized actions. This vulnerability is caused by improper restriction of channel communication to intended endpoints. To defend, restrict channel communication to intended endpoints and monitor for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1068| C[Privilege Escalation]:::tactic\n    C -->|T1071| D[Account Manipulation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-36422: IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 IBM InfoSphere DataS...",
+      "description": "IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 IBM InfoSphere DataStage Flow Designer is vulnerable to cross-site request forgery which could allow an attacker to execute malicious and unauthorized actions transmitted from a user that the website trusts.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-36422",
+      "cve_id": "CVE-2025-36422",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-04T20:19:48.483678+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2025-36422 is a cross-site request forgery vulnerability in IBM InfoSphere Information Server, allowing attackers to execute malicious actions. This vulnerability has a CVSS score of 4.3, indicating a medium severity threat. Defenders should prioritize patching affected systems to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-36258: IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 product stores user ...",
+      "description": "IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 product stores user credentials and other sensitive information in plain text which can be read by a local user.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-36258",
+      "cve_id": "CVE-2025-36258",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.1,
+      "published": "2026-04-04T20:19:48.483661+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2025-36258 is a local privilege escalation vulnerability in IBM InfoSphere Information Server, allowing a local user to read sensitive information in plain text. This vulnerability has a CVSS score of 7.1, indicating a high severity. To defend against this vulnerability, ensure that sensitive information is properly encrypted and access controls are in place.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Initial Access]:::tactic\n    B -->|T1068| C[Execution]:::tactic\n    C -->|T1070| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-14974: IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 is vulnerable due to...",
+      "description": "IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 is vulnerable due to Insecure Direct Object Reference (IDOR).",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14974",
+      "cve_id": "CVE-2025-14974",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.7,
+      "published": "2026-04-04T20:19:48.483638+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2025-14974 is a vulnerability in IBM InfoSphere Information Server due to Insecure Direct Object Reference (IDOR), allowing unauthorized access. This vulnerability has a CVSS score of 5.7, indicating a medium severity impact. Defenders should prioritize patching the affected versions to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Command and Control]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Application Access]:::tactic\n    D -->|T1068| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.7,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-14917: IBM WebSphere Application Server - Liberty 17.0.0.3 through 26.0.0.3 IBM WebSphe...",
+      "description": "IBM WebSphere Application Server - Liberty 17.0.0.3 through 26.0.0.3 IBM WebSphere Application Server Liberty could provide weaker than expected security when administering security settings.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14917",
+      "cve_id": "CVE-2025-14917",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.7,
+      "published": "2026-04-04T20:19:48.483622+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2025-14917 is a security vulnerability in IBM WebSphere Application Server - Liberty, allowing weaker security when administering security settings. This could lead to unauthorized access or data breaches. Defenders should update to a fixed version to mitigate this risk.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Vulnerability Scanning]:::tactic\n    B -->|T1068| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Application Access]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.7,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-14915: IBM WebSphere Application Server - Liberty 17.0.0.3 through 26.0.0.3 IBM WebSphe...",
+      "description": "IBM WebSphere Application Server - Liberty 17.0.0.3 through 26.0.0.3 IBM WebSphere Application Server Liberty is affected by privilege escalation. A privileged user could gain additional access to the application server.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14915",
+      "cve_id": "CVE-2025-14915",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.5,
-      "published": "2026-04-04T19:24:37.695401+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2025-14790 is a vulnerability in IBM InfoSphere Information Server that allows attackers to obtain sensitive information due to insufficiently protected credentials. This vulnerability has a CVSS score of 6.5, indicating a medium severity impact. Defenders should prioritize patching affected systems to prevent unauthorized access.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1168| B[Credential Dumping]:::tactic\n    B -->|T1552| C[Impair Defenses]:::tactic\n    C -->|T1071| D[Application Access]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "published": "2026-04-04T20:19:48.483606+00:00",
+      "ttps": [
+        {
+          "id": "T1068",
+          "name": "Exploitation for Privilege Escalation",
+          "tactic": "Privilege Escalation",
+          "tactic_id": "TA0004"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2025-12708: IBM Concert 1.0.0 through 2.2.0 contains hard-coded credentials that could be ob...",
-      "description": "IBM Concert 1.0.0 through 2.2.0 contains hard-coded credentials that could be obtained by a local user.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-12708",
-      "cve_id": "CVE-2025-12708",
+      "title": "CVE-2025-14912: IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 is vulnerable to ser...",
+      "description": "IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 is vulnerable to server-side request forgery (SSRF). This may allow an authenticated attacker to send unauthorized requests from the system, potentially leading to network enumeration or facilitating other attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14912",
+      "cve_id": "CVE-2025-14912",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.2,
-      "published": "2026-04-04T19:24:37.695355+00:00",
+      "cvss_score": 5.4,
+      "published": "2026-04-04T20:19:48.483589+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2025-14810: IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 does not invalidate ...",
+      "description": "IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 does not invalidate a session after privileges have been modified which could allow an authenticated user to retain access to sensitive information. CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L CWE: CWE-613: Insufficient Session Expiration CVSS Source: IBM CVSS Base score: 6.3 CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L)",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14810",
+      "cve_id": "CVE-2025-14810",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-04T20:19:48.483570+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2025-14808: IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 could allow an attac...",
+      "description": "IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 could allow an attacker to obtain sensitive information from the query string of an HTTP GET method to process a request which could be obtained using man in the middle techniques.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14808",
+      "cve_id": "CVE-2025-14808",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "low",
+      "cvss_score": 3.1,
+      "published": "2026-04-04T20:19:48.483545+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2025-12708 is a hard-coded credentials vulnerability in IBM Concert 1.0.0 through 2.2.0, allowing local users to obtain sensitive information. This vulnerability has a CVSS score of 6.2, indicating a medium severity impact. Defenders should update IBM Concert to a patched version to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1212| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1021| D[Remote Services]:::tactic\n    D -->|T1210| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2025-14807: IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 is vulnerable to HTT...",
+      "description": "IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 is vulnerable to HTTP header injection, caused by improper validation of input by the HOST headers. This could allow an attacker to conduct various attacks against the vulnerable system, including cross-site scripting, cache poisoning or session hijacking.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14807",
+      "cve_id": "CVE-2025-14807",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-04T20:19:48.483498+00:00",
+      "ttps": [
+        {
+          "id": "T1539",
+          "name": "Steal Web Session Cookie",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        },
+        {
+          "id": "T1563",
+          "name": "Remote Service Session Hijacking",
+          "tactic": "Lateral Movement",
+          "tactic_id": "TA0008"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Device code phishing attacks surge 37x as new kits spread online",
@@ -193,7 +536,7 @@
       "cve_id": null,
       "source": "Bleeping Computer",
       "category": "incident",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": null,
       "published": "2026-04-04T14:17:38+00:00",
       "ttps": [
@@ -210,11 +553,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "Device code phishing attacks exploit OAuth 2.0 vulnerabilities to hijack accounts, resulting in a 37x surge in incidents. This tactic compromises user accounts, enabling threat actors to access sensitive information. Defenders should prioritize implementing OAuth 2.0 security best practices.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1586| C[Compromise Accounts]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "LinkedIn secretly scans for 6,000+ Chrome extensions, collects data",
@@ -227,11 +570,11 @@
       "cvss_score": null,
       "published": "2026-04-03T20:40:22+00:00",
       "ttps": [],
-      "ai_summary": "LinkedIn secretly scans for over 6,000 Chrome extensions and collects device data from visitors, posing a potential privacy risk. This behavior is technically a form of browser fingerprinting, which can be used to track users across the web. Defenders should ensure their users are aware of this practice and consider using browser extensions that block such tracking.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "FCC proposes $4.5 million fine for voice service provider hosting ‘suspicious’ foreign call traffic",
@@ -251,11 +594,11 @@
           "tactic_id": "TA0004"
         }
       ],
-      "ai_summary": "The threat actor exploited Voxbeam's non-compliant and long dormant accounts to make 'financial impersonation robocalls' to American consumers. This attack leveraged T1134 (Access Token Manipulation) to gain unauthorized access. Defenders should prioritize monitoring and securing dormant accounts to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1134| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CISA gives agencies two weeks to patch video conferencing bug exploited by Chinese hackers",
@@ -268,11 +611,11 @@
       "cvss_score": null,
       "published": "2026-04-03T19:45:00+00:00",
       "ttps": [],
-      "ai_summary": "Chinese hackers are exploiting a video conferencing software bug, prompting the US government to order agencies to patch the vulnerability within two weeks. This bug allows hackers to gain unauthorized access to sensitive information. Agencies must prioritize patching this vulnerability to prevent potential data breaches.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "EU cyber agency attributes major data breach to TeamPCP hacking group",
@@ -285,11 +628,11 @@
       "cvss_score": null,
       "published": "2026-04-03T18:15:00+00:00",
       "ttps": [],
-      "ai_summary": "The TeamPCP hacking group is behind a major data breach at the European Commission. The breach is attributed to the group's malicious activities. Defenders should prioritize monitoring for TeamPCP's tactics, techniques, and procedures (TTPs).",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Hims & Hers warns of data breach after Zendesk support ticket breach",

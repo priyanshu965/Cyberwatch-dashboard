@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-04T13:47:21.348399+00:00",
+  "last_updated": "2026-04-04T14:28:23.977205+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T13:45:30.804295+00:00",
+      "published": "2026-04-04T14:26:28.188903+00:00",
       "ttps": [
         {
           "id": "T1608",
@@ -32,7 +32,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Xloader is an information stealing malware that targets web browsers, email clients, and FTP applications, with capabilities to execute arbitrary commands and download second-stage payloads. The malware uses obfuscation methods to evade detection, making it challenging for defenders to identify and mitigate. To defend against Xloader, it is essential to implement robust endpoint detection and response systems to detect and block suspicious activity.",
+      "ai_summary": "Xloader is an information stealing malware that targets web browsers, email clients, and FTP applications, with capabilities to execute arbitrary commands and download second-stage payloads. Its recent updates, such as version 8.7, continue to incorporate obfuscation methods, making it challenging for defenders to detect. To counter Xloader, defenders should prioritize monitoring for suspicious network activity and implementing robust endpoint detection and response systems.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Defense Evasion]:::tactic\n    B -->|T1608| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1027| E[Persistence]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T13:45:30.804238+00:00",
+      "published": "2026-04-04T14:26:28.188877+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -56,7 +56,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The North Korea-nexus threat actor compromised the widely used Axios NPM package by introducing a malicious dependency, allowing for potential supply chain attacks. This attack can lead to unauthorized access and data breaches. Defenders should immediately update or patch their Axios NPM packages to prevent exploitation.",
+      "ai_summary": "The North Korea-nexus threat actor compromised the widely used Axios NPM package by introducing a malicious dependency, allowing for potential supply chain attacks. This attack can lead to unauthorized access and data breaches. To defend, developers should immediately review and update their dependencies to ensure they are not using the compromised Axios versions.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -71,7 +71,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T13:45:30.804212+00:00",
+      "published": "2026-04-04T14:26:28.188850+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -92,11 +92,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing Go and exploiting public-facing applications. Its real-world impact includes data encryption and exfiltration, with a low number of victims listed on its Tor data leak site. The most important defender action is to secure public-facing applications against exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D --> E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Yurei ransomware is a double extortion campaign using a custom toolkit derived from Prince Ransomware. It exploits public-facing applications and exfiltrates data over C2 channels. Defenders should monitor for suspicious activity from Morocco and Morocco-based IP addresses.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Cisco Talos: Qilin EDR killer infection chain",
@@ -107,7 +107,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T13:45:30.804191+00:00",
+      "published": "2026-04-04T14:26:28.188828+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -122,9 +122,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Qilin ransomware uses a multi-stage infection chain to target EDR systems, disabling or bypassing them to maintain persistence. The infection chain terminates over 300 different EDR drivers from various vendors. Defenders should prioritize monitoring for EDR killer activity to prevent Qilin ransomware infections.",
+      "ai_summary": "The Qilin EDR killer infection chain is a multi-stage attack targeting endpoint detection and response (EDR) tools, disabling or bypassing them to facilitate ransomware attacks. The attack uses a malicious DLL to terminate over 300 EDR drivers from various vendors. Defenders should prioritize updating EDR tools and monitoring for suspicious activity related to EDR driver termination.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -137,9 +137,9 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T13:45:30.804167+00:00",
+      "published": "2026-04-04T14:26:28.188804+00:00",
       "ttps": [],
-      "ai_summary": "A threat actor is abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick users into downloading malicious apps. This campaign shares similarities with VexTrio and previous incidents. Defenders should monitor AdTech network abuse and Microsoft Store app downloads for suspicious activity.",
+      "ai_summary": "A threat actor abuses the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick victims into downloading malicious apps. This campaign employs tactics similar to VexTrio and previous incidents. Defenders should monitor AdTech network abuse and Microsoft Store app downloads for suspicious activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -154,7 +154,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T13:45:30.804141+00:00",
+      "published": "2026-04-04T14:26:28.188777+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -196,7 +196,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-04T13:45:30.804117+00:00",
+      "published": "2026-04-04T14:26:28.188753+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -211,7 +211,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update their Axios dependencies.",
+      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update their npm dependencies.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
@@ -226,7 +226,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T13:45:30.804091+00:00",
+      "published": "2026-04-04T14:26:28.188727+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -235,7 +235,7 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 via a 5-stage attack chain, leveraging T1595.002 (Vulnerability Scanning) for initial access. This technique-based approach to HTTP body hunting using Censys is effective in discovering web-delivered malware. Defenders should prioritize monitoring for T1595.002 to prevent similar attacks.",
+      "ai_summary": "The threat is a ClickFix campaign delivering XWorm V5.6 through a 5-stage attack chain. This campaign uses a technique-based approach to HTTP body hunting, leveraging Censys to identify and exploit vulnerabilities. Defenders should prioritize monitoring for T1595.002 (Vulnerability Scanning) to prevent initial access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -250,7 +250,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T13:45:30.804068+00:00",
+      "published": "2026-04-04T14:26:28.188704+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -289,9 +289,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The DPRK-related campaign uses LNK files with a multi-stage scripting process and GitHub as C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions containing less obfuscation and metadata. Defenders should monitor for similar attacks and track GitHub usage for potential C2 infrastructure.",
+      "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure to evade detection. The attacks employ a multi-stage scripting process and have been tracked since 2024. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T13:45:30.804035+00:00",
+      "published": "2026-04-04T14:26:28.188670+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -326,114 +326,136 @@
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-3119: Under certain conditions, `named` may crash when processing a correctly signed q...",
-      "description": "Under certain conditions, `named` may crash when processing a correctly signed query containing a TKEY record. The affected code can only be reached if an incoming request has a valid transaction signature (TSIG) from a key declared in the `named` configuration.\nThis issue affects BIND 9 versions 9.20.0 through 9.20.20, 9.21.0 through 9.21.19, and 9.20.9-S1 through 9.20.20-S1.\nBIND 9 versions 9.18",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3119",
-      "cve_id": "CVE-2026-3119",
+      "title": "CVE-2026-1917: Authentication Bypass Using an Alternate Path or Channel vulnerability in Drupal...",
+      "description": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Drupal Login Disable allows Functionality Bypass.This issue affects Login Disable: from 0.0.0 before 2.1.3.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1917",
+      "cve_id": "CVE-2026-1917",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-04T13:45:28.073120+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-3119 is a denial-of-service vulnerability in BIND 9 versions 9.20.0-9.20.20, 9.21.0-9.21.19, and 9.20.9-S1-9.20.20-S1. An attacker can crash the `named` service by sending a correctly signed query containing a TKEY record. Defenders should update to a patched version of BIND 9 to prevent this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1204| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1068| D[Discovery]:::tactic\n    D -->|T1190| E[Exploitation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-3104: A specially crafted domain can be used to cause a memory leak in a BIND resolver...",
-      "description": "A specially crafted domain can be used to cause a memory leak in a BIND resolver simply by querying this domain.\nThis issue affects BIND 9 versions 9.20.0 through 9.20.20, 9.21.0 through 9.21.19, and 9.20.9-S1 through 9.20.20-S1.\nBIND 9 versions 9.18.0 through 9.18.46 and 9.18.11-S1 through 9.18.46-S1 are NOT affected.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3104",
-      "cve_id": "CVE-2026-3104",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-04T13:45:28.073104+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-3104 is a memory leak vulnerability in BIND 9 resolver versions 9.20.0-9.20.20, 9.21.0-9.21.19, and 9.20.9-S1-9.20.20-S1. An attacker can cause a memory leak by querying a specially crafted domain, potentially leading to a denial-of-service condition. Defenders should update to a patched version of BIND 9 to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1210| C[Reconnaissance]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-28529: cryptodev-linux version 1.14 and prior contain a page reference handling flaw in...",
-      "description": "cryptodev-linux version 1.14 and prior contain a page reference handling flaw in the get_userbuf function of the /dev/crypto device driver that allows local users to trigger use-after-free conditions. Attackers with access to the /dev/crypto interface can repeatedly decrement reference counts of controlled pages to achieve local privilege escalation.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28529",
-      "cve_id": "CVE-2026-28529",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-04T13:45:28.073088+00:00",
+      "cvss_score": 4.3,
+      "published": "2026-04-04T14:26:24.897829+00:00",
       "ttps": [
         {
-          "id": "T1068",
-          "name": "Exploitation for Privilege Escalation",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-28529 is a local privilege escalation vulnerability in cryptodev-linux version 1.14 and prior, allowing attackers to repeatedly decrement reference counts of controlled pages. This flaw can be exploited by attackers with access to the /dev/crypto interface to achieve local privilege escalation. Defenders should update cryptodev-linux to a version 1.15 or later to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1068| B[Exploitation for Privilege Escalation]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-1917 is an Authentication Bypass Using an Alternate Path or Channel vulnerability in Drupal's Login Disable feature, affecting versions 0.0.0 before 2.1.3. This issue allows attackers to bypass authentication, potentially leading to unauthorized access. Defenders should update Drupal to version 2.1.3 or later to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2024-58341: OpenCart Core 4.0.2.3 contains a SQL injection vulnerability that allows unauthe...",
+      "description": "OpenCart Core 4.0.2.3 contains a SQL injection vulnerability that allows unauthenticated attackers to manipulate database queries by injecting SQL code through the 'search' parameter. Attackers can send GET requests to the product search endpoint with malicious 'search' values to extract sensitive database information using boolean-based blind or time-based blind SQL injection techniques.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-58341",
+      "cve_id": "CVE-2024-58341",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.2,
+      "published": "2026-04-04T14:26:24.897812+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2024-58341 is a SQL injection vulnerability in OpenCart Core 4.0.2.3, allowing unauthenticated attackers to manipulate database queries. Attackers can extract sensitive database information using boolean-based or time-based blind SQL injection techniques. Defenders should update OpenCart to a patched version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-1519: If a BIND resolver is performing DNSSEC validation and encounters a maliciously ...",
-      "description": "If a BIND resolver is performing DNSSEC validation and encounters a maliciously crafted zone, the resolver may consume excessive CPU. Authoritative-only servers are generally unaffected, although there are circumstances where authoritative servers may make recursive queries (see: https://kb.isc.org/docs/why-does-my-authoritative-server-make-recursive-queries).\nThis issue affects BIND 9 versions 9.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1519",
-      "cve_id": "CVE-2026-1519",
+      "title": "CVE-2026-4363: GitLab has remediated an issue in GitLab EE affecting all versions from 18.1 bef...",
+      "description": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.1 before 18.8.7, 18.9 before 18.9.3, and 18.10 before 18.10.1 that under certain conditions could have allowed an authenticated user to gain unauthorized access to resources due to improper caching of authorization decisions.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4363",
+      "cve_id": "CVE-2026-4363",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-04T13:45:28.073068+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-1519 is a high-severity vulnerability in BIND 9 that allows maliciously crafted zones to consume excessive CPU during DNSSEC validation. This issue primarily affects recursive resolvers, with authoritative-only servers being generally unaffected. Defenders should update to the latest BIND 9 version to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1210| C[Reconnaissance]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "severity": "medium",
+      "cvss_score": 3.7,
+      "published": "2026-04-04T14:26:24.897795+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-4363 is a vulnerability in GitLab EE that allows an authenticated user to gain unauthorized access to resources due to improper caching of authorization decisions. This issue affects all versions from 18.1 before 18.8.7, 18.9 before 18.9.3, and 18.10 before 18.10.1. To defend, ensure all affected versions are updated to the latest patched version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-40842: Ericsson Indoor Connect 8855 versions prior to 2025.Q3 contains a\nCross-Site Scr...",
-      "description": "Ericsson Indoor Connect 8855 versions prior to 2025.Q3 contains a\nCross-Site Scripting (XSS) vulnerability which, if exploited, can lead to\nunauthorized disclosure and modification of certain information.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40842",
-      "cve_id": "CVE-2025-40842",
+      "title": "CVE-2026-3126: Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering...",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3126",
+      "cve_id": "CVE-2026-3126",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-04T13:45:28.073052+00:00",
+      "severity": "low",
+      "cvss_score": null,
+      "published": "2026-04-04T14:26:24.897778+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2025-40842 is a Cross-Site Scripting (XSS) vulnerability in Ericsson Indoor Connect 8855 versions prior to 2025.Q3, allowing unauthorized disclosure and modification of information. Exploitation can occur through unspecified vectors. Defenders should update to the latest version to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1068| C[Discovery]:::tactic\n    C -->|T1210| D[Remote Services]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
+      "ai_summary": "CVE-2026-3126 is a rejected CVE ID, indicating it has been withdrawn by its authority. This has no technical impact, but it's essential to remove or update references to this non-existent vulnerability. Defender action: Review and update vulnerability management databases.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059| B[Initial Access]:::tactic\n    B -->|T1068| C[Discovery]:::tactic\n    C -->|T1082| D[Execution]:::tactic\n    D -->|T1204| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 1.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-40841: Ericsson Indoor Connect 8855 versions prior to 2025.Q3 contains a\nCross-Site Req...",
-      "description": "Ericsson Indoor Connect 8855 versions prior to 2025.Q3 contains a\nCross-Site Request Forgery (CSRF) vulnerability which, if exploited, can lead\nto unauthorized modification of certain information.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40841",
-      "cve_id": "CVE-2025-40841",
+      "title": "CVE-2026-33268: Nanoleaf Lines 12.3.2 does not authenticate firmware file uploads. A remote, una...",
+      "description": "Nanoleaf Lines 12.3.2 does not authenticate firmware file uploads. A remote, unauthenticated attacker can upload firmware files on the device and consume storage resources. Fixed in 12.3.6.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33268",
+      "cve_id": "CVE-2026-33268",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 4.3,
-      "published": "2026-04-04T13:45:28.073035+00:00",
-      "ttps": [],
+      "cvss_score": 6.5,
+      "published": "2026-04-04T14:26:24.897759+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-33268 is a remote, unauthenticated firmware upload vulnerability in Nanoleaf Lines 12.3.2, allowing attackers to consume storage resources. This vulnerability can be exploited using T1190 (Exploit Public-Facing Application). Defenders should update to version 12.3.6 to mitigate this issue.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1190| C[Execution]:::tactic\n    C -->|T1210| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-26830: pdf-image (npm package) through version 2.0.0 allows OS command injection via th...",
+      "description": "pdf-image (npm package) through version 2.0.0 allows OS command injection via the pdfFilePath parameter. The constructGetInfoCommand and constructConvertCommandForPage functions use util.format() to interpolate user-controlled file paths into shell command strings that are executed via child_process.exec()",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26830",
+      "cve_id": "CVE-2026-26830",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-04T14:26:24.897744+00:00",
+      "ttps": [
+        {
+          "id": "T1059.004",
+          "name": "Unix Shell",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -441,32 +463,68 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2025-27260: Ericsson\nIndoor Connect 8855 versions prior to 2025.Q3 contains an Improper Filt...",
-      "description": "Ericsson\nIndoor Connect 8855 versions prior to 2025.Q3 contains an Improper Filtering of Special\nElements vulnerability which, if exploited, can lead to unauthorized\nmodification of certain information",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-27260",
-      "cve_id": "CVE-2025-27260",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-04T13:45:28.073017+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2024-51348: A stack-based buffer overflow vulnerability in the P2P API service in BS Product...",
-      "description": "A stack-based buffer overflow vulnerability in the P2P API service in BS Producten Petcam with firmware 33.1.0.0818 allows unauthenticated attackers within network range to overwrite the instruction pointer and achieve Remote Code Execution (RCE) by sending a specially crafted HTTP request.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-51348",
-      "cve_id": "CVE-2024-51348",
+      "title": "CVE-2026-23514: Kiteworks is a private data network (PDN). Versions 9.2.0 and 9.2.1 of Kiteworks...",
+      "description": "Kiteworks is a private data network (PDN). Versions 9.2.0 and 9.2.1 of Kiteworks Core have an access control vulnerability that allows authenticated users to access unauthorized content. Upgrade Kiteworks Core to version 9.2.2 or later to receive a patch.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23514",
+      "cve_id": "CVE-2026-23514",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-04T13:45:28.072999+00:00",
+      "published": "2026-04-04T14:26:24.897728+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2025-59707: In N2W before 4.3.2 and 4.4.x before 4.4.1, there is potential remote code execu...",
+      "description": "In N2W before 4.3.2 and 4.4.x before 4.4.1, there is potential remote code execution and account credentials theft because of a spoofing vulnerability.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59707",
+      "cve_id": "CVE-2025-59707",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-04T14:26:24.897711+00:00",
+      "ttps": [
+        {
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2025-59706: In N2W before 4.3.2 and 4.4.0 before 4.4.1, improper validation of API request p...",
+      "description": "In N2W before 4.3.2 and 4.4.0 before 4.4.1, improper validation of API request parameters enables remote code execution.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59706",
+      "cve_id": "CVE-2025-59706",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-04T14:26:24.897688+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -479,12 +537,6 @@
           "name": "Command and Scripting Interpreter",
           "tactic": "Execution",
           "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
         }
       ],
       "ai_summary": "AI analysis pending",
@@ -494,27 +546,27 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2024-51347: A buffer overflow vulnerability in the dgiot binary in LSC Smart Indoor IP Camer...",
-      "description": "A buffer overflow vulnerability in the dgiot binary in LSC Smart Indoor IP Camera V7.6.32. The flaw exists in the handling of the Time Zone (TZ) parameter within the ONVIF configuration interface. The time zone (TZ) parameter does not have its length properly validated before being copied into a fixed-size buffer using the insecure strcpy function.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-51347",
-      "cve_id": "CVE-2024-51347",
+      "title": "CVE-2025-32991: In N2WS Backup & Recovery before 4.4.0, a two-step attack against the RESTful AP...",
+      "description": "In N2WS Backup & Recovery before 4.4.0, a two-step attack against the RESTful API results in remote code execution.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-32991",
+      "cve_id": "CVE-2025-32991",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.2,
-      "published": "2026-04-04T13:45:28.072977+00:00",
+      "severity": "critical",
+      "cvss_score": 9.0,
+      "published": "2026-04-04T14:26:24.897629+00:00",
       "ttps": [
         {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         },
         {
-          "id": "T1124",
-          "name": "System Time Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         }
       ],
       "ai_summary": "AI analysis pending",
@@ -524,16 +576,29 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2024-51346: An issue in Eufy Homebase 2 version 3.3.4.1h allows a local attacker to obtain s...",
-      "description": "An issue in Eufy Homebase 2 version 3.3.4.1h allows a local attacker to obtain sensitive information via the cryptographic scheme.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-51346",
-      "cve_id": "CVE-2024-51346",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.7,
-      "published": "2026-04-04T13:45:28.072936+00:00",
-      "ttps": [],
+      "title": "Device code phishing attacks surge 37x as new kits spread online",
+      "description": "Device code phishing attacks that abuse the OAuth 2.0 Device Authorization Grant flow to hijack accounts have surged more than 37 times this year. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/device-code-phishing-attacks-surge-37x-as-new-kits-spread-online/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-04T14:17:38+00:00",
+      "ttps": [
+        {
+          "id": "T1586",
+          "name": "Compromise Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -541,9 +606,9 @@
       "ai_model": "none"
     },
     {
-      "title": "LinkedIn secretely scans for 6,000+ Chrome extensions, collects data",
+      "title": "LinkedIn secretly scans for 6,000+ Chrome extensions, collects data",
       "description": "A new report dubbed \"BrowserGate\" warns that Microsoft's LinkedIn is using hidden JavaScript scripts on its website to scan visitors' browsers for installed extensions and collect device data. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/linkedin-secretely-scans-for-6-000-plus-chrome-extensions-collects-data/",
+      "url": "https://www.bleepingcomputer.com/news/security/linkedin-secretly-scans-for-6-000-plus-chrome-extensions-collects-data/",
       "cve_id": null,
       "source": "Bleeping Computer",
       "category": "news",
@@ -1063,23 +1128,6 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Drift loses $280 million as North Korean hackers seize Security Council powers",
-      "description": "The Drift Protocol lost at least $280 million after a threat actor took control of its Security Council administrative powers in a planned, sophisticated operation. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/drift-loses-280-million-north-korean-hackers-seize-security-council-powers/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "incident",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-02T19:03:39+00:00",
-      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

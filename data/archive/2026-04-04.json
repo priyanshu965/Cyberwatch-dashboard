@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-04T09:31:08.064705+00:00",
+  "last_updated": "2026-04-04T10:26:20.919227+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T09:29:18.844653+00:00",
+      "published": "2026-04-04T10:24:30.113807+00:00",
       "ttps": [
         {
           "id": "T1608",
@@ -32,7 +32,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Xloader is an information stealing malware that targets web browsers, email clients, and FTP applications, with capabilities to execute arbitrary commands and download second-stage payloads. Its latest versions employ advanced obfuscation methods, making detection challenging. To defend against Xloader, prioritize monitoring for suspicious network activity and implement robust endpoint security measures.",
+      "ai_summary": "Xloader is an information stealing malware that targets web browsers, email clients, and FTP applications, with capabilities to execute arbitrary commands and download second-stage payloads. The malware uses obfuscation methods to evade detection, making it challenging for defenders to identify and mitigate. To defend against Xloader, it is essential to implement robust endpoint detection and response systems to detect and block suspicious activities.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Defense Evasion]:::tactic\n    B -->|T1608| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1027| E[Persistence]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T09:29:18.844629+00:00",
+      "published": "2026-04-04T10:24:30.113788+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -56,7 +56,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The North Korea-nexus threat actor compromised the widely used Axios NPM package in a supply chain attack by introducing a malicious dependency. This attack can lead to unauthorized access and data breaches. To defend, developers should immediately review and update their dependencies to ensure they are not using the compromised Axios versions.",
+      "ai_summary": "The North Korea-nexus threat actor compromised the widely used Axios NPM package in a supply chain attack by introducing a malicious dependency. This attack has a significant real-world impact as Axios is the most popular JavaScript library used to simplify HTTP requests. The most important defender action is to immediately update or patch the affected Axios NPM package versions 1.14.1 and 0.30.4.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -71,7 +71,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T09:29:18.844603+00:00",
+      "published": "2026-04-04T10:24:30.113768+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -92,8 +92,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing public-facing application exploits and exfiltrating data over C2 channels. Its real-world impact includes data encryption for ransom, with a relatively low number of victims listed on its Tor data leak site. The most important defender action is to ensure robust security measures are in place to prevent public-facing application exploits, such as keeping software up-to-date and implementing a web application firewall.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing public-facing application exploits and exfiltrating data over C2 channels. The real-world impact includes data encryption and potential leaks on the operator's Tor site. The most important defender action is to ensure robust security measures are in place to prevent public-facing application exploits.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1486| E[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -107,7 +107,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T09:29:18.844582+00:00",
+      "published": "2026-04-04T10:24:30.113752+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -122,7 +122,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Qilin EDR killer infection chain is a multi-stage attack targeting endpoint detection and response (EDR) tools, disabling or bypassing them to facilitate ransomware attacks. This attack uses a malicious DLL to terminate over 300 EDR drivers from various vendors. Defenders should prioritize updating EDR systems and monitoring for suspicious activity.",
+      "ai_summary": "The Qilin EDR killer infection chain is a multi-stage attack targeting endpoint detection and response (EDR) tools, disabling or bypassing them to facilitate ransomware attacks. The attack uses a malicious DLL to terminate over 300 EDR drivers from various vendors. Defenders should prioritize updating EDR systems and monitoring for suspicious activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -137,11 +137,11 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T09:29:18.844557+00:00",
+      "published": "2026-04-04T10:24:30.113734+00:00",
       "ttps": [],
-      "ai_summary": "A threat actor is abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick users into downloading malicious apps. This campaign shares similarities with VexTrio and previous incidents. Defenders should monitor AdTech network abuse and Microsoft Store app downloads for suspicious activity.",
+      "ai_summary": "Threat actors abuse the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick users into downloading malicious apps. This campaign employs tactics similar to VexTrio and previous incidents. Defenders should monitor AdTech network activity and scrutinize Microsoft Store app downloads for suspicious behavior.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -154,7 +154,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T09:29:18.844530+00:00",
+      "published": "2026-04-04T10:24:30.113713+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -196,7 +196,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-04T09:29:18.844506+00:00",
+      "published": "2026-04-04T10:24:30.113696+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -211,8 +211,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics, impacting approximately 100 million weekly downloads. Defenders should prioritize validating software dependencies and monitoring for suspicious network activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update dependencies in their JavaScript ecosystems.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -226,7 +226,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T09:29:18.844458+00:00",
+      "published": "2026-04-04T10:24:30.113664+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -235,9 +235,9 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "This threat involves a 5-stage attack chain delivering XWorm V5.6 via ClickFix campaign. The attack chain starts with vulnerability scanning (T1595.002). Defenders should prioritize monitoring for suspicious HTTP body activity to detect and prevent this type of malware delivery.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Reconnaissance]:::tactic\n    B -->|T1204| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    E -->|T1486| F[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "This threat involves a 5-stage attack chain delivering XWorm V5.6 via ClickFix campaign. The attack chain starts with T1595.002 (Vulnerability Scanning) and ends with Impact. Defenders should prioritize monitoring for T1595.002 to prevent initial access.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -250,7 +250,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T09:29:18.844434+00:00",
+      "published": "2026-04-04T10:24:30.113645+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -289,7 +289,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The DPRK-related campaign uses LNK files with a multi-stage scripting process, leveraging GitHub as C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions containing less obfuscation and metadata. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
+      "ai_summary": "The DPRK-related campaign uses LNK files with a multi-stage scripting process and GitHub as C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions containing less obfuscation and metadata. Defenders should monitor for similar attacks and track GitHub usage for potential C2 infrastructure.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-04T09:29:18.844401+00:00",
+      "published": "2026-04-04T10:24:30.113595+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -319,7 +319,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors exploit heightened geopolitical tensions to map and disrupt potential cyber operations. They gather victim host info and steal or forge authentication certificates to achieve their goals. Proactive infrastructure monitoring is crucial to detect and disrupt these operations.",
+      "ai_summary": "Iranian state-aligned threat actors exploit heightened geopolitical tensions to map and disrupt potential cyber operations by gathering victim host info and stealing or forging authentication certificates.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -334,7 +334,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.8,
-      "published": "2026-04-04T09:28:53.166514+00:00",
+      "published": "2026-04-04T10:24:26.920816+00:00",
       "ttps": [
         {
           "id": "T1203",
@@ -343,7 +343,7 @@
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "CVE-2026-23288 is a Linux kernel vulnerability that allows an attacker to exploit client execution via out-of-bounds memset in command slot handling, resulting in memory corruption. This vulnerability has a CVSS score of 7.8, indicating a high severity. To defend against this threat, ensure that kernel updates are applied promptly.",
+      "ai_summary": "CVE-2026-23288 is a Linux kernel vulnerability that allows for out-of-bounds writes and memory corruption via command slot handling. This vulnerability can be exploited for client execution (T1203) and has a CVSS score of 7.8. To defend against this, ensure timely kernel updates are applied.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -358,10 +358,10 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": null,
-      "published": "2026-04-04T09:28:53.166498+00:00",
+      "published": "2026-04-04T10:24:26.920805+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-23287 is a Linux kernel vulnerability resolved in the irqchip/sifive-plic module, preventing frozen interrupts due to affinity settings. This issue is informational, with no detected TTPs or CVSS score provided. Defenders should monitor kernel updates for similar vulnerabilities.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-23287 is a Linux kernel vulnerability resolved in the irqchip/sifive-plic module, preventing frozen interrupts due to affinity setting. This issue is informational, with no detected TTPs or CVSS score. Defenders should review kernel updates for this fix.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 1.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -375,9 +375,9 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-04T09:28:53.166484+00:00",
+      "published": "2026-04-04T10:24:26.920794+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-23286 is a Linux kernel vulnerability that allows null-ptr-deref in the ATM LANE module, potentially leading to a denial-of-service condition. The issue can be easily reproduced using the syzkaller reproducer. Defenders should update their Linux kernel to the fixed version to prevent exploitation.",
+      "ai_summary": "CVE-2026-23286 is a null-ptr-deref vulnerability in the Linux kernel's ATM LANE module, allowing for potential exploitation. The issue can be easily reproduced using the syzkaller reproducer. Defenders should update their Linux kernel to the fixed version to prevent exploitation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 4.0,
       "ai_provider": "groq",
@@ -392,10 +392,10 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": null,
-      "published": "2026-04-04T09:28:53.166469+00:00",
+      "published": "2026-04-04T10:24:26.920783+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-23285 is a Linux kernel vulnerability that causes a null-pointer dereference on local read error, allowing a threat actor to potentially exploit it for privilege escalation. The vulnerability has been resolved, but defenders should ensure their systems are updated to the latest kernel version. Updating the Linux kernel is the most important action to take.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Discovery]:::tactic\n    B -->|T1110| C[Reconnaissance]:::tactic\n    C -->|T1068| D[Initial Access]:::tactic\n    D -->|T1210| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-23285 is a Linux kernel vulnerability causing a null-pointer dereference on local read error, potentially leading to a denial-of-service condition. This vulnerability has been resolved, but defenders should ensure timely kernel updates to prevent exploitation. Update Linux kernels to the latest version to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1210| C[Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 2.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -409,10 +409,10 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": null,
-      "published": "2026-04-04T09:28:53.166455+00:00",
+      "published": "2026-04-04T10:24:26.920773+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-23284 is a Linux kernel vulnerability resolved in the net: ethernet: mtk_eth_soc module. The vulnerability involves a potential eBPF program pointer reset issue. Defenders should ensure Linux kernel updates are applied to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1068| D[Discovery]:::tactic\n    D -->|T1082| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-23284 is a Linux kernel vulnerability that was resolved, but its technical details and potential impact are still relevant for defenders to understand. The vulnerability involves a potential eBPF program pointer issue in the mtk_eth_soc driver. Defenders should review their Linux kernel configurations and ensure they are up-to-date to mitigate potential future issues.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059| B[Initial Access]:::tactic\n    B -->|T1210| C[Reconnaissance]:::tactic\n    C -->|T1063| D[Network Scanning]:::tactic\n    D -->|T1071| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 2.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -426,7 +426,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-04T09:28:53.166440+00:00",
+      "published": "2026-04-04T10:24:26.920762+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -443,7 +443,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-04T09:28:53.166424+00:00",
+      "published": "2026-04-04T10:24:26.920751+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -460,7 +460,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-04T09:28:53.166406+00:00",
+      "published": "2026-04-04T10:24:26.920738+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -484,7 +484,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.8,
-      "published": "2026-04-04T09:28:53.166382+00:00",
+      "published": "2026-04-04T10:24:26.920720+00:00",
       "ttps": [
         {
           "id": "T1203",
@@ -508,7 +508,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-04T09:28:53.166341+00:00",
+      "published": "2026-04-04T10:24:26.920686+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",

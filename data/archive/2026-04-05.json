@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-05T10:26:22.652663+00:00",
+  "last_updated": "2026-04-05T11:23:57.165756+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T10:24:30.512499+00:00",
+      "published": "2026-04-05T11:22:07.299360+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -32,9 +32,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing Tor for data leaks and exploiting public-facing applications for initial access. Its real-world impact includes data encryption and exfiltration, with a limited number of victims reported. The most important defender action is to ensure robust security measures are in place to prevent exploitation of public-facing applications.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1486| E[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing public-facing application exploits and data exfiltration to encrypt data for impact. The real-world impact includes data breaches and financial losses for affected organizations. To defend against Yurei, prioritize securing public-facing applications and monitoring for suspicious exfiltration activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T10:24:30.512481+00:00",
+      "published": "2026-04-05T11:22:07.299341+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -62,8 +62,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Qilin EDR killer is a multi-stage infection chain that targets endpoint detection and response systems, using a malicious 'msimg32.dll' to terminate over 300 EDR drivers. This allows attackers to bypass security measures and encrypt data for ransom. To defend against this threat, organizations should prioritize implementing robust EDR solutions and regularly updating their security software.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Qilin EDR killer is a multi-stage infection chain that targets endpoint detection and response systems, using a malicious 'msimg32.dll' to terminate over 300 different EDR drivers. This allows attackers to bypass security measures and encrypt data for ransom. To defend against this threat, organizations should prioritize implementing robust EDR solutions and regularly updating their security software.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1055| D[Unintended Proxy]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -77,10 +77,10 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T10:24:30.512457+00:00",
+      "published": "2026-04-05T11:22:07.299317+00:00",
       "ttps": [],
-      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijackers through the Microsoft Store, tricking visitors of typo-squatted domains into downloading malicious apps. This campaign highlights similar tactics to previous ones, such as VexTrio. The most important defender action is to implement robust validation and verification of Microsoft Store apps to prevent malware downloads.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059| C[Execution]:::tactic\n    C -->|T1082| D[Persistence]:::tactic\n    D -->|T1178| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijackers through the Microsoft Store, leveraging typo-squatted domains to trick visitors into downloading malicious apps. This campaign showcases tactics similar to VexTrio, highlighting the ongoing abuse of AdTech networks for malware delivery. Defenders should prioritize monitoring and filtering of traffic from suspicious domains and AdTech networks to mitigate the threat.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1218| D[Persistence]:::tactic\n    D -->|T1172| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -92,9 +92,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "high",
+      "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-05T10:24:30.512429+00:00",
+      "published": "2026-04-05T11:22:07.299288+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -121,9 +121,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Signed malware impersonating workplace apps deploys RMM backdoors via phishing campaigns, using digitally signed executables to install persistence tools. This allows attackers to maintain access and control over compromised systems. Defenders should prioritize monitoring for suspicious RMM tool activity.",
+      "ai_summary": "Signed malware impersonating workplace apps deploys RMM backdoors via phishing campaigns, using digitally signed executables to install persistence tools. This allows attackers to maintain access and control over compromised systems. Defenders should immediately block suspicious workplace meeting lures and PDF attachments.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 9.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -136,7 +136,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-05T10:24:30.512406+00:00",
+      "published": "2026-04-05T11:22:07.299266+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -151,8 +151,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics, impacting approximately 100 million weekly downloads. Defenders should prioritize validating software dependencies and monitoring for suspicious network activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update dependencies to prevent similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -166,7 +166,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T10:24:30.512374+00:00",
+      "published": "2026-04-05T11:22:07.299241+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -175,8 +175,8 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 via a 5-stage attack chain, using T1595.002 (Vulnerability Scanning) to gain initial access. This technique-based approach to HTTP body hunting is effective in discovering web-delivered malware. Defenders should prioritize monitoring for T1595.002 to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat is a web-delivered malware campaign, specifically ClickFix, which uses a 5-stage attack chain to deliver XWorm V5.6. This campaign exploits a vulnerability in the system, scanning for vulnerabilities using T1595.002. Defenders should prioritize monitoring HTTP body traffic for suspicious patterns.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Vulnerability Scanning]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -190,7 +190,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T10:24:30.512351+00:00",
+      "published": "2026-04-05T11:22:07.299219+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -231,7 +231,7 @@
       ],
       "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure to evade detection. The attacks employ a multi-stage scripting process and have been tracked since 2024. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -244,7 +244,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T10:24:30.512326+00:00",
+      "published": "2026-04-05T11:22:07.299194+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -259,7 +259,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors are gathering victim host info and stealing or forging authentication certificates, highlighting the need for proactive infrastructure monitoring to detect and disrupt potential cyber operations.",
+      "ai_summary": "Iranian state-aligned threat actors exploit geopolitical tensions to map and disrupt potential cyber operations by gathering victim host info and stealing or forging authentication certificates.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -274,7 +274,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T10:24:30.512304+00:00",
+      "published": "2026-04-05T11:22:07.299173+00:00",
       "ttps": [
         {
           "id": "T1071",
@@ -289,8 +289,8 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "MuddyWater, an Iranian APT, uses reconnaissance, exploits vulnerabilities, and custom C2 frameworks to exfiltrate data from targets in multiple countries. Their tactics include T1071 Application Layer Protocol and T1041 Exfiltration Over C2 Channel. Defenders should monitor for suspicious network activity and implement vulnerability patching.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Reconnaissance]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "MuddyWater, an Iranian APT, uses reconnaissance methods, exploits vulnerabilities, and custom C2 frameworks to exfiltrate data from targets in multiple countries. Their tactics include Application Layer Protocol and Exfiltration Over C2 Channel. Defenders should monitor for suspicious network activity and implement vulnerability patching.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Reconnaissance]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T10:24:30.512273+00:00",
+      "published": "2026-04-05T11:22:07.299142+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -325,11 +325,155 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "UAT-9244, a China-nexus APT, targets South American telecoms with three new malware implants: TernDoor, PeerTime, and BruteEntry. These implants enable backdoor access, brute force attacks, and remote access. Defenders should prioritize monitoring for T1190, T1110, and T1219 TTPs.",
+      "ai_summary": "UAT-9244, a China-nexus APT, targets South American telecoms with three new malware implants: TernDoor, PeerTime, and BruteEntry. These implants enable backdoor access, brute force attacks, and remote access software exploitation. Defenders should prioritize monitoring for T1190, T1110, and T1219 TTPs.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2018-25207: Online Quiz Maker 1.0 contains SQL injection vulnerabilities in the catid and us...",
+      "description": "Online Quiz Maker 1.0 contains SQL injection vulnerabilities in the catid and usern parameters that allow authenticated attackers to execute arbitrary SQL commands. Attackers can submit malicious POST requests to quiz-system.php or add-category.php with crafted SQL payloads in POST parameters to extract sensitive database information or bypass authentication.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25207",
+      "cve_id": "CVE-2018-25207",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.1,
+      "published": "2026-04-05T11:22:04.981680+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "The threat is a SQL injection vulnerability in Online Quiz Maker 1.0, allowing authenticated attackers to execute arbitrary SQL commands. This can lead to sensitive database information extraction or authentication bypass. Defenders should update the application to patch the vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2018-25206: KomSeo Cart 1.3 contains an SQL injection vulnerability that allows attackers to...",
+      "description": "KomSeo Cart 1.3 contains an SQL injection vulnerability that allows attackers to inject SQL commands through the 'my_item_search' parameter in edit.php. Attackers can submit POST requests with malicious SQL payloads to extract sensitive database information using boolean-based blind or error-based injection techniques.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25206",
+      "cve_id": "CVE-2018-25206",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.2,
+      "published": "2026-04-05T11:22:04.981664+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2018-25206 is an SQL injection vulnerability in KomSeo Cart 1.3, allowing attackers to inject SQL commands through the 'my_item_search' parameter. Attackers can submit POST requests with malicious SQL payloads to extract sensitive database information. Defenders should update KomSeo Cart to a patched version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2018-25205: ASP.NET jVideo Kit 1.0 contains an SQL injection vulnerability that allows unaut...",
+      "description": "ASP.NET jVideo Kit 1.0 contains an SQL injection vulnerability that allows unauthenticated attackers to inject SQL commands through the 'query' parameter in the search functionality. Attackers can submit malicious SQL payloads via GET or POST requests to the /search endpoint to extract sensitive database information using boolean-based blind or error-based techniques.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25205",
+      "cve_id": "CVE-2018-25205",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.2,
+      "published": "2026-04-05T11:22:04.981649+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2018-25205 is an SQL injection vulnerability in ASP.NET jVideo Kit 1.0, allowing unauthenticated attackers to inject SQL commands via the 'query' parameter in the search functionality. This vulnerability can be exploited using GET or POST requests to the /search endpoint, enabling attackers to extract sensitive database information. Defenders should prioritize patching this vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2018-25204: Library CMS 1.0 contains an SQL injection vulnerability that allows unauthentica...",
+      "description": "Library CMS 1.0 contains an SQL injection vulnerability that allows unauthenticated attackers to bypass authentication by injecting SQL code through the username parameter. Attackers can send POST requests to the admin login endpoint with boolean-based blind SQL injection payloads in the username field to manipulate database queries and gain unauthorized access.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25204",
+      "cve_id": "CVE-2018-25204",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.2,
+      "published": "2026-04-05T11:22:04.981629+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2018-25204 is an SQL injection vulnerability in Library CMS 1.0, allowing unauthenticated attackers to bypass authentication via boolean-based blind SQL injection payloads. This vulnerability can be exploited by sending POST requests to the admin login endpoint. Defenders should patch the vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2018-25203: Online Store System CMS 1.0 contains an SQL injection vulnerability that allows ...",
+      "description": "Online Store System CMS 1.0 contains an SQL injection vulnerability that allows unauthenticated attackers to manipulate database queries by injecting SQL code through the email parameter. Attackers can send POST requests to index.php with the action=clientaccess parameter using boolean-based blind or time-based blind SQL injection payloads in the email field to extract sensitive database informati",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25203",
+      "cve_id": "CVE-2018-25203",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.2,
+      "published": "2026-04-05T11:22:04.981614+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "The CVE-2018-25203 vulnerability in Online Store System CMS 1.0 allows unauthenticated attackers to inject SQL code through the email parameter, enabling them to extract sensitive database information. This SQL injection vulnerability can be exploited by sending POST requests to index.php with the action=clientaccess parameter. Defenders should prioritize patching this vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2018-25202: SAT CFDI 3.3 contains an SQL injection vulnerability that allows attackers to ma...",
+      "description": "SAT CFDI 3.3 contains an SQL injection vulnerability that allows attackers to manipulate database queries by injecting SQL code through the 'id' parameter in the signIn endpoint. Attackers can submit POST requests with boolean-based blind, stacked queries, or time-based blind SQL injection payloads to extract sensitive data or compromise the application.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25202",
+      "cve_id": "CVE-2018-25202",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.2,
+      "published": "2026-04-05T11:22:04.981598+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2018-25201: School Management System CMS 1.0 contains an SQL injection vulnerability in the ...",
@@ -340,7 +484,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.1,
-      "published": "2026-04-05T10:24:27.860103+00:00",
+      "published": "2026-04-05T11:22:04.981583+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -349,11 +493,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2018-25201 is an SQL injection vulnerability in the admin login functionality of School Management System CMS 1.0, allowing attackers to bypass authentication via boolean-based blind SQL injection. This vulnerability can be exploited using T1190 (Exploit Public-Facing Application) to gain administrator access without valid credentials. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2018-25195: Wecodex Hotel CMS 1.0 contains an SQL injection vulnerability in the admin login...",
@@ -364,7 +508,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.2,
-      "published": "2026-04-05T10:24:27.860088+00:00",
+      "published": "2026-04-05T11:22:04.981565+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -373,11 +517,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2018-25195 is an SQL injection vulnerability in Wecodex Hotel CMS 1.0, allowing unauthenticated attackers to bypass authentication and extract sensitive database information or gain admin access. This vulnerability is exploitable via public-facing application exploitation. Defenders should prioritize patching the CMS to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2018-25185: Wecodex Restaurant CMS 1.0 contains an SQL injection vulnerability that allows u...",
@@ -388,7 +532,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.2,
-      "published": "2026-04-05T10:24:27.860073+00:00",
+      "published": "2026-04-05T11:22:04.981543+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -397,11 +541,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2018-25185 is an SQL injection vulnerability in Wecodex Restaurant CMS 1.0, allowing unauthenticated attackers to manipulate database queries. Attackers can extract sensitive database information using boolean-based or time-based blind techniques. Defenders should patch the CMS to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2018-25183: Shipping System CMS 1.0 contains an SQL injection vulnerability that allows unau...",
@@ -412,7 +556,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.2,
-      "published": "2026-04-05T10:24:27.860058+00:00",
+      "published": "2026-04-05T11:22:04.981504+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -421,115 +565,6 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2018-25183 is an SQL injection vulnerability in Shipping System CMS 1.0, allowing unauthenticated attackers to bypass authentication via boolean-based blind techniques. This vulnerability can be exploited using T1190 (Exploit Public-Facing Application) to gain unauthorized access. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-4809: plank/laravel-mediable through version 6.4.0 can allow upload of a dangerous fil...",
-      "description": "plank/laravel-mediable through version 6.4.0 can allow upload of a dangerous file type when an application using the package accepts or prefers a client-supplied MIME type during file upload handling. In that configuration, a remote attacker can submit a file containing executable PHP code while declaring a benign image MIME type, resulting in arbitrary file upload. If the uploaded file is stored ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4809",
-      "cve_id": "CVE-2026-4809",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-05T10:24:27.860043+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-4809 is a critical vulnerability in plank/laravel-mediable through version 6.4.0, allowing remote attackers to upload malicious files via client-supplied MIME types. This can lead to arbitrary file upload and potentially execute PHP code. Defenders should update the package to a secure version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-4274: Mattermost versions 11.2.x <= 11.2.2, 10.11.x <= 10.11.10, 11.4.x <= 11.4.0, 11....",
-      "description": "Mattermost versions 11.2.x <= 11.2.2, 10.11.x <= 10.11.10, 11.4.x <= 11.4.0, 11.3.x <= 11.3.1 fail to restrict team-level access when processing membership sync from a remote cluster, which allows a malicious remote cluster to grant a user access to an entire private team instead of only the shared channel via sending crafted membership sync messages that trigger team membership assignment. Matter",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4274",
-      "cve_id": "CVE-2026-4274",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.4,
-      "published": "2026-04-05T10:24:27.860028+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-24068: The VSL privileged helper does utilize NSXPC for IPC. The implementation of the ...",
-      "description": "The VSL privileged helper does utilize NSXPC for IPC. The implementation of the \"shouldAcceptNewConnection\" function, which is used by the NSXPC framework to validate if a client should be allowed to connect to the XPC listener, does not validate clients at all. This means that any process can connect to this service using the configured protocol. A malicious process is able to call all the functi",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24068",
-      "cve_id": "CVE-2026-24068",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-05T10:24:27.860012+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-23398: In the Linux kernel, the following vulnerability has been resolved:\n\nicmp: fix N...",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nicmp: fix NULL pointer dereference in icmp_tag_validation()\n\nicmp_tag_validation() unconditionally dereferences the result of\nrcu_dereference(inet_protos[proto]) without checking for NULL.\nThe inet_protos[] array is sparse -- only about 15 of 256 protocol\nnumbers have registered handlers. When ip_no_pmtu_disc is set to 3\n(hardene",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23398",
-      "cve_id": "CVE-2026-23398",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-05T10:24:27.859993+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-23397: In the Linux kernel, the following vulnerability has been resolved:\n\nnfnetlink_o...",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nnfnetlink_osf: validate individual option lengths in fingerprints\n\nnfnl_osf_add_callback() validates opt_num bounds and string\nNUL-termination but does not check individual option length fields.\nA zero-length option causes nf_osf_match_one() to enter the option\nmatching loop even when foptsize sums to zero, which matches packets\n",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23397",
-      "cve_id": "CVE-2026-23397",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-05T10:24:27.859970+00:00",
-      "ttps": [
-        {
-          "id": "T1592",
-          "name": "Gather Victim Host Info",
-          "tactic": "Reconnaissance",
-          "tactic_id": "TA0043"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-23396: In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: mac80...",
-      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: mac80211: fix NULL deref in mesh_matches_local()\n\nmesh_matches_local() unconditionally dereferences ie->mesh_config to\ncompare mesh configuration parameters. When called from\nmesh_rx_csa_frame(), the parsed action-frame elements may not contain a\nMesh Configuration IE, leaving ie->mesh_config NULL and triggering a\nkernel NU",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23396",
-      "cve_id": "CVE-2026-23396",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-05T10:24:27.859929+00:00",
-      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

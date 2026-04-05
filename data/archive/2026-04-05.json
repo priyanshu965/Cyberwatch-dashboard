@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-05T16:28:07.192610+00:00",
+  "last_updated": "2026-04-05T17:24:29.735502+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T16:26:15.855910+00:00",
+      "published": "2026-04-05T17:22:38.945155+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -27,7 +27,7 @@
         }
       ],
       "ai_summary": "The Qilin EDR killer is a multi-stage infection chain that targets endpoint detection and response systems, using a malicious 'msimg32.dll' to terminate over 300 EDR drivers. This allows attackers to bypass security measures and encrypt data for ransom. To defend against this threat, organizations should prioritize implementing robust EDR solutions and regularly updating their security software.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1055| D[Unmanaged Windows Services]:::tactic\n    D -->|T1218| E[Signed Binary Proxy Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -41,10 +41,10 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T16:26:15.855885+00:00",
+      "published": "2026-04-05T17:22:38.945130+00:00",
       "ttps": [],
-      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijackers through Microsoft Store apps, mimicking a Traffic Direction System to trick visitors into downloading malware. This campaign highlights similar tactics to previous threats, indicating a potential resurgence of AdTech abuse. Defenders should prioritize monitoring Microsoft Store app downloads and implementing robust browser security measures.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059.001| C[Privilege Escalation]:::tactic\n    C -->|T1112| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijackers through the Microsoft Store, leveraging typo-squatted domains to trick visitors into downloading malicious apps. This campaign showcases tactics similar to VexTrio, highlighting the evolving nature of AdTech abuse for malware delivery. Defenders should prioritize monitoring Microsoft Store app downloads and scrutinizing AdTech network traffic to mitigate this threat.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059| C[Privilege Escalation]:::tactic\n    C -->|T1082| D[System Configuration]:::tactic\n    D -->|T1497| E[Collection]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -58,7 +58,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T16:26:15.855858+00:00",
+      "published": "2026-04-05T17:22:38.945104+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -85,7 +85,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat involves signed malware masquerading as legitimate workplace software, delivered through phishing campaigns, to deploy RMM backdoors. This enables attackers to establish persistence and gain remote access. The most important defender action is to implement robust email filtering and user education to prevent initial phishing attempts.",
+      "ai_summary": "The threat involves signed malware masquerading as legitimate workplace software, delivered through phishing campaigns, to deploy RMM backdoors. This allows attackers to establish persistence and gain remote access to compromised systems. Defenders should prioritize verifying the authenticity of software and attachments to prevent initial access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -100,7 +100,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-05T16:26:15.855832+00:00",
+      "published": "2026-04-05T17:22:38.945079+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -115,7 +115,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update dependencies in their JavaScript ecosystems.",
+      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update their npm dependencies.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
@@ -130,7 +130,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T16:26:15.855800+00:00",
+      "published": "2026-04-05T17:22:38.945050+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -139,7 +139,7 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 through a 5-stage attack chain, using T1595.002 (Vulnerability Scanning) as the initial step. This technique-based approach to HTTP body hunting is effective in discovering web-delivered malware. Defenders should prioritize monitoring for T1595.002 to prevent similar attacks.",
+      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 via a 5-stage attack chain, using T1595.002 (Vulnerability Scanning) to gain initial access. This technique-based approach to HTTP body hunting is effective in discovering web-delivered malware. Defenders should prioritize monitoring for T1595.002 to prevent similar attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -154,7 +154,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T16:26:15.855758+00:00",
+      "published": "2026-04-05T17:22:38.945026+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -193,7 +193,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The DPRK-related campaign uses LNK files with a multi-stage scripting process, leveraging GitHub as C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions containing less obfuscation and metadata. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
+      "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure to evade detection. The attacks employ a multi-stage scripting process and have been tracked since 2024. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -208,7 +208,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T16:26:15.855732+00:00",
+      "published": "2026-04-05T17:22:38.945000+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -223,7 +223,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors exploit geopolitical tensions to map and disrupt potential cyber operations. They gather victim host info and steal or forge authentication certificates. Proactive infrastructure monitoring is crucial to detect and disrupt these operations.",
+      "ai_summary": "Iranian state-aligned threat actors exploit geopolitical tensions to map and disrupt potential cyber operations by gathering victim host info and stealing or forging authentication certificates.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -238,7 +238,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T16:26:15.855712+00:00",
+      "published": "2026-04-05T17:22:38.944976+00:00",
       "ttps": [
         {
           "id": "T1071",
@@ -268,7 +268,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T16:26:15.855687+00:00",
+      "published": "2026-04-05T17:22:38.944924+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -289,8 +289,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "UAT-9244, a China-nexus APT, targets South American telecommunication providers with three new malware implants: TernDoor, PeerTime, and BruteEntry. These implants enable backdoor access, brute force attacks, and remote access software exploitation. Defenders should prioritize monitoring for T1190, T1110, and T1219 TTPs.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "UAT-9244, a China-nexus APT, targets South American telecoms with three new malware implants: TernDoor, PeerTime, and BruteEntry. These implants enable backdoor access, brute force attacks, and remote access. Defenders should prioritize monitoring for T1190, T1110, and T1219 TTPs.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T16:26:15.855663+00:00",
+      "published": "2026-04-05T17:22:38.944901+00:00",
       "ttps": [
         {
           "id": "T1587",
@@ -319,22 +319,22 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CL-UNK-1068, a Chinese threat actor, has been undetected since 2020, targeting high-value sectors in Asia with custom malware, modified open-source tools, and living-off-the-land binaries. Their techniques include exploiting public-facing applications and developing capabilities. Defenders should prioritize monitoring for T1587 and T1190 to detect potential CL-UNK-1068 activity.",
+      "ai_summary": "CL-UNK-1068, a Chinese threat actor, has been undetected since 2020, targeting high-value sectors in Asia with custom malware, modified open-source tools, and living-off-the-land binaries. Their techniques include exploiting public-facing applications and developing capabilities. Defenders should prioritize monitoring for these TTPs.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-32846: OpenClaw through 2026.3.23 (fixed in commit 4797bbc) contains a path traversal v...",
-      "description": "OpenClaw through 2026.3.23 (fixed in commit 4797bbc) contains a path traversal vulnerability in media parsing that allows attackers to read arbitrary files by bypassing path validation in the isLikelyLocalPath() and isValidMedia() functions. Attackers can exploit incomplete validation and the allowBareFilename bypass to reference files outside the intended application sandbox, resulting in disclos",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32846",
-      "cve_id": "CVE-2026-32846",
+      "title": "CVE-2026-33503: Ory Kratos is an identity, user management and authentication system for cloud s...",
+      "description": "Ory Kratos is an identity, user management and authentication system for cloud services. Prior to version 26.2.0, the ListCourierMessages Admin API in Ory Kratos is vulnerable to SQL injection due to flaws in its pagination implementation. Pagination tokens are encrypted using the secret configured in `secrets.pagination`. An attacker who knows this secret can craft their own tokens, including mal",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33503",
+      "cve_id": "CVE-2026-33503",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-05T16:26:13.325628+00:00",
+      "cvss_score": 7.2,
+      "published": "2026-04-05T17:22:35.803260+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -343,97 +343,111 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-32846 is a path traversal vulnerability in OpenClaw's media parsing, allowing attackers to read arbitrary files by bypassing path validation. This can be exploited by attackers to reference files outside the intended application sandbox. Defenders should update OpenClaw to the fixed version (commit 4797bbc) to prevent exploitation.",
+      "ai_summary": "CVE-2026-33503 is a SQL injection vulnerability in Ory Kratos' ListCourierMessages Admin API, exploitable via public-facing application exploitation. An attacker can craft malicious pagination tokens using the secret configured in `secrets.pagination`. Defenders should update Ory Kratos to version 26.2.0 or later to mitigate this vulnerability.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-29905: Kirby CMS through 5.1.4 allows an authenticated user with 'Editor' permissions t...",
-      "description": "Kirby CMS through 5.1.4 allows an authenticated user with 'Editor' permissions to cause a persistent Denial of Service (DoS) via a malformed image upload. The application fails to properly validate the return value of the PHP getimagesize() function. When the system attempts to process this file for metadata or thumbnail generation, it triggers a fatal TypeError.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29905",
-      "cve_id": "CVE-2026-29905",
+      "title": "CVE-2026-33496: ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision A...",
+      "description": "ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision API that authorizes HTTP requests based on sets of Access Rules. Versions prior to 26.2.0 are  vulnerable to authentication bypass due to cache key confusion. The `oauth2_introspection` authenticator cache does not distinguish tokens that were validated with different introspection URLs. An attacker can therefore legiti",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33496",
+      "cve_id": "CVE-2026-33496",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-05T16:26:13.325612+00:00",
+      "severity": "high",
+      "cvss_score": 8.1,
+      "published": "2026-04-05T17:22:35.803243+00:00",
       "ttps": [
         {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-29905 is a persistent Denial of Service vulnerability in Kirby CMS, allowing an authenticated 'Editor' user to cause a fatal TypeError via a malformed image upload. This vulnerability can be exploited by an attacker to disrupt the application's functionality. Defenders should update Kirby CMS to version 5.1.4 or later to mitigate this issue.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1498| B[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
+      "ai_summary": "CVE-2026-33496 is a cache key confusion vulnerability in ORY Oathkeeper, allowing attackers to bypass authentication. This affects versions prior to 26.2.0, enabling exploitation via T1190 (Exploit Public-Facing Application). Defenders should update to the latest version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-29044: EVerest is an EV charging software stack. Prior to version 2026.02.0, when Withd...",
-      "description": "EVerest is an EV charging software stack. Prior to version 2026.02.0, when WithdrawAuthorization is processed before the TransactionStarted event, AuthHandler determines `transaction_active=false` and only calls `withdraw_authorization_callback`. This path ultimately calls `Charger::deauthorize()`, but no actual stop (StopTransaction) occurs in the Charging state. As a result, authorization withdr",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29044",
-      "cve_id": "CVE-2026-29044",
+      "title": "CVE-2026-33495: ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision A...",
+      "description": "ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision API that authorizes HTTP requests based on sets of Access Rules. Ory Oathkeeper is often deployed behind other components like CDNs, WAFs, or reverse proxies. Depending on the setup, another component might forward the request to the Oathkeeper proxy with a different protocol (http vs. https) than the original request. ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33495",
+      "cve_id": "CVE-2026-33495",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 5.0,
-      "published": "2026-04-05T16:26:13.325595+00:00",
+      "cvss_score": 6.5,
+      "published": "2026-04-05T17:22:35.803226+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-29044 is a vulnerability in EVerest EV charging software stack, allowing unauthorized withdrawal of authorization without stopping the transaction. This can lead to potential financial losses for users. Defenders should update to version 2026.02.0 or later to mitigate this issue.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Command and Control]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1078| D[Lateral Movement]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-33495 is a medium-severity vulnerability in ORY Oathkeeper, an Identity & Access Proxy, allowing unauthorized access through protocol mismatch. This affects setups where requests are forwarded to Oathkeeper with a different protocol than the original request. Defenders should update Oathkeeper to the latest version to mitigate this issue.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Application Access]:::tactic\n    D -->|T1068| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33494: ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision A...",
+      "description": "ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision API that authorizes HTTP requests based on sets of Access Rules. Versions prior to 26.2.0 are vulnerable to an authorization bypass via HTTP path traversal. An attacker can craft a URL containing path traversal sequences (e.g. `/public/../admin/secrets`) that resolves to a protected path after normalization, but is matc",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33494",
+      "cve_id": "CVE-2026-33494",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 10.0,
+      "published": "2026-04-05T17:22:35.803205+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-33494 is a critical authorization bypass vulnerability in ORY Oathkeeper, allowing attackers to craft URLs with path traversal sequences to access protected paths. This exploit, leveraging T1190 (Exploit Public-Facing Application), has a CVSS score of 10.0. Defenders should update to version 26.2.0 or later to mitigate this threat.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 10.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33490: H3 is a minimal H(TTP) framework. In versions 2.0.0-0 through 2.0.1-rc.16, the `...",
+      "description": "H3 is a minimal H(TTP) framework. In versions 2.0.0-0 through 2.0.1-rc.16, the `mount()` method in h3 uses a simple `startsWith()` check to determine whether incoming requests fall under a mounted sub-application's path prefix. Because this check does not verify a path segment boundary (i.e., that the next character after the base is `/` or end-of-string), middleware registered on a mount like `/a",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33490",
+      "cve_id": "CVE-2026-33490",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 3.7,
+      "published": "2026-04-05T17:22:35.803189+00:00",
+      "ttps": [
+        {
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        }
+      ],
+      "ai_summary": "CVE-2026-33490 is a path traversal vulnerability in H3 framework versions 2.0.0-0 through 2.0.1-rc.16, allowing attackers to access unauthorized paths. This vulnerability has a CVSS score of 3.7, indicating a medium severity. To defend, ensure proper path validation and boundary checks in the `mount()` method.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-27828: EVerest is an EV charging software stack. Prior to version 2026.02.0, ISO15118_c...",
-      "description": "EVerest is an EV charging software stack. Prior to version 2026.02.0, ISO15118_chargerImpl::handle_session_setup uses v2g_ctx after it has been freed when ISO15118 initialization fails (e.g., no IPv6 link-local address). The EVSE process can be crashed remotely by an attacker with MQTT access who issues a session_setup command while v2g_ctx has been released. Version 2026.02.0 contains a patch.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27828",
-      "cve_id": "CVE-2026-27828",
+      "title": "CVE-2026-33487: goxmlsig provides XML Digital Signatures implemented in Go. Prior to version 1.6...",
+      "description": "goxmlsig provides XML Digital Signatures implemented in Go. Prior to version 1.6.0, the `validateSignature` function in `validate.go` goes through the references in the `SignedInfo` block to find one that matches the signed element's ID. In Go versions before 1.22, or when `go.mod` uses an older version, there is a loop variable capture issue. The code takes the address of the loop variable `_ref`",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33487",
+      "cve_id": "CVE-2026-33487",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.5,
-      "published": "2026-04-05T16:26:13.325574+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-27828 is a remote code execution vulnerability in EVerest EV charging software stack prior to version 2026.02.0. An attacker with MQTT access can crash the EVSE process by issuing a session_setup command after freeing the v2g_ctx. Patched in version 2026.02.0.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1210| C[Remote Services]:::tactic\n    C -->|T1212| D[Exploit Public-Facing Application]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-27816: EVerest is an EV charging software stack. Prior to versions to 2026.02.0, ISO151...",
-      "description": "EVerest is an EV charging software stack. Prior to versions to 2026.02.0, ISO15118_chargerImpl::handle_update_energy_transfer_modes copies a variable-length list into a fixed-size array of length 6 without bounds checking. With schema validation disabled by default, oversized MQTT Cmd payloads can trigger out-of-bounds writes and corrupt adjacent EVSE state or crash the process. Version 2026.02.0 ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27816",
-      "cve_id": "CVE-2026-27816",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-05T16:26:13.325558+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-27816 is a critical vulnerability in EVerest EV charging software stack, allowing oversized MQTT Cmd payloads to trigger out-of-bounds writes and corrupt adjacent EVSE state or crash the process. This vulnerability is exploitable prior to version 2026.02.0. Defenders should update to the latest version to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-27815: EVerest is an EV charging software stack. Prior to versions to 2026.02.0, ISO151...",
-      "description": "EVerest is an EV charging software stack. Prior to versions to 2026.02.0, ISO15118_chargerImpl::handle_session_setup copies a variable-length payment_options list into a fixed-size array of length 2 without bounds checking. With schema validation disabled by default, oversized MQTT Cmd payloads can trigger out-of-bounds writes and corrupt adjacent EVSE state or crash the process. Version 2026.02.0",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27815",
-      "cve_id": "CVE-2026-27815",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-05T16:26:13.325542+00:00",
+      "published": "2026-04-05T17:22:35.803172+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -442,15 +456,15 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-27814: EVerest is an EV charging software stack. Versions prior to 2026.02.0 have a dat...",
-      "description": "EVerest is an EV charging software stack. Versions prior to 2026.02.0 have a data race (C++ UB) triggered by an A 1-phase ↔ 3-phase switch request (`ac_switch_three_phases_while_charging`) during charging/waiting executes concurrently with the state machine loop. Version 2026.02.0 contains a patch.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27814",
-      "cve_id": "CVE-2026-27814",
+      "title": "CVE-2026-33486: Roadiz is a polymorphic content management system based on a node system that ca...",
+      "description": "Roadiz is a polymorphic content management system based on a node system that can handle many types of services. A vulnerability in roadiz/documents prior to versions 2.7.9, 2.6.28, 2.5.44, and 2.3.42 allows an authenticated attacker to read any file on the server's local file system that the web server process has access to, including highly sensitive environment variables, database credentials, ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33486",
+      "cve_id": "CVE-2026-33486",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 4.2,
-      "published": "2026-04-05T16:26:13.325525+00:00",
+      "cvss_score": 6.8,
+      "published": "2026-04-05T17:22:35.803156+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -459,16 +473,29 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-27813: EVerest is an EV charging software stack. Versions prior to 2026.02.0 have a dat...",
-      "description": "EVerest is an EV charging software stack. Versions prior to 2026.02.0 have a data race leading to use-after-free. This is triggered by EV plug-in/unplug and RFID/RemoteStart/OCPP authorization events (or delayed authorization response). Version 2026.2.0 contains a patch.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27813",
-      "cve_id": "CVE-2026-27813",
+      "title": "CVE-2026-33481: Syft is a a CLI tool and Go library for generating a Software Bill of Materials ...",
+      "description": "Syft is a a CLI tool and Go library for generating a Software Bill of Materials (SBOM) from container images and filesystems. Syft versions before v1.42.3 would not properly cleanup temporary storage if the temporary storage was exhausted during a scan. When scanning archives Syft will unpack those archives into temporary storage then inspect the unpacked contents. Under normal operation Syft will",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33481",
+      "cve_id": "CVE-2026-33481",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-05T16:26:13.325508+00:00",
-      "ttps": [],
+      "published": "2026-04-05T17:22:35.803137+00:00",
+      "ttps": [
+        {
+          "id": "T1027",
+          "name": "Obfuscated Files or Information",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        },
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -476,33 +503,47 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-26074: EVerest is an EV charging software stack. Versions prior to 2026.02.0 have a dat...",
-      "description": "EVerest is an EV charging software stack. Versions prior to 2026.02.0 have a data race leading to possible `std::map<std::queue>` corruption. The trigger is CSMS GetLog/UpdateFirmware request (network) with an EVSE fault event (physical). This results in TSAN reports concurrent access (data race) to `event_queue`. Version 2026.2.0 contains a patch.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26074",
-      "cve_id": "CVE-2026-26074",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.0,
-      "published": "2026-04-05T16:26:13.325485+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-26073: EVerest is an EV charging software stack. Versions prior to 2026.02.0 have a dat...",
-      "description": "EVerest is an EV charging software stack. Versions prior to 2026.02.0 have a data race leading to possible `std::queue`/`std::deque` corruption. The trigger is powermeter public key update and EV session/error events (while OCPP not started). This results in a TSAN data race report and an ASAN/UBSAN misaligned address runtime error being observed. Version 2026.02.0 contains a patch.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26073",
-      "cve_id": "CVE-2026-26073",
+      "title": "CVE-2026-33477: FileRise is a self-hosted web-based file manager with multi-file upload, editing...",
+      "description": "FileRise is a self-hosted web-based file manager with multi-file upload, editing, and batch operations. In versiosn 2.3.7 through 3.10.0, the file snippet endpoint `/api/file/snippet.php` allows an authenticated user with only `read_own` access to a folder to retrieve snippet content from files uploaded by other users in the same folder. This is a server-side authorization flaw in the `read_own` e",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33477",
+      "cve_id": "CVE-2026-33477",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 5.9,
-      "published": "2026-04-05T16:26:13.325444+00:00",
-      "ttps": [],
+      "cvss_score": 4.3,
+      "published": "2026-04-05T17:22:35.803115+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-32857: Firecrawl version 2.8.0 and prior contain a server-side request forgery (SSRF) p...",
+      "description": "Firecrawl version 2.8.0 and prior contain a server-side request forgery (SSRF) protection bypass vulnerability in the Playwright scraping service where network policy validation is applied only to the initial user-supplied URL and not to subsequent redirect destinations. Attackers can supply an externally valid URL that passes validation and returns an HTTP redirect to an internal or restricted re",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32857",
+      "cve_id": "CVE-2026-32857",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.6,
+      "published": "2026-04-05T17:22:35.803071+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

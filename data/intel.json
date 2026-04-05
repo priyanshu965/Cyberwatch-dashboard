@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-05T01:28:38.030644+00:00",
+  "last_updated": "2026-04-05T04:31:00.912104+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T01:27:06.858187+00:00",
+      "published": "2026-04-05T04:29:52.069388+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -32,7 +32,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing Go and exploiting public-facing applications. Its real-world impact includes data encryption and exfiltration, with a limited number of victims listed on its Tor data leak site. The most important defender action is to prioritize patching and securing public-facing applications to prevent initial exploitation.",
+      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing public-facing application exploits and exfiltrating data over C2 channels. The real-world impact includes data encryption and potential leaks, with a limited number of victims reported. The most important defender action is to secure public-facing applications and monitor for suspicious C2 channel activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T01:27:06.858169+00:00",
+      "published": "2026-04-05T04:29:52.069370+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -63,7 +63,7 @@
         }
       ],
       "ai_summary": "The Qilin EDR killer is a multi-stage infection chain that targets endpoint detection and response systems, using a malicious 'msimg32.dll' to terminate over 300 EDR drivers. This allows attackers to bypass security measures and encrypt data for ransom. To defend against this threat, organizations should prioritize implementing robust EDR solutions and regularly updating their security software.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -77,10 +77,10 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T01:27:06.858145+00:00",
+      "published": "2026-04-05T04:29:52.069347+00:00",
       "ttps": [],
-      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, leveraging typo-squatted domains to trick visitors. This campaign exhibits tactics similar to VexTrio, highlighting the evolving nature of AdTech abuse for malware distribution. Defenders should prioritize monitoring and filtering of suspicious Microsoft Store app downloads and traffic from typo-squatted domains.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1218| D[Persistence]:::tactic\n    D -->|T1566| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijackers through the Microsoft Store, leveraging typo-squatted domains to trick visitors into downloading malicious apps. This campaign showcases tactics similar to VexTrio, highlighting the ongoing abuse of AdTech networks for malware delivery. Defenders should prioritize monitoring and filtering of Microsoft Store apps to prevent such infections.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059| C[Privilege Escalation]:::tactic\n    C -->|T1112| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -94,7 +94,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T01:27:06.858115+00:00",
+      "published": "2026-04-05T04:29:52.069318+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -121,9 +121,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat involves signed malware masquerading as legitimate workplace software, delivered through phishing campaigns, to deploy RMM backdoors. This allows attackers to establish persistence and gain remote access. Defenders should prioritize verifying the authenticity of software and attachments to prevent initial access.",
+      "ai_summary": "The threat involves signed malware masquerading as legitimate workplace software, delivered through phishing campaigns, to deploy RMM backdoors. This allows attackers to establish persistence and gain remote access to compromised systems. Defenders should prioritize verifying the authenticity of software and attachments to prevent initial access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -136,7 +136,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T01:27:06.858092+00:00",
+      "published": "2026-04-05T04:29:52.069295+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -151,8 +151,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A North Korean state actor compromised the npm credentials of the primary Axios maintainer, deploying a cross-platform remote access trojan (RAT) to Windows, macOS, and Linux systems. This supply chain attack leveraged the popularity of Axios, with approximately 100 million weekly downloads, to gain widespread access. To defend against this threat, organizations should immediately review and update their Axios dependencies to ensure they are not using the backdoored releases.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1566| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat is a supply chain compromise where a North Korean state actor hijacked the npm credentials of the primary Axios maintainer, deploying a cross-platform remote access trojan to Windows, macOS, and Linux systems. The real-world impact is significant, given Axios' widespread use in the JavaScript ecosystem. The most important defender action is to immediately review and update Axios dependencies to prevent RAT deployment.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1071.001| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -166,7 +166,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T01:27:06.858066+00:00",
+      "published": "2026-04-05T04:29:52.069271+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -175,7 +175,7 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "The threat involves a 5-stage attack chain delivering XWorm V5.6 malware through a ClickFix campaign, utilizing HTTP body hunting tactics. This technique-based approach highlights the importance of monitoring web-delivered malware. Defenders should prioritize implementing robust HTTP body inspection and vulnerability scanning detection to mitigate such threats.",
+      "ai_summary": "The threat involves a 5-stage attack chain delivering XWorm V5.6 malware through a ClickFix campaign, utilizing HTTP body hunting tactics. The real-world impact includes potential data breaches and system compromises. The most important defender action is to implement robust vulnerability scanning and patch management to prevent initial access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Discovery]:::tactic\n    B -->|T1566| C[Initial Access]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -190,7 +190,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T01:27:06.858044+00:00",
+      "published": "2026-04-05T04:29:52.069248+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -229,8 +229,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat involves LNK files using a multi-stage scripting process to evade detection, with GitHub as Command and Control infrastructure. This campaign targets users in South Korea and has been ongoing since 2024. To defend against this threat, organizations should implement robust email and endpoint security measures to detect and block malicious LNK files.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Initial Access]:::tactic\n    B -->|T1102| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1583.006| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat involves a multi-stage scripting process using LNK files to target users in South Korea, leveraging GitHub as Command and Control infrastructure to evade detection. The attacks utilize various TTPs, including web services and obfuscated files, to impair defenses and establish multi-stage channels. To defend against this threat, it is essential to implement robust email and web filtering to block suspicious LNK files and GitHub traffic.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Initial Access]:::tactic\n    B -->|T1102| C[Execution]:::tactic\n    C -->|T1583.006| D[Command and Control]:::tactic\n    D -->|T1562| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -244,7 +244,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T01:27:06.858008+00:00",
+      "published": "2026-04-05T04:29:52.069222+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -259,11 +259,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors exploit heightened geopolitical tensions to map network infrastructure, steal authentication certificates, and gather victim host info. This proactive infrastructure monitoring is crucial to detect and disrupt potential cyber operations. Defenders must prioritize monitoring ASN patterns, TLS fingerprints, and hosting clusters.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1566| D[Initial Access]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Iranian state-aligned threat actors are utilizing various tactics to gather victim host information and steal or forge authentication certificates, posing a significant threat to organizations. The threat actors' infrastructure patterns, including network infrastructure and hosting clusters, can be monitored to detect and disrupt potential cyber operations. To defend against these threats, organizations should prioritize proactive infrastructure monitoring and implement robust security measures to prevent certificate theft and unauthorized access.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Discovery]:::tactic\n    B -->|T1649| C[Credential Access]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "MuddyWater Exposed: Inside an Iranian APT operation",
@@ -274,7 +274,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T01:27:06.857985+00:00",
+      "published": "2026-04-05T04:29:52.069189+00:00",
       "ttps": [
         {
           "id": "T1071",
@@ -289,11 +289,11 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "MuddyWater, an Iranian APT, uses reconnaissance, exploits vulnerabilities, and custom C2 frameworks to exfiltrate data from targets in multiple countries. Their tactics include Application Layer Protocol and Exfiltration Over C2 Channel. Defenders should monitor for suspicious network activity and implement vulnerability patching.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Reconnaissance]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "MuddyWater, an Iranian APT group, conducts cyber espionage by exploiting vulnerabilities and using custom command and control frameworks to exfiltrate data from targeted organizations. The group's real-world impact includes compromised organizations in multiple countries. The most important defender action is to monitor for suspicious application layer protocol activity and exfiltration attempts over command and control channels.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1071| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "South American telecommunication providers targeted with three new malware implants",
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T01:27:06.857953+00:00",
+      "published": "2026-04-05T04:29:52.069158+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -325,22 +325,87 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "UAT-9244, a China-nexus APT, targets South American telecoms with three new malware implants: TernDoor, PeerTime, and BruteEntry. These implants enable backdoor access, brute force attacks, and remote access software exploitation. Defenders should prioritize monitoring for T1190, T1110, and T1219 TTPs.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "UAT-9244, a China-nexus APT group, targets South American telecommunications infrastructure with three new malware implants: TernDoor, PeerTime, and BruteEntry, to gain remote access and exploit public-facing applications. The group's tactics include brute force attacks and exploitation of remote access software. To defend against this threat, organizations should prioritize securing remote access points and implementing robust password policies.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-4842: A security vulnerability has been detected in itsourcecode Online Enrollment Sys...",
+      "description": "A security vulnerability has been detected in itsourcecode Online Enrollment System 1.0. This vulnerability affects unknown code of the file /sms/grades/index.php?view=edit&id=1 of the component Parameter Handler. The manipulation of the argument deptid leads to sql injection. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4842",
+      "cve_id": "CVE-2026-4842",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.3,
+      "published": "2026-04-05T04:29:49.360003+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-4842 is a SQL injection vulnerability in the itsourcecode Online Enrollment System, allowing remote attackers to exploit the deptid argument in the /sms/grades/index.php file. This vulnerability can lead to unauthorized data access and manipulation. To defend against this threat, prioritize patching the vulnerable component and implementing input validation and sanitization.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1566| C[Initial Access]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.3,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-4841: A weakness has been identified in code-projects Online Food Ordering System 1.0....",
+      "description": "A weakness has been identified in code-projects Online Food Ordering System 1.0. This affects an unknown part of the file form/cart.php of the component Shopping Cart Module. Executing a manipulation of the argument del can lead to sql injection. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4841",
+      "cve_id": "CVE-2026-4841",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.3,
+      "published": "2026-04-05T04:29:49.359988+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-4841 is a SQL injection vulnerability in the Shopping Cart Module of code-projects Online Food Ordering System 1.0, allowing remote attackers to manipulate the 'del' argument in form/cart.php. This vulnerability can be exploited to extract or modify sensitive data. To defend, prioritize patching or input validation to prevent SQL injection attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1055| C[Unauthorized Access]:::tactic\n    C -->|T1068| D[Exploitation for Credential Access]:::tactic\n    D -->|T1482| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.3,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-4840: A security flaw has been discovered in Netcore Power 15AX up to 3.0.0.6938. Affe...",
+      "description": "A security flaw has been discovered in Netcore Power 15AX up to 3.0.0.6938. Affected by this issue is the function setTools of the file /bin/netis.cgi of the component Diagnostic Tool Interface. Performing a manipulation of the argument IpAddr results in os command injection. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks. The",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4840",
+      "cve_id": "CVE-2026-4840",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-05T04:29:49.359972+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-4840 is a remote code execution vulnerability in Netcore Power 15AX up to 3.0.0.6938, allowing attackers to inject OS commands via the Diagnostic Tool Interface. This flaw has been publicly exploited, posing a significant risk to affected systems. Defenders should prioritize patching or updating to a secure version of Netcore Power 15AX.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Command and Control]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-4075: The BWL Advanced FAQ Manager Lite plugin for WordPress is vulnerable to Stored C...",
-      "description": "The BWL Advanced FAQ Manager Lite plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'baf_sbox' shortcode in all versions up to and including 1.1.1. This is due to insufficient input sanitization and output escaping on user-supplied shortcode attributes such as 'sbox_id', 'sbox_class', 'placeholder', 'highlight_color', 'highlight_bg', and 'cont_ext_class'. These attributes a",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4075",
-      "cve_id": "CVE-2026-4075",
+      "title": "CVE-2026-4389: The DSGVO snippet for Leaflet Map and its Extensions plugin for WordPress is vul...",
+      "description": "The DSGVO snippet for Leaflet Map and its Extensions plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the `leafext-cookie-time` and `leafext-delete-cookie` shortcodes in all versions up to, and including, 3.1. This is due to insufficient input sanitization and output escaping on user supplied attributes (`unset`, `before`, `after`). This makes it possible for authenticated att",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4389",
+      "cve_id": "CVE-2026-4389",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.4,
-      "published": "2026-04-05T01:27:03.977740+00:00",
+      "published": "2026-04-05T04:29:49.359955+00:00",
       "ttps": [
         {
           "id": "T1649",
@@ -349,53 +414,40 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-4075 is a Stored Cross-Site Scripting vulnerability in the BWL Advanced FAQ Manager Lite plugin for WordPress, allowing attackers to inject malicious code via user-supplied shortcode attributes. This vulnerability has a CVSS score of 6.4, indicating a medium severity risk. To defend against this threat, ensure the plugin is updated to a version that addresses this issue.",
+      "ai_summary": "CVE-2026-4389 is a Stored Cross-Site Scripting vulnerability in the DSGVO snippet for Leaflet Map and its Extensions plugin for WordPress, allowing attackers to inject malicious code via user-supplied attributes. This vulnerability affects all versions up to 3.1. To defend, update the plugin to a patched version.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 6.4,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-3328: The Frontend Admin by DynamiApps plugin for WordPress is vulnerable to PHP Objec...",
-      "description": "The Frontend Admin by DynamiApps plugin for WordPress is vulnerable to PHP Object Injection via deserialization of the 'post_content' of admin_form posts in all versions up to, and including, 3.28.31. This is due to the use of WordPress's `maybe_unserialize()` function without class restrictions on user-controllable content stored in admin_form post content. This makes it possible for authenticate",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3328",
-      "cve_id": "CVE-2026-3328",
+      "title": "CVE-2026-4331: The Blog2Social: Social Media Auto Post & Scheduler plugin for WordPress is vuln...",
+      "description": "The Blog2Social: Social Media Auto Post & Scheduler plugin for WordPress is vulnerable to unauthorized data loss in all versions up to, and including, 8.8.2. This is due to the resetSocialMetaTags() function only verifying that the user has the 'read' capability and a valid b2s_security_nonce, both of which are available to Subscriber-level users, as the plugin grants 'blog2social_access' capabili",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4331",
+      "cve_id": "CVE-2026-4331",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-05T04:29:49.359936+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-4331 is a WordPress plugin vulnerability allowing unauthorized data loss due to insufficient capability checks. This affects all versions up to 8.8.2. Defenders should update the plugin to a patched version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1055| D[Data Exfiltration]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-4329: The Blackhole for Bad Bots plugin for WordPress is vulnerable to Stored Cross-Si...",
+      "description": "The Blackhole for Bad Bots plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the User-Agent HTTP header in all versions up to and including 3.8. This is due to insufficient input sanitization and output escaping. The plugin uses sanitize_text_field() when capturing bot data (which strips HTML tags but does not escape HTML entities like double quotes), then stores the data via u",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4329",
+      "cve_id": "CVE-2026-4329",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.2,
-      "published": "2026-04-05T01:27:03.977724+00:00",
+      "published": "2026-04-05T04:29:49.359921+00:00",
       "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-3328 is a PHP Object Injection vulnerability in the Frontend Admin plugin for WordPress, allowing authenticated attackers to exploit public-facing applications via deserialization of user-controllable content. This vulnerability affects all versions up to 3.28.31. Defenders should update the plugin to a patched version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-1986: The FloristPress for Woo – Customize your eCommerce store for your Florist plugi...",
-      "description": "The FloristPress for Woo – Customize your eCommerce store for your Florist plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'noresults' parameter in all versions up to, and including, 7.8.2 due to insufficient input sanitization and output escaping on the user supplied 'noresults' parameter. This makes it possible for unauthenticated attackers to inject arbitrary web sc",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1986",
-      "cve_id": "CVE-2026-1986",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-05T01:27:03.977707+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
         {
           "id": "T1649",
           "name": "Steal or Forge Authentication Certificates",
@@ -403,163 +455,86 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-1986 is a Reflected Cross-Site Scripting vulnerability in The FloristPress for Woo plugin for WordPress, allowing unauthenticated attackers to inject arbitrary web scripts. This vulnerability affects all versions up to 7.8.2. To defend, ensure the 'noresults' parameter is properly sanitized and output escaped.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2026-4836: A vulnerability was detected in code-projects Accounting System 1.0. The affecte...",
-      "description": "A vulnerability was detected in code-projects Accounting System 1.0. The affected element is an unknown function of the file /my_account/delete.php. Performing a manipulation of the argument cos_id results in sql injection. It is possible to initiate the attack remotely. The exploit is now public and may be used.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4836",
-      "cve_id": "CVE-2026-4836",
+      "title": "CVE-2026-4281: The FormLift for Infusionsoft Web Forms plugin for WordPress is vulnerable to Mi...",
+      "description": "The FormLift for Infusionsoft Web Forms plugin for WordPress is vulnerable to Missing Authorization in all versions up to, and including, 7.5.21. This is due to missing capability checks on the connect() and listen_for_tokens() methods of the FormLift_Infusionsoft_Manager class, both of which are hooked to 'plugins_loaded' and execute on every page load. The connect() function generates an OAuth c",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4281",
+      "cve_id": "CVE-2026-4281",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.3,
-      "published": "2026-04-05T01:27:03.977686+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-4836 is a remote SQL injection vulnerability in code-projects Accounting System 1.0, allowing attackers to exploit public-facing applications. This vulnerability has a CVSS score of 6.3, indicating a medium severity impact. Defenders should update the Accounting System to the latest version to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "cvss_score": 5.3,
+      "published": "2026-04-05T04:29:49.359905+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2026-4835: A security vulnerability has been detected in code-projects Accounting System 1....",
-      "description": "A security vulnerability has been detected in code-projects Accounting System 1.0. Impacted is an unknown function of the file /my_account/add_costumer.php of the component Web Application Interface. Such manipulation of the argument costumer_name leads to cross site scripting. The attack may be performed from remote. The exploit has been disclosed publicly and may be used.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4835",
-      "cve_id": "CVE-2026-4835",
+      "title": "CVE-2026-4278: The Simple Download Counter plugin for WordPress is vulnerable to Stored Cross-S...",
+      "description": "The Simple Download Counter plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'sdc_menu' shortcode in all versions up to, and including, 2.3. This is due to insufficient input sanitization and output escaping on user-supplied shortcode attributes, specifically the 'text' and 'cat' attributes. The 'text' attribute is output directly into HTML content on line 159 without any ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4278",
+      "cve_id": "CVE-2026-4278",
       "source": "NVD",
       "category": "cve",
-      "severity": "low",
-      "cvss_score": 3.5,
-      "published": "2026-04-05T01:27:03.977671+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-4835 is a cross-site scripting (XSS) vulnerability in code-projects Accounting System 1.0, exploitable from remote, and publicly disclosed. This vulnerability allows an attacker to manipulate the costumer_name argument in /my_account/add_costumer.php. Defenders should update the Accounting System to the latest version to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Cross-Site Scripting]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 3.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "severity": "medium",
+      "cvss_score": 6.4,
+      "published": "2026-04-05T04:29:49.359887+00:00",
+      "ttps": [
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2025-15101: A Cross-Site Request Forgery (CSRF) vulnerability has been identified in the Web...",
-      "description": "A Cross-Site Request Forgery (CSRF) vulnerability has been identified in the Web management interface of certain ASUS router models. This vulnerability potentially allows actions to be performed with the existing privileges of an authenticated user on the affected device, including the ability to execute system commands through unintended mechanisms.\nRefer to the 'Security Update for ASUS Router F",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15101",
-      "cve_id": "CVE-2025-15101",
+      "title": "CVE-2026-33201: Digital Photo Frame GH-WDF10A provided by GREEN HOUSE CO., LTD. contains an acti...",
+      "description": "Digital Photo Frame GH-WDF10A provided by GREEN HOUSE CO., LTD. contains an active debug code vulnerability. If this vulnerability is exploited, files or configurations on the affected device may be read or written, or arbitrary files may be executed with root privileges.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33201",
+      "cve_id": "CVE-2026-33201",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.8,
+      "published": "2026-04-05T04:29:49.359866+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-2931: The Amelia Booking plugin for WordPress is vulnerable to Insecure Direct Object ...",
+      "description": "The Amelia Booking plugin for WordPress is vulnerable to Insecure Direct Object References in versions up to, and including, 9.1.2. This is due to the plugin providing user-controlled access to objects, letting a user bypass authorization and access system resources. This makes it possible for authenticated attackers with customer-level permissions or above to change user passwords and potentially",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2931",
+      "cve_id": "CVE-2026-2931",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-05T01:27:03.977655+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2014-125112: Plack::Middleware::Session::Cookie versions through 0.21 for Perl allows remote ...",
-      "description": "Plack::Middleware::Session::Cookie versions through 0.21 for Perl allows remote code execution.\n\nPlack::Middleware::Session::Cookie versions through 0.21 has a security vulnerability where it allows an attacker to execute arbitrary code on the server during deserialization of the cookie data, when there is no secret used to sign the cookie.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-125112",
-      "cve_id": "CVE-2014-125112",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-05T01:27:03.977637+00:00",
+      "published": "2026-04-05T04:29:49.359825+00:00",
       "ttps": [
         {
           "id": "T1190",
           "name": "Exploit Public-Facing Application",
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-4833: A weakness has been identified in Orc discount up to 3.0.1.2. This issue affects...",
-      "description": "A weakness has been identified in Orc discount up to 3.0.1.2. This issue affects the function compile of the file markdown.c of the component Markdown Handler. This manipulation causes uncontrolled recursion. The attack is restricted to local execution. The exploit has been made available to the public and could be used for attacks. The project maintainer confirms: \"[I]f you feed it an infinitely ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4833",
-      "cve_id": "CVE-2026-4833",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": 3.3,
-      "published": "2026-04-05T01:27:03.977618+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-4831: A security flaw has been discovered in kalcaddle kodbox 1.64. Impacted is the fu...",
-      "description": "A security flaw has been discovered in kalcaddle kodbox 1.64. Impacted is the function can of the file /workspace/source-code/app/controller/explorer/auth.class.php of the component Password-protected Share Handler. Performing a manipulation results in improper authentication. The attack is possible to be carried out remotely. The complexity of an attack is rather high. The exploitability is consi",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4831",
-      "cve_id": "CVE-2026-4831",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": 3.7,
-      "published": "2026-04-05T01:27:03.977577+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-4484: The Masteriyo LMS plugin for WordPress is vulnerable to Privilege Escalation in ...",
-      "description": "The Masteriyo LMS plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 2.1.6. This is due to the plugin allowing a user to update the user role through the 'InstructorsController::prepare_object_for_database' function. This makes it possible for authenticated attackers, with Student-level access and above, to elevate their privileges to that of an admini",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4484",
-      "cve_id": "CVE-2026-4484",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-05T01:27:03.977538+00:00",
-      "ttps": [
-        {
-          "id": "T1068",
-          "name": "Exploitation for Privilege Escalation",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
         }
       ],
       "ai_summary": "AI analysis pending",

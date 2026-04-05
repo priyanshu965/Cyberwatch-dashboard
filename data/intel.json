@@ -1,327 +1,158 @@
 {
-  "last_updated": "2026-04-05T22:22:57.577106+00:00",
-  "total_items": 75,
+  "last_updated": "2026-04-05T23:27:30.801225+00:00",
+  "total_items": 65,
   "items": [
     {
-      "title": "Blurred Lines: AdTech Abuse Delivers Browser Hijackers Through the Microsoft Store",
-      "description": "A newly uncovered campaign abuses the Trillion (formerly Trellian) AdTech network, mimicking the flow of a Traffic Direction System (TDS) to trick visitors of typo-squatted domains into downloading Microsoft Store apps that contain browser hijacking malware. While the abuse of AdTech networks to deliver malware isn’t new, this campaign highlights incredibly similar tactics to VexTrio and previous ",
-      "url": "https://otx.alienvault.com/pulse/69cea64baa48265a8127fe22",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
+      "title": "CVE-2026-4905: A vulnerability was found in Tenda AC5 15.03.06.47. Impacted is the function for...",
+      "description": "A vulnerability was found in Tenda AC5 15.03.06.47. Impacted is the function formWifiWpsOOB of the file /goform/WifiWpsOOB of the component POST Request Handler. Performing a manipulation of the argument index results in stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been made public and could be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4905",
+      "cve_id": "CVE-2026-4905",
+      "source": "NVD",
+      "category": "cve",
       "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-05T22:21:07.084354+00:00",
+      "cvss_score": 8.8,
+      "published": "2026-04-05T23:25:07.088237+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2026-4905 is a stack-based buffer overflow vulnerability in Tenda AC5's formWifiWpsOOB function, allowing remote exploitation for client execution. This vulnerability has a high real-world impact due to the public availability of an exploit. The most important defender action is to patch or update the affected Tenda AC5 devices to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-4904: A vulnerability has been found in Tenda AC5 15.03.06.47. This issue affects the ...",
+      "description": "A vulnerability has been found in Tenda AC5 15.03.06.47. This issue affects the function formSetCfm of the file /goform/setcfm of the component POST Request Handler. Such manipulation of the argument funcpara1 leads to stack-based buffer overflow. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4904",
+      "cve_id": "CVE-2026-4904",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-05T23:25:07.088219+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2026-4904 is a stack-based buffer overflow vulnerability in Tenda AC5's formSetCfm function, allowing remote attackers to execute arbitrary code. This vulnerability has a high real-world impact due to its remote exploitability and potential for client execution. To defend against this threat, prioritize patching the affected Tenda AC5 devices to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation]:::tactic\n    B -->|T1190| C[Execution]:::tactic\n    C -->|T1219| D[Resource Development]:::tactic\n    D -->|T1584| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-33945: Incus is a system container and virtual machine manager. Incus instances have an...",
+      "description": "Incus is a system container and virtual machine manager. Incus instances have an option to provide credentials to systemd in the guest. For containers, this is handled through a shared directory. Prior to version 6.23.0, an attacker can set a configuration key named something like `systemd.credential.../../../../../../root/.bashrc` to cause Incus to write outside of the `credentials` directory ass",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33945",
+      "cve_id": "CVE-2026-33945",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.9,
+      "published": "2026-04-05T23:25:07.088202+00:00",
+      "ttps": [
+        {
+          "id": "T1546.004",
+          "name": "Unix Shell Configuration",
+          "tactic": "Persistence",
+          "tactic_id": "TA0003"
+        }
+      ],
+      "ai_summary": "CVE-2026-33945 is a critical vulnerability in Incus, a system container and virtual machine manager, allowing attackers to write outside the intended directory by manipulating the `systemd.credential` configuration key. This can lead to code execution and privilege escalation. To defend, ensure Incus instances are updated to version 6.23.0 or later.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1546.004| B[Privilege Escalation]:::tactic\n    B -->|T1059.003| C[Execution]:::tactic\n    C -->|T1210| D[Exploitation for Client Execution]:::tactic\n    D -->|T1490| E[Resource Hijacking]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-33898: Incus is a system container and virtual machine manager. Prior to version 6.23.0...",
+      "description": "Incus is a system container and virtual machine manager. Prior to version 6.23.0, the web server spawned by `incus webui` incorrectly validates the authentication token such that an invalid value will be accepted. `incus webui` runs a local web server on a random localhost port. For authentication, it provides the user with a URL containing an authentication token. When accessed with that token, I",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33898",
+      "cve_id": "CVE-2026-33898",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-05T23:25:07.088181+00:00",
       "ttps": [],
-      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, leveraging typo-squatted domains to trick visitors. This campaign showcases tactics similar to VexTrio, highlighting the ongoing abuse of AdTech networks for malicious purposes. Defenders should prioritize monitoring and filtering of suspicious Microsoft Store app downloads and AdTech network traffic.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059| C[Privilege Escalation]:::tactic\n    C -->|T1112| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "CVE-2026-33898 is a high-severity vulnerability in Incus, a system container and virtual machine manager, allowing attackers to bypass authentication. This can lead to unauthorized access and potentially devastating consequences. Defenders should update Incus to version 6.23.0 or later to mitigate this threat.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1160| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "Signed malware impersonating workplace apps deploys RMM backdoors",
-      "description": "Multiple phishing campaigns were identified using workplace meeting lures, PDF attachments, and abuse of legitimate binaries to deliver signed malware. The attacks used digitally signed executables masquerading as legitimate software to install remote monitoring and management (RMM) tools like ScreenConnect, Tactical RMM, and Mesh Agent. These tools enabled attackers to establish persistence and m",
-      "url": "https://otx.alienvault.com/pulse/69a77ace20faf9114cbb120b",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
+      "title": "CVE-2026-33697: Cocos AI is a confidential computing system for AI. The current implementation o...",
+      "description": "Cocos AI is a confidential computing system for AI. The current implementation of attested TLS (aTLS) in CoCoS is vulnerable to a relay attack affecting all versions from v0.4.0 through v0.8.2. This vulnerability is present in both the AMD SEV-SNP and Intel TDX deployment targets supported by CoCoS. In the affected design, an attacker may be able to extract the ephemeral TLS private key used durin",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33697",
+      "cve_id": "CVE-2026-33697",
+      "source": "NVD",
+      "category": "cve",
       "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-05T22:21:07.084328+00:00",
+      "cvss_score": 7.5,
+      "published": "2026-04-05T23:25:07.088164+00:00",
       "ttps": [
         {
-          "id": "T1566",
-          "name": "Phishing",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1036",
-          "name": "Masquerading",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
+          "id": "T1552.004",
+          "name": "Private Keys",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The threat involves signed malware impersonating workplace apps to deploy RMM backdoors, allowing attackers to establish persistence and remote access. This is achieved through phishing campaigns using legitimate binaries and abuse of digital signatures. The most important defender action is to implement robust email filtering and user education to prevent initial phishing attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "Securing the Supply Chain: How SentinelOne's AI EDR Stops the ...",
-      "description": "On March 31, 2026, a North Korean state actor hijacked the npm credentials of the primary Axios maintainer and published two backdoored releases that deployed a cross-platform remote access trojan (RAT) to Windows, macOS, and Linux systems. Axios is the most widely used HTTP client in the JavaScript ecosystem, with approximately 100 million weekly downloads and a presence in roughly 80% of cloud a",
-      "url": "https://otx.alienvault.com/pulse/69cf03e05f6b299dc3efd2cd",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-05T22:21:07.084305+00:00",
-      "ttps": [
-        {
-          "id": "T1195",
-          "name": "Supply Chain Compromise",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "The threat is a supply chain compromise where a North Korean state actor hijacked the npm credentials of the primary Axios maintainer, deploying a cross-platform remote access trojan to Windows, macOS, and Linux systems. The real-world impact is significant, given Axios' widespread use in the JavaScript ecosystem. The most important defender action is to immediately update Axios to a version not affected by the backdoor.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1566| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "A Technique-Based Approach to Hunting Web-Delivered Malware",
-      "description": "This report presents a technique-based approach to HTTP body hunting using Censys that addresses this tension directly, and demonstrates its effectiveness by walking through a live discovery: a ClickFix campaign delivering XWorm V5.6 through a 5-stage attack chain.",
-      "url": "https://otx.alienvault.com/pulse/69cf8d0d1edba26a610bb8bd",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-05T22:21:07.084278+00:00",
-      "ttps": [
-        {
-          "id": "T1595.002",
-          "name": "Vulnerability Scanning",
-          "tactic": "Reconnaissance",
-          "tactic_id": "TA0043"
-        }
-      ],
-      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 via a 5-stage attack chain, using T1595.002 (Vulnerability Scanning) to gain initial access. This technique-based approach to HTTP body hunting is effective in discovering web-delivered malware. Defenders should implement Censys to identify and mitigate such threats.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-33697 is a relay attack vulnerability in Cocos AI's attested TLS (aTLS) implementation, affecting confidential computing systems for AI. An attacker can extract the ephemeral TLS private key, compromising confidentiality. Defenders should update Cocos AI to a non-affected version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1552.004| B[Private Keys]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "DPRK-Related Campaigns with LNK and GitHub C2",
-      "description": "FortiGuard Labs recently detected a series of LNK files targeting users in South Korea. These attacks use a multi-stage scripting process and leverage GitHub as Command and Control (C2) infrastructure to evade detection. Although these LNK files can be traced back to 2024, earlier versions had less obfuscation and contained significant metadata, allowing us to track similar attacks spreading the X",
-      "url": "https://otx.alienvault.com/pulse/69cfceee4f7a6c4305b3d1a4",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-05T22:21:07.084255+00:00",
-      "ttps": [
-        {
-          "id": "T1583.006",
-          "name": "Web Services",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1027",
-          "name": "Obfuscated Files or Information",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        },
-        {
-          "id": "T1562",
-          "name": "Impair Defenses",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        },
-        {
-          "id": "T1071",
-          "name": "Application Layer Protocol",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        },
-        {
-          "id": "T1102",
-          "name": "Web Service",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        },
-        {
-          "id": "T1104",
-          "name": "Multi-Stage Channels",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "The DPRK-related campaign uses LNK files with a multi-stage scripting process and GitHub as C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions containing less obfuscation and metadata. Defenders should monitor GitHub for suspicious activity and implement detection for TTPs T1583.006, T1027, T1562, T1071, T1102, and T1104.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1102| E[Web Service]:::tactic\n    E -->|T1104| F[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "title": "CVE-2026-29071: Open WebUI is a self-hosted artificial intelligence platform designed to operate...",
+      "description": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to version 0.8.6, any authenticated user can read other users' private memories via `/api/v1/retrieval/query/collection`. Version 0.8.6 patches the issue.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29071",
+      "cve_id": "CVE-2026-29071",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 3.1,
+      "published": "2026-04-05T23:25:07.088146+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-29071 is a medium-severity vulnerability in Open WebUI, a self-hosted AI platform, allowing authenticated users to read other users' private memories. This issue was patched in version 0.8.6. Defenders should update Open WebUI to the latest version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Command and Control]:::tactic\n    B -->|T1210| C[Exploitation of Remote Services]:::tactic\n    C -->|T1068| D[Valid Accounts]:::tactic\n    D -->|T1552| E[Impair Defenses]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "Iranian APT Infrastructure in Focus: Mapping State-Aligned Clusters During Geopolitical Escalation",
-      "description": "The analysis examines Iranian state-aligned threat actors and their infrastructure patterns during heightened geopolitical tensions. It focuses on mapping network infrastructure, ASN patterns, TLS fingerprints, and hosting clusters associated with various Iranian APT groups. The report highlights the importance of proactive infrastructure monitoring to detect and disrupt potential cyber operations",
-      "url": "https://otx.alienvault.com/pulse/69a88b31c4401f717710f864",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-05T22:21:07.084230+00:00",
+      "title": "CVE-2026-29070: Open WebUI is a self-hosted artificial intelligence platform designed to operate...",
+      "description": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to version 0.8.6, an access control check is missing when deleting a file from a knowledge base. The only check being done is that the user has write access to the knowledge base (or is admin), but NOT that the file actually belongs to this knowledge base. It is thus possible to delete arbitrar",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29070",
+      "cve_id": "CVE-2026-29070",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-05T23:25:07.088128+00:00",
       "ttps": [
         {
-          "id": "T1592",
-          "name": "Gather Victim Host Info",
-          "tactic": "Reconnaissance",
-          "tactic_id": "TA0043"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
+          "id": "T1213",
+          "name": "Data from Information Repositories",
+          "tactic": "Collection",
+          "tactic_id": "TA0009"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors are gathering victim host info and stealing or forging authentication certificates, highlighting the need for proactive infrastructure monitoring to detect and disrupt potential cyber operations.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "MuddyWater Exposed: Inside an Iranian APT operation",
-      "description": "Researchers identified and analyzed exposed infrastructure of MuddyWater, an Iranian cyber espionage group linked to the Ministry of Intelligence and Security. The investigation revealed their reconnaissance methods, exploitation of vulnerabilities, custom command and control frameworks, and exfiltration techniques. Targets included organizations in Israel, Jordan, Egypt, UAE, Portugal, and the US",
-      "url": "https://otx.alienvault.com/pulse/69a99ec6f661182b3a0c1aa5",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-05T22:21:07.084209+00:00",
-      "ttps": [
-        {
-          "id": "T1071",
-          "name": "Application Layer Protocol",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        },
-        {
-          "id": "T1041",
-          "name": "Exfiltration Over C2 Channel",
-          "tactic": "Exfiltration",
-          "tactic_id": "TA0010"
-        }
-      ],
-      "ai_summary": "MuddyWater, an Iranian APT, uses reconnaissance, exploits vulnerabilities, and custom C2 frameworks to exfiltrate data from targets in multiple countries. Their tactics include Application Layer Protocol exploitation and Exfiltration Over C2 Channel. Defenders should monitor for suspicious network activity and implement vulnerability patching.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Reconnaissance]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "South American telecommunication providers targeted with three new malware implants",
-      "description": "UAT-9244, a China-nexus advanced persistent threat actor, has been targeting critical telecommunications infrastructure in South America since 2024. The group employs three new malware implants: TernDoor, a Windows-based backdoor variant of CrowDoor; PeerTime, an ELF-based backdoor using BitTorrent protocol; and BruteEntry, a brute force scanner for SSH, Postgres, and Tomcat servers. UAT-9244 uses",
-      "url": "https://otx.alienvault.com/pulse/69a9e3f038f67d31461ec191",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-05T22:21:07.084178+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1110",
-          "name": "Brute Force",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "UAT-9244, a China-nexus APT, targets South American telecoms with three new malware implants: TernDoor, PeerTime, and BruteEntry. These implants enable backdoor access, brute force attacks, and remote access. Defenders should prioritize monitoring for T1190, T1110, and T1219 TTPs.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "An Investigation Into Years of Undetected Operations Targeting High-Value Sectors",
-      "description": "Since 2020, a Chinese threat actor dubbed CL-UNK-1068 has been targeting high-value organizations across South, Southeast and East Asia, focusing on critical sectors like aviation, energy, government, and telecommunications. The group employs a diverse toolkit including custom malware, modified open-source utilities, and living-off-the-land binaries to maintain stealthy persistence. Their techniqu",
-      "url": "https://otx.alienvault.com/pulse/69aaed7070e810571c939251",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-05T22:21:07.084159+00:00",
-      "ttps": [
-        {
-          "id": "T1587",
-          "name": "Develop Capabilities",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CL-UNK-1068, a Chinese threat actor, has been undetected since 2020, targeting high-value sectors in Asia with custom malware, modified open-source utilities, and living-off-the-land binaries. Their techniques include exploiting public-facing applications and developing capabilities. Defenders should prioritize monitoring for T1587 and T1190 to detect potential CL-UNK-1068 activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "Middle East Conflict Fuels Opportunistic Cyber Attacks",
-      "description": "The ongoing conflict in the Middle East has triggered a surge in cybercriminal activity. Over 8,000 newly registered domains with conflict-related keywords have been identified, many of which may be weaponized in future campaigns. Multiple cases of malicious activity have been observed, including targeted attacks using conflict-themed lures, deployment of the LOTUSLITE backdoor, fake news blogs le",
-      "url": "https://otx.alienvault.com/pulse/69ab2d63ef698ae16cec5ef2",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-05T22:21:07.084135+00:00",
-      "ttps": [
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "Cybercriminals are exploiting the Middle East conflict to launch opportunistic attacks, using conflict-themed lures and newly registered domains to deploy malware like the LOTUSLITE backdoor. These attacks often involve user execution and remote access software. Defenders should monitor for conflict-related domains and be cautious of targeted attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "ai_summary": "CVE-2026-29070 is a missing access control check in Open WebUI's knowledge base deletion feature, allowing an attacker to delete arbitrary files. This vulnerability has a CVSS score of 5.4, indicating a medium severity. Defenders should update Open WebUI to version 0.8.6 or later to remediate this issue.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1213| B[Data from Information Repositories]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -334,7 +165,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.1,
-      "published": "2026-04-05T22:21:04.364356+00:00",
+      "published": "2026-04-05T23:25:07.088109+00:00",
       "ttps": [
         {
           "id": "T1213",
@@ -343,7 +174,7 @@
           "tactic_id": "TA0009"
         }
       ],
-      "ai_summary": "CVE-2026-28788 is a file overwrite vulnerability in Open WebUI, allowing authenticated users to modify any file's content without ownership checks. This can be exploited by a regular user with read access to a shared knowledge base to obtain file UUIDs and then overwrite files. Defenders should update Open WebUI to version 0.8.6 or later to mitigate this vulnerability.",
+      "ai_summary": "CVE-2026-28788 is a file overwrite vulnerability in Open WebUI's self-hosted AI platform, allowing authenticated users to modify any file's content without ownership checks. This vulnerability can be exploited by a regular user with read access to a shared knowledge base, potentially leading to data tampering or exfiltration. Defenders should update Open WebUI to version 0.8.6 or later to mitigate this issue.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1213| B[Data from Information Repositories]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -358,11 +189,11 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.3,
-      "published": "2026-04-05T22:21:04.364341+00:00",
+      "published": "2026-04-05T23:25:07.088086+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-28786 is a medium-severity vulnerability in Open WebUI, a self-hosted AI platform, allowing authenticated non-admin users to obtain the server's absolute path through a `FileNotFoundError` in the speech-to-text transcription endpoint. This information disclosure can aid in further attacks. Defenders should update Open WebUI to version 0.8.6 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.5,
+      "ai_summary": "CVE-2026-28786 is a medium-severity vulnerability in Open WebUI, a self-hosted AI platform, allowing authenticated non-admin users to obtain sensitive directory information through a crafted filename. This information disclosure can aid in further attacks. Defenders should update to version 0.8.6 or later to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Discovery]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -375,7 +206,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-05T22:21:04.364324+00:00",
+      "published": "2026-04-05T23:25:07.088039+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -390,178 +221,11 @@
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "CVE-2026-27893 is a remote code execution vulnerability in vLLM, an inference engine for large language models. This vulnerability allows attackers to execute malicious code via malicious model repositories, even when the user has explicitly opted out of remote code execution. Defenders should update vLLM to version 0.18.0 or later to mitigate this vulnerability.",
+      "ai_summary": "CVE-2026-27893 is a remote code execution vulnerability in vLLM, an inference engine for large language models. An attacker can exploit this vulnerability by loading a malicious model repository, even if the user has explicitly opted out of remote code execution. Defenders should update vLLM to version 0.18.0 or later to mitigate this vulnerability.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-4903: A flaw has been found in Tenda AC5 15.03.06.47. This vulnerability affects the f...",
-      "description": "A flaw has been found in Tenda AC5 15.03.06.47. This vulnerability affects the function formQuickIndex of the file /goform/QuickIndex of the component POST Request Handler. This manipulation of the argument PPPOEPassword causes stack-based buffer overflow. The attack may be initiated remotely. The exploit has been published and may be used.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4903",
-      "cve_id": "CVE-2026-4903",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-05T22:21:04.364304+00:00",
-      "ttps": [
-        {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "CVE-2026-4903 is a remote stack-based buffer overflow vulnerability in Tenda AC5 15.03.06.47, exploitable via POST Request Handler. This flaw allows attackers to execute arbitrary code, posing a significant risk to affected systems. Defenders should prioritize patching or isolating vulnerable devices.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-4902: A vulnerability was detected in Tenda AC5 15.03.06.47. This affects the function...",
-      "description": "A vulnerability was detected in Tenda AC5 15.03.06.47. This affects the function fromAddressNat of the file /goform/addressNat of the component POST Request Handler. The manipulation of the argument page results in stack-based buffer overflow. The attack can be launched remotely. The exploit is now public and may be used.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4902",
-      "cve_id": "CVE-2026-4902",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-05T22:21:04.364289+00:00",
-      "ttps": [
-        {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "CVE-2026-4902 is a stack-based buffer overflow vulnerability in Tenda AC5 15.03.06.47's POST Request Handler, exploitable remotely. This allows an attacker to execute arbitrary code, posing a significant risk to affected systems. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-34352: In TigerVNC before 1.16.2, Image.cxx in x0vncserver allows other users to observ...",
-      "description": "In TigerVNC before 1.16.2, Image.cxx in x0vncserver allows other users to observe or manipulate the screen contents, or cause an application crash, because of incorrect permissions.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34352",
-      "cve_id": "CVE-2026-34352",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.5,
-      "published": "2026-04-05T22:21:04.364274+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1499",
-          "name": "Endpoint Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-33897: Incus is a system container and virtual machine manager. Prior to version 6.23.0...",
-      "description": "Incus is a system container and virtual machine manager. Prior to version 6.23.0, instance template files can be used to cause arbitrary read or writes as root on the host server. Incus allows for pongo2 templates within instances which can be used at various times in the instance lifecycle to template files inside of the instance. This particular implementation of pongo2 within Incus allowed for ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33897",
-      "cve_id": "CVE-2026-33897",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.9,
-      "published": "2026-04-05T22:21:04.364258+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-33743: Incus is a system container and virtual machine manager. Prior to version 6.23.0...",
-      "description": "Incus is a system container and virtual machine manager. Prior to version 6.23.0, a specially crafted storage bucket backup can be used by an user with access to Incus' storage bucket feature to crash the Incus daemon. Repeated use of this attack can be used to keep the server offline causing a denial of service of the control plane API. This does not impact any running workload, existing containe",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33743",
-      "cve_id": "CVE-2026-33743",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-05T22:21:04.364240+00:00",
-      "ttps": [
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-33711: Incus is a system container and virtual machine manager. Incus provides an API t...",
-      "description": "Incus is a system container and virtual machine manager. Incus provides an API to retrieve VM screenshots. That API relies on the use of a temporary file for QEMU to write the screenshot to which is then picked up and sent to the user prior to deletion. As versions prior to 6.23.0 use predictable paths under /tmp for this, an attacker with local access to the system can abuse this mechanism by cre",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33711",
-      "cve_id": "CVE-2026-33711",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-05T22:21:04.364218+00:00",
-      "ttps": [
-        {
-          "id": "T1113",
-          "name": "Screen Capture",
-          "tactic": "Collection",
-          "tactic_id": "TA0009"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-33542: Incus is a system container and virtual machine manager. Prior to version 6.23.0...",
-      "description": "Incus is a system container and virtual machine manager. Prior to version 6.23.0, a lack of validation of the image fingerprint when downloading from simplestreams image servers opens the door to image cache poisoning and under very narrow circumstances exposes other tenants to running attacker controlled images rather than the expected one. Version 6.23.0 patches the issue.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33542",
-      "cve_id": "CVE-2026-33542",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.8,
-      "published": "2026-04-05T22:21:04.364180+00:00",
-      "ttps": [
-        {
-          "id": "T1592",
-          "name": "Gather Victim Host Info",
-          "tactic": "Reconnaissance",
-          "tactic_id": "TA0043"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
     },
     {
       "title": "Traffic violation scams switch to QR codes in new phishing texts",
@@ -570,7 +234,7 @@
       "cve_id": null,
       "source": "Bleeping Computer",
       "category": "news",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
       "published": "2026-04-05T19:44:10+00:00",
       "ttps": [
@@ -581,11 +245,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "Scammers send fake traffic violation notices via text messages, using QR codes to lead victims to phishing sites demanding payment and stealing personal and financial information. This tactic leverages phishing (T1566) to gain initial access. Defenders should educate users on the risks of QR code phishing.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "New FortiClient EMS flaw exploited in attacks, emergency patch released",
@@ -598,11 +262,11 @@
       "cvss_score": null,
       "published": "2026-04-05T18:45:17+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "A new critical vulnerability in FortiClient EMS is being exploited in attacks, requiring an emergency patch. This flaw allows attackers to gain unauthorized access, potentially leading to data breaches or ransomware attacks. Defenders must immediately patch FortiClient EMS to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "$285 Million Drift Hack Traced to Six-Month DPRK Social Engineering Operation",
@@ -611,7 +275,7 @@
       "cve_id": null,
       "source": "The Hacker News",
       "category": "incident",
-      "severity": "medium",
+      "severity": "critical",
       "cvss_score": null,
       "published": "2026-04-05T18:25:00+00:00",
       "ttps": [
@@ -628,11 +292,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "The DPRK conducted a six-month social engineering operation, culminating in a $285 million theft from Drift, a Solana-based decentralized exchange. The attack involved user execution (T1204) and stealing or forging authentication certificates (T1649). Defenders should prioritize monitoring for suspicious user behavior and authentication certificate anomalies.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Hackers exploit React2Shell in automated credential theft campaign",
@@ -641,15 +305,15 @@
       "cve_id": "CVE-2025-55182",
       "source": "Bleeping Computer",
       "category": "cve",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
       "published": "2026-04-05T14:17:23+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "Hackers exploit React2Shell (CVE-2025-55182) in Next.js apps to steal credentials in an automated campaign. This vulnerability allows attackers to gain unauthorized access to sensitive information. Defenders should update Next.js apps to the latest version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "36 Malicious npm Packages Exploited Redis, PostgreSQL to Deploy Persistent Implants",
@@ -658,7 +322,7 @@
       "cve_id": null,
       "source": "The Hacker News",
       "category": "cve",
-      "severity": "medium",
+      "severity": "critical",
       "cvss_score": null,
       "published": "2026-04-05T05:07:00+00:00",
       "ttps": [
@@ -681,11 +345,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "Malicious npm packages exploit Redis and PostgreSQL vulnerabilities to deploy persistent implants, harvest credentials, and drop reverse shells. This supply chain compromise uses masquerading and authentication certificate forgery tactics. Defenders should immediately audit and remove these compromised packages from their dependencies.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1036| C[Masquerading]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Fortinet Patches Actively Exploited CVE-2026-35616 in FortiClient EMS",

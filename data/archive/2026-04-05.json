@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-05T11:23:57.165756+00:00",
+  "last_updated": "2026-04-05T12:37:44.872577+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T11:22:07.299360+00:00",
+      "published": "2026-04-05T12:35:58.540926+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -32,9 +32,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing public-facing application exploits and data exfiltration to encrypt data for impact. The real-world impact includes data breaches and financial losses for affected organizations. To defend against Yurei, prioritize securing public-facing applications and monitoring for suspicious exfiltration activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing Go and exploiting public-facing applications. Its real-world impact includes data encryption and exfiltration, with a limited number of victims listed on its Tor data leak site. The most important defender action is to ensure robust security measures are in place to prevent initial access via public-facing application exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D --> E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T11:22:07.299341+00:00",
+      "published": "2026-04-05T12:35:58.540908+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -63,7 +63,7 @@
         }
       ],
       "ai_summary": "The Qilin EDR killer is a multi-stage infection chain that targets endpoint detection and response systems, using a malicious 'msimg32.dll' to terminate over 300 different EDR drivers. This allows attackers to bypass security measures and encrypt data for ransom. To defend against this threat, organizations should prioritize implementing robust EDR solutions and regularly updating their security software.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1055| D[Unintended Proxy]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -77,10 +77,10 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T11:22:07.299317+00:00",
+      "published": "2026-04-05T12:35:58.540882+00:00",
       "ttps": [],
-      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijackers through the Microsoft Store, leveraging typo-squatted domains to trick visitors into downloading malicious apps. This campaign showcases tactics similar to VexTrio, highlighting the ongoing abuse of AdTech networks for malware delivery. Defenders should prioritize monitoring and filtering of traffic from suspicious domains and AdTech networks to mitigate the threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1218| D[Persistence]:::tactic\n    D -->|T1172| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, leveraging typo-squatted domains to trick visitors. This campaign employs tactics similar to VexTrio, highlighting the ongoing abuse of AdTech networks for malicious purposes. Defenders should prioritize monitoring and filtering of suspicious Microsoft Store app downloads and AdTech network traffic.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059| C[Privilege Escalation]:::tactic\n    C -->|T1112| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -92,9 +92,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T11:22:07.299288+00:00",
+      "published": "2026-04-05T12:35:58.540853+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -121,11 +121,11 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Signed malware impersonating workplace apps deploys RMM backdoors via phishing campaigns, using digitally signed executables to install persistence tools. This allows attackers to maintain access and control over compromised systems. Defenders should immediately block suspicious workplace meeting lures and PDF attachments.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "ai_summary": "The threat involves signed malware impersonating workplace apps to deploy RMM backdoors, allowing attackers to establish persistence and remote access. This is achieved through phishing campaigns and abuse of legitimate binaries. The most important defender action is to implement robust email filtering and user education to prevent initial phishing attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Securing the Supply Chain: How SentinelOne's AI EDR Stops the ...",
@@ -136,7 +136,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-05T11:22:07.299266+00:00",
+      "published": "2026-04-05T12:35:58.540808+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -166,7 +166,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T11:22:07.299241+00:00",
+      "published": "2026-04-05T12:35:58.540783+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -175,8 +175,8 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "The threat is a web-delivered malware campaign, specifically ClickFix, which uses a 5-stage attack chain to deliver XWorm V5.6. This campaign exploits a vulnerability in the system, scanning for vulnerabilities using T1595.002. Defenders should prioritize monitoring HTTP body traffic for suspicious patterns.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Vulnerability Scanning]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat is a ClickFix campaign delivering XWorm V5.6 through a 5-stage attack chain. This campaign uses a technique-based approach to HTTP body hunting, leveraging Censys to scan for vulnerabilities. Defenders should prioritize monitoring for T1595.002 (Vulnerability Scanning) to prevent initial access.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -190,7 +190,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T11:22:07.299219+00:00",
+      "published": "2026-04-05T12:35:58.540760+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -229,7 +229,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure to evade detection. The attacks employ a multi-stage scripting process and have been tracked since 2024. Defenders should monitor GitHub for suspicious activity and implement C2 infrastructure detection.",
+      "ai_summary": "The DPRK-related campaign uses LNK files with a multi-stage scripting process and GitHub C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions having less obfuscation and metadata. Defenders should monitor for similar attacks and implement measures to detect and prevent multi-stage channels.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -244,7 +244,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T11:22:07.299194+00:00",
+      "published": "2026-04-05T12:35:58.540734+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -259,8 +259,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors exploit geopolitical tensions to map and disrupt potential cyber operations by gathering victim host info and stealing or forging authentication certificates.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Iranian state-aligned threat actors exploit heightened geopolitical tensions to map network infrastructure, steal authentication certificates, and gather victim host info. Proactive infrastructure monitoring is crucial to detect and disrupt potential cyber operations. Defenders should prioritize monitoring ASN patterns, TLS fingerprints, and hosting clusters associated with Iranian APT groups.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1592| D[Gather Victim Host Info]:::tactic\n    D -->|T1649| E[Steal or Forge Authentication Certificates]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -274,7 +274,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T11:22:07.299173+00:00",
+      "published": "2026-04-05T12:35:58.540712+00:00",
       "ttps": [
         {
           "id": "T1071",
@@ -289,7 +289,7 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "MuddyWater, an Iranian APT, uses reconnaissance methods, exploits vulnerabilities, and custom C2 frameworks to exfiltrate data from targets in multiple countries. Their tactics include Application Layer Protocol and Exfiltration Over C2 Channel. Defenders should monitor for suspicious network activity and implement vulnerability patching.",
+      "ai_summary": "MuddyWater, an Iranian APT, uses reconnaissance, exploits vulnerabilities, and custom C2 frameworks to exfiltrate data from targets in multiple countries. Their tactics include Application Layer Protocol and Exfiltration Over C2 Channel. Defenders should monitor for suspicious network activity and implement vulnerability patching.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Reconnaissance]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T11:22:07.299142+00:00",
+      "published": "2026-04-05T12:35:58.540679+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -325,22 +325,39 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "UAT-9244, a China-nexus APT, targets South American telecoms with three new malware implants: TernDoor, PeerTime, and BruteEntry. These implants enable backdoor access, brute force attacks, and remote access software exploitation. Defenders should prioritize monitoring for T1190, T1110, and T1219 TTPs.",
+      "ai_summary": "UAT-9244, a China-nexus APT, targets South American telecoms with three new malware implants: TernDoor, PeerTime, and BruteEntry. These implants enable backdoor access, brute force attacks, and remote access. Defenders should prioritize monitoring for T1190, T1110, and T1219 TTPs.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2018-25207: Online Quiz Maker 1.0 contains SQL injection vulnerabilities in the catid and us...",
-      "description": "Online Quiz Maker 1.0 contains SQL injection vulnerabilities in the catid and usern parameters that allow authenticated attackers to execute arbitrary SQL commands. Attackers can submit malicious POST requests to quiz-system.php or add-category.php with crafted SQL payloads in POST parameters to extract sensitive database information or bypass authentication.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25207",
-      "cve_id": "CVE-2018-25207",
+      "title": "CVE-2025-55271: HCL Aftermarket DPC is affected by HTTP Response Splitting vulnerability where i...",
+      "description": "HCL Aftermarket DPC is affected by HTTP Response Splitting vulnerability where in depending on how the web application handles the split response, an attacker may be able to execute arbitrary commands or inject harmful content into the response..",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55271",
+      "cve_id": "CVE-2025-55271",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.1,
-      "published": "2026-04-05T11:22:04.981680+00:00",
+      "severity": "medium",
+      "cvss_score": 3.1,
+      "published": "2026-04-05T12:35:55.939841+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2025-55271 is a HTTP Response Splitting vulnerability in HCL Aftermarket DPC, potentially allowing attackers to execute arbitrary commands or inject malicious content. This vulnerability has a CVSS score of 3.1, indicating a low to medium severity. Defenders should prioritize patching this vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1068| C[Persistence]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-55270: HCL Aftermarket DPC is affected by Improper Input Validation which allows an att...",
+      "description": "HCL Aftermarket DPC is affected by Improper Input Validation which allows an attacker to inject executable code and can carry out attacks such as XSS, SQL Injection, Command Injection etc.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55270",
+      "cve_id": "CVE-2025-55270",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 3.5,
+      "published": "2026-04-05T12:35:55.939804+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -349,124 +366,128 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The threat is a SQL injection vulnerability in Online Quiz Maker 1.0, allowing authenticated attackers to execute arbitrary SQL commands. This can lead to sensitive database information extraction or authentication bypass. Defenders should update the application to patch the vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "ai_summary": "CVE-2025-55270 is a vulnerability in HCL Aftermarket DPC due to improper input validation, allowing attackers to inject executable code and perform attacks like XSS, SQL Injection, and Command Injection. This vulnerability can be exploited by attackers to gain unauthorized access and carry out malicious activities. Defenders should prioritize patching this vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2018-25206: KomSeo Cart 1.3 contains an SQL injection vulnerability that allows attackers to...",
-      "description": "KomSeo Cart 1.3 contains an SQL injection vulnerability that allows attackers to inject SQL commands through the 'my_item_search' parameter in edit.php. Attackers can submit POST requests with malicious SQL payloads to extract sensitive database information using boolean-based blind or error-based injection techniques.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25206",
-      "cve_id": "CVE-2018-25206",
+      "title": "CVE-2025-55269: HCL Aftermarket DPC is affected by Weak Password Policy vulnerability, which mak...",
+      "description": "HCL Aftermarket DPC is affected by Weak Password Policy vulnerability, which makes it easier for attackers to guess weak passwords or use brute-force techniques to gain unauthorized access to user accounts.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55269",
+      "cve_id": "CVE-2025-55269",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.2,
-      "published": "2026-04-05T11:22:04.981664+00:00",
+      "severity": "medium",
+      "cvss_score": 4.2,
+      "published": "2026-04-05T12:35:55.939787+00:00",
       "ttps": [
         {
           "id": "T1190",
           "name": "Exploit Public-Facing Application",
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1110.001",
+          "name": "Password Guessing",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        },
+        {
+          "id": "T1201",
+          "name": "Password Policy Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
         }
       ],
-      "ai_summary": "CVE-2018-25206 is an SQL injection vulnerability in KomSeo Cart 1.3, allowing attackers to inject SQL commands through the 'my_item_search' parameter. Attackers can submit POST requests with malicious SQL payloads to extract sensitive database information. Defenders should update KomSeo Cart to a patched version to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "CVE-2025-55269 is a Weak Password Policy vulnerability in HCL Aftermarket DPC, allowing attackers to guess weak passwords or use brute-force techniques. This vulnerability makes it easier for attackers to gain unauthorized access to user accounts. Defenders should prioritize updating the password policy to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110.001| C[Password Guessing]:::tactic\n    C -->|T1201| D[Password Policy Discovery]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2018-25205: ASP.NET jVideo Kit 1.0 contains an SQL injection vulnerability that allows unaut...",
-      "description": "ASP.NET jVideo Kit 1.0 contains an SQL injection vulnerability that allows unauthenticated attackers to inject SQL commands through the 'query' parameter in the search functionality. Attackers can submit malicious SQL payloads via GET or POST requests to the /search endpoint to extract sensitive database information using boolean-based blind or error-based techniques.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25205",
-      "cve_id": "CVE-2018-25205",
+      "title": "CVE-2025-55268: HCL Aftermarket DPC is affected by Spamming Vulnerability which can allow the ac...",
+      "description": "HCL Aftermarket DPC is affected by Spamming Vulnerability which can allow the actor to excessive spamming can consume server bandwidth and processing resources which may lead to Denial of Service.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55268",
+      "cve_id": "CVE-2025-55268",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.2,
-      "published": "2026-04-05T11:22:04.981649+00:00",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-05T12:35:55.939766+00:00",
       "ttps": [
         {
           "id": "T1190",
           "name": "Exploit Public-Facing Application",
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1498",
+          "name": "Network Denial of Service",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "CVE-2018-25205 is an SQL injection vulnerability in ASP.NET jVideo Kit 1.0, allowing unauthenticated attackers to inject SQL commands via the 'query' parameter in the search functionality. This vulnerability can be exploited using GET or POST requests to the /search endpoint, enabling attackers to extract sensitive database information. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "CVE-2025-55268 is a vulnerability in HCL Aftermarket DPC that allows an actor to exploit a public-facing application (T1190) and cause a network denial of service (T1498), consuming server bandwidth and processing resources, potentially leading to a denial of service.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2018-25204: Library CMS 1.0 contains an SQL injection vulnerability that allows unauthentica...",
-      "description": "Library CMS 1.0 contains an SQL injection vulnerability that allows unauthenticated attackers to bypass authentication by injecting SQL code through the username parameter. Attackers can send POST requests to the admin login endpoint with boolean-based blind SQL injection payloads in the username field to manipulate database queries and gain unauthorized access.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25204",
-      "cve_id": "CVE-2018-25204",
+      "title": "CVE-2025-55267: HCL Aftermarket DPC is affected by Unrestricted File Upload vulnerability, allow...",
+      "description": "HCL Aftermarket DPC is affected by Unrestricted File Upload vulnerability, allows attacker to upload and execute malicious scripts, gaining full control over the server.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55267",
+      "cve_id": "CVE-2025-55267",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.2,
-      "published": "2026-04-05T11:22:04.981629+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2018-25204 is an SQL injection vulnerability in Library CMS 1.0, allowing unauthenticated attackers to bypass authentication via boolean-based blind SQL injection payloads. This vulnerability can be exploited by sending POST requests to the admin login endpoint. Defenders should patch the vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity": "medium",
+      "cvss_score": 5.7,
+      "published": "2026-04-05T12:35:55.939751+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2025-55267 is an Unrestricted File Upload vulnerability in HCL Aftermarket DPC, allowing attackers to upload and execute malicious scripts, resulting in full server control. This vulnerability has a CVSS score of 5.7, indicating a medium severity. Defenders should prioritize patching this vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.7,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2018-25203: Online Store System CMS 1.0 contains an SQL injection vulnerability that allows ...",
-      "description": "Online Store System CMS 1.0 contains an SQL injection vulnerability that allows unauthenticated attackers to manipulate database queries by injecting SQL code through the email parameter. Attackers can send POST requests to index.php with the action=clientaccess parameter using boolean-based blind or time-based blind SQL injection payloads in the email field to extract sensitive database informati",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25203",
-      "cve_id": "CVE-2018-25203",
+      "title": "CVE-2025-55266: HCL Aftermarket DPC is affected by Session Fixation which allows attacker to tak...",
+      "description": "HCL Aftermarket DPC is affected by Session Fixation which allows attacker to takeover the user's session and use it carry out unauthorized transaction behalf of the user.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55266",
+      "cve_id": "CVE-2025-55266",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.2,
-      "published": "2026-04-05T11:22:04.981614+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "The CVE-2018-25203 vulnerability in Online Store System CMS 1.0 allows unauthenticated attackers to inject SQL code through the email parameter, enabling them to extract sensitive database information. This SQL injection vulnerability can be exploited by sending POST requests to index.php with the action=clientaccess parameter. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "severity": "medium",
+      "cvss_score": 5.9,
+      "published": "2026-04-05T12:35:55.939735+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2018-25202: SAT CFDI 3.3 contains an SQL injection vulnerability that allows attackers to ma...",
-      "description": "SAT CFDI 3.3 contains an SQL injection vulnerability that allows attackers to manipulate database queries by injecting SQL code through the 'id' parameter in the signIn endpoint. Attackers can submit POST requests with boolean-based blind, stacked queries, or time-based blind SQL injection payloads to extract sensitive data or compromise the application.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25202",
-      "cve_id": "CVE-2018-25202",
+      "title": "CVE-2025-55265: HCL Aftermarket DPC is affected by File Discovery which allows attacker could ex...",
+      "description": "HCL Aftermarket DPC is affected by File Discovery which allows attacker could exploit this issue to read sensitive files present in the system and may use it to craft further attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55265",
+      "cve_id": "CVE-2025-55265",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.2,
-      "published": "2026-04-05T11:22:04.981598+00:00",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-05T12:35:55.939719+00:00",
       "ttps": [
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
+          "id": "T1083",
+          "name": "File and Directory Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
         }
       ],
       "ai_summary": "AI analysis pending",
@@ -476,21 +497,21 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2018-25201: School Management System CMS 1.0 contains an SQL injection vulnerability in the ...",
-      "description": "School Management System CMS 1.0 contains an SQL injection vulnerability in the admin login functionality that allows attackers to bypass authentication by injecting SQL code through the username parameter. Attackers can submit malicious payloads using boolean-based blind SQL injection techniques to the processlogin endpoint to authenticate as administrator without valid credentials.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25201",
-      "cve_id": "CVE-2018-25201",
+      "title": "CVE-2025-41359: Vulnerability related to an unquoted service path in Small HTTP Server 3.06.36, ...",
+      "description": "Vulnerability related to an unquoted service path in Small HTTP Server 3.06.36, specifically affecting the executable located at 'C:\\Program Files (x86)\\shttps_mg\\http.exe service'. This misconfiguration allows a local attacker to place a malicious executable with the same name in a higher priority directory, causing the service to execute the malicious file instead of the legitimate one. Exploiti",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41359",
+      "cve_id": "CVE-2025-41359",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.1,
-      "published": "2026-04-05T11:22:04.981583+00:00",
+      "cvss_score": 7.8,
+      "published": "2026-04-05T12:35:55.939700+00:00",
       "ttps": [
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         }
       ],
       "ai_summary": "AI analysis pending",
@@ -500,23 +521,16 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2018-25195: Wecodex Hotel CMS 1.0 contains an SQL injection vulnerability in the admin login...",
-      "description": "Wecodex Hotel CMS 1.0 contains an SQL injection vulnerability in the admin login functionality that allows unauthenticated attackers to bypass authentication by injecting SQL code. Attackers can submit malicious SQL payloads through the username parameter in POST requests to index.php with action=processlogin to extract sensitive database information or gain unauthorized administrative access.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25195",
-      "cve_id": "CVE-2018-25195",
+      "title": "CVE-2025-41027: Reflected Cross Site Scripting (XSS) vulnerabilities in GDTaller. These vulnerab...",
+      "description": "Reflected Cross Site Scripting (XSS) vulnerabilities in GDTaller. These vulnerabilities allows an attacker execute JavaScript code in the victim's browser by sending a malicious URL in  'site' parameter in 'app_recuperarclave.php'.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41027",
+      "cve_id": "CVE-2025-41027",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.2,
-      "published": "2026-04-05T11:22:04.981565+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
+      "severity": "medium",
+      "cvss_score": 6.1,
+      "published": "2026-04-05T12:35:55.939678+00:00",
+      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -524,47 +538,16 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2018-25185: Wecodex Restaurant CMS 1.0 contains an SQL injection vulnerability that allows u...",
-      "description": "Wecodex Restaurant CMS 1.0 contains an SQL injection vulnerability that allows unauthenticated attackers to manipulate database queries by injecting SQL code through the username parameter. Attackers can send POST requests to the login endpoint with malicious SQL payloads using boolean-based blind or time-based blind techniques to extract sensitive database information.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25185",
-      "cve_id": "CVE-2018-25185",
+      "title": "CVE-2025-41026: Reflected Cross Site Scripting (XSS) vulnerabilities in GDTaller. These vulnerab...",
+      "description": "Reflected Cross Site Scripting (XSS) vulnerabilities in GDTaller. These vulnerabilities allows an attacker execute JavaScript code in the victim's browser  by sending a malicious URL in 'site' parameter in 'app_login.php'.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41026",
+      "cve_id": "CVE-2025-41026",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.2,
-      "published": "2026-04-05T11:22:04.981543+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2018-25183: Shipping System CMS 1.0 contains an SQL injection vulnerability that allows unau...",
-      "description": "Shipping System CMS 1.0 contains an SQL injection vulnerability that allows unauthenticated attackers to bypass authentication by injecting SQL code through the username parameter. Attackers can submit malicious SQL payloads using boolean-based blind techniques in POST requests to the admin login endpoint to authenticate without valid credentials.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25183",
-      "cve_id": "CVE-2018-25183",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.2,
-      "published": "2026-04-05T11:22:04.981504+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
+      "severity": "medium",
+      "cvss_score": 6.1,
+      "published": "2026-04-05T12:35:55.939637+00:00",
+      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

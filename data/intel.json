@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-05T12:37:44.872577+00:00",
+  "last_updated": "2026-04-05T13:49:25.518709+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T12:35:58.540926+00:00",
+      "published": "2026-04-05T13:47:39.384802+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -32,9 +32,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing Go and exploiting public-facing applications. Its real-world impact includes data encryption and exfiltration, with a limited number of victims listed on its Tor data leak site. The most important defender action is to ensure robust security measures are in place to prevent initial access via public-facing application exploitation.",
+      "ai_summary": "Yurei ransomware is a double extortion campaign derived from Prince Ransomware, utilizing public-facing application exploits and exfiltrating data over C2 channels. The real-world impact includes data encryption and potential leaks on the operator's Tor site. The most important defender action is to ensure robust security measures are in place to prevent public-facing application exploits, such as keeping software up-to-date and implementing a web application firewall.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D --> E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T12:35:58.540908+00:00",
+      "published": "2026-04-05T13:47:39.384761+00:00",
       "ttps": [
         {
           "id": "T1104",
@@ -62,7 +62,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Qilin EDR killer is a multi-stage infection chain that targets endpoint detection and response systems, using a malicious 'msimg32.dll' to terminate over 300 different EDR drivers. This allows attackers to bypass security measures and encrypt data for ransom. To defend against this threat, organizations should prioritize implementing robust EDR solutions and regularly updating their security software.",
+      "ai_summary": "The Qilin EDR killer is a multi-stage infection chain that targets endpoint detection and response systems, using a malicious 'msimg32.dll' to terminate over 300 EDR drivers. This allows attackers to bypass security measures and encrypt data for ransom. To defend against this threat, organizations should prioritize implementing robust EDR solutions and regularly updating their security software.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -77,10 +77,10 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T12:35:58.540882+00:00",
+      "published": "2026-04-05T13:47:39.384712+00:00",
       "ttps": [],
-      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, leveraging typo-squatted domains to trick visitors. This campaign employs tactics similar to VexTrio, highlighting the ongoing abuse of AdTech networks for malicious purposes. Defenders should prioritize monitoring and filtering of suspicious Microsoft Store app downloads and AdTech network traffic.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059| C[Privilege Escalation]:::tactic\n    C -->|T1112| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick visitors of typo-squatted domains. This campaign highlights similar tactics to previous ones, indicating a potential resurgence of AdTech abuse. Defenders should prioritize monitoring and blocking suspicious Microsoft Store app downloads.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Initial Access| B[Initial Access]:::tactic\n    B -->|Execution| C[Execution]:::tactic\n    C -->|Persistence| D[Persistence]:::tactic\n    D -->|Impact| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -94,7 +94,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T12:35:58.540853+00:00",
+      "published": "2026-04-05T13:47:39.384683+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -121,9 +121,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat involves signed malware impersonating workplace apps to deploy RMM backdoors, allowing attackers to establish persistence and remote access. This is achieved through phishing campaigns and abuse of legitimate binaries. The most important defender action is to implement robust email filtering and user education to prevent initial phishing attacks.",
+      "ai_summary": "The threat involves signed malware masquerading as legitimate workplace software, delivered through phishing campaigns, to deploy RMM backdoors. This enables attackers to establish persistence and gain remote access. The most important defender action is to implement robust email filtering and user education to prevent initial phishing attempts.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -136,7 +136,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-05T12:35:58.540808+00:00",
+      "published": "2026-04-05T13:47:39.384661+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -151,9 +151,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A North Korean state actor hijacked Axios npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit and update dependencies to prevent similar attacks.",
+      "ai_summary": "A North Korean state actor hijacked Axios's npm credentials, publishing backdoored releases that deployed a cross-platform RAT to Windows, macOS, and Linux systems. This supply chain compromise leveraged T1195 and T1219 tactics. Defenders should immediately audit their npm dependencies and update to secure versions.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
+      "severity_score": 9.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -166,7 +166,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T12:35:58.540783+00:00",
+      "published": "2026-04-05T13:47:39.384635+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -175,7 +175,7 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "The threat is a ClickFix campaign delivering XWorm V5.6 through a 5-stage attack chain. This campaign uses a technique-based approach to HTTP body hunting, leveraging Censys to scan for vulnerabilities. Defenders should prioritize monitoring for T1595.002 (Vulnerability Scanning) to prevent initial access.",
+      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 through a 5-stage attack chain, using T1595.002 (Vulnerability Scanning) as the initial step. This technique-based approach to HTTP body hunting is effective in discovering web-delivered malware. Defenders should prioritize monitoring for T1595.002 to prevent similar attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -190,7 +190,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T12:35:58.540760+00:00",
+      "published": "2026-04-05T13:47:39.384612+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -229,8 +229,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The DPRK-related campaign uses LNK files with a multi-stage scripting process and GitHub C2 infrastructure to evade detection. This campaign has been active since 2024, with earlier versions having less obfuscation and metadata. Defenders should monitor for similar attacks and implement measures to detect and prevent multi-stage channels.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure to evade detection. The attacks employ a multi-stage scripting process and have been tracked since 2024. Defenders should monitor GitHub for suspicious activity and block LNK files.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1102| E[Web Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -244,7 +244,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T12:35:58.540734+00:00",
+      "published": "2026-04-05T13:47:39.384585+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -259,8 +259,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors exploit heightened geopolitical tensions to map network infrastructure, steal authentication certificates, and gather victim host info. Proactive infrastructure monitoring is crucial to detect and disrupt potential cyber operations. Defenders should prioritize monitoring ASN patterns, TLS fingerprints, and hosting clusters associated with Iranian APT groups.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1592| D[Gather Victim Host Info]:::tactic\n    D -->|T1649| E[Steal or Forge Authentication Certificates]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Iranian state-aligned threat actors exploit geopolitical tensions to map and disrupt potential cyber operations by gathering victim host info and stealing or forging authentication certificates.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -274,7 +274,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T12:35:58.540712+00:00",
+      "published": "2026-04-05T13:47:39.384563+00:00",
       "ttps": [
         {
           "id": "T1071",
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-05T12:35:58.540679+00:00",
+      "published": "2026-04-05T13:47:39.384532+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -332,98 +332,21 @@
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-55271: HCL Aftermarket DPC is affected by HTTP Response Splitting vulnerability where i...",
-      "description": "HCL Aftermarket DPC is affected by HTTP Response Splitting vulnerability where in depending on how the web application handles the split response, an attacker may be able to execute arbitrary commands or inject harmful content into the response..",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55271",
-      "cve_id": "CVE-2025-55271",
+      "title": "CVE-2019-25648: MyVideoConverter Pro 3.14 contains a local buffer overflow vulnerability that al...",
+      "description": "MyVideoConverter Pro 3.14 contains a local buffer overflow vulnerability that allows attackers to crash the application by supplying an excessively long string to the registration code input field. Attackers can paste a malicious payload containing 10000 bytes into the 'Copy and Paste Registration Code' field to trigger a denial of service condition.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25648",
+      "cve_id": "CVE-2019-25648",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 3.1,
-      "published": "2026-04-05T12:35:55.939841+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2025-55271 is a HTTP Response Splitting vulnerability in HCL Aftermarket DPC, potentially allowing attackers to execute arbitrary commands or inject malicious content. This vulnerability has a CVSS score of 3.1, indicating a low to medium severity. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1068| C[Persistence]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2025-55270: HCL Aftermarket DPC is affected by Improper Input Validation which allows an att...",
-      "description": "HCL Aftermarket DPC is affected by Improper Input Validation which allows an attacker to inject executable code and can carry out attacks such as XSS, SQL Injection, Command Injection etc.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55270",
-      "cve_id": "CVE-2025-55270",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 3.5,
-      "published": "2026-04-05T12:35:55.939804+00:00",
+      "cvss_score": 6.2,
+      "published": "2026-04-05T13:47:36.427403+00:00",
       "ttps": [
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2025-55270 is a vulnerability in HCL Aftermarket DPC due to improper input validation, allowing attackers to inject executable code and perform attacks like XSS, SQL Injection, and Command Injection. This vulnerability can be exploited by attackers to gain unauthorized access and carry out malicious activities. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2025-55269: HCL Aftermarket DPC is affected by Weak Password Policy vulnerability, which mak...",
-      "description": "HCL Aftermarket DPC is affected by Weak Password Policy vulnerability, which makes it easier for attackers to guess weak passwords or use brute-force techniques to gain unauthorized access to user accounts.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55269",
-      "cve_id": "CVE-2025-55269",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.2,
-      "published": "2026-04-05T12:35:55.939787+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1110.001",
-          "name": "Password Guessing",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1201",
-          "name": "Password Policy Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
-        }
-      ],
-      "ai_summary": "CVE-2025-55269 is a Weak Password Policy vulnerability in HCL Aftermarket DPC, allowing attackers to guess weak passwords or use brute-force techniques. This vulnerability makes it easier for attackers to gain unauthorized access to user accounts. Defenders should prioritize updating the password policy to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110.001| C[Password Guessing]:::tactic\n    C -->|T1201| D[Password Policy Discovery]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2025-55268: HCL Aftermarket DPC is affected by Spamming Vulnerability which can allow the ac...",
-      "description": "HCL Aftermarket DPC is affected by Spamming Vulnerability which can allow the actor to excessive spamming can consume server bandwidth and processing resources which may lead to Denial of Service.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55268",
-      "cve_id": "CVE-2025-55268",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.3,
-      "published": "2026-04-05T12:35:55.939766+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         },
         {
           "id": "T1498",
@@ -432,62 +355,148 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "CVE-2025-55268 is a vulnerability in HCL Aftermarket DPC that allows an actor to exploit a public-facing application (T1190) and cause a network denial of service (T1498), consuming server bandwidth and processing resources, potentially leading to a denial of service.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.0,
+      "ai_summary": "CVE-2019-25648 is a local buffer overflow vulnerability in MyVideoConverter Pro 3.14, allowing attackers to crash the application via a malicious payload. This vulnerability can be exploited to achieve a denial of service condition. Defenders should update the application to the latest version to mitigate this threat.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-55267: HCL Aftermarket DPC is affected by Unrestricted File Upload vulnerability, allow...",
-      "description": "HCL Aftermarket DPC is affected by Unrestricted File Upload vulnerability, allows attacker to upload and execute malicious scripts, gaining full control over the server.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55267",
-      "cve_id": "CVE-2025-55267",
+      "title": "CVE-2018-25219: PassFab Excel Password Recovery 8.3.1 contains a structured exception handling b...",
+      "description": "PassFab Excel Password Recovery 8.3.1 contains a structured exception handling buffer overflow vulnerability that allows local attackers to execute arbitrary code by supplying a malicious payload in the registration code field. Attackers can craft a buffer overflow payload with a pop-pop-ret gadget and shellcode that triggers code execution when pasted into the Licensed E-mail and Registration Cod",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25219",
+      "cve_id": "CVE-2018-25219",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.7,
-      "published": "2026-04-05T12:35:55.939751+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2025-55267 is an Unrestricted File Upload vulnerability in HCL Aftermarket DPC, allowing attackers to upload and execute malicious scripts, resulting in full server control. This vulnerability has a CVSS score of 5.7, indicating a medium severity. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.7,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2025-55266: HCL Aftermarket DPC is affected by Session Fixation which allows attacker to tak...",
-      "description": "HCL Aftermarket DPC is affected by Session Fixation which allows attacker to takeover the user's session and use it carry out unauthorized transaction behalf of the user.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55266",
-      "cve_id": "CVE-2025-55266",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.9,
-      "published": "2026-04-05T12:35:55.939735+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2025-55265: HCL Aftermarket DPC is affected by File Discovery which allows attacker could ex...",
-      "description": "HCL Aftermarket DPC is affected by File Discovery which allows attacker could exploit this issue to read sensitive files present in the system and may use it to craft further attacks.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55265",
-      "cve_id": "CVE-2025-55265",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-05T12:35:55.939719+00:00",
+      "severity": "high",
+      "cvss_score": 8.4,
+      "published": "2026-04-05T13:47:36.427360+00:00",
       "ttps": [
         {
-          "id": "T1083",
-          "name": "File and Directory Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2018-25219 is a local buffer overflow vulnerability in PassFab Excel Password Recovery 8.3.1, allowing attackers to execute arbitrary code via a malicious payload. This vulnerability has a CVSS score of 8.4, indicating a high severity. Defenders should update the software to the latest version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2018-25218: PassFab RAR Password Recovery 9.3.2 contains a structured exception handler (SEH...",
+      "description": "PassFab RAR Password Recovery 9.3.2 contains a structured exception handler (SEH) buffer overflow vulnerability that allows local attackers to execute arbitrary code by supplying a malicious payload. Attackers can craft a payload with a buffer overflow, NSEH jump, and shellcode, then paste it into the 'Licensed E-mail and Registration Code' field during registration to trigger code execution.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25218",
+      "cve_id": "CVE-2018-25218",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.4,
+      "published": "2026-04-05T13:47:36.427343+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2018-25218 is a local SEH buffer overflow vulnerability in PassFab RAR Password Recovery 9.3.2, allowing attackers to execute arbitrary code. This vulnerability can be exploited by supplying a malicious payload during registration. Defenders should update the software to a patched version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2018-25217: PDF Explorer 1.5.66.2 contains a structured exception handler (SEH) overflow vul...",
+      "description": "PDF Explorer 1.5.66.2 contains a structured exception handler (SEH) overflow vulnerability that allows local attackers to execute arbitrary code by overwriting SEH records with malicious data. Attackers can craft a payload with buffer overflow, NSEH jump, and ROP gadget chains that execute when the Custom fields settings dialog processes the malicious input in the Label field.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25217",
+      "cve_id": "CVE-2018-25217",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.4,
+      "published": "2026-04-05T13:47:36.427324+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2018-25217 is a local SEH overflow vulnerability in PDF Explorer 1.5.66.2, allowing attackers to execute arbitrary code. This vulnerability can be exploited by crafting a malicious payload with buffer overflow, NSEH jump, and ROP gadget chains. Defenders should update PDF Explorer to a patched version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.4,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2018-25216: AnyBurn 4.3 contains a local buffer overflow vulnerability that allows local att...",
+      "description": "AnyBurn 4.3 contains a local buffer overflow vulnerability that allows local attackers to crash the application by supplying an excessively long string in the image file name field. Attackers can paste a 10000-byte payload into the 'Image file name' parameter during the 'Copy disk to Image' operation to trigger a denial of service condition.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25216",
+      "cve_id": "CVE-2018-25216",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.2,
+      "published": "2026-04-05T13:47:36.427309+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1498",
+          "name": "Network Denial of Service",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "ai_summary": "CVE-2018-25216 is a local buffer overflow vulnerability in AnyBurn 4.3, allowing attackers to crash the application by supplying an excessively long string. This vulnerability can be exploited by attackers to achieve a denial of service condition. Defenders should update AnyBurn to the latest version to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.2,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2018-25215: Excel Password Recovery Professional 8.2.0.0 contains a local buffer overflow vu...",
+      "description": "Excel Password Recovery Professional 8.2.0.0 contains a local buffer overflow vulnerability that allows attackers to cause a denial of service by supplying an excessively long string to the 'E-Mail and Registrations Code' field. Attackers can paste a crafted payload containing 5000 bytes of data into the registration field to trigger a crash when the Register button is clicked.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25215",
+      "cve_id": "CVE-2018-25215",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.5,
+      "published": "2026-04-05T13:47:36.427293+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1498",
+          "name": "Network Denial of Service",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
         }
       ],
       "ai_summary": "AI analysis pending",
@@ -497,19 +506,67 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2025-41359: Vulnerability related to an unquoted service path in Small HTTP Server 3.06.36, ...",
-      "description": "Vulnerability related to an unquoted service path in Small HTTP Server 3.06.36, specifically affecting the executable located at 'C:\\Program Files (x86)\\shttps_mg\\http.exe service'. This misconfiguration allows a local attacker to place a malicious executable with the same name in a higher priority directory, causing the service to execute the malicious file instead of the legitimate one. Exploiti",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41359",
-      "cve_id": "CVE-2025-41359",
+      "title": "CVE-2018-25214: MegaPing contains a local buffer overflow vulnerability that allows local attack...",
+      "description": "MegaPing contains a local buffer overflow vulnerability that allows local attackers to crash the application by supplying an oversized payload to the Destination Address List field in the Finger function. Attackers can paste a crafted buffer exceeding expected input limits into the vulnerable field and trigger the Start button to cause a denial of service crash.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25214",
+      "cve_id": "CVE-2018-25214",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.2,
+      "published": "2026-04-05T13:47:36.427277+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1498",
+          "name": "Network Denial of Service",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        },
+        {
+          "id": "T1499",
+          "name": "Endpoint Denial of Service",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2018-25213: Nsauditor 3.0.28.0 contains a structured exception handling buffer overflow vuln...",
+      "description": "Nsauditor 3.0.28.0 contains a structured exception handling buffer overflow vulnerability that allows local attackers to execute arbitrary code by supplying malicious input to the DNS Lookup tool. Attackers can craft a payload with SEH chain overwrite and inject shellcode through the DNS Query field to achieve code execution with application privileges.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25213",
+      "cve_id": "CVE-2018-25213",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-05T12:35:55.939700+00:00",
+      "cvss_score": 8.4,
+      "published": "2026-04-05T13:47:36.427260+00:00",
       "ttps": [
         {
-          "id": "T1204",
-          "name": "User Execution",
+          "id": "T1590.002",
+          "name": "DNS",
+          "tactic": "Reconnaissance",
+          "tactic_id": "TA0043"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
           "tactic": "Execution",
           "tactic_id": "TA0002"
         }
@@ -521,16 +578,29 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2025-41027: Reflected Cross Site Scripting (XSS) vulnerabilities in GDTaller. These vulnerab...",
-      "description": "Reflected Cross Site Scripting (XSS) vulnerabilities in GDTaller. These vulnerabilities allows an attacker execute JavaScript code in the victim's browser by sending a malicious URL in  'site' parameter in 'app_recuperarclave.php'.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41027",
-      "cve_id": "CVE-2025-41027",
+      "title": "CVE-2018-25212: Boxoft wav-wma Converter 1.0 contains a local buffer overflow vulnerability in s...",
+      "description": "Boxoft wav-wma Converter 1.0 contains a local buffer overflow vulnerability in structured exception handling that allows attackers to execute arbitrary code by crafting malicious WAV files. Attackers can create a specially crafted WAV file with excessive data and ROP gadgets to overwrite the SEH chain and achieve code execution on Windows systems.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25212",
+      "cve_id": "CVE-2018-25212",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-05T12:35:55.939678+00:00",
-      "ttps": [],
+      "severity": "high",
+      "cvss_score": 8.4,
+      "published": "2026-04-05T13:47:36.427237+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -538,16 +608,29 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2025-41026: Reflected Cross Site Scripting (XSS) vulnerabilities in GDTaller. These vulnerab...",
-      "description": "Reflected Cross Site Scripting (XSS) vulnerabilities in GDTaller. These vulnerabilities allows an attacker execute JavaScript code in the victim's browser  by sending a malicious URL in 'site' parameter in 'app_login.php'.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41026",
-      "cve_id": "CVE-2025-41026",
+      "title": "CVE-2018-25211: Allok Video Splitter 3.1.1217 contains a buffer overflow vulnerability that allo...",
+      "description": "Allok Video Splitter 3.1.1217 contains a buffer overflow vulnerability that allows local attackers to cause a denial of service or execute arbitrary code by supplying an oversized string in the License Name field. Attackers can craft a malicious payload exceeding 780 bytes, paste it into the License Name registration field, and trigger the overflow when the Register button is clicked.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25211",
+      "cve_id": "CVE-2018-25211",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-05T12:35:55.939637+00:00",
-      "ttps": [],
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-05T13:47:36.427198+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1498",
+          "name": "Network Denial of Service",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

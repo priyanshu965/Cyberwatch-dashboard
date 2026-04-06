@@ -1,24 +1,7 @@
 {
-  "last_updated": "2026-04-06T08:20:21.070807+00:00",
+  "last_updated": "2026-04-06T10:02:08.891962+00:00",
   "total_items": 75,
   "items": [
-    {
-      "title": "Blurred Lines: AdTech Abuse Delivers Browser Hijackers Through the Microsoft Store",
-      "description": "A newly uncovered campaign abuses the Trillion (formerly Trellian) AdTech network, mimicking the flow of a Traffic Direction System (TDS) to trick visitors of typo-squatted domains into downloading Microsoft Store apps that contain browser hijacking malware. While the abuse of AdTech networks to deliver malware isn’t new, this campaign highlights incredibly similar tactics to VexTrio and previous ",
-      "url": "https://otx.alienvault.com/pulse/69cea64baa48265a8127fe22",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-06T08:18:43.145695+00:00",
-      "ttps": [],
-      "ai_summary": "The threat involves abusing the Trillion AdTech network to deliver browser hijacking malware through Microsoft Store apps, mimicking a Traffic Direction System to trick visitors. This campaign highlights similar tactics to previous ones, indicating a potential increase in AdTech abuse. The most important defender action is to implement robust validation and verification of Microsoft Store apps to prevent malware downloads.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059| C[Privilege Escalation]:::tactic\n    C -->|T1112| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
     {
       "title": "Signed malware impersonating workplace apps deploys RMM backdoors",
       "description": "Multiple phishing campaigns were identified using workplace meeting lures, PDF attachments, and abuse of legitimate binaries to deliver signed malware. The attacks used digitally signed executables masquerading as legitimate software to install remote monitoring and management (RMM) tools like ScreenConnect, Tactical RMM, and Mesh Agent. These tools enabled attackers to establish persistence and m",
@@ -28,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T08:18:43.145669+00:00",
+      "published": "2026-04-06T10:00:31.537660+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -55,7 +38,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat involves signed malware masquerading as legitimate workplace software, delivered through phishing campaigns, to deploy RMM backdoors. This enables attackers to establish persistence and gain remote access. The most important defender action is to implement robust email filtering and user education to prevent initial phishing attempts.",
+      "ai_summary": "The threat involves signed malware masquerading as legitimate workplace software, delivered through phishing campaigns, to deploy RMM backdoors. This allows attackers to establish persistence and gain remote access to compromised systems. Defenders should prioritize verifying the authenticity of software and attachments to prevent initial access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -70,7 +53,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T08:18:43.145645+00:00",
+      "published": "2026-04-06T10:00:31.537610+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -85,8 +68,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat is a supply chain compromise via hijacked npm credentials, leading to the deployment of a cross-platform RAT on Windows, macOS, and Linux systems. This has a significant real-world impact due to Axios' widespread use in the JavaScript ecosystem. The most important defender action is to immediately review and update Axios dependencies to prevent RAT deployment.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1071.001| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat is a supply chain compromise where a North Korean state actor hijacked the npm credentials of the primary Axios maintainer, deploying a cross-platform remote access trojan to Windows, macOS, and Linux systems. This has a significant real-world impact due to Axios' widespread use in the JavaScript ecosystem. The most important defender action is to immediately update Axios to a version not affected by the backdoor.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1566| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -100,7 +83,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T08:18:43.145616+00:00",
+      "published": "2026-04-06T10:00:31.537586+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -109,7 +92,7 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "The threat involves a 5-stage attack chain delivering XWorm V5.6 malware through a ClickFix campaign, utilizing HTTP body hunting tactics. The real-world impact includes potential data breaches and system compromises. The most important defender action is to implement robust vulnerability scanning and patch management to prevent initial access.",
+      "ai_summary": "The threat involves a 5-stage attack chain delivering XWorm V5.6 malware through a ClickFix campaign, utilizing HTTP body hunting techniques. This technique-based approach leverages vulnerability scanning (T1595.002) to identify potential targets. To defend against this threat, organizations should prioritize implementing robust web application security measures and regularly monitoring for suspicious HTTP requests.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Discovery]:::tactic\n    B -->|T1566| C[Initial Access]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -124,7 +107,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T08:18:43.145594+00:00",
+      "published": "2026-04-06T10:00:31.537561+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -163,7 +146,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat involves LNK files using a multi-stage scripting process to evade detection, with GitHub serving as Command and Control infrastructure. This campaign primarily targets users in South Korea and has been active since 2024. To defend against this threat, it is crucial to implement robust email and endpoint security measures to detect and block malicious LNK files.",
+      "ai_summary": "The threat involves a multi-stage scripting process using LNK files to target users in South Korea, leveraging GitHub as Command and Control infrastructure to evade detection. The attacks utilize various TTPs, including web services and obfuscated files, to impair defenses and establish multi-stage channels. To defend against this threat, it is essential to implement robust email and web filtering to block suspicious LNK files and monitor for unusual GitHub activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Initial Access]:::tactic\n    B -->|T1102| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1583.006| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -178,7 +161,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T08:18:43.145564+00:00",
+      "published": "2026-04-06T10:00:31.537538+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -193,7 +176,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors are utilizing various tactics to gather victim host information and steal or forge authentication certificates, posing a significant threat to organizations. The threat actors' infrastructure patterns, including network infrastructure and hosting clusters, can be monitored to detect and disrupt potential cyber operations. To defend against these threats, organizations should prioritize proactive infrastructure monitoring and implement robust authentication certificate management.",
+      "ai_summary": "Iranian state-aligned threat actors are utilizing specific infrastructure patterns, including network infrastructure and TLS fingerprints, to conduct cyber operations. The threat actors are leveraging tactics such as gathering victim host information and stealing or forging authentication certificates. To defend against these threats, organizations should prioritize proactive infrastructure monitoring to detect and disrupt potential cyber operations.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Discovery]:::tactic\n    B -->|T1649| C[Credential Access]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -208,7 +191,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T08:18:43.145544+00:00",
+      "published": "2026-04-06T10:00:31.537519+00:00",
       "ttps": [
         {
           "id": "T1071",
@@ -223,11 +206,11 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "MuddyWater, an Iranian APT, uses reconnaissance, exploits vulnerabilities, and custom C2 frameworks to exfiltrate data from targets in multiple countries. Their tactics include Application Layer Protocol and Exfiltration Over C2 Channel. Defenders should monitor for suspicious network activity and implement vulnerability patching.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Reconnaissance]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "MuddyWater, an Iranian APT group, conducts cyber espionage by exploiting vulnerabilities and using custom command and control frameworks to exfiltrate data from targeted organizations. The group's real-world impact includes compromised organizations in multiple countries. To defend against MuddyWater, organizations should prioritize patching vulnerabilities and monitoring for suspicious command and control channel activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1071| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "South American telecommunication providers targeted with three new malware implants",
@@ -238,7 +221,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T08:18:43.145520+00:00",
+      "published": "2026-04-06T10:00:31.537497+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -274,7 +257,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T08:18:43.145502+00:00",
+      "published": "2026-04-06T10:00:31.537480+00:00",
       "ttps": [
         {
           "id": "T1587",
@@ -289,9 +272,9 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CL-UNK-1068, a Chinese threat actor, has been undetected since 2020, targeting high-value sectors in Asia with custom malware, modified open-source utilities, and living-off-the-land binaries. Their techniques include exploiting public-facing applications and developing capabilities. Defenders should prioritize monitoring for T1587 and T1190 to detect potential CL-UNK-1068 activity.",
+      "ai_summary": "CL-UNK-1068, a Chinese threat actor, has been undetected since 2020, targeting high-value sectors in Asia with custom malware, modified open-source utilities, and living-off-the-land binaries. Their tactics include exploiting public-facing applications and developing capabilities for stealthy persistence. Defenders should prioritize monitoring for T1587 and T1190 to detect potential CL-UNK-1068 activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -304,7 +287,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T08:18:43.145478+00:00",
+      "published": "2026-04-06T10:00:31.537461+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -319,39 +302,133 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Cybercriminals are exploiting the Middle East conflict to launch opportunistic attacks, using conflict-themed lures and newly registered domains to deploy malware like the LOTUSLITE backdoor. This surge in activity poses a significant threat to organizations in the region. Defenders should prioritize monitoring for conflict-related domains and user execution tactics.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Threat actors are leveraging the Middle East conflict to launch opportunistic cyber attacks, using conflict-themed lures and newly registered domains to deploy malware such as the LOTUSLITE backdoor. These attacks are primarily driven by user execution and remote access software. Defenders should prioritize monitoring for conflict-related domains and user execution tactics.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "Unmasking an Attack Chain of MuddyWater",
+      "description": "An intrusion attributed to MuddyWater, an Iranian-linked APT, was identified in a customer environment. The attack involved initial access through RDP, establishing an SSH tunnel, and deploying malware via DLL side-loading. The threat actor used FMAPP.exe, a legitimate Fortemedia Inc. application, to load a malicious FMAPP.dll for C2 communications. The timeline of activities revealed typos in com",
+      "url": "https://otx.alienvault.com/pulse/69abf37dfd9bfab829c9913e",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-06T10:00:31.537426+00:00",
+      "ttps": [
+        {
+          "id": "T1574.002",
+          "name": "DLL Side-Loading",
+          "tactic": "Persistence",
+          "tactic_id": "TA0003"
+        },
+        {
+          "id": "T1071",
+          "name": "Application Layer Protocol",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        },
+        {
+          "id": "T1572",
+          "name": "Protocol Tunneling",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        }
+      ],
+      "ai_summary": "MuddyWater, an Iranian-linked APT, used DLL side-loading and protocol tunneling to gain initial access through RDP and establish C2 communications via a legitimate application. The attack involved deploying malware via DLL side-loading and using a legitimate Fortemedia Inc. application to load a malicious DLL. Defenders should monitor for suspicious RDP activity and block unauthorized SSH tunnels.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1574.002| B[Initial Access]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1572| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-27859: A mail message containing excessive amount of RFC 2231 MIME parameters causes LM...",
-      "description": "A mail message containing excessive amount of RFC 2231 MIME parameters causes LMTP to use too much CPU. A suitably formatted mail message causes mail delivery process to consume large amounts of CPU time. Use MTA capabilities to limit RFC 2231 MIME parameters in mail messages, or upgrade to fixed version where the processing is limited. No publicly available exploits are known.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27859",
-      "cve_id": "CVE-2026-27859",
+      "title": "CVE-2026-4340: Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. Reason: This can...",
+      "description": "Rejected reason: ** REJECT ** DO NOT USE THIS CANDIDATE NUMBER. Reason: This candidate was issued in error. Notes: All references and descriptions in this candidate have been removed to prevent accidental usage.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4340",
+      "cve_id": "CVE-2026-4340",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-06T08:18:40.016758+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-27859 is a CPU exhaustion vulnerability in LMTP caused by excessive RFC 2231 MIME parameters in mail messages. This can lead to denial-of-service (DoS) attacks. Defenders should limit RFC 2231 MIME parameters in mail messages or upgrade to a fixed version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Resource|:::tactic\n    B -->|T1210| C[Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.5,
+      "severity": "low",
+      "cvss_score": null,
+      "published": "2026-04-06T10:00:29.096323+00:00",
+      "ttps": [
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "CVE-2026-4340 is a rejected candidate with no actual threat. The threat actor's TTP is T1649, stealing or forging authentication certificates. Defender action: Verify and validate authentication certificates.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 1.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-27858: Attacker can send a specifically crafted message before authentication that caus...",
-      "description": "Attacker can send a specifically crafted message before authentication that causes managesieve to allocate large amount of memory.\r\n Attacker can force managesieve-login to be unavailable by repeatedly crashing the process. Protect access to managesieve protocol, or install fixed version. No publicly available exploits are known.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27858",
-      "cve_id": "CVE-2026-27858",
+      "title": "CVE-2026-4622: OS Command Injection vulnerability in NEC Platforms, Ltd. Aterm Series allows a ...",
+      "description": "OS Command Injection vulnerability in NEC Platforms, Ltd. Aterm Series allows a attacker to execute arbitrary OS commands via network.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4622",
+      "cve_id": "CVE-2026-4622",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-06T08:18:40.016742+00:00",
+      "cvss_score": null,
+      "published": "2026-04-06T10:00:29.096309+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-4622 is an OS Command Injection vulnerability in NEC Platforms, Ltd. Aterm Series, allowing attackers to execute arbitrary OS commands via network. This vulnerability has a high severity score due to its potential for privilege escalation and data breach. Defenders should prioritize patching this vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1055| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-4621: Hidden Functionality vulnerability in NEC Platforms, Ltd. Aterm Series allows a ...",
+      "description": "Hidden Functionality vulnerability in NEC Platforms, Ltd. Aterm Series allows a attacker to enable telnet via network.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4621",
+      "cve_id": "CVE-2026-4621",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-06T10:00:29.096292+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-4621 is a Hidden Functionality vulnerability in NEC Platforms, Ltd. Aterm Series, allowing attackers to enable telnet via network. This enables remote access, potentially leading to unauthorized system control. Defenders should immediately update affected systems to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1068| D[Discovery]:::tactic\n    D -->|T1071| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-4620: OS Command Injection vulnerability in NEC Platforms, Ltd. Aterm Series allows a ...",
+      "description": "OS Command Injection vulnerability in NEC Platforms, Ltd. Aterm Series allows a attacker to execute arbitrary OS commands via network.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4620",
+      "cve_id": "CVE-2026-4620",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-06T10:00:29.096277+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-4620 is an OS Command Injection vulnerability in NEC Platforms, Ltd. Aterm Series, allowing attackers to execute arbitrary OS commands via network. This vulnerability can lead to unauthorized access and data breaches. Defenders should prioritize patching and updating affected systems.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1068| D[Commonly Targeted File]:::tactic\n    D -->|T1071| E[File and Directory Discovery]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-4619: Path Traversal vulnerability in NEC Platforms, Ltd. Aterm Series allows a attack...",
+      "description": "Path Traversal vulnerability in NEC Platforms, Ltd. Aterm Series allows a attacker to wtite over any file via network.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4619",
+      "cve_id": "CVE-2026-4619",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-06T10:00:29.096262+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -360,81 +437,23 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-27858 is a public-facing application exploit (T1190) that allows attackers to crash managesieve-login by sending a crafted message before authentication, forcing it to allocate large amounts of memory. This can lead to denial-of-service (DoS) conditions. To mitigate, protect access to the managesieve protocol or install a fixed version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1210| C[Denial of Service]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "ai_summary": "CVE-2026-4619 is a Path Traversal vulnerability in NEC Platforms, Ltd. Aterm Series, allowing attackers to write over any file via network. This vulnerability can be exploited using T1190 (Exploit Public-Facing Application). Defenders should prioritize patching this vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-27857: Sending \"NOOP (((...)))\" command with 4000 parenthesis open+close results in ~1M...",
-      "description": "Sending \"NOOP (((...)))\" command with 4000 parenthesis open+close results in ~1MB extra memory usage. Longer commands will result in client disconnection. This 1 MB can be left allocated for longer time periods by not sending the command ending LF. So attacker could connect possibly from even a single IP and create 1000 connections to allocate 1 GB of memory, which would likely result in reaching ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27857",
-      "cve_id": "CVE-2026-27857",
+      "title": "CVE-2026-4309: Missing Authorization vulnerability in NEC Platforms, Ltd. Aterm Series allows a...",
+      "description": "Missing Authorization vulnerability in NEC Platforms, Ltd. Aterm Series allows a attacker to get a specific device information and change the settings via network.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4309",
+      "cve_id": "CVE-2026-4309",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 4.3,
-      "published": "2026-04-06T08:18:40.016726+00:00",
+      "cvss_score": null,
+      "published": "2026-04-06T10:00:29.096245+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-27857 is a memory exhaustion vulnerability in a network service, allowing an attacker to consume up to 1 GB of memory by sending a crafted NOOP command. This can lead to client disconnections or service crashes. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Service]:::tactic\n    B -->|T1210| C[Denial of Service]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-27856: Doveadm credentials are verified using direct comparison which is susceptible to...",
-      "description": "Doveadm credentials are verified using direct comparison which is susceptible to timing oracle attack. An attacker can use this to determine the configured credentials. Figuring out the credential will lead into full access to the affected component. Limit access to the doveadm http service port, install fixed version. No publicly available exploits are known.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27856",
-      "cve_id": "CVE-2026-27856",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.4,
-      "published": "2026-04-06T08:18:40.016705+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-27856 is a timing oracle vulnerability in Doveadm that allows attackers to determine configured credentials, leading to full access. This is a high-severity issue due to its potential for privilege escalation. Defenders should limit access to the Doveadm HTTP service port and install the fixed version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1162| B[Reconnaissance]:::tactic\n    B -->|T1552| C[Credential Dumping]:::tactic\n    C -->|T1071| D[Execution]:::tactic\n    D -->|T1210| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-27855: Dovecot OTP authentication is vulnerable to replay attack under specific conditi...",
-      "description": "Dovecot OTP authentication is vulnerable to replay attack under specific conditions. If auth cache is enabled, and username is altered in passdb, then OTP credentials can be cached so that same OTP reply is valid. An attacker able to observe an OTP exchange is able to log in as the user. If authentication happens over unsecure connection, switch to SCRAM protocol. Alternatively ensure the communca",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27855",
-      "cve_id": "CVE-2026-27855",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.8,
-      "published": "2026-04-06T08:18:40.016690+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-27855 is a vulnerability in Dovecot OTP authentication that allows attackers to replay OTP credentials, enabling unauthorized login. This occurs when auth cache is enabled and username is altered in passdb. To defend, switch to SCRAM protocol or ensure secure connections.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1212| B[Reconnaissance]:::tactic\n    B -->|T1204| C[Authentication]:::tactic\n    C -->|T1557| D[Exploitation]:::tactic\n    D -->|T1210| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-24031: Dovecot SQL based authentication can be bypassed when auth_username_chars is cle...",
-      "description": "Dovecot SQL based authentication can be bypassed when auth_username_chars is cleared by admin. This vulnerability allows bypassing authentication for any user and user enumeration. Do not clear auth_username_chars. If this is not possible, install latest fixed version. No publicly available exploits are known.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24031",
-      "cve_id": "CVE-2026-24031",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.7,
-      "published": "2026-04-06T08:18:40.016674+00:00",
-      "ttps": [
-        {
-          "id": "T1087",
-          "name": "Account Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
-        }
-      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -442,15 +461,32 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-0394: When dovecot has been configured to use per-domain passwd files, and they are pl...",
-      "description": "When dovecot has been configured to use per-domain passwd files, and they are placed one path component above /etc, or slash has been added to allowed characters, path traversal can happen if the domain component is directory partial. This allows inadvertently reading /etc/passwd (or some other path which ends with passwd). If this file contains passwords, it can be used to authenticate wrongly, o",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0394",
-      "cve_id": "CVE-2026-0394",
+      "title": "CVE-2026-25101: Bludit allows user's session identifier to be set before authentication. The val...",
+      "description": "Bludit allows user's session identifier to be set before authentication. The value of this session ID stays the same after authentication. This behavior enables an attacker to fix a session ID\nfor a victim and later hijack the authenticated session.\n\nThis issue was fixed in version 3.17.2.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25101",
+      "cve_id": "CVE-2026-25101",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-06T10:00:29.096226+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-25100: Bludit is vulnerable to Stored Cross-Site Scripting (XSS) in its image upload fu...",
+      "description": "Bludit is vulnerable to Stored Cross-Site Scripting (XSS) in its image upload functionality. An authenticated attacker with content upload privileges (such as Author, Editor, or Administrator) can upload an SVG file containing a malicious payload, which is executed when a victim visits the URL of the uploaded resource. The uploaded resource itself is accessible without authentication.\n\nThe vendor ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25100",
+      "cve_id": "CVE-2026-25100",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-06T08:18:40.016658+00:00",
+      "cvss_score": 5.4,
+      "published": "2026-04-06T10:00:29.096209+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -466,16 +502,29 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2025-59032: ManageSieve AUTHENTICATE command crashes when using literal as SASL initial resp...",
-      "description": "ManageSieve AUTHENTICATE command crashes when using literal as SASL initial response. This can be used to crash ManageSieve service repeatedly, making it unavailable for other users. Control access to ManageSieve port, or disable the service if it's not needed. Alternatively upgrade to a fixed version. No publicly available exploits are known.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59032",
-      "cve_id": "CVE-2025-59032",
+      "title": "CVE-2026-25099: Bludit’s API plugin allows an authenticated attacker with a valid API token to u...",
+      "description": "Bludit’s API plugin allows an authenticated attacker with a valid API token to upload files of any type and extension without restriction, which can then be executed, leading to Remote Code Execution.\n\nThis issue was fixed in 3.18.4.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25099",
+      "cve_id": "CVE-2026-25099",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-06T08:18:40.016641+00:00",
-      "ttps": [],
+      "cvss_score": 8.8,
+      "published": "2026-04-06T10:00:29.096186+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -483,16 +532,23 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2025-59031: Dovecot has provided a script to use for attachment to text conversion. This scr...",
-      "description": "Dovecot has provided a script to use for attachment to text conversion. This script unsafely handles zip-style attachments. Attacker can use specially crafted OOXML documents to cause unintended files on the system to be indexed and subsequently ending up in FTS indexes. Do not use the provided script, instead, use something else like FTS tika. No publicly available exploits are known.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59031",
-      "cve_id": "CVE-2025-59031",
+      "title": "CVE-2023-7339: Stack-based buffer overflow vulnerability in Softing Industrial Automation GmbH ...",
+      "description": "Stack-based buffer overflow vulnerability in Softing Industrial Automation GmbH gateways allows overflow buffers.\nThis issue affects\npnGate: through 1.30\nepGate: through 1.30\nmbGate: through 1.30\nsmartLink HW-DP: through 1.30\nsmartLink HW-PN: through 1.01.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-7339",
+      "cve_id": "CVE-2023-7339",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 4.3,
-      "published": "2026-04-06T08:18:40.016619+00:00",
-      "ttps": [],
+      "cvss_score": 6.5,
+      "published": "2026-04-06T10:00:29.096143+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -500,16 +556,23 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2025-59028: When sending invalid base64 SASL data, login process is disconnected from the au...",
-      "description": "When sending invalid base64 SASL data, login process is disconnected from the auth server, causing all active authentication sessions to fail. Invalid BASE64 data can be used to DoS a vulnerable server to break concurrent logins. Install fixed version or disable concurrency in login processes (heavy perfomance penalty on large deployments). No publicly available exploits are known.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59028",
-      "cve_id": "CVE-2025-59028",
-      "source": "NVD",
-      "category": "cve",
+      "title": "How often are redirects used in phishing in 2026&#x3f;, (Mon, Apr 6th)",
+      "description": "In one of his recent diaries, Johannes discussed how open redirects are actively being sought out by threat actors&#x5b;1&#x5d;, which made me wonder about how commonly these mechanisms are actually misused&#xe2;&#x20ac;&#xa6;&#xd;",
+      "url": "https://isc.sans.edu/diary/rss/32870",
+      "cve_id": null,
+      "source": "SANS ISC",
+      "category": "news",
       "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-06T08:18:40.016578+00:00",
-      "ttps": [],
+      "cvss_score": null,
+      "published": "2026-04-06T08:50:27+00:00",
+      "ttps": [
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -1347,23 +1410,6 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "ISC Stormcast For Tuesday, March 31st, 2026 https://isc.sans.edu/podcastdetail/9872, (Tue, Mar 31st)",
-      "description": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
-      "url": "https://isc.sans.edu/diary/rss/32848",
-      "cve_id": null,
-      "source": "SANS ISC",
-      "category": "news",
-      "severity": "low",
-      "cvss_score": null,
-      "published": "2026-03-31T02:00:02+00:00",
-      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

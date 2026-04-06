@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-06T19:47:24.367125+00:00",
+  "last_updated": "2026-04-06T20:31:36.774531+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:32.665024+00:00",
+      "published": "2026-04-06T20:29:41.856235+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -38,7 +38,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat involves signed malware masquerading as legitimate workplace software, delivered through phishing campaigns, to deploy RMM backdoors. This allows attackers to establish persistence and gain remote access to compromised systems. Defenders should prioritize verifying the authenticity of software and attachments to prevent initial access.",
+      "ai_summary": "The threat involves signed malware impersonating workplace apps to deploy RMM backdoors, allowing attackers to establish persistence and remote access. This is achieved through phishing campaigns using legitimate binaries and PDF attachments. The most important defender action is to implement robust email filtering and user education to prevent initial access via phishing.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -53,7 +53,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:32.665000+00:00",
+      "published": "2026-04-06T20:29:41.856212+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -68,8 +68,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat is a supply chain compromise where a North Korean state actor hijacked the npm credentials of the primary Axios maintainer, deploying a cross-platform remote access trojan to Windows, macOS, and Linux systems. This has a significant real-world impact due to Axios' widespread use in the JavaScript ecosystem. The most important defender action is to immediately review and update Axios dependencies to prevent RAT deployment.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1071.001| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat is a supply chain compromise where a North Korean state actor hijacked the npm credentials of the primary Axios maintainer, deploying a cross-platform remote access trojan to Windows, macOS, and Linux systems. This has a significant real-world impact due to Axios' widespread use in the JavaScript ecosystem. The most important defender action is to immediately update Axios to a secure version and monitor for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -83,7 +83,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:32.664974+00:00",
+      "published": "2026-04-06T20:29:41.856187+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -92,7 +92,7 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 via a 5-stage attack chain, utilizing T1595.002 (Vulnerability Scanning). This technique-based approach to HTTP body hunting is effective in discovering web-delivered malware. Defenders should prioritize monitoring for T1595.002 to prevent similar attacks.",
+      "ai_summary": "A ClickFix campaign delivers XWorm V5.6 through a 5-stage attack chain, using T1595.002 (Vulnerability Scanning) as the initial step. This technique-based approach to HTTP body hunting can help identify web-delivered malware. Defenders should prioritize monitoring for T1595.002 to prevent initial access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -107,7 +107,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:32.664949+00:00",
+      "published": "2026-04-06T20:29:41.856163+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -146,11 +146,11 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat involves a multi-stage scripting process using LNK files to target users in South Korea, leveraging GitHub as Command and Control infrastructure to evade detection. The attacks utilize various TTPs, including web services and obfuscated files, to impair defenses and establish multi-stage channels. To defend against this threat, it is essential to implement robust email and web filtering to block malicious LNK files and monitor for suspicious GitHub activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Initial Access]:::tactic\n    B -->|T1102| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1583.006| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "A DPRK-related campaign uses LNK files targeting South Korean users, leveraging GitHub as C2 infrastructure to evade detection. The attacks employ a multi-stage scripting process and have been tracked since 2024. Defenders should monitor GitHub for suspicious activity and block LNK files.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1104| E[Multi-Stage Channels]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Iranian APT Infrastructure in Focus: Mapping State-Aligned Clusters During Geopolitical Escalation",
@@ -161,7 +161,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:32.664926+00:00",
+      "published": "2026-04-06T20:29:41.856140+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -176,7 +176,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Iranian state-aligned threat actors exploit heightened geopolitical tensions to map and disrupt potential cyber operations through proactive infrastructure monitoring. They use T1592 (Gather Victim Host Info) and T1649 (Steal or Forge Authentication Certificates) tactics. Defenders must prioritize monitoring infrastructure patterns and ASN associations to detect and disrupt these operations.",
+      "ai_summary": "Iranian state-aligned threat actors exploit heightened geopolitical tensions to map and disrupt potential cyber operations by gathering victim host info and stealing or forging authentication certificates.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -191,7 +191,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:32.664906+00:00",
+      "published": "2026-04-06T20:29:41.856109+00:00",
       "ttps": [
         {
           "id": "T1071",
@@ -221,7 +221,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:32.664884+00:00",
+      "published": "2026-04-06T20:29:41.856088+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -243,7 +243,7 @@
         }
       ],
       "ai_summary": "UAT-9244, a China-nexus APT, targets South American telecoms with three new malware implants: TernDoor, PeerTime, and BruteEntry. These implants enable backdoor access, brute force attacks, and remote access. Defenders should prioritize monitoring for T1190, T1110, and T1219 TTPs.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -257,7 +257,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:32.664868+00:00",
+      "published": "2026-04-06T20:29:41.856074+00:00",
       "ttps": [
         {
           "id": "T1587",
@@ -272,9 +272,9 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CL-UNK-1068, a Chinese threat actor, has been undetected since 2020, targeting high-value sectors in Asia with custom malware, modified open-source utilities, and living-off-the-land binaries. This stealthy persistence allows the group to maintain a long-term presence. Defenders should prioritize monitoring for T1587 and T1190 to detect early signs of CL-UNK-1068's operations.",
+      "ai_summary": "CL-UNK-1068, a Chinese threat actor, has been undetected since 2020, targeting high-value sectors in Asia with custom malware, modified open-source utilities, and living-off-the-land binaries. Their techniques include exploiting public-facing applications and developing capabilities. Defenders should prioritize monitoring for T1587 and T1190 to detect potential CL-UNK-1068 activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -287,7 +287,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:32.664850+00:00",
+      "published": "2026-04-06T20:29:41.856057+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -302,9 +302,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Cybercriminals are exploiting the Middle East conflict to launch opportunistic attacks, using conflict-themed lures and newly registered domains to deploy malware like the LOTUSLITE backdoor. These attacks often involve user execution and remote access software. Defenders should monitor for conflict-related domains and block suspicious activity.",
+      "ai_summary": "Cybercriminals are exploiting the Middle East conflict to launch opportunistic attacks, using conflict-themed lures and newly registered domains to deploy malware like the LOTUSLITE backdoor. These attacks often involve user execution and remote access software. Defenders should monitor for conflict-related domains and be cautious of targeted attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -317,7 +317,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:32.664804+00:00",
+      "published": "2026-04-06T20:29:41.856021+00:00",
       "ttps": [
         {
           "id": "T1574.002",
@@ -338,39 +338,118 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "MuddyWater, an Iranian-linked APT, exploited RDP for initial access, established an SSH tunnel, and deployed malware via DLL side-loading. The threat actor used a legitimate application to load a malicious DLL for C2 communications. Defenders should prioritize monitoring for suspicious RDP activity and DLL side-loading tactics.",
+      "ai_summary": "MuddyWater, an Iranian-linked APT, exploited RDP for initial access, established an SSH tunnel, and deployed malware via DLL side-loading. The threat actor used a legitimate application, FMAPP.exe, to load a malicious DLL for C2 communications. Defenders should prioritize monitoring RDP access and implementing secure application whitelisting.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1574.002| B[Initial Access]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1572| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33765: Pi-hole Admin Interface is a web interface for managing Pi-hole, a network-level...",
-      "description": "Pi-hole Admin Interface is a web interface for managing Pi-hole, a network-level ad and internet tracker blocking application. Versions prior to 6.0 have a critical OS Command Injection vulnerability in the savesettings.php file. The application takes the user-controlled $_POST['webtheme'] parameter and concatenates it directly into a system command executed via PHP's exec() function. Since the in",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33765",
-      "cve_id": "CVE-2026-33765",
+      "title": "CVE-2026-33885: Statamic is a Laravel and Git powered content management system (CMS). Prior to ...",
+      "description": "Statamic is a Laravel and Git powered content management system (CMS). Prior to versions 5.73.16 and 6.7.2, the external URL detection used for redirect validation on unauthenticated endpoints could be bypassed, allowing users to be redirected to external URLs after actions like form submissions and authentication flows. This has been fixed in 5.73.16 and 6.7.2.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33885",
+      "cve_id": "CVE-2026-33885",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-06T19:45:29.747014+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33765 is a critical OS Command Injection vulnerability in Pi-hole Admin Interface, versions prior to 6.0. An attacker can inject malicious system commands via the user-controlled $_POST['webtheme'] parameter. Defenders should update to version 6.0 or later to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Command and Control]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
+      "severity": "medium",
+      "cvss_score": 6.1,
+      "published": "2026-04-06T20:29:39.053161+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-33885 is a vulnerability in Statamic CMS that allows attackers to bypass redirect validation on unauthenticated endpoints, enabling them to redirect users to external URLs. This issue has been fixed in versions 5.73.16 and 6.7.2. Defenders should update to the latest patched versions to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33739: FOG is a free open-source cloning/imaging/rescue suite/inventory management syst...",
-      "description": "FOG is a free open-source cloning/imaging/rescue suite/inventory management system. Prior to 1.5.10.1812, the listing tables on multiple management pages (Host, Storage, Group, Image, Printer, Snapin) are vulnerable to Stored Cross-Site Scripting (XSS), due to insufficient server-side parameter sanitization in record creations/updates and a lack of HTML escaping in listing tables. Version 1.5.10.1",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33739",
-      "cve_id": "CVE-2026-33739",
+      "title": "CVE-2026-33884: Statamic is a Laravel and Git powered content management system (CMS). Prior to ...",
+      "description": "Statamic is a Laravel and Git powered content management system (CMS). Prior to versions 5.73.16 and 6.7.2, an authenticated Control Panel user with access to live preview could use a live preview token to access restricted content that the token was not intended for. This has been fixed in 5.73.16 and 6.7.2.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33884",
+      "cve_id": "CVE-2026-33884",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 5.7,
-      "published": "2026-04-06T19:45:29.746999+00:00",
+      "cvss_score": 4.3,
+      "published": "2026-04-06T20:29:39.053147+00:00",
+      "ttps": [
+        {
+          "id": "T1219",
+          "name": "Remote Access Software",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        }
+      ],
+      "ai_summary": "CVE-2026-33884 is a vulnerability in Statamic CMS that allows authenticated users to access restricted content via live preview tokens. This issue has been fixed in versions 5.73.16 and 6.7.2. Defenders should ensure Statamic is updated to the latest patched version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33883: Statamic is a Laravel and Git powered content management system (CMS). Prior to ...",
+      "description": "Statamic is a Laravel and Git powered content management system (CMS). Prior to versions 5.73.16 and 6.7.2, the `user:reset_password_form` tag could render user-input directly into HTML without escaping, allowing an attacker to craft a URL that executes arbitrary JavaScript in the victim's browser. This has been fixed in 5.73.16 and 6.7.2.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33883",
+      "cve_id": "CVE-2026-33883",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.1,
+      "published": "2026-04-06T20:29:39.053133+00:00",
+      "ttps": [
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "CVE-2026-33883 is a cross-site scripting (XSS) vulnerability in Statamic, a Laravel and Git powered CMS, allowing attackers to execute arbitrary JavaScript in the victim's browser. This vulnerability has been fixed in versions 5.73.16 and 6.7.2. Defenders should update to the latest patched versions to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33882: Statamic is a Laravel and Git powered content management system (CMS). Prior to ...",
+      "description": "Statamic is a Laravel and Git powered content management system (CMS). Prior to versions 5.73.16 and 6.7.2, the markdown preview endpoint could be manipulated to return augmented data from arbitrary fieldtypes. With the users fieldtype specifically, an authenticated control panel user could retrieve sensitive user data including email addresses, encrypted passkey data, and encrypted two-factor aut",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33882",
+      "cve_id": "CVE-2026-33882",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-06T20:29:39.053117+00:00",
+      "ttps": [
+        {
+          "id": "T1219",
+          "name": "Remote Access Software",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        }
+      ],
+      "ai_summary": "CVE-2026-33882 is a vulnerability in Statamic CMS, allowing authenticated users to retrieve sensitive user data. This is a medium-severity issue, primarily affecting users with control panel access. Defenders should update to patched versions (5.73.16 and 6.7.2) to mitigate the risk.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33881: Windmill is an open-source developer platform for internal code: APIs, backgroun...",
+      "description": "Windmill is an open-source developer platform for internal code: APIs, background jobs, workflows and UIs. Workspace environment variable values are interpolated into JavaScript string literals without escaping single quotes in the NativeTS executor. A workspace admin who sets a custom environment variable with a value containing `'` can inject arbitrary JavaScript that executes inside every Nativ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33881",
+      "cve_id": "CVE-2026-33881",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-06T20:29:39.053102+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -385,94 +464,147 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-33739 is a Stored Cross-Site Scripting (XSS) vulnerability in FOG, a free open-source cloning/imaging/rescue suite/inventory management system. An attacker can exploit this vulnerability to steal or forge authentication certificates (T1649) and gain unauthorized access to the system (T1190). To defend, update to version 1.5.10.1812 or apply server-side parameter sanitization and HTML escaping.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1649| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.7,
+      "ai_summary": "CVE-2026-33881 is a server-side template injection vulnerability in Windmill, an open-source developer platform. An attacker can inject arbitrary JavaScript by setting a custom environment variable with a value containing a single quote. This allows the attacker to execute code inside every NativeTS executor.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33654: nanobot is a personal AI assistant. Prior to version 0.1.6, an indirect prompt i...",
-      "description": "nanobot is a personal AI assistant. Prior to version 0.1.6, an indirect prompt injection vulnerability exists in the email channel processing module (`nanobot/channels/email.py`), allowing a remote, unauthenticated attacker to execute arbitrary LLM instructions (and subsequently, system tools) without any interaction from the bot owner. By sending an email containing malicious prompts to the bot's",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33654",
-      "cve_id": "CVE-2026-33654",
+      "title": "CVE-2026-33879: Federated Learning and Interoperability Platform (FLIP) is an open-source platfo...",
+      "description": "Federated Learning and Interoperability Platform (FLIP) is an open-source platform for federated training and evaluation of medical imaging AI models across healthcare institutions. The FLIP login page in versions 0.1.1 and prior has no rate limiting or CAPTCHA, enabling brute-force and credential-stuffing attacks. FLIP users are external to the organization, increasing credential reuse risk. As o",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33879",
+      "cve_id": "CVE-2026-33879",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-06T20:29:39.053085+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-33875: Gematik Authenticator securely authenticates users for login to digital health a...",
+      "description": "Gematik Authenticator securely authenticates users for login to digital health applications. Versions prior to 4.16.0 are vulnerable to authentication flow hijacking, potentially allowing attackers to authenticate with the identities of victim users who click on a malicious deep link. Update Gematik Authenticator to version 4.16.0 or greater to receive a patch. There are no known workarounds.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33875",
+      "cve_id": "CVE-2026-33875",
       "source": "NVD",
       "category": "cve",
       "severity": "critical",
+      "cvss_score": 9.3,
+      "published": "2026-04-06T20:29:39.053068+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-33874: Gematik Authenticator securely authenticates users for login to digital health a...",
+      "description": "Gematik Authenticator securely authenticates users for login to digital health applications. Starting in version 4.12.0 and prior to version 4.16.0, the Mac OS version of the Authenticator is vulnerable to remote code execution, triggered when victims open a malicious file. Update the gematik Authenticator to version 4.16.0 or greater to receive a patch. There are no known workarounds.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33874",
+      "cve_id": "CVE-2026-33874",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-06T20:29:39.053053+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-33873: Langflow is a tool for building and deploying AI-powered agents and workflows. P...",
+      "description": "Langflow is a tool for building and deploying AI-powered agents and workflows. Prior to version 1.9.0, the Agentic Assistant feature in Langflow executes LLM-generated Python code during its validation phase. Although this phase appears intended to validate generated component code, the implementation reaches dynamic execution sinks and instantiates the generated class server-side. In deployments ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33873",
+      "cve_id": "CVE-2026-33873",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.9,
+      "published": "2026-04-06T20:29:39.053031+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-32187: Microsoft Edge (Chromium-based) Defense in Depth Vulnerability...",
+      "description": "Microsoft Edge (Chromium-based) Defense in Depth Vulnerability",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32187",
+      "cve_id": "CVE-2026-32187",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.2,
+      "published": "2026-04-06T20:29:39.052991+00:00",
+      "ttps": [
+        {
+          "id": "T1550",
+          "name": "Use Alternate Authentication Material",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "FBI: Cyber fraud surges to $17.6 billion in losses as scams, crypto theft soar",
+      "description": "Cyber-enabled fraud was behind 85% of all losses reported to the FBI in 2025 and constituted 45% of the 1,008,597 complaints it's IC3 unit received overall.",
+      "url": "https://therecord.media/cyber-fraud-surges-to-17-billion-fbi-ic3",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "news",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-06T19:45:29.746981+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-33654 is a remote, unauthenticated prompt injection vulnerability in nanobot's email channel processing module, allowing attackers to execute arbitrary LLM instructions and system tools. This vulnerability can be exploited by sending malicious emails to the bot, resulting in potential system compromise. Defenders should update nanobot to version 0.1.6 or later to mitigate this threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33045: Home Assistant is open source home automation software that puts local control a...",
-      "description": "Home Assistant is open source home automation software that puts local control and privacy first. Starting in version 2025.02 and prior to version 2026.01 the \"remaining charge time\"-sensor for mobile phones (imported/included from Android Auto it appears) is vulnerable cross-site scripting, similar to CVE-2025-62172. Version 2026.01 fixes the issue.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33045",
-      "cve_id": "CVE-2026-33045",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.4,
-      "published": "2026-04-06T19:45:29.746962+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-33045 is a cross-site scripting vulnerability in Home Assistant's 'remaining charge time'-sensor, exploitable via T1190 (Exploit Public-Facing Application). This vulnerability allows an attacker to execute malicious scripts on a user's device. To defend, ensure Home Assistant is updated to version 2026.01 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.4,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33044: Home Assistant is open source home automation software that puts local control a...",
-      "description": "Home Assistant is open source home automation software that puts local control and privacy first. Starting in version 2020.02 and prior to version 2026.01, an authenticated party can add a malicious name to their device entity, allowing for Cross-Site Scripting attacks against anyone who can see a dashboard with a Map-card which includes that entity. It requires that the victim hovers over an info",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33044",
-      "cve_id": "CVE-2026-33044",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.4,
-      "published": "2026-04-06T19:45:29.746947+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-33044 is a Cross-Site Scripting vulnerability in Home Assistant, allowing authenticated attackers to inject malicious code via device entity names. This requires the victim to hover over an info panel on a dashboard with a Map-card. To defend, ensure all Home Assistant installations are updated to version 2026.01 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.4,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-32241: Flannel is a network fabric for containers, designed for Kubernetes. The Flannel...",
-      "description": "Flannel is a network fabric for containers, designed for Kubernetes. The Flannel project includes an experimental Extension backend that allows users to easily prototype new backend types. In versions of Flannel prior to 0.28.2, this Extension backend is vulnerable to a command injection  that allows an attacker who can set Kubernetes Node annotations to achieve root-level arbitrary command execut",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32241",
-      "cve_id": "CVE-2026-32241",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-06T19:45:29.746932+00:00",
+      "published": "2026-04-06T20:24:00+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -481,104 +613,27 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-31951: LibreChat is a ChatGPT clone with additional features. In versions 0.8.2-rc1 thr...",
-      "description": "LibreChat is a ChatGPT clone with additional features. In versions 0.8.2-rc1 through 0.8.3-rc1, user-created MCP (Model Context Protocol) servers can include arbitrary HTTP headers that undergo credential placeholder substitution. An attacker can create a malicious MCP server with headers containing `{{LIBRECHAT_OPENID_ACCESS_TOKEN}}` (and others), causing victims who call tools on that server to ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31951",
-      "cve_id": "CVE-2026-31951",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.8,
-      "published": "2026-04-06T19:45:29.746916+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-31950: LibreChat is a ChatGPT clone with additional features. In versions 0.8.2-rc2 thr...",
-      "description": "LibreChat is a ChatGPT clone with additional features. In versions 0.8.2-rc2 through 0.8.2-rc3, the SSE streaming endpoint `/api/agents/chat/stream/:streamId` does not verify that the requesting user owns the stream. Any authenticated user who obtains or guesses a valid stream ID can subscribe and read another user's real-time chat content, including messages, AI responses, and tool invocations. V",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31950",
-      "cve_id": "CVE-2026-31950",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-06T19:45:29.746899+00:00",
+      "title": "Medusa ransomware group using zero-days to launch attacks within 24 hours of breach, Microsoft says",
+      "description": "Microsoft said it has been alarmed to see how effective Medusa actors are, citing multiple cases where the group can move from initial access to data exfiltration and ransomware deployment within 24 hours.",
+      "url": "https://therecord.media/medusa-ransomware-group-zero-days-microsoft",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-06T20:08:00+00:00",
       "ttps": [
         {
-          "id": "T1071",
-          "name": "Application Layer Protocol",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-31945: LibreChat is a ChatGPT clone with additional features. Versions 0.8.2-rc2 throug...",
-      "description": "LibreChat is a ChatGPT clone with additional features. Versions 0.8.2-rc2 through 0.8.2 are vulnerable to a server-side request forgery (SSRF) attack when using agent actions or MCP. Although a previous SSRF vulnerability (https://github.com/danny-avila/LibreChat/security/advisories/GHSA-rgjq-4q58-m3q8) was reported and patched, the fix only introduced hostname validation. It does not verify wheth",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31945",
-      "cve_id": "CVE-2026-31945",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.7,
-      "published": "2026-04-06T19:45:29.746878+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
+          "id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "tactic_id": "TA0010"
         },
         {
-          "id": "T1082",
-          "name": "System Information Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
-        },
-        {
-          "id": "T1071",
-          "name": "Application Layer Protocol",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-31943: LibreChat is a ChatGPT clone with additional features. Prior to version 0.8.3, `...",
-      "description": "LibreChat is a ChatGPT clone with additional features. Prior to version 0.8.3, `isPrivateIP()` in `packages/api/src/auth/domain.ts` fails to detect IPv4-mapped IPv6 addresses in their hex-normalized form, allowing any authenticated user to bypass SSRF protection and make the server issue HTTP requests to internal network resources — including cloud metadata services (e.g., AWS `169.254.169.254`), ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31943",
-      "cve_id": "CVE-2026-31943",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.5,
-      "published": "2026-04-06T19:45:29.746838+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1552.005",
-          "name": "Cloud Instance Metadata API",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
         }
       ],
       "ai_summary": "AI analysis pending",
@@ -829,23 +884,6 @@
       "ai_model": "none"
     },
     {
-      "title": "Singapore, US warn of latest Fortinet bug being exploited in wild",
-      "description": "The Cybersecurity and Infrastructure Security Agency (CISA) gave federal agencies until Thursday to apply the hotfix.",
-      "url": "https://therecord.media/singapore-us-warn-of-fortinet-bug-exploited",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-06T16:20:00+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
       "title": "CISA orders feds to patch exploited Fortinet EMS flaw by Friday",
       "description": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) ordered federal agencies to secure FortiClient Enterprise Management Server (EMS) instances against an actively exploited vulnerability by Friday. [...]",
       "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-fortinet-flaw-exploited-in-attacks-by-friday/",
@@ -921,23 +959,6 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Major outage hits Russian banking apps, metro payments across regions",
-      "description": "The disruption on Friday affected apps from some of the country’s largest banks, including Sberbank, VTB, Alfa-Bank, T-Bank and Gazprombank.",
-      "url": "https://therecord.media/outage-hits-russian-banking-apps",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-06T12:37:00+00:00",
-      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

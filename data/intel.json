@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-07T18:52:15.197474+00:00",
+  "last_updated": "2026-04-07T19:53:13.606432+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T18:50:11.286332+00:00",
+      "published": "2026-04-07T19:51:20.477046+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -32,8 +32,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "UAT-9244, a China-nexus APT group, targets South American telecommunications infrastructure with three new malware implants: TernDoor, PeerTime, and BruteEntry. The group exploits public-facing applications and uses brute force tactics to gain initial access. To defend against this threat, organizations should prioritize securing remote access software and implementing robust password policies.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1110| C[Execution]:::tactic\n    C -->|T1219| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "UAT-9244, a China-nexus APT group, targets South American telecommunications infrastructure with three new malware implants: TernDoor, PeerTime, and BruteEntry, to gain unauthorized access and control. The group exploits public-facing applications and uses brute force tactics to compromise servers. To defend against this threat, organizations should prioritize securing remote access software and implementing robust password policies.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T18:50:11.286316+00:00",
+      "published": "2026-04-07T19:51:20.477030+00:00",
       "ttps": [
         {
           "id": "T1587",
@@ -62,8 +62,8 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CL-UNK-1068, a Chinese threat actor, has been conducting undetected operations since 2020, targeting high-value sectors in Asia using custom malware and living-off-the-land tactics. The group's stealthy persistence and diverse toolkit pose a significant threat to critical infrastructure. To defend against this threat, organizations should prioritize vulnerability management and implement robust network monitoring to detect suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CL-UNK-1068, a Chinese threat actor, has been conducting undetected operations since 2020, targeting high-value sectors in Asia using custom malware and living-off-the-land tactics. The group's stealthy persistence and diverse toolkit pose a significant threat to critical infrastructure. To defend against this threat, organizations should prioritize vulnerability management and implement robust exploit detection measures.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1055| D[Defense Evasion]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -75,9 +75,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-07T18:50:11.286300+00:00",
+      "published": "2026-04-07T19:51:20.477002+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -92,9 +92,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The Middle East conflict has sparked an increase in opportunistic cyber attacks, with over 8,000 newly registered domains potentially being used for malicious activities, including targeted attacks and deployment of backdoors. The threat actors are leveraging conflict-themed lures to trick victims into executing malicious code. Defenders should prioritize monitoring for suspicious domain registrations and user-reported phishing attempts.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1219| C[Remote Access]:::tactic\n    C -->|T1059.001| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "The Middle East conflict has sparked an increase in opportunistic cyber attacks, with over 8,000 newly registered domains potentially being used for malicious activities. Threat actors are using conflict-themed lures and deploying backdoors like LOTUSLITE. Defenders should prioritize monitoring for suspicious domain registrations and user-reported phishing attempts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Execution]:::tactic\n    B -->|T1219| C[Privilege Escalation]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -107,7 +107,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T18:50:11.286271+00:00",
+      "published": "2026-04-07T19:51:20.476974+00:00",
       "ttps": [
         {
           "id": "T1574.002",
@@ -143,7 +143,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T18:50:11.286248+00:00",
+      "published": "2026-04-07T19:51:20.476953+00:00",
       "ttps": [
         {
           "id": "T1649",
@@ -158,7 +158,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Iran's cyber ecosystem, including state-directed APT groups and hacktivist personas, has escalated cyber attacks, as seen in the Stryker Corporation attack. This escalation involves stealing or forging authentication certificates and defacement. Defenders should prioritize monitoring authentication certificate integrity.",
+      "ai_summary": "Iran's cyber ecosystem, including state-directed APT groups and hacktivist personas, has escalated cyber attacks, as seen in the Stryker Corporation attack on March 11, 2026. This escalation involves stealing or forging authentication certificates (T1649) and defacement (T1491). Defenders should prioritize monitoring authentication certificate activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1491| C[Defacement]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -173,7 +173,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T18:50:11.286219+00:00",
+      "published": "2026-04-07T19:51:20.476925+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -197,7 +197,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T18:50:11.286168+00:00",
+      "published": "2026-04-07T19:51:20.476906+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -212,7 +212,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Storm-1175 is a financially motivated cybercriminal actor that targets vulnerable web-facing systems using N-day exploits, leading to high-velocity ransomware campaigns. They rapidly move from initial access to data exfiltration and encryption. Defenders should prioritize patching vulnerable systems to prevent initial access.",
+      "ai_summary": "Storm-1175 is a financially motivated threat actor that targets vulnerable web-facing systems with N-day exploits, leading to high-velocity ransomware campaigns. They rapidly move from initial access to data exfiltration and encryption. Defenders should prioritize patching and monitoring web-facing systems for signs of exploitation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -227,7 +227,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T18:50:11.286147+00:00",
+      "published": "2026-04-07T19:51:20.476886+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -248,9 +248,9 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Threat actors target Kubernetes environments through identity abuse and exposed application surfaces, gaining initial access via misconfigurations. They exploit T1586.002 (Email Accounts), T1611 (Escape to Host), and T1649 (Steal or Forge Authentication Certificates) to achieve their goals. Defenders should prioritize securing Kubernetes configurations and monitoring for suspicious identity-related activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1611| C[Execution]:::tactic\n    C -->|T1649| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Threat actors target Kubernetes environments through identity abuse and exposed application surfaces, gaining initial access via misconfigured systems. They exploit this access to steal or forge authentication certificates, escape to the host, and ultimately gain unauthorized access to sensitive data. Defenders should prioritize securing Kubernetes configurations and monitoring for suspicious authentication activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1611| C[Execution]:::tactic\n    C -->|T1649| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -263,7 +263,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T18:50:11.286118+00:00",
+      "published": "2026-04-07T19:51:20.476858+00:00",
       "ttps": [
         {
           "id": "T1598.002",
@@ -287,7 +287,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T18:50:11.286085+00:00",
+      "published": "2026-04-07T19:51:20.476821+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -296,9 +296,104 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The Axios supply chain compromise involves a malicious transitive dependency (plain-crypto-js@4.2.1) that executes during installation, deploying cross-platform payloads across Linux, Windows, and macOS. This attack leverages Node.js to spawn OS-native shells and retrieve remote payloads in detached or hidden contexts. Defenders should immediately update Axios to a safe version.",
+      "ai_summary": "The Axios supply chain compromise involves a malicious transitive dependency (plain-crypto-js@4.2.1) that executes during installation, deploying cross-platform payloads across Linux, Windows, and macOS. This attack leverages Node.js to spawn OS-native shells and retrieve remote payloads in detached or hidden contexts. Defenders should immediately update Axios to a safe version and monitor for suspicious Node.js activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5020: A vulnerability was detected in Totolink A3600R 4.1.2cu.5182_B20201102. Affected...",
+      "description": "A vulnerability was detected in Totolink A3600R 4.1.2cu.5182_B20201102. Affected by this issue is the function setNoticeCfg of the file /cgi-bin/cstecgi.cgi of the component Parameter Handler. The manipulation of the argument NoticeUrl results in command injection. The attack may be launched remotely. The exploit is now public and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5020",
+      "cve_id": "CVE-2026-5020",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-07T19:51:17.948646+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-5020 is a command injection vulnerability in Totolink A3600R's Parameter Handler, exploitable remotely. This allows attackers to inject malicious commands, potentially leading to unauthorized access or data manipulation. Defenders should update the device to a patched version to mitigate this risk.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Command and Control]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1068| D[Discovery]:::tactic\n    D -->|T1071| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.3,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-4851: GRID::Machine versions through 0.127 for Perl allows arbitrary code execution vi...",
+      "description": "GRID::Machine versions through 0.127 for Perl allows arbitrary code execution via unsafe deserialization.\n\nGRID::Machine provides Remote Procedure Calls (RPC) over SSH for Perl. The client connects to remote hosts to execute code on them. A compromised or malicious remote host can execute arbitrary code back on the client through unsafe deserialization in the RPC protocol.\n\nread_operation() in lib",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4851",
+      "cve_id": "CVE-2026-4851",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-07T19:51:17.948608+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2026-4851 is a critical vulnerability in GRID::Machine versions through 0.127 for Perl, allowing arbitrary code execution via unsafe deserialization. This enables a compromised or malicious remote host to execute code back on the client. Defenders should immediately update GRID::Machine to a secure version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5019: A security vulnerability has been detected in code-projects Simple Food Order Sy...",
+      "description": "A security vulnerability has been detected in code-projects Simple Food Order System 1.0. Affected by this vulnerability is an unknown functionality of the file all-orders.php of the component Parameter Handler. The manipulation of the argument Status leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5019",
+      "cve_id": "CVE-2026-5019",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.3,
+      "published": "2026-04-07T19:51:17.948592+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-5019 is a publicly disclosed SQL injection vulnerability in the Simple Food Order System 1.0, exploitable remotely via T1190 (Exploit Public-Facing Application). This vulnerability allows attackers to manipulate the Status argument in the all-orders.php file, leading to potential data breaches. Defenders should immediately update the vulnerable system to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5018: A weakness has been identified in code-projects Simple Food Order System 1.0. Af...",
+      "description": "A weakness has been identified in code-projects Simple Food Order System 1.0. Affected is an unknown function of the file register-router.php of the component Parameter Handler. Executing a manipulation of the argument Name can lead to sql injection. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5018",
+      "cve_id": "CVE-2026-5018",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.3,
+      "published": "2026-04-07T19:51:17.948572+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-5018 is a remote SQL injection vulnerability in the Simple Food Order System 1.0, exploitable via public-facing application exploitation. This weakness allows attackers to manipulate the 'Name' argument in the register-router.php file, leading to potential data breaches. Defenders should prioritize patching the affected system to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -311,7 +406,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-07T18:50:08.759410+00:00",
+      "published": "2026-04-07T19:51:17.948558+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -335,7 +430,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-07T18:50:08.759394+00:00",
+      "published": "2026-04-07T19:51:17.948543+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -344,11 +439,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-5016 is a server-side request forgery vulnerability in elecV2 elecV2P up to 3.8.3, allowing remote attackers to exploit the function eAxios. This publicly available exploit can be used to launch attacks. Defenders should update to a patched version of elecV2 elecV2P.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-5015: A vulnerability was determined in elecV2 elecV2P up to 3.8.3. The impacted eleme...",
@@ -359,13 +454,13 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.3,
-      "published": "2026-04-07T18:50:08.759378+00:00",
+      "published": "2026-04-07T19:51:17.948528+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-5015 is a cross-site scripting vulnerability in elecV2 elecV2P up to 3.8.3, allowing remote attacks. This vulnerability has been publicly disclosed and may be exploited. Defenders should update to a patched version to mitigate the risk.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Cross-Site Scripting]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.3,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-5014: A vulnerability was found in elecV2 elecV2P up to 3.8.3. The affected element is...",
@@ -376,7 +471,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-07T18:50:08.759357+00:00",
+      "published": "2026-04-07T19:51:17.948510+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -385,11 +480,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-5014 is a path traversal vulnerability in elecV2 elecV2P up to 3.8.3, exploitable from remote, with a public exploit available. This vulnerability allows a threat actor to potentially access sensitive information or execute malicious code. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-5013: A vulnerability has been found in elecV2 elecV2P up to 3.8.3. Impacted is the fu...",
@@ -398,9 +493,9 @@
       "cve_id": "CVE-2026-5013",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-07T18:50:08.759341+00:00",
+      "published": "2026-04-07T19:51:17.948488+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -409,11 +504,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-5013 is a remote path traversal vulnerability in elecV2 elecV2P up to 3.8.3, exploitable through the `path.join` function. Successful exploitation could allow attackers to access sensitive files on the server. Prioritizing patching or updating elecV2 elecV2P is the most critical defense measure.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1190| C[Exploitation]:::tactic\n    C -->|T1190| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.2,
-      "ai_provider": "gemini",
-      "ai_model": "gemini-2.5-flash-lite"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-5012: A flaw has been found in elecV2 elecV2P up to 3.8.3. This issue affects the func...",
@@ -424,7 +519,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-07T18:50:08.759325+00:00",
+      "published": "2026-04-07T19:51:17.948447+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -433,74 +528,23 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-5011: A vulnerability was detected in elecV2 elecV2P up to 3.8.3. This vulnerability a...",
-      "description": "A vulnerability was detected in elecV2 elecV2P up to 3.8.3. This vulnerability affects the function runJSFile of the file /webhook of the component JSON Parser. Performing a manipulation of the argument rawcode results in code injection. Remote exploitation of the attack is possible. The exploit is now public and may be used. The project was informed of the problem early through an issue report bu",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5011",
-      "cve_id": "CVE-2026-5011",
-      "source": "NVD",
-      "category": "cve",
+      "title": "Snowflake customers hit in data theft attacks after SaaS integrator breach",
+      "description": "Over a dozen companies have suffered data theft attacks after a SaaS integration provider was breached and authentication tokens stolen. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/snowflake-customers-hit-in-data-theft-attacks-after-saas-integrator-breach/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
       "severity": "medium",
-      "cvss_score": 6.3,
-      "published": "2026-04-07T18:50:08.759308+00:00",
+      "cvss_score": null,
+      "published": "2026-04-07T19:39:18+00:00",
       "ttps": [
         {
-          "id": "T1055",
-          "name": "Process Injection",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
+          "id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-5007: A vulnerability was identified in kazuph mcp-docs-rag up to 0.5.0. Affected is t...",
-      "description": "A vulnerability was identified in kazuph mcp-docs-rag up to 0.5.0. Affected is the function cloneRepository of the file src/index.ts of the component add_git_repository/add_text_file. The manipulation leads to os command injection. The attack needs to be performed locally. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5007",
-      "cve_id": "CVE-2026-5007",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-07T18:50:08.759290+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-3256: HTTP::Session versions through 0.53 for Perl defaults to using insecurely genera...",
-      "description": "HTTP::Session versions through 0.53 for Perl defaults to using insecurely generated session ids.\n\nHTTP::Session defaults to using HTTP::Session::ID::SHA1 to generate session ids using a SHA-1 hash seeded with the built-in rand function, the high resolution epoch time, and the PID. The PID will come from a small set of numbers, and the epoch time may be guessed, if it is not leaked from the HTTP Da",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3256",
-      "cve_id": "CVE-2026-3256",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-07T18:50:08.759268+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2025-15604: Amon2 versions before 6.17 for Perl use an insecure random_string implementation...",
-      "description": "Amon2 versions before 6.17 for Perl use an insecure random_string implementation for security functions.\n\nIn versions 6.06 through 6.16, the random_string function will attempt to read bytes from the /dev/urandom device, but if that is unavailable then it generates bytes by concatenating a SHA-1 hash seeded with the built-in rand() function, the PID, and the high resolution epoch time.  The PID wi",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15604",
-      "cve_id": "CVE-2025-15604",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-07T18:50:08.759228+00:00",
-      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -1113,36 +1157,6 @@
       "cvss_score": null,
       "published": "2026-04-06T17:45:57+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Microsoft links Medusa ransomware affiliate to zero-day attacks",
-      "description": "Microsoft says that Storm-1175, a China-based financially motivated cybercriminal group known for deploying Medusa ransomware payloads, has been deploying n-day and zero-day exploits in high-velocity attacks. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/microsoft-links-medusa-ransomware-affiliate-to-zero-day-attacks/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-06T16:56:01+00:00",
-      "ttps": [
-        {
-          "id": "T1587.004",
-          "name": "Exploits",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1486",
-          "name": "Data Encrypted for Impact",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

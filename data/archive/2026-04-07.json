@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-07T16:07:29.005680+00:00",
+  "last_updated": "2026-04-07T17:52:29.842860+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T16:05:41.729655+00:00",
+      "published": "2026-04-07T17:50:47.012610+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -32,8 +32,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "UAT-9244, a China-nexus APT group, targets South American telecommunications infrastructure with three new malware implants: TernDoor, PeerTime, and BruteEntry, to gain unauthorized access and control. The group exploits public-facing applications and uses brute force tactics to breach servers. To defend, prioritize securing remote access software and implementing robust password policies to prevent brute force attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1110| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "UAT-9244, a China-nexus APT, targets South American telecommunications infrastructure with three new malware implants: TernDoor, PeerTime, and BruteEntry. The group exploits public-facing applications and uses brute force tactics to gain initial access. To defend, prioritize securing remote access software and implementing robust password policies to prevent brute force attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1110| C[Execution]:::tactic\n    C -->|T1219| D[Persistence]:::tactic\n    D -->|T1110| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T16:05:41.729639+00:00",
+      "published": "2026-04-07T17:50:47.012595+00:00",
       "ttps": [
         {
           "id": "T1587",
@@ -63,7 +63,7 @@
         }
       ],
       "ai_summary": "CL-UNK-1068, a Chinese threat actor, has been conducting undetected operations since 2020, targeting high-value sectors in Asia using custom malware and living-off-the-land tactics. The group's stealthy persistence and diverse toolkit pose a significant threat to critical infrastructure. To defend against this threat, organizations should prioritize vulnerability management and implement robust exploit detection measures.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -77,7 +77,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T16:05:41.729622+00:00",
+      "published": "2026-04-07T17:50:47.012579+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -92,8 +92,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The Middle East conflict has sparked an increase in opportunistic cyber attacks, with over 8,000 newly registered domains potentially being used for malicious activities. Threat actors are using conflict-themed lures and deploying malware such as the LOTUSLITE backdoor. Defenders should prioritize monitoring for suspicious domain registrations and user-reported phishing attempts.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Execution]:::tactic\n    B -->|T1219| C[Privilege Escalation]:::tactic\n    C -->|T1059.001| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Middle East conflict has sparked an increase in opportunistic cyber attacks, with over 8,000 newly registered domains potentially being used for malicious activities, including targeted attacks using conflict-themed lures and deployment of the LOTUSLITE backdoor. The real-world impact includes compromised systems and potential data breaches. The most important defender action is to educate users about the risks of conflict-themed lures and to monitor for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Execution]:::tactic\n    B -->|T1219| C[Privilege Escalation]:::tactic\n    C -->|T1021| D[Command and Control]:::tactic\n    D -->|T1082| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -107,7 +107,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T16:05:41.729593+00:00",
+      "published": "2026-04-07T17:50:47.012551+00:00",
       "ttps": [
         {
           "id": "T1574.002",
@@ -128,9 +128,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "MuddyWater APT attackers gained initial access through RDP and established an SSH tunnel, then used DLL side-loading to deploy malware, ultimately enabling command and control communications. The threat actor leveraged a legitimate application, FMAPP.exe, to load a malicious DLL. To defend, prioritize monitoring for unusual RDP and SSH activity, and restrict unnecessary usage of these protocols.",
+      "ai_summary": "MuddyWater, an Iranian-linked APT, conducted an intrusion through RDP and established an SSH tunnel, utilizing DLL side-loading to deploy malware. The threat actor leveraged a legitimate application, FMAPP.exe, to load a malicious DLL for C2 communications. To defend against this threat, prioritize monitoring for unusual RDP activity and implement robust SSH tunneling controls.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Initial Access]:::tactic\n    B -->|T1574.002| C[Execution]:::tactic\n    C -->|T1572| D[Command and Control]:::tactic\n    D -->|T1071| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -143,7 +143,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T16:05:41.729572+00:00",
+      "published": "2026-04-07T17:50:47.012530+00:00",
       "ttps": [
         {
           "id": "T1649",
@@ -158,11 +158,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Iran's cyber ecosystem, including state-directed APT groups and hacktivist personas, has escalated cyber attacks, as seen in the Stryker Corporation attack on March 11, 2026, which involved stealing or forging authentication certificates and defacement. This escalation poses a significant threat to global cybersecurity. Defenders must prioritize monitoring for T1649 and T1491 to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1491| C[Defacement]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "ai_summary": "The threat involves Iranian state-directed APT groups and hacktivists using tactics like stealing or forging authentication certificates and defacement to target organizations. This escalation in cyber attacks has real-world impact on the security of entities with interests in the Middle East. The most important defender action is to enhance authentication mechanisms and monitor for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Defense Evasion]:::tactic\n    B -->|T1491| C[Impact]:::tactic\n    C -->|T1566| D[Initial Access]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Inside an AIenabled device code phishing campaign",
@@ -173,7 +173,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T16:05:41.729543+00:00",
+      "published": "2026-04-07T17:50:47.012502+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -182,8 +182,8 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "A widespread phishing campaign is compromising organizational accounts at scale using AI-enabled device code authentication. The campaign's success is driven by automation and dynamic code generation, which circumvents the standard 15-minute expiration window. Defenders should prioritize monitoring for suspicious device code authentication requests.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat is a large-scale phishing campaign using AI-enabled device code authentication to compromise organizational accounts. This campaign leverages automation and dynamic code generation to evade traditional security measures. Defenders should prioritize implementing additional authentication checks and monitoring for suspicious device code authentication activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -197,7 +197,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T16:05:41.729524+00:00",
+      "published": "2026-04-07T17:50:47.012482+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -212,11 +212,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Storm-1175 is a financially motivated threat actor that targets vulnerable web-facing systems with high-velocity ransomware campaigns, leveraging N-days exploits before patches are widely adopted. This actor rapidly moves from initial access to data exfiltration and encryption. Defenders should prioritize patching vulnerable systems and monitoring for suspicious network activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Storm-1175 is a financially motivated threat actor that exploits vulnerable web-facing systems using N-day exploits, rapidly moving from initial access to data exfiltration and deployment of ransomware. The actor's high-velocity campaigns target systems during the window between vulnerability disclosure and patch adoption. To defend against Storm-1175, organizations should prioritize prompt patching of web-facing assets and implement robust monitoring for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Exfiltration]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Unit42: Understanding Current Threats to Kubernetes Environments",
@@ -227,7 +227,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T16:05:41.729504+00:00",
+      "published": "2026-04-07T17:50:47.012453+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -248,8 +248,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Threat actors target Kubernetes environments through identity abuse and exposed application surfaces, gaining initial access via misconfigured systems. They exploit this access to steal or forge authentication certificates and escape to host. This results in a high-severity threat with significant potential for data breaches and ransomware attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1611| C[Execution]:::tactic\n    C -->|T1649| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Threat actors target Kubernetes environments through identity abuse and exposed application surfaces, gaining initial access via misconfiguration. They exploit this access to steal or forge authentication certificates and escape to the host. Defenders should prioritize securing Kubernetes configurations and monitoring for suspicious authentication activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1611| C[Execution]:::tactic\n    C -->|T1649| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -263,7 +263,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T16:05:41.729459+00:00",
+      "published": "2026-04-07T17:50:47.012425+00:00",
       "ttps": [
         {
           "id": "T1598.002",
@@ -272,7 +272,7 @@
           "tactic_id": "TA0043"
         }
       ],
-      "ai_summary": "TA416, a China-aligned threat actor, has resumed targeting European government and diplomatic organizations with spearphishing attacks and malware delivery through compromised accounts. This campaign leverages web bug reconnaissance and attacker-controlled infrastructure. Defenders should prioritize monitoring for suspicious email attachments and compromised accounts.",
+      "ai_summary": "TA416, a China-aligned threat actor, has resumed targeting European government and diplomatic organizations with spearphishing attacks and malware delivery through compromised accounts. This campaign leverages web bug reconnaissance and attacker-controlled infrastructure. Defenders should prioritize monitoring for T1598.002 (Spearphishing Attachment) and implementing robust email security measures.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1598.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -287,7 +287,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-07T16:05:41.729423+00:00",
+      "published": "2026-04-07T17:50:47.012392+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -296,9 +296,50 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "A supply chain attack targets Axios npm package versions 1.14.1 and 0.30.4, introducing a malicious transitive dependency that executes during installation. The attack deploys cross-platform payloads across Linux, Windows, and macOS through Node.js spawning OS-native shells. Defenders should immediately update Axios to a safe version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "A supply chain attack targets Axios npm package versions 1.14.1 and 0.30.4, introducing a malicious transitive dependency that executes during installation. The attack deploys cross-platform payloads across Linux, Windows, and macOS through Node.js spawning OS-native shells. Defenders should immediately update Axios packages and monitor for suspicious Node.js activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5015: A vulnerability was determined in elecV2 elecV2P up to 3.8.3. The impacted eleme...",
+      "description": "A vulnerability was determined in elecV2 elecV2P up to 3.8.3. The impacted element is an unknown function of the file /logs of the component Endpoint. This manipulation of the argument filename causes cross site scripting. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue repor",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5015",
+      "cve_id": "CVE-2026-5015",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-07T17:50:44.099988+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-5015 is a cross-site scripting (XSS) vulnerability in elecV2 elecV2P up to 3.8.3, allowing remote attacks. This vulnerability has been publicly disclosed and may be exploited. Defenders should update elecV2 elecV2P to a patched version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Cross-Site Scripting]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5014: A vulnerability was found in elecV2 elecV2P up to 3.8.3. The affected element is...",
+      "description": "A vulnerability was found in elecV2 elecV2P up to 3.8.3. The affected element is the function path.join of the file /log/ of the component Wildcard Handler. The manipulation results in path traversal. The attack may be performed from remote. The exploit has been made public and could be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5014",
+      "cve_id": "CVE-2026-5014",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.3,
+      "published": "2026-04-07T17:50:44.099973+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-5014 is a path traversal vulnerability in elecV2 elecV2P up to 3.8.3, exploitable from remote, with a public exploit available. This vulnerability allows a threat actor to potentially access sensitive information or execute malicious code. Defenders should prioritize patching or mitigating this vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -311,7 +352,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-07T16:05:38.992862+00:00",
+      "published": "2026-04-07T17:50:44.099957+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -320,7 +361,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-5013 is a path traversal vulnerability in elecV2 elecV2P up to 3.8.3, exploitable remotely via public-facing application exploitation (T1190). This vulnerability allows attackers to manipulate the argument URL, potentially leading to unintended access. Defenders should update elecV2 elecV2P to a patched version.",
+      "ai_summary": "CVE-2026-5013 is a remote path traversal vulnerability in elecV2 elecV2P up to 3.8.3, exploitable via public-facing application exploitation (T1190). This vulnerability allows attackers to manipulate the argument URL, leading to potential data breaches. Defenders should update elecV2 elecV2P to a patched version.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 5.5,
       "ai_provider": "groq",
@@ -335,10 +376,10 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-07T16:05:38.992846+00:00",
+      "published": "2026-04-07T17:50:44.099933+00:00",
       "ttps": [],
       "ai_summary": "CVE-2026-5012 is a remote os command injection vulnerability in elecV2 elecV2P up to 3.8.3. This flaw allows attackers to execute arbitrary commands, potentially leading to data breaches or system compromise. Defenders should update elecV2 elecV2P to a patched version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Command and Control]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1068| D[Execution]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1566| C[Initial Access]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -352,7 +393,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.3,
-      "published": "2026-04-07T16:05:38.992827+00:00",
+      "published": "2026-04-07T17:50:44.099899+00:00",
       "ttps": [
         {
           "id": "T1055",
@@ -363,7 +404,7 @@
       ],
       "ai_summary": "CVE-2026-5011 is a code injection vulnerability in elecV2 elecV2P up to 3.8.3, allowing remote exploitation. This vulnerability affects the JSON Parser component's runJSFile function. Defenders should update to a patched version to prevent exploitation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Process Injection]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
+      "severity_score": 6.3,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -376,13 +417,13 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-07T16:05:38.992805+00:00",
+      "published": "2026-04-07T17:50:44.099884+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-5007 is a local os command injection vulnerability in kazuph mcp-docs-rag up to 0.5.0, allowing attackers to exploit it locally. The vulnerability is publicly known and has a CVSS score of 5.3, indicating a medium severity. Defenders should update the affected component to the latest version to mitigate the risk.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-3256: HTTP::Session versions through 0.53 for Perl defaults to using insecurely genera...",
@@ -393,13 +434,13 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.8,
-      "published": "2026-04-07T16:05:38.992788+00:00",
+      "published": "2026-04-07T17:50:44.099868+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-3256 is a critical vulnerability in HTTP::Session versions through 0.53 for Perl, allowing attackers to predict session IDs due to insecure generation. This enables session hijacking, potentially leading to unauthorized access. Defenders should update to a secure version of HTTP::Session.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1552| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Application Access]:::tactic\n    D -->|T1210| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2025-15604: Amon2 versions before 6.17 for Perl use an insecure random_string implementation...",
@@ -410,7 +451,7 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.8,
-      "published": "2026-04-07T16:05:38.992771+00:00",
+      "published": "2026-04-07T17:50:44.099852+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -427,7 +468,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-07T16:05:38.992753+00:00",
+      "published": "2026-04-07T17:50:44.099831+00:00",
       "ttps": [
         {
           "id": "T1203",
@@ -451,7 +492,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-07T16:05:38.992734+00:00",
+      "published": "2026-04-07T17:50:44.099791+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -460,15 +501,15 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-5002: A vulnerability has been found in PromtEngineer localGPT up to 4d41c7d1713b16b21...",
-      "description": "A vulnerability has been found in PromtEngineer localGPT up to 4d41c7d1713b16b216d8e062e51a5dd88b20b054. The impacted element is the function _route_using_overviews of the file backend/server.py of the component LLM Prompt Handler. Such manipulation leads to injection. The attack may be performed from remote. The exploit has been disclosed to the public and may be used. This product utilizes a rol",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5002",
-      "cve_id": "CVE-2026-5002",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.3,
-      "published": "2026-04-07T16:05:38.992710+00:00",
+      "title": "Russia Hacked Routers to Steal Microsoft Office Tokens",
+      "description": "Hackers linked to Russia's military intelligence units are using known flaws in older Internet routers to mass harvest authentication tokens from Microsoft Office users, security experts warned today. The spying campaign allowed state-backed Russian hackers to quietly siphon authentication tokens from users on more than 18,000 networks without deploying any malicious software or code.",
+      "url": "https://krebsonsecurity.com/2026/04/russia-hacked-routers-to-steal-microsoft-office-tokens/",
+      "cve_id": null,
+      "source": "Krebs on Security",
+      "category": "incident",
+      "severity": "low",
+      "cvss_score": null,
+      "published": "2026-04-07T17:02:44+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -477,23 +518,81 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-5001: A flaw has been found in PromtEngineer localGPT up to 4d41c7d1713b16b216d8e062e5...",
-      "description": "A flaw has been found in PromtEngineer localGPT up to 4d41c7d1713b16b216d8e062e51a5dd88b20b054. The affected element is the function do_POST of the file backend/server.py. This manipulation causes unrestricted upload. The attack is possible to be carried out remotely. The exploit has been published and may be used. This product adopts a rolling release strategy to maintain continuous delivery. The",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5001",
-      "cve_id": "CVE-2026-5001",
-      "source": "NVD",
+      "title": "Max severity Flowise RCE vulnerability now exploited in attacks",
+      "description": "Hackers are exploiting a maximum-severity vulnerability, tracked as CVE-2025-59528, in the open-source platform Flowise for building custom LLM apps and agentic systems to execute arbitrary code. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/max-severity-flowise-rce-vulnerability-now-exploited-in-attacks/",
+      "cve_id": "CVE-2025-59528",
+      "source": "Bleeping Computer",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.3,
-      "published": "2026-04-07T16:05:38.992664+00:00",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-07T17:02:05+00:00",
       "ttps": [
         {
-          "id": "T1486",
-          "name": "Data Encrypted for Impact",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Russian State-Linked APT28 Exploits SOHO Routers in Global DNS Hijacking Campaign",
+      "description": "The Russia-linked threat actor known&nbsp;as APT28 (aka Forest Blizzard) has been linked to a new campaign that has compromised insecure MikroTik and TP-Link routers and modified their settings to turn them into malicious infrastructure under their control as part of a cyber espionage campaign since at least May&nbsp;2025. The large-scale exploitation campaign has&nbsp;been codenamed&nbsp;",
+      "url": "https://thehackernews.com/2026/04/russian-state-linked-apt28-exploits.html",
+      "cve_id": null,
+      "source": "The Hacker News",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-07T16:48:00+00:00",
+      "ttps": [
+        {
+          "id": "T1584.002",
+          "name": "DNS Server",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "[Webinar] How to Close Identity Gaps in 2026 Before AI Exploits Enterprise Risk",
+      "description": "In&nbsp;the rapid evolution of&nbsp;the 2026 threat landscape, a frustrating paradox has emerged for CISOs and security&nbsp;leaders: Identity programs are maturing, yet the risk is actually increasing. According to new research from&nbsp;the Ponemon&nbsp;Institute, hundreds of applications within the typical enterprise remain disconnected from centralized identity systems.&nbsp;These&nbsp;\"dark",
+      "url": "https://thehackernews.com/2026/04/webinar-how-to-close-identity-gaps-in.html",
+      "cve_id": null,
+      "source": "The Hacker News",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-07T16:29:00+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "National security veterans warn against delays in FISA 702 reauthorization",
+      "description": "The missive, obtained by Recorded Future News, arrives days before policymakers return from recess next week and aim for a quick extension Section 702 of the Foreign Intelligence Surveillance Act (FISA) for another 18 months.",
+      "url": "https://therecord.media/national-security-vets-warn-section-702-authorization-delay",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "news",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-07T16:29:00+00:00",
+      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -635,23 +734,6 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "[Webinar] How to Close Identity Gaps in 2026 Before AI Exploits Enterprise Risk",
-      "description": "In&nbsp;the rapid evolution of&nbsp;the 2026 threat landscape, a frustrating paradox has emerged for CISOs and security&nbsp;leaders: Identity programs are maturing, yet the risk is actually increasing. According to new research from&nbsp;the Ponemon&nbsp;Institute, hundreds of applications within the typical enterprise remain disconnected from centralized identity systems.&nbsp;These&nbsp;\"dark",
-      "url": "https://thehackernews.com/2026/04/webinar-how-to-close-identity-gaps-in.html",
-      "cve_id": null,
-      "source": "The Hacker News",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-07T12:17:00+00:00",
-      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -885,23 +967,6 @@
       "ai_model": "none"
     },
     {
-      "title": "FBI: Cyber fraud surges to $17.6 billion in losses as scams, crypto theft soar",
-      "description": "Cyber-enabled fraud was behind 85% of all losses reported to the FBI in 2025 and constituted 45% of the 1,008,597 complaints it's IC3 unit received overall.",
-      "url": "https://therecord.media/cyber-fraud-surges-to-17-billion-fbi-ic3",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-06T20:24:00+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
       "title": "Disgruntled researcher leaks “BlueHammer” Windows zero-day exploit",
       "description": "Exploit code has been released for an unpatched Windows privilege escalation flaw reported privately to Microsoft, allowing attackers to gain SYSTEM or elevated administrator permissions. [...]",
       "url": "https://www.bleepingcomputer.com/news/security/disgruntled-researcher-leaks-bluehammer-windows-zero-day-exploit/",
@@ -1065,40 +1130,6 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CISA orders feds to patch exploited Fortinet EMS flaw by Friday",
-      "description": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) ordered federal agencies to secure FortiClient Enterprise Management Server (EMS) instances against an actively exploited vulnerability by Friday. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-fortinet-flaw-exploited-in-attacks-by-friday/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-06T16:02:14+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Multi-OS Cyberattacks: How SOCs Close a Critical Risk in 3 Steps",
-      "description": "Your attack surface no&nbsp;longer lives&nbsp;on one operating system, and neither do the campaigns targeting&nbsp;it. In enterprise environments, attackers move across Windows endpoints, executive MacBooks, Linux infrastructure, and mobile devices, taking advantage of the fact that many SOC&nbsp;workflows are still fragmented by&nbsp;platform.&nbsp; For security leaders, this creates&nbsp;a",
-      "url": "https://thehackernews.com/2026/04/multi-os-cyberattacks-how-socs-close.html",
-      "cve_id": null,
-      "source": "The Hacker News",
-      "category": "incident",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-06T13:00:00+00:00",
-      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -1615,23 +1646,6 @@
       "severity": "critical",
       "cvss_score": null,
       "published": "2026-02-11T12:00:00+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Patch Tuesday, February 2026 Edition",
-      "description": "Microsoft today released updates to fix more than 50 security holes in its Windows operating systems and other software, including patches for a whopping six \"zero-day\" vulnerabilities that attackers are already exploiting in the wild.",
-      "url": "https://krebsonsecurity.com/2026/02/patch-tuesday-february-2026-edition/",
-      "cve_id": null,
-      "source": "Krebs on Security",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-02-10T21:49:53+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",

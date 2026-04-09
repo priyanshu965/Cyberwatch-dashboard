@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-09T15:15:45.126209+00:00",
+  "last_updated": "2026-04-09T16:59:16.866180+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T15:14:16.817448+00:00",
+      "published": "2026-04-09T16:57:38.181235+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -20,8 +20,8 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The Axios supply chain compromise is a technical attack where a malicious transitive dependency is introduced in npm package versions 1.14.1 and 0.30.4, executing during installation and deploying cross-platform payloads. This has a real-world impact of allowing attackers to execute remote payloads in detached or hidden contexts across Linux, Windows, and macOS. The most important defender action is to update Axios to a version outside the affected range.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1215| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Axios supply chain compromise is a technical attack where a malicious transitive dependency is introduced in npm package versions 1.14.1 and 0.30.4, executing during installation and deploying cross-platform payloads. This has a real-world impact of allowing attackers to gain access to systems and execute remote payloads. The most important defender action is to update Axios to a version outside of the affected range.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -35,7 +35,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T15:14:16.817423+00:00",
+      "published": "2026-04-09T16:57:38.181211+00:00",
       "ttps": [
         {
           "id": "T1497",
@@ -50,9 +50,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Remus, a 64-bit infostealer, is a new variant of the Lumma Stealer family, employing anti-analysis checks and using EtherHiding for dead drop resolvers. This malware has been active since February 2026, with campaigns evading detection through virtualization and sandbox evasion techniques. To defend against Remus, prioritize implementing robust anti-evasion measures and monitoring web services for suspicious activity.",
+      "ai_summary": "Remus, a 64-bit infostealer, is a new variant of the Lumma Stealer family, employing anti-analysis checks and using EtherHiding for dead drop resolvers. This malware has been active since February 2026, with campaigns leveraging T1497 and T1102 tactics. To defend against Remus, prioritize implementing robust sandbox evasion detection and web service monitoring.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1497| B[Defense Evasion]:::tactic\n    B -->|T1102| C[Command and Control]:::tactic\n    C -->|T1041| D[Execution]:::tactic\n    D -->|T1082| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -65,7 +65,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T15:14:16.817399+00:00",
+      "published": "2026-04-09T16:57:38.181188+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -80,7 +80,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "NightSpire ransomware poses a significant threat due to its evolving tactics, techniques, and procedures, with recent incidents involving the installation of remote desktop tools like Chrome Remoting Desktop and AnyDesk. The ransomware's ability to encrypt data for impact, as seen in the T1486 technique, makes it a high-priority concern. To defend against NightSpire, organizations should prioritize implementing robust endpoint security measures and monitoring for suspicious remote desktop activity.",
+      "ai_summary": "NightSpire ransomware poses a significant threat due to its evolving tactics and techniques, including the use of Chrome Remoting Desktop and AnyDesk for remote access. Its ability to encrypt data for impact, as seen in T1486, makes it a high-priority concern. To defend against NightSpire, organizations should prioritize securing remote access tools and monitoring for suspicious activity related to data encryption.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1486| C[Impact]:::tactic\n    C -->|T1219| D[Exploitation for Client Execution]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -95,7 +95,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T15:14:16.817376+00:00",
+      "published": "2026-04-09T16:57:38.181165+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -110,8 +110,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The North Korean threat operation compromises software supply chains by publishing malicious packages across multiple ecosystems, delivering staged RAT payloads. This campaign uses social engineering tactics to impersonate legitimate developer tooling, allowing the threat actors to gain remote access to compromised systems. Defenders should prioritize verifying the authenticity of developer tools and monitoring for suspicious activity related to supply chain compromise.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1071| D[Persistence]:::tactic\n    D -->|T1021| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The North Korean threat operation compromises software supply chains by publishing malicious packages across multiple ecosystems, delivering staged RAT payloads. This campaign uses social engineering tactics to impersonate legitimate developer tooling, ultimately leading to remote access and potential data breaches. Defenders should prioritize verifying the authenticity of developer tools and monitoring for suspicious activity related to these packages.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1071| D[Persistence]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -125,7 +125,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T15:14:16.817321+00:00",
+      "published": "2026-04-09T16:57:38.181141+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -141,7 +141,7 @@
         }
       ],
       "ai_summary": "The Axios supply chain attack compromised the JavaScript library by hijacking an npm maintainer account, releasing malicious versions that deployed a cross-platform remote access Trojan. This Trojan performed reconnaissance and established remote access on affected systems. Defenders should immediately inspect and update Axios dependencies to prevent further compromise.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1082| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -155,7 +155,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T15:14:16.817297+00:00",
+      "published": "2026-04-09T16:57:38.181106+00:00",
       "ttps": [
         {
           "id": "T1583.002",
@@ -176,7 +176,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "APT28 exploits routers to overwrite DHCP/DNS settings, enabling DNS hijacking operations and adversary-in-the-middle attacks to harvest credentials. This threat has a significant real-world impact, as it allows attackers to intercept sensitive information. To defend against this threat, organizations should prioritize securing their network infrastructure, including routers and DNS servers.",
+      "ai_summary": "APT28 exploits routers to overwrite DHCP/DNS settings, enabling DNS hijacking operations and adversary-in-the-middle attacks to harvest credentials. This threat has a significant real-world impact, as it allows attackers to intercept sensitive information. To defend against this threat, organizations should prioritize monitoring and securing their network infrastructure, particularly routers and DNS servers.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1557| B[Adversary-in-the-Middle]:::tactic\n    B -->|T1583.002| C[DNS Server]:::tactic\n    C -->|T1584.002| D[DNS Server]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -191,7 +191,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T15:14:16.817277+00:00",
+      "published": "2026-04-09T16:57:38.181086+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -218,11 +218,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The threat involves a fake website impersonating Avast antivirus, tricking users into downloading Venom Stealer malware disguised as a system cleaner. This malware steals sensitive information such as browser credentials and cryptocurrency wallets. The most important defender action is to educate users about the risks of downloading files from untrusted sources and to implement robust antivirus software.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1036| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1555.003| D[Privilege Escalation]:::tactic\n    D -->|T1539| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat is a fake Avast antivirus website that tricks users into downloading Venom Stealer malware, which steals browser credentials, session cookies, and cryptocurrency wallets. This malware is spread through user execution of a malicious file disguised as a system cleaner. Defenders should block access to known malicious websites and educate users on the dangers of fake antivirus websites.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1036| C[Masquerading]:::tactic\n    C -->|T1555.003| D[Credentials from Web Browsers]:::tactic\n    D -->|T1539| E[Steal Web Session Cookie]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Ringing in Chaos: How TeamPCP Weaponized the Telnyx Python SDK",
@@ -233,7 +233,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-09T15:14:16.817253+00:00",
+      "published": "2026-04-09T16:57:38.181061+00:00",
       "ttps": [
         {
           "id": "T1608",
@@ -248,7 +248,7 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "TeamPCP compromised the Telnyx Python SDK on PyPI, using a three-stage architecture to deploy a credential harvester. The attack involves a trojanized package, a platform-specific loader, and steganography to hide a second-stage payload. Defenders should immediately update the Telnyx Python SDK and monitor for credential harvesting activity.",
+      "ai_summary": "TeamPCP compromised the Telnyx Python SDK on PyPI, using a three-stage architecture to deploy a credential harvester. The attack involves a trojanized package, a platform-specific loader, and steganography to hide a second-stage payload. Defenders should immediately remove the compromised package and monitor for credential theft.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608| B[Stage Capabilities]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    E -->|T1486| F[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.0,
       "ai_provider": "groq",
@@ -263,7 +263,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T15:14:16.817225+00:00",
+      "published": "2026-04-09T16:57:38.181033+00:00",
       "ttps": [
         {
           "id": "T1059.002",
@@ -278,11 +278,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The ClickFix malware utilizes the applescript:// URL scheme to launch Script Editor, delivering an Atomic Stealer infostealer payload and bypassing Terminal. This technique allows the malware to evade traditional detection methods. To defend against this threat, users should be cautious when interacting with unfamiliar URLs and ensure their systems are updated with the latest security patches.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.002| B[Execution]:::tactic\n    B -->|T1649| C[Privilege Escalation]:::tactic\n    C -->|T1059.002| D[Command and Control]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "ClickFix malware uses applescript:// URL scheme to launch macOS Script Editor, delivering Atomic Stealer infostealer payload without Terminal access. This bypasses traditional security controls. Defenders should monitor for suspicious applescript:// URLs and block access to Script Editor.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "New Lua-based malware LucidRook observed in targeted attacks against Taiwanese organizations",
@@ -293,7 +293,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T15:14:16.817193+00:00",
+      "published": "2026-04-09T16:57:38.180999+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -302,140 +302,82 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "LucidRook is a Lua-based malware stager delivered via spear-phishing attacks targeting Taiwanese organizations. The malware leverages phishing (T1566) to gain initial access. Defenders should prioritize monitoring for phishing campaigns and authorized mail infrastructure misuse.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-21712: A flaw in Node.js URL processing causes an assertion failure in native code when...",
-      "description": "A flaw in Node.js URL processing causes an assertion failure in native code when `url.format()` is called with a malformed internationalized domain name (IDN) containing invalid characters, crashing the Node.js process.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21712",
-      "cve_id": "CVE-2026-21712",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.7,
-      "published": "2026-04-09T15:14:14.253334+00:00",
-      "ttps": [
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "CVE-2026-21712 is a Node.js URL processing flaw causing assertion failure in native code when processing malformed internationalized domain names. This results in a crash of the Node.js process. Defenders should update Node.js to the latest version to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.7,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-5165: A flaw was found in virtio-win, specifically within the VirtIO Block (BLK) devic...",
-      "description": "A flaw was found in virtio-win, specifically within the VirtIO Block (BLK) device. When the device undergoes a reset, it fails to properly manage memory, resulting in a use-after-free vulnerability. This issue could allow a local attacker to corrupt system memory, potentially leading to system instability or unexpected behavior.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5165",
-      "cve_id": "CVE-2026-5165",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.7,
-      "published": "2026-04-09T15:14:14.253319+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-5165 is a use-after-free vulnerability in virtio-win's VirtIO Block (BLK) device, allowing local attackers to corrupt system memory and potentially cause system instability. This issue arises when the device undergoes a reset and fails to properly manage memory. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Discovery]:::tactic\n    B -->|T1068| C[Collection]:::tactic\n    C -->|T1210| D[Exploitation]:::tactic\n    D -->|T1212| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.7,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-5164: A flaw was found in virtio-win. The `RhelDoUnMap()` function does not properly v...",
-      "description": "A flaw was found in virtio-win. The `RhelDoUnMap()` function does not properly validate the number of descriptors provided by a user during an unmap request. A local user could exploit this input validation vulnerability by supplying an excessive number of descriptors, leading to a buffer overrun. This can cause a system crash, resulting in a Denial of Service (DoS).",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5164",
-      "cve_id": "CVE-2026-5164",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.7,
-      "published": "2026-04-09T15:14:14.253304+00:00",
-      "ttps": [
-        {
-          "id": "T1595",
-          "name": "Active Scanning",
-          "tactic": "Reconnaissance",
-          "tactic_id": "TA0043"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "CVE-2026-5164 is a local input validation vulnerability in virtio-win, allowing a user to cause a system crash via excessive descriptors, resulting in a Denial of Service (DoS). This flaw can be exploited by a local user, and its impact is limited to a single system. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1595| B[Active Scanning]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1498| D[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.7,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-5122: A security flaw has been discovered in osrg GoBGP up to 4.3.0. This affects the ...",
-      "description": "A security flaw has been discovered in osrg GoBGP up to 4.3.0. This affects the function DecodeFromBytes of the file pkg/packet/bgp/bgp.go of the component BGP OPEN Message Handler. Performing a manipulation of the argument domainNameLen results in improper access controls. The attack may be initiated remotely. A high degree of complexity is needed for the attack. The exploitability is reported as",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5122",
-      "cve_id": "CVE-2026-5122",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": 3.7,
-      "published": "2026-04-09T15:14:14.253284+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-5122 is a security flaw in osrg GoBGP up to 4.3.0, allowing remote attacks with high complexity. The flaw affects the BGP OPEN Message Handler's DecodeFromBytes function, leading to improper access controls. Defenders should update GoBGP to a fixed version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Command and Control]:::tactic\n    B -->|T1210| C[Exploitation of Remote Services]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 3.7,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33373: An issue was discovered in Zimbra Collaboration (ZCS) 10.0 and 10.1. A Cross-Sit...",
-      "description": "An issue was discovered in Zimbra Collaboration (ZCS) 10.0 and 10.1. A Cross-Site Request Forgery (CSRF) vulnerability exists in Zimbra Web Client due to the issuance of authentication tokens without CSRF protection during certain account state transitions. Specifically, tokens generated after operations such as enabling two-factor authentication or changing a password may lack CSRF enforcement. W",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33373",
-      "cve_id": "CVE-2026-33373",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-09T15:14:14.253269+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-33373 is a CSRF vulnerability in Zimbra Collaboration (ZCS) 10.0 and 10.1, allowing attackers to exploit public-facing applications. This vulnerability can lead to authentication token manipulation, enabling attackers to perform unauthorized actions. Defenders should prioritize patching ZCS to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "LucidRook is a Lua-based malware used in targeted spear-phishing attacks against Taiwanese organizations. The malware is delivered via phishing emails, potentially exploiting authorized mail infrastructure. Defenders should prioritize monitoring for phishing attempts and unauthorized email activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Command and Control]:::tactic\n    C -->|T1071| D[Execution]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-30566: A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sa...",
-      "description": "A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sales and Inventory System 1.0. The vulnerability is located in the view_customers.php file via the \"limit\" parameter. The application fails to sanitize the input, allowing remote attackers to inject arbitrary web script or HTML via a crafted URL.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30566",
-      "cve_id": "CVE-2026-30566",
+      "title": "CVE-2026-29872: A cross-session information disclosure vulnerability exists in the awesome-llm-a...",
+      "description": "A cross-session information disclosure vulnerability exists in the awesome-llm-apps project in commit e46690f99c3f08be80a9877fab52acacf7ab8251 (2026-01-19). The affected Streamlit-based GitHub MCP Agent stores user-supplied API tokens in process-wide environment variables using os.environ without proper session isolation. Because Streamlit serves multiple concurrent users from a single Python proc",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29872",
+      "cve_id": "CVE-2026-29872",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.2,
+      "published": "2026-04-09T16:57:34.471576+00:00",
+      "ttps": [
+        {
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
+        }
+      ],
+      "ai_summary": "CVE-2026-29872 is a cross-session information disclosure vulnerability in the awesome-llm-apps project, allowing attackers to access user-supplied API tokens. This vulnerability affects Streamlit-based GitHub MCP Agents, which serve multiple concurrent users from a single Python process. Defenders should isolate user sessions to prevent token disclosure.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1033| C[System Compromise]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-66215: OpenSC is an open source smart card tools and middleware. Prior to version 0.27....",
+      "description": "OpenSC is an open source smart card tools and middleware. Prior to version 0.27.0, an attacker with physical access to the computer at the time user or administrator uses a token can cause a stack-buffer-overflow WRITE in card-oberthur. The attack requires crafted USB device or smart card that would present the system with specially crafted responses to the APDUs. This issue has been patched in ve",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66215",
+      "cve_id": "CVE-2025-66215",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-09T15:14:14.253255+00:00",
+      "cvss_score": 3.8,
+      "published": "2026-04-09T16:57:34.471562+00:00",
+      "ttps": [
+        {
+          "id": "T1091",
+          "name": "Replication Through Removable Media",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2025-66215 is a stack-buffer-overflow WRITE vulnerability in OpenSC prior to version 0.27.0, exploitable via a crafted USB device or smart card. An attacker with physical access can leverage this issue to gain unauthorized access. Defenders should ensure timely patching and implement strict access controls.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1091| C[Replication Through Removable Media]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-66038: OpenSC is an open source smart card tools and middleware. Prior to version 0.27....",
+      "description": "OpenSC is an open source smart card tools and middleware. Prior to version 0.27.0, sc_compacttlv_find_tag searches a compact-TLV buffer for a given tag. In compact-TLV, a single byte encodes the tag (high nibble) and value length (low nibble). With a 1-byte buffer {0x0A}, the encoded element claims tag=0 and length=10 but no value bytes follow. Calling sc_compacttlv_find_tag with search tag 0x00 r",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66038",
+      "cve_id": "CVE-2025-66038",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 3.9,
+      "published": "2026-04-09T16:57:34.471548+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -444,22 +386,22 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "CVE-2025-66038 is a vulnerability in OpenSC prior to version 0.27.0, allowing an attacker to exploit a public-facing application (T1190) via a compact-TLV buffer overflow. This can lead to arbitrary code execution. Defenders should update OpenSC to version 0.27.0 or later.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-30565: A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sa...",
-      "description": "A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sales and Inventory System 1.0. The vulnerability is located in the view_supplier.php file via the \"limit\" parameter. The application fails to sanitize the input, allowing remote attackers to inject arbitrary web script or HTML via a crafted URL.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30565",
-      "cve_id": "CVE-2026-30565",
+      "title": "CVE-2025-66037: OpenSC is an open source smart card tools and middleware. Prior to version 0.27....",
+      "description": "OpenSC is an open source smart card tools and middleware. Prior to version 0.27.0, feeding a crafted input to the fuzz_pkcs15_reader harness causes OpenSC to perform an out-of-bounds heap read in the X.509/SPKI handling path. Specifically, sc_pkcs15_pubkey_from_spki_fields() allocates a zero-length buffer and then reads one byte past the end of that allocation. This issue has been patched in versi",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66037",
+      "cve_id": "CVE-2025-66037",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-09T15:14:14.253240+00:00",
+      "cvss_score": 3.9,
+      "published": "2026-04-09T16:57:34.471529+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -468,23 +410,29 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "CVE-2025-66037 is a heap read vulnerability in OpenSC prior to version 0.27.0, exploitable via a crafted input to the fuzz_pkcs15_reader harness. This issue allows an attacker to potentially read sensitive information. Defenders should update OpenSC to version 0.27.0 or later to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-30564: A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sa...",
-      "description": "A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sales and Inventory System 1.0. The vulnerability is located in the view_payments.php file via the \"limit\" parameter. The application fails to sanitize the input, allowing remote attackers to inject arbitrary web script or HTML via a crafted URL.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30564",
-      "cve_id": "CVE-2026-30564",
+      "title": "CVE-2025-49010: OpenSC is an open source smart card tools and middleware. Prior to version 0.27....",
+      "description": "OpenSC is an open source smart card tools and middleware. Prior to version 0.27.0, an attacker with physical access to the computer at the time user or administrator uses a token can cause a stack-buffer-overflow write in GET RESPONSE. The attack requires crafted USB device or smart card that would present the system with specially crafted responses to the APDUs. This issue has been patched in ver",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-49010",
+      "cve_id": "CVE-2025-49010",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-09T15:14:14.253224+00:00",
+      "cvss_score": 3.8,
+      "published": "2026-04-09T16:57:34.471516+00:00",
       "ttps": [
+        {
+          "id": "T1091",
+          "name": "Replication Through Removable Media",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
         {
           "id": "T1190",
           "name": "Exploit Public-Facing Application",
@@ -492,47 +440,159 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "CVE-2025-49010 is a stack-buffer-overflow write vulnerability in OpenSC prior to version 0.27.0, exploitable via physical access to a computer and a specially crafted USB device or smart card. This issue allows an attacker to replicate malware through removable media. To defend, ensure timely patching of OpenSC to version 0.27.0 or later.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1091| B[Replication Through Removable Media]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-30563: A Stored Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sales...",
-      "description": "A Stored Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sales and Inventory System 1.0. The vulnerability is located in the update_details.php file. The application fails to sanitize the \"website\" parameter provided in a POST request. This allows authenticated attackers to inject arbitrary web script or HTML that is stored in the database and executed whenever the store details ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30563",
-      "cve_id": "CVE-2026-30563",
+      "title": "CVE-2026-5124: A security vulnerability has been detected in osrg GoBGP up to 4.3.0. Affected i...",
+      "description": "A security vulnerability has been detected in osrg GoBGP up to 4.3.0. Affected is the function BGPHeader.DecodeFromBytes of the file pkg/packet/bgp/bgp.go of the component BGP Header Handler. The manipulation leads to improper access controls. Remote exploitation of the attack is possible. The attack is considered to have high complexity. The exploitability is told to be difficult. The identifier ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5124",
+      "cve_id": "CVE-2026-5124",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-09T15:14:14.253204+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-30082: Multiple stored cross-site scripting (XSS) vulnerabilities in the Edit feature o...",
-      "description": "Multiple stored cross-site scripting (XSS) vulnerabilities in the Edit feature of the Software Package List page of IngEstate Server v11.14.0 allow attackers to execute arbitrary web scripts or HTML via injecting a crafted payload into the About application, What's news, or Release note parameters.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30082",
-      "cve_id": "CVE-2026-30082",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-09T15:14:14.253164+00:00",
+      "severity": "low",
+      "cvss_score": 3.7,
+      "published": "2026-04-09T16:57:34.471502+00:00",
       "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-29954: In KubePlus 4.1.4, the mutating webhook and kubeconfiggenerator components have ...",
+      "description": "In KubePlus 4.1.4, the mutating webhook and kubeconfiggenerator components have an SSRF vulnerability when processing the chartURL field of ResourceComposition resources. The field is only URL-encoded without validating the target address. More critically, when kubeconfiggenerator uses wget to download charts, the chartURL is directly concatenated into the command, allowing attackers to inject wge",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29954",
+      "cve_id": "CVE-2026-29954",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.6,
+      "published": "2026-04-09T16:57:34.471488+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-29909: MRCMS V3.1.2 contains an unauthenticated directory enumeration vulnerability in ...",
+      "description": "MRCMS V3.1.2 contains an unauthenticated directory enumeration vulnerability in the file management module. The /admin/file/list.do endpoint lacks authentication controls and proper input validation, allowing remote attackers to enumerate directory contents on the server without any credentials.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29909",
+      "cve_id": "CVE-2026-29909",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.3,
+      "published": "2026-04-09T16:57:34.471471+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-27508: Smoothwall Express versions prior to 3.1 Update 13 contain a reflected cross-sit...",
+      "description": "Smoothwall Express versions prior to 3.1 Update 13 contain a reflected cross-site scripting vulnerability in the /redirect.cgi endpoint due to improper sanitation of the url parameter. Attackers can craft malicious URLs with javascript: schemes that execute arbitrary JavaScript in victims' browsers when clicked through the unsanitized link.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27508",
+      "cve_id": "CVE-2026-27508",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-09T16:57:34.471452+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-26352: Smoothwall Express versions prior to 3.1 Update 13 contain a stored cross-site s...",
+      "description": "Smoothwall Express versions prior to 3.1 Update 13 contain a stored cross-site scripting vulnerability in the /cgi-bin/vpnmain.cgi script due to improper sanitation of the VPN_IP parameter. Authenticated attackers can inject arbitrary JavaScript through VPN configuration settings that executes when the affected page is viewed by other users.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26352",
+      "cve_id": "CVE-2026-26352",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-09T16:57:34.471412+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "UAT-10362 Targets Taiwanese NGOs with LucidRook Malware in Spear-Phishing Campaigns",
+      "description": "A previously undocumented threat cluster&nbsp;dubbed UAT-10362 has been attributed to spear-phishing campaigns targeting Taiwanese non-governmental organizations (NGOs) and suspected universities to deploy a new Lua-based malware called LucidRook. \"LucidRook is a sophisticated stager that embeds a Lua interpreter and Rust-compiled libraries within a dynamic-link library (DLL) to download and",
+      "url": "https://thehackernews.com/2026/04/uat-10362-targets-taiwanese-ngos-with.html",
+      "cve_id": null,
+      "source": "The Hacker News",
+      "category": "news",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-09T16:23:00+00:00",
+      "ttps": [
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Smart Slider updates hijacked to push malicious WordPress, Joomla versions",
+      "description": "Hackers hijacked the update system for the Smart Slider 3 Pro plugin for WordPress and Joomla, and pushed a malicious version with multiple backdoors. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/smart-slider-updates-hijacked-to-push-malicious-wordpress-joomla-versions/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-09T16:15:26+00:00",
+      "ttps": [
+        {
+          "id": "T1566.001",
+          "name": "Spearphishing Attachment",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1219",
+          "name": "Remote Access Software",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -961,23 +1021,6 @@
       "ai_model": "none"
     },
     {
-      "title": "CISA orders feds to patch exploited Ivanti EPMM flaw by Sunday",
-      "description": "CISA has given U.S. government agencies four days to secure their systems against a critical-severity vulnerability in Ivanti Endpoint Manager Mobile (EPMM) that has been exploited in attacks since January. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-exploited-ivanti-epmm-flaw-by-sunday/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-08T18:15:27+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
       "title": "New Chaos Variant Targets Misconfigured Cloud Deployments, Adds SOCKS Proxy",
       "description": "Cybersecurity researchers have flagged a new variant&nbsp;ofmalware&nbsp;called Chaosthat'scapable of&nbsp;hitting misconfigured cloud deployments, marking an expansion of the botnet's targeting infrastructure. \"Chaos malware is increasingly targeting misconfigured cloud deployments, expanding beyond its traditional focus on routers and edge devices,\"&nbsp;Darktrace said in a new&nbsp;report.",
       "url": "https://thehackernews.com/2026/04/new-chaos-variant-targets-misconfigured.html",
@@ -1222,30 +1265,6 @@
       "cvss_score": null,
       "published": "2026-04-08T09:16:00+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "N. Korean Hackers Spread 1,700 Malicious Packages Across npm, PyPI, Go, Rust",
-      "description": "The North Korea-linked persistent campaign known&nbsp;as Contagious&nbsp;Interview has spread its tentacles by publishing malicious packages targeting the Go, Rust, and PHP ecosystems. \"The threat actor's packages were designed to impersonate legitimate developer tooling [...], while quietly functioning as malware loaders, extending Contagious Interview’s established playbook into a coordinated",
-      "url": "https://thehackernews.com/2026/04/n-korean-hackers-spread-1700-malicious.html",
-      "cve_id": null,
-      "source": "The Hacker News",
-      "category": "incident",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-08T07:47:00+00:00",
-      "ttps": [
-        {
-          "id": "T1195",
-          "name": "Supply Chain Compromise",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

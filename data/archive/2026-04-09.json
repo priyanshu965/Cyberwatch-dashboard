@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-09T04:27:19.486003+00:00",
-  "total_items": 70,
+  "last_updated": "2026-04-09T06:16:56.079167+00:00",
+  "total_items": 75,
   "items": [
     {
       "title": "Detections for the Axios supply chain compromise",
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:06.253157+00:00",
+      "published": "2026-04-09T06:15:24.482128+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -20,7 +20,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The Axios supply chain compromise is a technical attack where a malicious transitive dependency is introduced in npm package versions 1.14.1 and 0.30.4, allowing for cross-platform payload deployment. This attack has a real-world impact of potentially compromising systems across Linux, Windows, and macOS. The most important defender action is to update Axios to a version outside the affected range and monitor for suspicious activity.",
+      "ai_summary": "The Axios supply chain compromise is a technical attack where a malicious transitive dependency is introduced in npm package versions 1.14.1 and 0.30.4, executing during installation and deploying cross-platform payloads. This attack has a real-world impact of allowing threat actors to gain access to systems and execute remote payloads. The most important defender action is to update Axios npm packages to versions outside the affected range.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -35,7 +35,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:06.253131+00:00",
+      "published": "2026-04-09T06:15:24.482103+00:00",
       "ttps": [
         {
           "id": "T1497",
@@ -50,9 +50,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Remus, a 64-bit infostealer, is a new variant of the Lumma Stealer family, employing anti-analysis checks and using EtherHiding for communication. This malware has a significant real-world impact due to its ability to evade detection and steal sensitive information. To defend against Remus, it is crucial to implement robust sandbox evasion detection and monitor web services for suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1497| B[Defense Evasion]:::tactic\n    B -->|T1102| C[Proxy]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1530| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Remus, a 64-bit infostealer, is a new variant of the Lumma Stealer family, employing anti-analysis checks and using EtherHiding for dead drop resolvers. It has been active since February 2026, with campaigns evading detection through virtualization and sandbox evasion. To defend against Remus, prioritize implementing robust anti-evasion measures and monitoring web services for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1497| B[Defense Evasion]:::tactic\n    B -->|T1102| C[Command and Control]:::tactic\n    C -->|T1041| D[Execution]:::tactic\n    D -->|T1082| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -65,7 +65,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:06.253100+00:00",
+      "published": "2026-04-09T06:15:24.482067+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -80,9 +80,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "NightSpire ransomware poses a significant threat due to its evolving tactics, techniques, and procedures, with threat actors utilizing various tools such as Chrome Remoting Desktop and AnyDesk to facilitate attacks. The ransomware's ability to encrypt data for impact, as seen in the T1486 technique, underscores its potential for real-world harm. To defend against NightSpire, organizations should prioritize implementing robust endpoint security measures and monitoring for suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1486| C[Impact]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "NightSpire ransomware poses a significant threat due to its evolving tactics and techniques, including the use of Chrome Remoting Desktop and AnyDesk for remote access. The ransomware's ability to encrypt data for impact, as seen in the T1486 technique, can lead to substantial losses for affected organizations. To defend against NightSpire, organizations should prioritize implementing robust endpoint security measures and monitoring for suspicious remote desktop activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1486| C[Impact]:::tactic\n    C -->|T1219| D[Exploitation for Client Execution]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -95,7 +95,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:06.253076+00:00",
+      "published": "2026-04-09T06:15:24.482043+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -110,9 +110,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The North Korean threat operation compromises software supply chains by publishing malicious packages across multiple ecosystems, delivering staged RAT payloads. This campaign uses social engineering tactics to impersonate legitimate developer tooling, ultimately leading to remote access and potential data breaches. Defenders should prioritize verifying the authenticity of dependencies and monitoring for suspicious activity related to these packages.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1071| D[Persistence]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "ai_summary": "The North Korean threat operation compromises software supply chains by publishing malicious packages across multiple ecosystems, delivering staged RAT payloads. This campaign uses social engineering tactics to impersonate legitimate developer tooling, allowing the threat actors to gain remote access to compromised systems. To defend against this threat, developers should verify the authenticity of packages and dependencies before integrating them into their projects.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1071| D[Persistence]:::tactic\n    D -->|T1204| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -125,7 +125,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:06.253050+00:00",
+      "published": "2026-04-09T06:15:24.482019+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -140,7 +140,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The Axios supply chain attack involves malicious versions of the JavaScript library, which deploy a cross-platform remote access Trojan, affecting multiple operating systems. This attack performs reconnaissance and establishes remote access, allowing threat actors to gain control over compromised systems. To defend against this threat, it is essential to monitor for suspicious dependencies and update Axios to a secure version.",
+      "ai_summary": "The Axios supply chain attack involves malicious versions of the JavaScript library, which deploy a cross-platform remote access Trojan, affecting multiple operating systems. This attack performs reconnaissance and establishes remote access, highlighting the need for defenders to monitor third-party libraries and dependencies. Defenders should prioritize verifying the integrity of dependencies and updating to patched versions.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1219| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -155,7 +155,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:06.253012+00:00",
+      "published": "2026-04-09T06:15:24.481995+00:00",
       "ttps": [
         {
           "id": "T1583.002",
@@ -191,7 +191,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:06.252990+00:00",
+      "published": "2026-04-09T06:15:24.481972+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -218,7 +218,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The threat is a social engineering attack where a fake website impersonates Avast antivirus, tricking users into downloading Venom Stealer malware. This malware steals sensitive information such as browser credentials and cryptocurrency wallets. The most important defender action is to educate users about the risks of downloading files from untrusted sources.",
+      "ai_summary": "The threat is a social engineering attack where a fake website impersonates Avast antivirus, tricking users into downloading Venom Stealer malware. This malware steals sensitive information such as browser credentials and cryptocurrency wallets. The most important defender action is to educate users about the risks of downloading files from untrusted sources and to implement robust antivirus software.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1036| B[Masquerading]:::tactic\n    B -->|T1204| C[User Execution]:::tactic\n    C -->|T1555.003| D[Credentials from Web Browsers]:::tactic\n    D -->|T1539| E[Steal Web Session Cookie]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -231,9 +231,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "high",
+      "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:06.252961+00:00",
+      "published": "2026-04-09T06:15:24.481948+00:00",
       "ttps": [
         {
           "id": "T1608",
@@ -248,11 +248,11 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "TeamPCP compromised the Telnyx Python SDK on PyPI, affecting 750,000 monthly downloads, by uploading malicious versions that deploy a three-stage architecture, including a credential harvester. The attack uses steganography to hide a second-stage payload in a WAV file. To defend, monitor PyPI packages for suspicious updates and validate package integrity before installation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608| B[Stage Capabilities]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1005| E[Defense Evasion]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "ai_summary": "TeamPCP compromised the Telnyx Python SDK on PyPI, using a three-stage architecture to deploy a credential harvester. The attack involves a trojanized package, a platform-specific loader, and steganography to hide a second-stage payload. Defenders should update dependencies and monitor for suspicious package downloads.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608| B[Stage Capabilities]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1566| D[Initial Access]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    E -->|T1041| F[Command and Control]:::tactic\n    F -->|T1486| G[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "ClickFix Malware Uses macOS Script Editor to Deliver Atomic Stealer",
@@ -263,7 +263,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:06.252928+00:00",
+      "published": "2026-04-09T06:15:24.481918+00:00",
       "ttps": [
         {
           "id": "T1059.002",
@@ -278,11 +278,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The ClickFix malware utilizes the applescript:// URL scheme to launch Script Editor, delivering an Atomic Stealer infostealer payload and bypassing Terminal. This attack abuses AppleScript to execute malicious code, allowing the threat actor to steal sensitive information. To defend against this, users should be cautious when interacting with unfamiliar URLs and ensure their systems are updated with the latest security patches.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.002| B[Execution]:::tactic\n    B -->|T1649| C[Privilege Escalation]:::tactic\n    C -->|T1059.002| D[Command and Control]:::tactic\n    D -->|T1041| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "ClickFix malware abuses applescript:// URL scheme to launch macOS Script Editor, delivering Atomic Stealer infostealer payload without Terminal access. This tactic bypasses traditional security controls, allowing attackers to steal authentication certificates. Defenders should monitor for suspicious applescript:// URLs and block access to Script Editor.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1649| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "New Lua-based malware LucidRook observed in targeted attacks against Taiwanese organizations",
@@ -293,7 +293,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:06.252893+00:00",
+      "published": "2026-04-09T06:15:24.481882+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -302,11 +302,47 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "LucidRook is a Lua-based malware delivered through spear-phishing attacks, targeting Taiwanese organizations. The threat actor misuses legitimate email infrastructure to gain initial access. Defenders should prioritize email security and monitor for suspicious email activity to prevent initial access.",
+      "ai_summary": "LucidRook is a Lua-based malware stager delivered via spear-phishing attacks targeting Taiwanese organizations. The malware leverages phishing (T1566) to gain initial access. Defenders should prioritize monitoring for phishing campaigns and authorized mail infrastructure misuse.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5121: A flaw was found in libarchive. On 32-bit systems, an integer overflow vulnerabi...",
+      "description": "A flaw was found in libarchive. On 32-bit systems, an integer overflow vulnerability exists in the zisofs block pointer allocation logic. A remote attacker can exploit this by providing a specially crafted ISO9660 image, which can lead to a heap buffer overflow. This could potentially allow for arbitrary code execution on the affected system.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5121",
+      "cve_id": "CVE-2026-5121",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-09T06:15:21.834525+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "ai_summary": "CVE-2026-5121 is a remote code execution vulnerability in libarchive on 32-bit systems, exploitable via a specially crafted ISO9660 image. An attacker can leverage this flaw to execute arbitrary code on the affected system. Defenders should prioritize patching or mitigating this vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "CVE-2026-4416: The Performance Library component of Gigabyte Control Center has an Insecure Des...",
@@ -317,7 +353,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.8,
-      "published": "2026-04-09T04:26:03.096680+00:00",
+      "published": "2026-04-09T06:15:21.834509+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -338,11 +374,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-4416 is a vulnerability in the Performance Library component of Gigabyte Control Center, allowing authenticated local attackers to send malicious serialized payloads for privilege escalation. This vulnerability can be exploited for local privilege escalation, potentially leading to unauthorized access to sensitive data. To defend against this threat, prioritize patching the vulnerable component and restricting access to the EasyTune Engine service.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1068| C[Privilege Escalation]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1055| E[Credential Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-4416 is an Insecure Deserialization vulnerability in Gigabyte Control Center's Performance Library component. Authenticated local attackers can exploit this vulnerability to achieve privilege escalation. Defenders should update the EasyTune Engine service to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1068| C[Exploitation for Privilege Escalation]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "CVE-2026-4415: Gigabyte Control Center developed by GIGABYTE has an Arbitrary File Write vulner...",
@@ -353,7 +389,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.1,
-      "published": "2026-04-09T04:26:03.096664+00:00",
+      "published": "2026-04-09T06:15:21.834492+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -380,7 +416,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-4415 is an Arbitrary File Write vulnerability in Gigabyte Control Center, allowing unauthenticated remote attackers to write files and potentially execute code or escalate privileges. This vulnerability is exploitable via the pairing feature, making it a high-severity threat. Defenders should prioritize patching this vulnerability to prevent exploitation.",
+      "ai_summary": "CVE-2026-4415 is an Arbitrary File Write vulnerability in Gigabyte Control Center, allowing unauthenticated remote attackers to write files and potentially execute code or escalate privileges. This vulnerability has a CVSS score of 8.1, indicating a high severity. Defenders should prioritize patching this vulnerability to prevent exploitation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1068| D[Exploitation for Privilege Escalation]:::tactic\n    D -->|T1649| E[Steal or Forge Authentication Certificates]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -395,7 +431,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.5,
-      "published": "2026-04-09T04:26:03.096648+00:00",
+      "published": "2026-04-09T06:15:21.834475+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -416,7 +452,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "CVE-2026-3945 is an integer overflow vulnerability in tinyproxy's HTTP chunked transfer encoding parser, allowing an unauthenticated attacker to cause a denial of service. This vulnerability can be exploited via a crafted chunk size, such as 0x7fffffffffffffff. Defenders should update tinyproxy to a version 1.11.3 or later to mitigate this issue.",
+      "ai_summary": "CVE-2026-3945 is an integer overflow vulnerability in tinyproxy's HTTP chunked transfer encoding parser, allowing an unauthenticated remote attacker to cause a denial of service (DoS). This vulnerability can be exploited via T1190 (Exploit Public-Facing Application) and T1498 (Network Denial of Service) tactics. Defenders should prioritize patching tinyproxy to version 1.11.4 or later.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1586.002| D[Email Accounts]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -431,7 +467,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.5,
-      "published": "2026-04-09T04:26:03.096632+00:00",
+      "published": "2026-04-09T06:15:21.834457+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -440,7 +476,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "An unauthenticated remote attacker exploits CVE-2026-2328 via path traversal, accessing backend components beyond their scope and exposing sensitive information. This vulnerability allows for exposure of sensitive data. Defenders should prioritize patching this vulnerability to prevent exploitation.",
+      "ai_summary": "CVE-2026-2328 is a remote code execution vulnerability in a public-facing application, allowing an unauthenticated attacker to access backend components and sensitive information. This vulnerability can be exploited via path traversal due to insufficient input validation. Defenders should prioritize patching this vulnerability to prevent exploitation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -453,15 +489,15 @@
       "cve_id": "CVE-2026-25704",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:03.096615+00:00",
+      "published": "2026-04-09T06:15:21.834440+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2026-25704 is a TOCTOU race condition vulnerability in cosmic-greeter, allowing attackers to regain dropped privileges and abuse them. This issue affects cosmic-greeter before a specific patch. Defenders should update cosmic-greeter to the patched version to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1068| D[Privilege Escalation]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2025-3716: User enumeration in ESET Protect (on-prem) via Response Timing....",
@@ -472,7 +508,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-09T04:26:03.096595+00:00",
+      "published": "2026-04-09T06:15:21.834421+00:00",
       "ttps": [
         {
           "id": "T1087",
@@ -496,7 +532,7 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 10.0,
-      "published": "2026-04-09T04:26:03.096553+00:00",
+      "published": "2026-04-09T06:15:21.834400+00:00",
       "ttps": [
         {
           "id": "T1059.004",
@@ -520,7 +556,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.9,
-      "published": "2026-04-09T04:26:03.096535+00:00",
+      "published": "2026-04-09T06:15:21.834375+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -568,24 +604,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.2,
-      "published": "2026-04-09T04:26:03.096513+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-5106: A flaw has been found in code-projects Exam Form Submission 1.0. The impacted el...",
-      "description": "A flaw has been found in code-projects Exam Form Submission 1.0. The impacted element is an unknown function of the file /admin/update_fst.php. Executing a manipulation of the argument sname can lead to cross site scripting. It is possible to launch the attack remotely. The exploit has been published and may be used.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5106",
-      "cve_id": "CVE-2026-5106",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": 2.4,
-      "published": "2026-04-09T04:26:03.096473+00:00",
+      "published": "2026-04-09T06:15:21.834326+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -669,6 +688,30 @@
       "ai_model": "none"
     },
     {
+      "title": "TikTok removes covert networks ahead of Hungary vote as disinformation concerns grow",
+      "description": "The company said the networks used fake accounts to post and amplify political content aimed at Hungarian users, including material critical of opposition leader Péter Magyar and his Tisza Party as well as content targeting Prime Minister Viktor Orbán’s ruling Fidesz.",
+      "url": "https://therecord.media/tiktok-removes-covert-networks-hungary-vote",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "news",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-08T20:20:00+00:00",
+      "ttps": [
+        {
+          "id": "T1585",
+          "name": "Establish Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
       "title": "New macOS stealer campaign uses Script Editor in ClickFix attack",
       "description": "A new campaign delivering the Atomic Stealer malware to macOS users abuses the Script Editor in a variation of the ClickFix attack that tricked users into executing commands in Terminal. [...]",
       "url": "https://www.bleepingcomputer.com/news/security/new-macos-stealer-campaign-uses-script-editor-in-clickfix-attack/",
@@ -739,6 +782,53 @@
       "ai_model": "none"
     },
     {
+      "title": "Passport numbers for more than 300,000 leaked during December Eurail data breach",
+      "description": "In February, a hacker claimed the attack and said they stole 1.3 TB of data that included source code, database backups and Zendesk support tickets.",
+      "url": "https://therecord.media/eurail-reports-data-breach-impacting-over-300000",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-08T17:46:00+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1547.005",
+          "name": "Security Support Provider",
+          "tactic": "Persistence",
+          "tactic_id": "TA0003"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Breach exposes sensitive LAPD files stored in city attorney system",
+      "description": "The LA Times reported that social media posts allegedly featuring information about the stolen material — some of which have since been taken down — revealed there were 7.7 terabytes of data available for download.",
+      "url": "https://therecord.media/breach-exposes-lapd-files-city-attorney-systems",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-08T17:42:00+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
       "title": "13-year-old bug in ActiveMQ lets hackers remotely execute commands",
       "description": "Security researchers discovered a remote code execution (RCE) vulnerability in Apache ActiveMQ Classic that has gone undetected for 13 years and could be exploited to execute arbitrary commands. [...]",
       "url": "https://www.bleepingcomputer.com/news/security/13-year-old-bug-in-activemq-lets-hackers-remotely-execute-commands/",
@@ -802,6 +892,53 @@
           "name": "Application Layer Protocol",
           "tactic": "Command & Control",
           "tactic_id": "TA0011"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Minnesota governor sends national guard to county after cyberattack",
+      "description": "Minnesota governor Tim Walz issued an executive order on Tuesday, writing that Winona county experienced a cyberattack on critical systems that began on Monday.",
+      "url": "https://therecord.media/minnesota-sends-national-guard-after-local-cyberattack",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-08T17:10:00+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Two prominent Egyptian journalists targeted with elaborate spearphishing campaign",
+      "description": "Digital civil rights nonprofit Access Now released a report on the findings with the mobile security company Lookout on Wednesday, saying they saw evidence the hackers may “use the methods and infrastructure associated with the attacks to deliver spyware and exfiltrate data.”",
+      "url": "https://therecord.media/two-egyptian-journalists-targeted-spearphishing-campaign",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-08T16:44:00+00:00",
+      "ttps": [
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "tactic_id": "TA0010"
         }
       ],
       "ai_summary": "AI analysis pending",

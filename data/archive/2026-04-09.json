@@ -1,216 +1,179 @@
 {
-  "last_updated": "2026-04-09T21:41:55.866062+00:00",
-  "total_items": 65,
+  "last_updated": "2026-04-09T22:34:35.170808+00:00",
+  "total_items": 75,
   "items": [
     {
-      "title": "CVE-2026-33995: FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to versio...",
-      "description": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.24.2, a double-free vulnerability in kerberos_AcceptSecurityContext() and kerberos_InitializeSecurityContextA() (WinPR, winpr/libwinpr/sspi/Kerberos/kerberos.c) can cause a crash in any FreeRDP clients on systems where Kerberos and/or Kerberos U2U is configured (Samba AD member, or krb5 for NFS). The crash is trigg",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33995",
-      "cve_id": "CVE-2026-33995",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-09T21:39:45.436185+00:00",
+      "title": "APT28 exploit routers to enable DNS hijacking operations",
+      "description": "Russian cyber actors APT28 have been exploiting routers to overwrite Dynamic Host Configuration Protocol (DHCP)/Domain Name System (DNS) settings to redirect traffic through attacker-controlled DNS servers. Resulting malicious DNS resolutions enable adversary-in-the-middle (AitM) attacks that harvest passwords, OAuth tokens and other credentials for web and email related services. This puts organi",
+      "url": "https://otx.alienvault.com/pulse/69d50d4138f1353a9d14ce48",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-09T22:32:38.602851+00:00",
       "ttps": [
         {
-          "id": "T1547.005",
-          "name": "Security Support Provider",
-          "tactic": "Persistence",
-          "tactic_id": "TA0003"
+          "id": "T1583.002",
+          "name": "DNS Server",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
         },
         {
-          "id": "T1558",
-          "name": "Steal or Forge Kerberos Tickets",
+          "id": "T1584.002",
+          "name": "DNS Server",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1557",
+          "name": "Adversary-in-the-Middle",
           "tactic": "Credential Access",
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-33995 is a double-free vulnerability in FreeRDP's Kerberos implementation, allowing attackers to crash clients on systems with Kerberos configured. This vulnerability can be exploited to disrupt remote desktop services. To defend, update FreeRDP to version 3.24.2 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1547.005| B[Privilege Escalation]:::tactic\n    B -->|T1558| C[Credential Access]:::tactic\n    C -->|T1055| D[Defense Evasion]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.5,
+      "ai_summary": "APT28 exploits routers to overwrite DHCP/DNS settings, enabling DNS hijacking and adversary-in-the-middle attacks to harvest credentials. This threat has a significant real-world impact, as it allows attackers to intercept sensitive information. To defend against this, organizations should prioritize securing their network infrastructure and implementing DNS security measures.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1557| B[Adversary-in-the-Middle]:::tactic\n    B -->|T1583.002| C[DNS Server]:::tactic\n    C -->|T1584.002| D[DNS Server]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
     {
-      "title": "CVE-2026-33987: FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to versio...",
-      "description": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.24.2, in persistent_cache_read_entry_v3() in libfreerdp/cache/persistent.c, persistent->bmpSize is updated before winpr_aligned_recalloc(). If realloc fails, bmpSize is inflated while bmpData points to the old buffer. This issue has been patched in version 3.24.2.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33987",
-      "cve_id": "CVE-2026-33987",
-      "source": "NVD",
-      "category": "cve",
+      "title": "Bogus website fakes virus scan, installs Venom Stealer instead",
+      "description": "A fake website impersonating Avast antivirus is tricking users into infecting their computers with Venom Stealer malware. The site runs a fake virus scan, claims to find threats, and prompts users to download a malicious file disguised as a system cleaner. The malware, identified as part of the Venom Stealer family, steals browser credentials, session cookies, cryptocurrency wallets, and other sen",
+      "url": "https://otx.alienvault.com/pulse/69c6cf837e2aed0cef563493",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
       "severity": "high",
-      "cvss_score": 7.1,
-      "published": "2026-04-09T21:39:45.436170+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33987 is a vulnerability in FreeRDP's persistent_cache_read_entry_v3 function, where a failed realloc call can lead to a use-after-free condition. This can potentially allow for arbitrary code execution. To defend against this, update FreeRDP to version 3.24.2 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation for Client Execution]:::tactic\n    B -->|T1204| C[User Execution]:::tactic\n    C -->|T1055| D[Unmanaged Power User]:::tactic\n    D -->|T1490| E[Impair Defenses]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.1,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "CVE-2026-33986: FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to versio...",
-      "description": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.24.2, in yuv_ensure_buffer() in libfreerdp/codec/h264.c, h264->width and h264->height are updated before the reallocation loop. If any winpr_aligned_recalloc() call fails, the function returns FALSE but width/height are already inflated. This issue has been patched in version 3.24.2.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33986",
-      "cve_id": "CVE-2026-33986",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-09T21:39:45.436155+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33986 is a vulnerability in FreeRDP's yuv_ensure_buffer function, where a failed reallocation can lead to inflated width and height values, potentially causing a denial-of-service. This issue affects versions prior to 3.24.2 and has a CVSS score of 7.5. To defend against this, users should update to version 3.24.2 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation for Client Execution]:::tactic\n    B -->|T1204| C[User Execution]:::tactic\n    C -->|T1055| D[Unmanaged Remote Access]:::tactic\n    D -->|T1082| E[System Information Discovery]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "CVE-2026-33985: FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to versio...",
-      "description": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.24.2, pixel data from adjacent heap memory is rendered to screen, potentially leaking sensitive data to the attacker. This issue has been patched in version 3.24.2.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33985",
-      "cve_id": "CVE-2026-33985",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.9,
-      "published": "2026-04-09T21:39:45.436135+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33985 is a vulnerability in FreeRDP that leaks sensitive data by rendering pixel data from adjacent heap memory to the screen. This issue can potentially allow attackers to access sensitive information. To defend against this, users should update to version 3.24.2 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Execution]:::tactic\n    B -->|T1055| C[Discovery]:::tactic\n    C -->|T1531| D[Privilege Escalation]:::tactic\n    D -->|T1482| E[Collection]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.9,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "CVE-2026-33984: FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to versio...",
-      "description": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.24.2, in resize_vbar_entry() in libfreerdp/codec/clear.c, vBarEntry->size is updated to vBarEntry->count before the winpr_aligned_recalloc() call. If realloc fails, size is inflated while pixels still points to the old, smaller buffer. On a subsequent call where count <= size (the inflated value), realloc is skippe",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33984",
-      "cve_id": "CVE-2026-33984",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-09T21:39:45.436121+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33984 is a vulnerability in FreeRDP's implementation of the Remote Desktop Protocol, where a memory reallocation issue can lead to a potential buffer overflow. This vulnerability can be exploited to execute arbitrary code, allowing attackers to gain control of the system. To defend against this, ensure that FreeRDP is updated to version 3.24.2 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation for Client Execution]:::tactic\n    B -->|T1204| C[User Execution]:::tactic\n    C -->|T1055| D[Unmanaged Power User]:::tactic\n    D -->|T1490| E[Impair Defenses]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "CVE-2026-33983: FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to versio...",
-      "description": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.24.2, progressive_decompress_tile_upgrade() detects a mismatch via progressive_rfx_quant_cmp_equal() but only emits WLog_WARN, execution continues. The wrapped value (247) is used as a shift exponent, causing undefined behavior and an approximately 80 billion iteration loop (CPU DoS). This issue has been patched in",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33983",
-      "cve_id": "CVE-2026-33983",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-09T21:39:45.436106+00:00",
+      "cvss_score": null,
+      "published": "2026-04-09T22:32:38.602818+00:00",
       "ttps": [
         {
-          "id": "T1140",
-          "name": "Deobfuscate/Decode Files",
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1036",
+          "name": "Masquerading",
           "tactic": "Defense Evasion",
           "tactic_id": "TA0005"
         },
         {
-          "id": "T1486",
-          "name": "Data Encrypted for Impact",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
+          "id": "T1539",
+          "name": "Steal Web Session Cookie",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        },
+        {
+          "id": "T1555.003",
+          "name": "Credentials from Web Browsers",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-33983 is a CPU DoS vulnerability in FreeRDP's progressive_decompress_tile_upgrade function, allowing an attacker to cause undefined behavior and consume excessive CPU resources. This issue can be exploited to launch a denial-of-service attack, and defenders should prioritize patching to version 3.24.2 or later. The most important defender action is to apply the patch to prevent potential CPU DoS attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1140| B[Deobfuscate/Decode Files]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1499| D[Endpoint]:::tactic\n    D -->|T1529| E[System Discovery]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
+      "ai_summary": "The threat is a social engineering attack where a fake website impersonates Avast antivirus, tricking users into downloading Venom Stealer malware. This malware steals sensitive information such as browser credentials and cryptocurrency wallets. The most important defender action is to educate users about the risks of downloading files from untrusted sources and to implement robust antivirus software.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1036| B[Masquerading]:::tactic\n    B -->|T1204| C[User Execution]:::tactic\n    C -->|T1555.003| D[Credentials from Web Browsers]:::tactic\n    D -->|T1539| E[Steal Web Session Cookie]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
     {
-      "title": "CVE-2026-33982: FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to versio...",
-      "description": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.24.2, there is a heap-buffer-overflow READ vulnerability at 24 bytes before the allocation, in winpr_aligned_offset_recalloc(). This issue has been patched in version 3.24.2.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33982",
-      "cve_id": "CVE-2026-33982",
-      "source": "NVD",
-      "category": "cve",
+      "title": "Ringing in Chaos: How TeamPCP Weaponized the Telnyx Python SDK",
+      "description": "TeamPCP uploaded malicious versions of the telnyx Python SDK to PyPI, compromising a package with 750,000 monthly downloads. The attack uses a three-stage architecture: a trojanized package triggers a platform-specific loader, which downloads a second-stage payload hidden in a WAV file using steganography, deploying a credential harvester. The harvester steals various credentials, encrypts them, a",
+      "url": "https://otx.alienvault.com/pulse/69cbf2da3eb58fb6304be93b",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-09T22:32:38.602795+00:00",
+      "ttps": [
+        {
+          "id": "T1608",
+          "name": "Stage Capabilities",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1027",
+          "name": "Obfuscated Files or Information",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        }
+      ],
+      "ai_summary": "TeamPCP compromised the telnyx Python SDK on PyPI, using a three-stage architecture to deploy a credential harvester. The attack involves a trojanized package, a platform-specific loader, and steganography to hide a second-stage payload. Defenders should immediately update the telnyx Python SDK and monitor for credential harvesting activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608| B[Stage Capabilities]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    E -->|T1486| F[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "ClickFix Malware Uses macOS Script Editor to Deliver Atomic Stealer",
+      "description": "Jamf Threat Labs discovered a ClickFix-style macOS attack that abuses the applescript:// URL scheme to launch Script Editor and deliver an Atomic Stealer infostealer payload — bypassing Terminal entirely.",
+      "url": "https://otx.alienvault.com/pulse/69d66add921797e6515cf4b1",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
       "severity": "high",
-      "cvss_score": 7.1,
-      "published": "2026-04-09T21:39:45.436092+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-33982 is a heap-buffer-overflow READ vulnerability in FreeRDP prior to version 3.24.2, allowing an attacker to potentially execute arbitrary code. This vulnerability has been patched in version 3.24.2. Defenders should update FreeRDP to the latest version to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1068| C[Privilege Escalation]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "cvss_score": null,
+      "published": "2026-04-09T22:32:38.602767+00:00",
+      "ttps": [
+        {
+          "id": "T1059.002",
+          "name": "AppleScript",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "ClickFix malware abuses applescript:// URL scheme to launch macOS Script Editor, delivering Atomic Stealer infostealer payload. This tactic bypasses Terminal and steals authentication certificates. Defenders should monitor for suspicious applescript:// URLs and block access to Script Editor.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1649| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "New Lua-based malware LucidRook observed in targeted attacks against Taiwanese organizations",
+      "description": "Cisco Talos observed a spear-phishing attack delivering LucidRook, a newly identified stager that targeted a Taiwanese NGO in October 2025. The metadata in the email suggests that it was delivered via authorized mail infrastructure, which implies potential misuse of legitimate sending capabilities.",
+      "url": "https://otx.alienvault.com/pulse/69d65cbe07a5f680cde16920",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-09T22:32:38.602740+00:00",
+      "ttps": [
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "LucidRook is a Lua-based malware stager delivered via spear-phishing attacks targeting Taiwanese organizations. The malware utilizes phishing (T1566) to gain initial access. Defenders should prioritize monitoring for phishing campaigns and authorized mail infrastructure misuse.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33977: FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to versio...",
-      "description": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.24.2, a malicious RDP server can crash the FreeRDP client by sending audio data in IMA ADPCM format with an invalid initial step index value (>= 89). The unvalidated step index is read directly from the network and used to index into a 89-entry lookup table, triggering a WINPR_ASSERT() failure and process abort via",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33977",
-      "cve_id": "CVE-2026-33977",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-09T21:39:45.436076+00:00",
-      "ttps": [
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "CVE-2026-33977 is a remote code execution vulnerability in FreeRDP prior to version 3.24.2, exploitable by a malicious RDP server sending specially crafted audio data. This can cause the FreeRDP client to crash, resulting in a denial of service. Defenders should update FreeRDP to version 3.24.2 or later to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33952: FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to versio...",
-      "description": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.24.2, an unvalidated auth_length field read from the network triggers a WINPR_ASSERT() failure in rts_read_auth_verifier_no_checks(), causing any FreeRDP client connecting through a malicious RDP Gateway to crash with SIGABRT. This is a pre-authentication denial of service affecting all FreeRDP clients using RPC-ov",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33952",
-      "cve_id": "CVE-2026-33952",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-09T21:39:45.436056+00:00",
-      "ttps": [
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "CVE-2026-33952 is a pre-authentication denial of service vulnerability in FreeRDP prior to version 3.24.2, allowing a malicious RDP Gateway to crash FreeRDP clients using RPC-over-TCP. This vulnerability is exploitable through user execution and network denial of service. Defenders should update FreeRDP to version 3.24.2 or later to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-32794: Improper Certificate Validation vulnerability in Apache Airflow Provider for Dat...",
-      "description": "Improper Certificate Validation vulnerability in Apache Airflow Provider for Databricks. Provider code did not validate certificates for connections to Databricks back-end which could result in a man-of-a-middle attack that traffic is intercepted and manipulated or credentials exfiltrated w/o notice.\n\nThis issue affects Apache Airflow Provider for Databricks: from 1.10.0 before 1.12.0.\n\nUsers are ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32794",
-      "cve_id": "CVE-2026-32794",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.8,
-      "published": "2026-04-09T21:39:45.436013+00:00",
+      "title": "Canis C2 Exposed: Previously Undocumented Cross-Platform ...",
+      "description": "On March 19, a researcher on X posted a suspicious Android APK tied to a phishing page impersonating Paidy, a Japanese buy-now-pay-later service. A quick look at the infrastructure behind it revealed an unauthenticated API sitting wide open, with endpoints exposing payloads, command logs, and the C2 source code itself. The server wasn't running a simple credential harvester. Agents for Android, iO",
+      "url": "https://otx.alienvault.com/pulse/69d6a7cc78297c29949500de",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-09T22:32:38.602716+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -219,17 +182,398 @@
           "tactic_id": "TA0001"
         },
         {
-          "id": "T1041",
-          "name": "Exfiltration Over C2 Channel",
-          "tactic": "Exfiltration",
-          "tactic_id": "TA0010"
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1071",
+          "name": "Application Layer Protocol",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "CVE-2026-32794 is an improper certificate validation vulnerability in Apache Airflow Provider for Databricks, allowing a man-in-the-middle attack. This affects versions 1.10.0 to 1.12.0. To defend, ensure certificate validation is enabled and monitor for suspicious traffic.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.0,
+      "ai_summary": "Canis C2 Exposed is a cross-platform threat that uses phishing (T1566) and exploits public-facing applications (T1190) to gain initial access. The threat actor's infrastructure exposes payloads, command logs, and C2 source code, indicating a high-risk data breach. Defenders should prioritize patching public-facing applications and implementing robust authentication mechanisms.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "This fake Windows support website delivers password-stealing malware",
+      "description": "A malicious campaign is targeting French-speaking users in an attempt to steal passwords, payment details and banking details from people across France, according to researchers at the Institute for Strategic Studies (ISS).",
+      "url": "https://otx.alienvault.com/pulse/69d7e6529f5d17df9f58fdae",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-09T22:32:38.602699+00:00",
+      "ttps": [],
+      "ai_summary": "This fake Windows support website uses social engineering to trick French-speaking users into installing password-stealing malware, compromising their sensitive information. The malware steals passwords, payment details, and banking details. Defenders should block access to suspicious websites and educate users on phishing tactics.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1218| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "Hack-for-Hire Campaign Targets Journalists Across MENA Region",
+      "description": "A hack-for-hire operation with suspected links to the Bitter threat actor targeted journalists, activists, and government officials across the Middle East and North Africa between 2023 and 2025. The campaign employed sophisticated spear-phishing attacks via LinkedIn, Apple Messages, WhatsApp, and email to compromise Apple and Google accounts. Victims included Egyptian journalists Mostafa Al-A'sar ",
+      "url": "https://otx.alienvault.com/pulse/69d7e4115268dc2f9177cba2",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-09T22:32:38.602675+00:00",
+      "ttps": [
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "The Bitter threat actor conducted a sophisticated hack-for-hire campaign targeting journalists, activists, and government officials across the MENA region via spear-phishing attacks on Apple and Google accounts. The campaign employed phishing tactics (T1566) via various messaging platforms. Defenders should prioritize monitoring for phishing attempts and strengthening account security measures.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "The long road to your crypto: ClipBanker and its marathon infection chain",
+      "description": "Proxifiers are speciaized software designed to tunnel traffic for programs that do not natively support proxy servers. They are a go-to for making sure these apps are functional within secured development environments. By coincidence, Proxifier is also a name for a proprietary proxifier developed by VentoByte, which is distributed under a paid license. If you search for Proxifier (or a proxifier),",
+      "url": "https://otx.alienvault.com/pulse/69d77818426ba84dc9eb0371",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-09T22:32:38.602647+00:00",
+      "ttps": [
+        {
+          "id": "T1572",
+          "name": "Protocol Tunneling",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        }
+      ],
+      "ai_summary": "ClipBanker uses a proxifier, specifically VentoByte's Proxifier, to tunnel traffic and gain initial access. This allows the threat actor to execute malicious code and establish command and control. The real-world impact is a potential data breach or ransomware attack.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "Stealer Campaign Impacting SLTT macOS Users",
+      "description": "MacSync Stealer is a macOS infostealer operating as Malware-as-a-Service (MaaS), distributed through SEO poisoning and fake ClickFix CAPTCHAs. The campaign has evolved through three iterations since November 2025, shifting from fake download sites to malicious ChatGPT conversations and finally to sophisticated shell-based loaders with dynamic AppleScript payloads. Threat actors use Google-sponsore",
+      "url": "https://otx.alienvault.com/pulse/69d7ed2e323d7edb856fa161",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-09T22:32:38.602594+00:00",
+      "ttps": [
+        {
+          "id": "T1588",
+          "name": "Obtain Capabilities",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1608.006",
+          "name": "SEO Poisoning",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1059.002",
+          "name": "AppleScript",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "The MacSync Stealer malware is a macOS infostealer distributed through SEO poisoning, fake ClickFix CAPTCHAs, and malicious ChatGPT conversations. It has evolved through three iterations since November 2025, using dynamic AppleScript payloads. Defenders should monitor for suspicious AppleScript activity and block malicious ChatGPT conversations.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Obtain Capabilities]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Command and Control]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-30878: baserCMS is a website development framework. Prior to version 5.2.3, a public ma...",
+      "description": "baserCMS is a website development framework. Prior to version 5.2.3, a public mail submission API allows unauthenticated users to submit mail form entries even when the corresponding form is not accepting submissions. This bypasses administrative controls intended to stop form intake and enables spam or abuse via the API. This issue has been patched in version 5.2.3.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30878",
+      "cve_id": "CVE-2026-30878",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.3,
+      "published": "2026-04-09T22:32:35.863132+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-30878 is a public mail submission API vulnerability in baserCMS prior to version 5.2.3, allowing unauthenticated users to submit mail form entries and bypass administrative controls. This enables spam or abuse via the API. Patched in version 5.2.3.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.3,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-30877: baserCMS is a website development framework. Prior to version 5.2.3, there is an...",
+      "description": "baserCMS is a website development framework. Prior to version 5.2.3, there is an OS command injection vulnerability in the update functionality. Due to this issue, an authenticated user with administrator privileges in baserCMS can execute arbitrary OS commands on the server with the privileges of the user account running baserCMS. This issue has been patched in version 5.2.3.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30877",
+      "cve_id": "CVE-2026-30877",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.1,
+      "published": "2026-04-09T22:32:35.863116+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-30877 is an OS command injection vulnerability in baserCMS prior to version 5.2.3, allowing authenticated administrators to execute arbitrary OS commands with server privileges. This issue has been patched in version 5.2.3. Defenders should update baserCMS to the latest version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1210| D[Privilege Escalation]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.1,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-27697: baserCMS is a website development framework. Prior to version 5.2.3, baserCMS ha...",
+      "description": "baserCMS is a website development framework. Prior to version 5.2.3, baserCMS has a SQL injection vulnerability in blog posts. This issue has been patched in version 5.2.3.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27697",
+      "cve_id": "CVE-2026-27697",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-09T22:32:35.863099+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "The baserCMS SQL injection vulnerability (CVE-2026-27697) allows attackers to exploit public-facing applications (T1190), enabling them to execute malicious SQL queries. This can lead to critical impact, including data breaches and privilege escalation. Defenders should update baserCMS to version 5.2.3 or later to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-21861: baserCMS is a website development framework. Prior to version 5.2.3, baserCMS co...",
+      "description": "baserCMS is a website development framework. Prior to version 5.2.3, baserCMS contains an OS command injection vulnerability in the core update functionality. An authenticated administrator can execute arbitrary OS commands on the server due to improper handling of user-controlled input that is directly passed to exec() without sufficient validation or escaping. This issue has been patched in vers",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21861",
+      "cve_id": "CVE-2026-21861",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.1,
+      "published": "2026-04-09T22:32:35.863079+00:00",
+      "ttps": [
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "The baserCMS framework prior to version 5.2.3 contains an OS command injection vulnerability, allowing authenticated administrators to execute arbitrary OS commands. This issue has been patched in version 5.2.3. Defenders should update baserCMS to the latest version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-32957: baserCMS is a website development framework. Prior to version 5.2.3, the applica...",
+      "description": "baserCMS is a website development framework. Prior to version 5.2.3, the application's restore function allows users to upload a .zip file, which is then automatically extracted. A PHP file inside the archive is included using require_once without validating or restricting the filename. An attacker can craft a malicious PHP file within the zip and achieve arbitrary code execution when it is includ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-32957",
+      "cve_id": "CVE-2025-32957",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.7,
+      "published": "2026-04-09T22:32:35.863064+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "ai_summary": "The baserCMS framework prior to version 5.2.3 contains a vulnerability allowing attackers to upload and execute malicious PHP files via the restore function, resulting in arbitrary code execution. This vulnerability has a CVSS score of 8.7, indicating a high severity impact. Defenders should update the framework to version 5.2.3 or later to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059| B[Command and Scripting Interpreter]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1210| D[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5157: A vulnerability was identified in code-projects Online Food Ordering System 1.0....",
+      "description": "A vulnerability was identified in code-projects Online Food Ordering System 1.0. Affected is an unknown function of the file /form/order.php of the component Order Module. Such manipulation of the argument cust_id leads to cross site scripting. The attack may be performed from remote. The exploit is publicly available and might be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5157",
+      "cve_id": "CVE-2026-5157",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-09T22:32:35.863047+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-5156: A vulnerability was determined in Tenda CH22 1.0.0.1. This impacts the function ...",
+      "description": "A vulnerability was determined in Tenda CH22 1.0.0.1. This impacts the function formQuickIndex of the file /goform/QuickIndex of the component Parameter Handler. This manipulation of the argument mit_linktype causes stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5156",
+      "cve_id": "CVE-2026-5156",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-09T22:32:35.863030+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-5155: A vulnerability was found in Tenda CH22 1.0.0.1. This affects the function fromA...",
+      "description": "A vulnerability was found in Tenda CH22 1.0.0.1. This affects the function fromAdvSetWan of the file /goform/AdvSetWan of the component Parameter Handler. The manipulation of the argument wanmode results in stack-based buffer overflow. The attack can be executed remotely. The exploit has been made public and could be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5155",
+      "cve_id": "CVE-2026-5155",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-09T22:32:35.863012+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-5154: A vulnerability has been found in Tenda CH22 1.0.0.1/1.If. The impacted element ...",
+      "description": "A vulnerability has been found in Tenda CH22 1.0.0.1/1.If. The impacted element is the function fromSetCfm of the file /goform/setcfm of the component Parameter Handler. The manipulation of the argument funcname leads to stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5154",
+      "cve_id": "CVE-2026-5154",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-09T22:32:35.862988+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-5130: The Debugger & Troubleshooter plugin for WordPress was vulnerable to Unauthentic...",
+      "description": "The Debugger & Troubleshooter plugin for WordPress was vulnerable to Unauthenticated Privilege Escalation in versions up to and including 1.3.2. This was due to the plugin accepting the wp_debug_troubleshoot_simulate_user cookie value directly as a user ID without any cryptographic validation or authorization checks. The cookie value was used to override the determine_current_user filter, which al",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5130",
+      "cve_id": "CVE-2026-5130",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-09T22:32:35.862943+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1068",
+          "name": "Exploitation for Privilege Escalation",
+          "tactic": "Privilege Escalation",
+          "tactic_id": "TA0004"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "New ‘LucidRook’ malware used in targeted attacks on NGOs, universities",
+      "description": "A new Lua-based malware, called LucidRook, is being used in spear-phishing campaigns targeting non-governmental organizations and universities in Taiwan. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/new-lucidrook-malware-used-in-targeted-attacks-on-ngos-universities/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-09T22:04:31+00:00",
+      "ttps": [
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "New VENOM phishing attacks steal senior executives' Microsoft logins",
@@ -238,7 +582,7 @@
       "cve_id": null,
       "source": "Bleeping Computer",
       "category": "incident",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": null,
       "published": "2026-04-09T21:37:04+00:00",
       "ttps": [
@@ -249,11 +593,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "Threat actors use a PhaaS platform called VENOM to target senior executives' Microsoft logins via phishing attacks. This tactic leverages T1566 to gain initial access. Defenders should prioritize monitoring for suspicious phishing emails.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "FCC proposes new rule to further crackdown on illegal robocalls",
@@ -262,7 +606,7 @@
       "cve_id": null,
       "source": "TheRecord Media",
       "category": "news",
-      "severity": "medium",
+      "severity": "critical",
       "cvss_score": null,
       "published": "2026-04-09T19:57:00+00:00",
       "ttps": [
@@ -273,11 +617,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The threat is a potential exploit of public-facing applications (T1190) by malicious actors, which could lead to unauthorized access and impact the telecommunications industry. The proposed rule aims to mitigate this risk by enhancing security measures for originating providers. Defenders should prioritize verifying the security controls of public-facing applications.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Healthcare IT solutions provider ChipSoft hit by ransomware attack",
@@ -286,7 +630,7 @@
       "cve_id": null,
       "source": "Bleeping Computer",
       "category": "incident",
-      "severity": "high",
+      "severity": "critical",
       "cvss_score": null,
       "published": "2026-04-09T19:46:44+00:00",
       "ttps": [
@@ -303,11 +647,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "ChipSoft, a Dutch healthcare software vendor, was hit by a ransomware attack exploiting a public-facing application (T1190) and encrypting data for impact (T1486). This incident forced the company to take offline its website and digital services. Defenders should prioritize monitoring public-facing applications for vulnerabilities and implementing robust backup and recovery procedures.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Google Chrome adds infostealer protection against session cookie theft",
@@ -327,11 +671,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Google Chrome has implemented Device Bound Session Credentials (DBSC) protection to prevent info-stealing malware from stealing session cookies. This measure aims to mitigate the T1539 (Steal Web Session Cookie) tactic. Defenders should ensure their users are running the latest version of Chrome 146 for Windows.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1539| B[Steal Web Session Cookie]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "EngageLab SDK Flaw Exposed 50M Android Users, Including 30M Crypto Wallets",
@@ -340,15 +684,15 @@
       "cve_id": null,
       "source": "The Hacker News",
       "category": "cve",
-      "severity": "high",
+      "severity": "low",
       "cvss_score": null,
       "published": "2026-04-09T17:26:00+00:00",
       "ttps": [],
-      "ai_summary": "A vulnerability in the EngageLab SDK exposed 50M Android users, including 30M crypto wallets, to unauthorized data access. This flaw bypassed the Android security sandbox, allowing malicious apps to access sensitive information. Defenders should update the EngageLab SDK to the latest patched version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "Treasury Department announces crypto industry cyber threat sharing initiative",
@@ -679,30 +1023,6 @@
       "cvss_score": null,
       "published": "2026-04-09T07:44:55+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Microsoft suspends dev accounts for high-profile open source projects",
-      "description": "Microsoft has suspended developer accounts used to maintain multiple high-profile open-source projects without proper notification and no way to quickly reinstate them, effectively blocking them from publishing new software builds and security patches for Windows users. [...]",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-suspends-dev-accounts-for-high-profile-open-source-projects/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-09T06:46:26+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

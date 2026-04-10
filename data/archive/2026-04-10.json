@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-10T01:28:23.299360+00:00",
+  "last_updated": "2026-04-10T04:41:00.171740+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-10T01:26:51.344446+00:00",
+      "published": "2026-04-10T04:39:46.621276+00:00",
       "ttps": [
         {
           "id": "T1583.002",
@@ -32,7 +32,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "APT28 exploits routers to overwrite DHCP/DNS settings, enabling DNS hijacking and adversary-in-the-middle attacks to harvest credentials. This threat has significant real-world impact, as it allows attackers to intercept sensitive information. To defend against this threat, organizations should prioritize monitoring and securing their network infrastructure, particularly routers and DNS servers.",
+      "ai_summary": "APT28 exploits routers to enable DNS hijacking operations by overwriting DHCP/DNS settings, allowing for adversary-in-the-middle attacks that harvest credentials. This threat has a significant real-world impact as it enables the theft of sensitive information. The most important defender action is to monitor DNS server settings and implement robust security controls to prevent unauthorized changes.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1557| B[Adversary-in-the-Middle]:::tactic\n    B -->|T1583.002| C[DNS Server]:::tactic\n    C -->|T1584.002| D[DNS Server]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-10T01:26:51.344425+00:00",
+      "published": "2026-04-10T04:39:46.621255+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -75,7 +75,7 @@
         }
       ],
       "ai_summary": "The threat is a social engineering attack where a fake website impersonates Avast antivirus, tricking users into downloading Venom Stealer malware. This malware steals sensitive information such as browser credentials and cryptocurrency wallets. The most important defender action is to educate users about the risks of downloading files from untrusted sources and to implement robust antivirus software.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1036| B[Masquerading]:::tactic\n    B -->|T1204| C[User Execution]:::tactic\n    C -->|T1555.003| D[Credentials from Web Browsers]:::tactic\n    D -->|T1539| E[Steal Web Session Cookie]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1036| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1555.003| D[Privilege Escalation]:::tactic\n    D -->|T1539| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -89,7 +89,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-10T01:26:51.344401+00:00",
+      "published": "2026-04-10T04:39:46.621231+00:00",
       "ttps": [
         {
           "id": "T1608",
@@ -106,7 +106,7 @@
       ],
       "ai_summary": "The threat involves a trojanized Python SDK package that triggers a loader to download a second-stage payload, ultimately deploying a credential harvester. This attack compromises systems through a supply chain attack, leveraging the trust in the PyPI repository. Defenders should immediately inspect and validate the integrity of all Python packages, especially those from PyPI, to prevent further compromise.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608| B[Defense Evasion]:::tactic\n    B -->|T1027| C[Execution]:::tactic\n    C -->|T1204| D[Credential Access]:::tactic\n    D -->|T1005| E[Collection]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -119,7 +119,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-10T01:26:51.344372+00:00",
+      "published": "2026-04-10T04:39:46.621202+00:00",
       "ttps": [
         {
           "id": "T1059.002",
@@ -134,8 +134,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The ClickFix malware utilizes the applescript:// URL scheme to launch Script Editor, delivering an Atomic Stealer infostealer payload and bypassing Terminal. This attack abuses AppleScript to execute malicious code, allowing threat actors to steal sensitive information. To defend against this, users should be cautious when clicking on suspicious links and ensure their macOS systems are updated with the latest security patches.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1649| D[Privilege Escalation]:::tactic\n    D -->|T1021| E[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The ClickFix malware utilizes the applescript:// URL scheme to launch Script Editor, delivering an Atomic Stealer infostealer payload and bypassing Terminal. This technique allows the threat actor to execute malicious AppleScript code, potentially leading to sensitive information theft. To defend against this, users should be cautious when interacting with unfamiliar URLs and ensure their systems are configured to restrict the execution of untrusted scripts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.002| B[Execution]:::tactic\n    B -->|T1649| C[Privilege Escalation]:::tactic\n    C -->|T1059.002| D[Command and Control]:::tactic\n    D -->|T1041| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -149,7 +149,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-10T01:26:51.344315+00:00",
+      "published": "2026-04-10T04:39:46.621175+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -173,7 +173,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-10T01:26:51.344294+00:00",
+      "published": "2026-04-10T04:39:46.621153+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -194,7 +194,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The Canis C2 threat is a cross-platform command and control framework exposed through an unauthenticated API, allowing access to payloads, command logs, and source code. This threat has real-world impact as it can be used for phishing and exploiting public-facing applications. The most important defender action is to block and monitor traffic related to the exposed API and associated TTPs.",
+      "ai_summary": "The Canis C2 threat is a cross-platform command and control framework exposed through an unauthenticated API, allowing access to payloads, command logs, and source code. This threat has real-world impact as it can be used for phishing and exploiting public-facing applications. The most important defender action is to monitor for suspicious API activity and implement authentication mechanisms to prevent unauthorized access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1190| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1071| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -209,10 +209,10 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-10T01:26:51.344276+00:00",
+      "published": "2026-04-10T04:39:46.621136+00:00",
       "ttps": [],
-      "ai_summary": "The threat is a malicious campaign targeting French-speaking users with a fake Windows support website to steal sensitive information. The real-world impact is the potential compromise of passwords, payment details, and banking details. The most important defender action is to educate users about the risks of interacting with suspicious websites and to implement robust phishing detection measures.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1189| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1005| D[Persistence]:::tactic\n    D -->|T1531| E[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat is a malicious campaign targeting French-speaking users with a fake Windows support website, aiming to steal sensitive information such as passwords, payment details, and banking details. The real-world impact is potential financial loss and identity theft for affected individuals. The most important defender action is to educate users about the risks of interacting with suspicious websites and to implement robust phishing detection and prevention measures.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1189| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1005| D[Persistence]:::tactic\n    D -->|T1532| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -226,7 +226,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-10T01:26:51.344254+00:00",
+      "published": "2026-04-10T04:39:46.621114+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -235,11 +235,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The Bitter threat actor conducted a sophisticated hack-for-hire campaign targeting journalists, activists, and government officials across the MENA region via spear-phishing attacks on LinkedIn, Apple Messages, WhatsApp, and email. The campaign compromised Apple and Google accounts, highlighting the need for robust account security measures. Defenders should prioritize monitoring for suspicious login activity and implementing multi-factor authentication.",
+      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and government officials. The threat actor employs phishing tactics, specifically T1566, to gain initial access to victim accounts. To defend against this threat, it is crucial to implement robust email and messaging security measures, including user education on identifying and reporting suspicious messages.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 7.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "The long road to your crypto: ClipBanker and its marathon infection chain",
@@ -250,7 +250,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-10T01:26:51.344214+00:00",
+      "published": "2026-04-10T04:39:46.621088+00:00",
       "ttps": [
         {
           "id": "T1572",
@@ -259,11 +259,11 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "ClipBanker uses a proxifier, Proxifier, to tunnel traffic and establish a connection, ultimately leading to a crypto infection. This infection chain is a marathon, with multiple phases, making it challenging to detect. Defenders should focus on identifying and blocking the initial tunneling phase to prevent further infection.",
+      "ai_summary": "ClipBanker is a malware that utilizes a complex infection chain to target cryptocurrency, leveraging specialized software like Proxifier to tunnel traffic and evade detection. The real-world impact of this threat is significant, as it can lead to unauthorized access and financial loss. To defend against this threat, it is essential to implement robust network monitoring and traffic analysis to detect and prevent protocol tunneling.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "severity_score": 7.8,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Stealer Campaign Impacting SLTT macOS Users",
@@ -274,7 +274,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-10T01:26:51.344178+00:00",
+      "published": "2026-04-10T04:39:46.621054+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -301,224 +301,142 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The MacSync Stealer malware is a macOS infostealer distributed through SEO poisoning, fake ClickFix CAPTCHAs, and malicious ChatGPT conversations. It has evolved through three iterations since November 2025, with threat actors using Google-sponsored content to spread the malware. Defenders should prioritize monitoring for suspicious AppleScript payloads and SEO poisoning tactics.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Obtain Capabilities]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Command and Control]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "MacSync Stealer is a macOS infostealer distributed through SEO poisoning and fake CAPTCHAs, with threat actors utilizing AppleScript payloads to steal authentication certificates. The campaign has evolved over three iterations, indicating a high level of adaptability and sophistication. To defend against this threat, users should be cautious of suspicious download sites and ChatGPT conversations, and ensure their macOS systems are up-to-date with the latest security patches.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Persistence]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
-      "title": "CVE-2026-34041: act is a project which allows for local running of github actions. Prior to vers...",
-      "description": "act is a project which allows for local running of github actions. Prior to version 0.2.86, act unconditionally processes the deprecated ::set-env:: and ::add-path:: workflow commands, which was disabled due to environment injection risks. When a workflow step echoes untrusted data to stdout, an attacker can inject these commands to set arbitrary environment variables or modify the PATH for all su",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34041",
-      "cve_id": "CVE-2026-34041",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-10T01:26:45.709996+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-34041 is a critical vulnerability in act, a project allowing local GitHub Actions execution. An attacker can inject environment variables or modify the PATH by echoing untrusted data to stdout. Defenders should update act to version 0.2.86 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1212| C[Remote Services]:::tactic\n    C -->|T1212| D[Execution]:::tactic\n    D -->|T1212| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-34040: Moby is an open source container framework. Prior to version 29.3.1, a security ...",
-      "description": "Moby is an open source container framework. Prior to version 29.3.1, a security vulnerability has been detected that allows attackers to bypass authorization plugins (AuthZ). This issue has been patched in version 29.3.1.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34040",
-      "cve_id": "CVE-2026-34040",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-10T01:26:45.709981+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-34040 is a security vulnerability in Moby's authorization plugin (AuthZ) that allows attackers to bypass authorization. This issue, exploitable via T1190 (Exploit Public-Facing Application), has been patched in version 29.3.1. Defenders should update Moby to the latest version to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-34036: Dolibarr is an enterprise resource planning (ERP) and customer relationship mana...",
-      "description": "Dolibarr is an enterprise resource planning (ERP) and customer relationship management (CRM) software package. In versions 22.0.4 and prior, there is a Local File Inclusion (LFI) vulnerability in the core AJAX endpoint /core/ajax/selectobject.php. By manipulating the objectdesc parameter and exploiting a fail-open logic flaw in the core access control function restrictedArea(), an authenticated us",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34036",
-      "cve_id": "CVE-2026-34036",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-10T01:26:45.709963+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ],
-      "ai_summary": "CVE-2026-34036 is a Local File Inclusion (LFI) vulnerability in Dolibarr ERP/CRM software, allowing authenticated attackers to exploit a fail-open logic flaw and potentially access sensitive data. This vulnerability has a CVSS score of 6.5, indicating a medium severity impact. To defend against this threat, ensure that Dolibarr is updated to version 22.0.4 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33997: Moby is an open source container framework. Prior to version 29.3.1, a security ...",
-      "description": "Moby is an open source container framework. Prior to version 29.3.1, a security vulnerability has been detected that allows plugins privilege validation to be bypassed during docker plugin install. Due to an error in the daemon's privilege comparison logic, the daemon may incorrectly accept a privilege set that differs from the one approved by the user. Plugins that request exactly one privilege a",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33997",
-      "cve_id": "CVE-2026-33997",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.8,
-      "published": "2026-04-10T01:26:45.709941+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-33997 is a privilege validation bypass vulnerability in Moby container framework prior to version 29.3.1, allowing plugins to install with unauthorized privileges. This vulnerability can be exploited by attackers to gain elevated access. Defenders should update Moby to version 29.3.1 or later to mitigate this risk.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-32727: SciTokens is a reference library for generating and using SciTokens. Prior to ve...",
-      "description": "SciTokens is a reference library for generating and using SciTokens. Prior to version 1.9.7, the Enforcer is vulnerable to a path traversal attack where an attacker can use dot-dot (..) in the scope claim of a token to escape the intended directory restriction. This occurs because the library normalizes both the authorized path (from the token) and the requested path (from the application) before ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32727",
-      "cve_id": "CVE-2026-32727",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.1,
-      "published": "2026-04-10T01:26:45.709925+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ],
-      "ai_summary": "The CVE-2026-32727 vulnerability in SciTokens allows an attacker to perform a path traversal attack by exploiting the library's normalization of authorized and requested paths. This can lead to unintended directory access, potentially resulting in data breaches or privilege escalation. Defenders should update SciTokens to version 1.9.7 or later to mitigate this threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1586.002| D[Email Accounts]:::tactic\n    D -->|T1649| E[Steal or Forge Authentication Certificates]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-32716: SciTokens is a reference library for generating and using SciTokens. Prior to ve...",
-      "description": "SciTokens is a reference library for generating and using SciTokens. Prior to version 1.9.6, the Enforcer incorrectly validates scope paths by using a simple prefix match (startswith). This allows a token with access to a specific path (e.g., /john) to also access sibling paths that start with the same prefix (e.g., /johnathan, /johnny), which is an Authorization Bypass. This issue has been patche",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32716",
-      "cve_id": "CVE-2026-32716",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.1,
-      "published": "2026-04-10T01:26:45.709910+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-32714: SciTokens is a reference library for generating and using SciTokens. Prior to ve...",
-      "description": "SciTokens is a reference library for generating and using SciTokens. Prior to version 1.9.6, the KeyCache class in scitokens was vulnerable to SQL Injection because it used Python's str.format() to construct SQL queries with user-supplied data (such as issuer and key_id). This allowed an attacker to execute arbitrary SQL commands against the local SQLite database. This issue has been patched in ve",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32714",
-      "cve_id": "CVE-2026-32714",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-10T01:26:45.709893+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-5176: A security flaw has been discovered in Totolink A3300R 17.0.0cu.557_b20221024. A...",
-      "description": "A security flaw has been discovered in Totolink A3300R 17.0.0cu.557_b20221024. Affected is the function setSyslogCfg of the file /cgi-bin/cstecgi.cgi. Performing a manipulation of the argument provided results in command injection. The attack may be initiated remotely. The exploit has been released to the public and may be used for attacks.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5176",
-      "cve_id": "CVE-2026-5176",
+      "title": "CVE-2026-5182: A vulnerability was found in SourceCodester Teacher Record System 1.0. Impacted ...",
+      "description": "A vulnerability was found in SourceCodester Teacher Record System 1.0. Impacted is an unknown function of the file Teacher Record System of the component Parameter Handler. Performing a manipulation of the argument searchteacher results in sql injection. It is possible to initiate the attack remotely. The exploit has been made public and could be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5182",
+      "cve_id": "CVE-2026-5182",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-10T01:26:45.709876+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "published": "2026-04-10T04:39:43.850229+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-5182 is a SQL injection vulnerability in the SourceCodester Teacher Record System 1.0, allowing remote attackers to exploit the 'searchteacher' argument. This vulnerability can lead to unauthorized data access and manipulation. To defend, prioritize patching and implementing input validation and sanitization for the affected parameter.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1566| C[Initial Access]:::tactic\n    C -->|T1055| D[Unmanaged Resource]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.3,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
-      "title": "CVE-2026-4020: The Gravity SMTP plugin for WordPress is vulnerable to Sensitive Information Exp...",
-      "description": "The Gravity SMTP plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 2.1.4. This is due to a REST API endpoint registered at /wp-json/gravitysmtp/v1/tests/mock-data with a permission_callback that unconditionally returns true, allowing any unauthenticated visitor to access it. When the ?page=gravitysmtp-settings query parameter is appended, th",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4020",
-      "cve_id": "CVE-2026-4020",
+      "title": "CVE-2026-34881: OpenStack Glance before 29.1.1, 30.x before 30.1.1, and 31.0.0 is affected by Se...",
+      "description": "OpenStack Glance before 29.1.1, 30.x before 30.1.1, and 31.0.0 is affected by Server-Side Request Forgery (SSRF). By use of HTTP redirects, an authenticated user can bypass URL validation checks and redirect to internal services. Only glance image import functionality is affected. In particular, the web-download and glance-download import methods are subject to this vulnerability, as is the option",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34881",
+      "cve_id": "CVE-2026-34881",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.0,
+      "published": "2026-04-10T04:39:43.850214+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-34881 is a Server-Side Request Forgery (SSRF) vulnerability in OpenStack Glance, allowing authenticated users to bypass URL validation checks and redirect to internal services. This affects glance image import functionality, specifically web-download and glance-download import methods. Defenders should update to versions 29.1.1, 30.1.1, or 31.0.0 to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-1877: The Auto Post Scheduler plugin for WordPress is vulnerable to Cross-Site Request...",
+      "description": "The Auto Post Scheduler plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 1.84. This is due to missing nonce validation on the 'aps_options_page' function. This makes it possible for unauthenticated attackers to update settings and inject malicious web scripts via a forged request granted they can trick a site administrator into performing an ac",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1877",
+      "cve_id": "CVE-2026-1877",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.1,
+      "published": "2026-04-10T04:39:43.850198+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "The Auto Post Scheduler plugin for WordPress is vulnerable to Cross-Site Request Forgery (CSRF) due to missing nonce validation. Unauthenticated attackers can update settings and inject malicious web scripts via a forged request. Defenders should update the plugin to a non-vulnerable version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-1834: The Ibtana – WordPress Website Builder plugin for WordPress is vulnerable to Sto...",
+      "description": "The Ibtana – WordPress Website Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'ive' shortcode in all versions up to, and including, 1.2.5.7 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1834",
+      "cve_id": "CVE-2026-1834",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.4,
+      "published": "2026-04-10T04:39:43.850177+00:00",
+      "ttps": [
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "CVE-2026-1834 is a Stored Cross-Site Scripting vulnerability in the Ibtana WordPress plugin, allowing authenticated attackers to inject web scripts. This vulnerability affects all versions up to 1.2.5.7. To defend, update the plugin to a patched version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.4,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5181: A vulnerability has been found in SourceCodester Simple Doctors Appointment Syst...",
+      "description": "A vulnerability has been found in SourceCodester Simple Doctors Appointment System up to 1.0. This issue affects some unknown processing of the file /doctors_appointment/admin/ajax.php?action=save_category. Such manipulation of the argument img leads to unrestricted upload. The attack may be performed from remote. The exploit has been disclosed to the public and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5181",
+      "cve_id": "CVE-2026-5181",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-10T04:39:43.850161+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-5181 is a remote file upload vulnerability in SourceCodester Simple Doctors Appointment System, exploitable via public-facing application T1190. This allows attackers to upload arbitrary files, potentially leading to data breaches or system compromise. Defenders should patch the system immediately to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.3,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5180: A flaw has been found in SourceCodester Simple Doctors Appointment System 1.0. T...",
+      "description": "A flaw has been found in SourceCodester Simple Doctors Appointment System 1.0. This vulnerability affects unknown code of the file /admin/ajax.php?action=login2. This manipulation of the argument email causes sql injection. The attack is possible to be carried out remotely. The exploit has been published and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5180",
+      "cve_id": "CVE-2026-5180",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-10T01:26:45.709854+00:00",
+      "cvss_score": 7.3,
+      "published": "2026-04-10T04:39:43.850147+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -534,15 +452,39 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-3300: The Everest Forms Pro plugin for WordPress is vulnerable to Remote Code Executio...",
-      "description": "The Everest Forms Pro plugin for WordPress is vulnerable to Remote Code Execution via PHP Code Injection in all versions up to, and including, 1.9.12. This is due to the Calculation Addon's process_filter() function concatenating user-submitted form field values into a PHP code string without proper escaping before passing it to eval(). The sanitize_text_field() function applied to input does not ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3300",
-      "cve_id": "CVE-2026-3300",
+      "title": "CVE-2026-5179: A vulnerability was detected in SourceCodester Simple Doctors Appointment System...",
+      "description": "A vulnerability was detected in SourceCodester Simple Doctors Appointment System 1.0. This affects an unknown part of the file /admin/login.php. The manipulation of the argument Username results in sql injection. The attack can be executed remotely. The exploit is now public and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5179",
+      "cve_id": "CVE-2026-5179",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-10T01:26:45.709810+00:00",
+      "severity": "high",
+      "cvss_score": 7.3,
+      "published": "2026-04-10T04:39:43.850130+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-4146: The Loco Translate plugin for WordPress is vulnerable to Reflected Cross-Site Sc...",
+      "description": "The Loco Translate plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘update_href’ parameter in all versions up to, and including, 2.8.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4146",
+      "cve_id": "CVE-2026-4146",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.1,
+      "published": "2026-04-10T04:39:43.850114+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -551,22 +493,58 @@
           "tactic_id": "TA0001"
         },
         {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1055",
-          "name": "Process Injection",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
-        },
-        {
           "id": "T1649",
           "name": "Steal or Forge Authentication Certificates",
           "tactic": "Credential Access",
           "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-1797: The Appointment Booking and Scheduler Plugin – Truebooker plugin for WordPress i...",
+      "description": "The Appointment Booking and Scheduler Plugin – Truebooker plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 1.1.4 through views php files. This makes it possible for unauthenticated attackers to view potentially sensitive information contained in the exposed views php files via direct access.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1797",
+      "cve_id": "CVE-2026-1797",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.3,
+      "published": "2026-04-10T04:39:43.850092+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-1710: The WooPayments: Integrated WooCommerce Payments plugin for WordPress is vulnera...",
+      "description": "The WooPayments: Integrated WooCommerce Payments plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the 'save_upe_appearance_ajax' function in all versions up to, and including, 10.5.1. This makes it possible for unauthenticated attackers to update plugin settings.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1710",
+      "cve_id": "CVE-2026-1710",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-10T04:39:43.850049+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
       "ai_summary": "AI analysis pending",

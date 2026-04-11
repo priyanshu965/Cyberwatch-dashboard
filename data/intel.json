@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T16:27:42.104566+00:00",
+  "last_updated": "2026-04-11T17:26:03.855149+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T16:25:54.906429+00:00",
+      "published": "2026-04-11T17:24:10.656109+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -20,7 +20,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and government officials. The threat actor employs phishing tactics, specifically T1566, to gain initial access to victim accounts. To defend against this threat, it is essential to implement robust email and messaging security measures, including education on identifying and reporting suspicious phishing attempts.",
+      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and government officials. The threat actor employs phishing attacks via various platforms, including LinkedIn and WhatsApp. To defend against this threat, organizations should implement robust email and messaging security measures to detect and block phishing attempts.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -33,9 +33,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-11T16:25:54.906405+00:00",
+      "published": "2026-04-11T17:24:10.656080+00:00",
       "ttps": [
         {
           "id": "T1572",
@@ -44,9 +44,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "ClipBanker utilizes a marathon infection chain to target cryptocurrency, leveraging specialized software like Proxifier to tunnel traffic and evade detection. The real-world impact involves potential financial loss due to unauthorized access to crypto assets. The most important defender action is to monitor network traffic for suspicious protocol tunneling activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "ClipBanker utilizes Proxifier to tunnel traffic, enabling malicious programs to bypass security controls. This technique, known as protocol tunneling (T1572), allows attackers to maintain access to compromised systems. To defend against this, organizations should monitor for suspicious proxy activity and restrict the use of proxifiers to only trusted applications.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Command and Control]:::tactic\n    B -->|T1041| C[Execution]:::tactic\n    C -->|T1059.001| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -59,7 +59,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T16:25:54.906380+00:00",
+      "published": "2026-04-11T17:24:10.656054+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -86,11 +86,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "MacSync Stealer is a macOS infostealer distributed through SEO poisoning and fake CAPTCHAs, with threat actors utilizing AppleScript payloads to steal authentication certificates. The campaign has evolved over three iterations, indicating a high level of adaptability and sophistication. To defend against this threat, users should be cautious of suspicious download sites and ChatGPT conversations, and prioritize keeping their macOS systems and software up to date.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Persistence]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The MacSync Stealer malware is a macOS infostealer distributed through SEO poisoning, fake ClickFix CAPTCHAs, and malicious ChatGPT conversations. It has evolved through three iterations since November 2025, using dynamic AppleScript payloads. Defenders should prioritize monitoring for suspicious AppleScript activity and SEO poisoning tactics.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Obtain Capabilities]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Command and Control]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "NPM Package Supply Chain Compromise Leads to RAT Deployment",
@@ -101,7 +101,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T16:25:54.906356+00:00",
+      "published": "2026-04-11T17:24:10.656030+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -116,11 +116,11 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Threat actors compromised the npm account of an Axios developer, publishing malicious versions of the package that downloaded and deployed a remote access trojan (RAT) via postinstall scripts. This supply chain attack leverages T1195 and T1219 tactics. Defenders should immediately update their npm packages and monitor for suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat involves a supply chain compromise of the Axios npm package, where malicious versions were published with a hidden dependency that executes postinstall scripts to download and deploy a remote access trojan. This allows threat actors to gain unauthorized access to affected systems. To defend against this, developers should verify the integrity of npm packages before installation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1219| D[Persistence]:::tactic\n    D -->|T1078| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "In-Memory Loader Drops ScreenConnect",
@@ -131,7 +131,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T16:25:54.906330+00:00",
+      "published": "2026-04-11T17:24:10.656005+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -152,8 +152,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A sophisticated attack chain uses a fake Adobe Acrobat Reader download page to trick victims into installing ScreenConnect, a legitimate remote access tool exploited for malicious purposes. The attackers employ heavy obfuscation, .NET reflection, and dynamic code construction to evade detection. Defenders should prioritize monitoring for suspicious ScreenConnect activity and implementing robust security controls to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A sophisticated attack chain uses a fake Adobe Acrobat Reader download page to trick victims into installing ScreenConnect, a legitimate remote access tool, for malicious purposes. The attackers employ heavy obfuscation, .NET reflection, and dynamic code construction to evade detection. Defenders should prioritize monitoring for suspicious ScreenConnect activity and implementing robust security controls to prevent similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -167,7 +167,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T16:25:54.906304+00:00",
+      "published": "2026-04-11T17:24:10.655978+00:00",
       "ttps": [
         {
           "id": "T1583.008",
@@ -206,8 +206,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning. The actor captures authentication tokens and session cookies through adversary-in-the-middle techniques. Defenders should block malicious ads and monitor for suspicious sign-in activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning. The actor captures authentication tokens and session cookies using adversary-in-the-middle techniques. Defenders should prioritize monitoring for malvertising and SEO poisoning campaigns.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -221,7 +221,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-11T16:25:54.906281+00:00",
+      "published": "2026-04-11T17:24:10.655955+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -251,10 +251,10 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T16:25:54.906257+00:00",
+      "published": "2026-04-11T17:24:10.655931+00:00",
       "ttps": [],
-      "ai_summary": "Attackers exploit FortiGate NGFW vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to gain unauthorized access and control. Defenders should immediately review and rotate service account credentials.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1021| D[Persistence]:::tactic\n    D -->|T1071| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Attackers exploit FortiGate NGFW vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This attack vector leverages stolen service accounts to gain unauthorized access and control. Defenders should prioritize monitoring and securing FortiGate devices and Active Directory.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1021| D[Persistence]:::tactic\n    D -->|T1071| E[Privilege Escalation]:::tactic\n    E -->|T1486| F[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -268,7 +268,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T16:25:54.906206+00:00",
+      "published": "2026-04-11T17:24:10.655904+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -289,7 +289,7 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. The attack tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should monitor for suspicious Deno activity and user execution of unknown commands.",
+      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. The attack tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should monitor for suspicious Deno activity and user execution tactics.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-11T16:25:54.906173+00:00",
+      "published": "2026-04-11T17:24:10.655871+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -319,9 +319,43 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "RondoDox botnet exploits 174 vulnerabilities, primarily targeting IoT devices for DoS attacks. This botnet uses compromised residential IPs and rapidly adopts newly disclosed vulnerabilities. Defenders should prioritize monitoring for IoT device exploitation and network anomalies.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The RondoDox botnet is a significant threat exploiting 174 vulnerabilities since May 2025, primarily targeting IoT devices and internet-exposed services for DoS attacks. Its infrastructure includes exploiting and hosting components, with evidence of compromised residential IPs. Defenders should prioritize monitoring for T1583.005 (Botnet) and T1498 (Network Denial of Service) TTPs.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-20095: A vulnerability in the web-based management interface of Cisco IMC could allow a...",
+      "description": "A vulnerability in the web-based management interface of Cisco IMC could allow an authenticated, remote attacker with admin-level privileges to perform command injection attacks on an affected system and&nbsp;execute arbitrary commands as the root user.\r\n\r\nThis vulnerability is due to improper validation of user-supplied input. An attacker could exploit this vulnerability by sending crafted comman",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20095",
+      "cve_id": "CVE-2026-20095",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-11T17:24:07.896826+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-20095 is a command injection vulnerability in Cisco IMC's web-based management interface, allowing an authenticated attacker to execute arbitrary commands as the root user. This vulnerability is due to improper input validation. Defenders should prioritize patching affected systems to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1068| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-20094: A vulnerability in the web-based management interface of Cisco IMC could allow a...",
+      "description": "A vulnerability in the web-based management interface of Cisco IMC could allow an authenticated, remote attacker with read-only privileges to perform command injection attacks on an affected system and execute arbitrary commands as the root user.\r\n\r\nThis vulnerability is due to improper validation of user-supplied input. An attacker could exploit this vulnerability by sending crafted commands to t",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20094",
+      "cve_id": "CVE-2026-20094",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-11T17:24:07.896812+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-20094 is a command injection vulnerability in Cisco IMC's web-based management interface, allowing an authenticated attacker to execute arbitrary commands as the root user. This vulnerability is due to improper input validation. Defenders should prioritize patching affected systems to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1068| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -334,7 +368,7 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.8,
-      "published": "2026-04-11T16:25:52.430923+00:00",
+      "published": "2026-04-11T17:24:07.896797+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -343,11 +377,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-20093 is a critical vulnerability in Cisco Integrated Management Controller's change password functionality, allowing unauthenticated remote attackers to bypass authentication and gain Admin access. This is due to incorrect handling of password change requests, which can be exploited via crafted HTTP requests. Defenders should immediately patch or mitigate affected devices to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1110| C[Command and Control]:::tactic\n    C -->|T1068| D[Privilege Escalation]:::tactic\n    D -->|T1078| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
+      "ai_summary": "CVE-2026-20093 is a critical vulnerability in Cisco IMC's change password functionality, allowing an unauthenticated attacker to bypass authentication and gain Admin access. This is due to incorrect handling of password change requests, which can be exploited by sending a crafted HTTP request. Defenders should prioritize patching affected devices to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "CVE-2026-20090: A vulnerability in the web-based management interface of Cisco IMC could allow a...",
@@ -358,11 +392,11 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.8,
-      "published": "2026-04-11T16:25:52.430906+00:00",
+      "published": "2026-04-11T17:24:07.896778+00:00",
       "ttps": [],
-      "ai_summary": "A stored XSS vulnerability in Cisco IMC's web-based management interface allows an authenticated attacker to conduct a malicious attack against a user. The vulnerability is due to insufficient validation of user input. Defenders should update Cisco IMC to the latest version to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Cross-Site Scripting]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Application Access]:::tactic\n    D -->|T1071| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.8,
+      "ai_summary": "A stored XSS vulnerability in Cisco IMC's web-based management interface allows an authenticated attacker to conduct a malicious attack against a user. The vulnerability is due to insufficient validation of user input. Defenders should update Cisco IMC to the latest version to mitigate this issue.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Cross-Site Scripting]:::tactic\n    B -->|T1210| C[User Execution]:::tactic\n    C -->|T1204| D[User Interaction]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -375,10 +409,10 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.8,
-      "published": "2026-04-11T16:25:52.430889+00:00",
+      "published": "2026-04-11T17:24:07.896762+00:00",
       "ttps": [],
-      "ai_summary": "A stored XSS vulnerability in Cisco IMC's web-based management interface allows an authenticated attacker to conduct a malicious attack against a user. The vulnerability is due to insufficient validation of user input. To defend, ensure all user input is thoroughly validated and sanitized.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Cross-Site Scripting]:::tactic\n    B -->|T1210| C[User Execution]:::tactic\n    C -->|T1078| D[Valid Accounts]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A stored XSS vulnerability in Cisco IMC's web-based management interface allows an authenticated, remote attacker with admin privileges to conduct a stored XSS attack against a user. This is due to insufficient validation of user input. Defenders should update Cisco IMC to the latest version to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Cross-Site Scripting]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Application Access]:::tactic\n    D -->|T1071| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -392,13 +426,13 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.8,
-      "published": "2026-04-11T16:25:52.430867+00:00",
+      "published": "2026-04-11T17:24:07.896748+00:00",
       "ttps": [],
-      "ai_summary": "A stored XSS vulnerability in Cisco IMC's web-based management interface allows an authenticated attacker to conduct a malicious attack against a user. The vulnerability is due to insufficient validation of user input. Defenders should update Cisco IMC to the latest version to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Cross-Site Scripting]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-20087: A vulnerability in the web-based management interface of Cisco IMC could allow a...",
@@ -409,13 +443,13 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.8,
-      "published": "2026-04-11T16:25:52.430851+00:00",
+      "published": "2026-04-11T17:24:07.896734+00:00",
       "ttps": [],
-      "ai_summary": "A stored XSS vulnerability in Cisco IMC's web-based management interface allows an authenticated attacker to conduct a malicious attack against a user. The vulnerability is due to insufficient validation of user input. Defenders should update Cisco IMC to the latest version to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Cross-Site Scripting]:::tactic\n    B -->|T1210| C[User Execution]:::tactic\n    C -->|T1071| D[Indicator Removal from Tools]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-20085: A vulnerability in the web-based management interface of Cisco IMC could allow a...",
@@ -426,7 +460,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.1,
-      "published": "2026-04-11T16:25:52.430834+00:00",
+      "published": "2026-04-11T17:24:07.896718+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -450,7 +484,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.5,
-      "published": "2026-04-11T16:25:52.430817+00:00",
+      "published": "2026-04-11T17:24:07.896699+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -474,7 +508,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.1,
-      "published": "2026-04-11T16:25:52.430798+00:00",
+      "published": "2026-04-11T17:24:07.896658+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -483,40 +517,6 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2024-43028: A command injection vulnerability in the component /jmreport/show of jeecg boot ...",
-      "description": "A command injection vulnerability in the component /jmreport/show of jeecg boot v3.0.0 to v3.5.3 allows attackers to execute arbitrary code via a crafted HTTP request.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-43028",
-      "cve_id": "CVE-2024-43028",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-11T16:25:52.430775+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2024-40489: There is an injection vulnerability in jeecg boot versions 3.0.0 to 3.5.3 due to...",
-      "description": "There is an injection vulnerability in jeecg boot versions 3.0.0 to 3.5.3 due to lax character filtering, which allows attackers to execute arbitrary code on components through specially crafted HTTP requests.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-40489",
-      "cve_id": "CVE-2024-40489",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-11T16:25:52.430731+00:00",
-      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

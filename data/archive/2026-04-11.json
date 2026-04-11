@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T21:25:55.080442+00:00",
+  "last_updated": "2026-04-11T22:23:55.591867+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T21:24:03.691532+00:00",
+      "published": "2026-04-11T22:22:03.546443+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -20,7 +20,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and activists. The threat actor employs phishing tactics, specifically T1566, to gain initial access to victim accounts. To defend against this threat, users should be cautious of suspicious messages on LinkedIn, Apple Messages, WhatsApp, and email, and verify the authenticity of messages before responding or clicking on links.",
+      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and activists. The threat actor employs phishing tactics, specifically T1566, to gain initial access to victim accounts. To defend against this threat, organizations should implement robust email and messaging security measures, including multi-factor authentication and regular security awareness training.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -33,9 +33,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T21:24:03.691509+00:00",
+      "published": "2026-04-11T22:22:03.546419+00:00",
       "ttps": [
         {
           "id": "T1572",
@@ -44,9 +44,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "ClipBanker utilizes Proxifier to tunnel traffic, evading security controls through protocol tunneling. This technique allows the malware to maintain connectivity in secured environments. To defend against this, organizations should monitor for unusual proxy activity and restrict unnecessary proxy usage.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Command and Control]:::tactic\n    B -->|T1041| C[Execution]:::tactic\n    C -->|T1059.001| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
+      "ai_summary": "ClipBanker is a malware that utilizes a proxifier to tunnel traffic, allowing it to bypass security measures and gain access to sensitive information, including cryptocurrency. The infection chain is complex and involves multiple stages, making it challenging to detect and mitigate. To defend against ClipBanker, it is essential to monitor network traffic for suspicious activity and implement robust security measures, such as firewalls and intrusion detection systems.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -59,7 +59,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T21:24:03.691484+00:00",
+      "published": "2026-04-11T22:22:03.546392+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -86,11 +86,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The MacSync Stealer campaign is a macOS infostealer that operates as Malware-as-a-Service, utilizing tactics such as SEO poisoning and fake CAPTCHAs to distribute malware. This campaign has evolved over time, incorporating new techniques like malicious ChatGPT conversations and shell-based loaders with dynamic AppleScript payloads. To defend against this threat, users should be cautious of suspicious links and conversations, and ensure their systems are updated with the latest security patches.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Persistence]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "The MacSync Stealer malware is a macOS infostealer distributed through SEO poisoning, fake ClickFix CAPTCHAs, and malicious ChatGPT conversations. It has evolved through three iterations since November 2025, using dynamic AppleScript payloads. Defenders should prioritize monitoring for suspicious AppleScript activity and SEO poisoning tactics.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Obtain Capabilities]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Command and Control]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "NPM Package Supply Chain Compromise Leads to RAT Deployment",
@@ -101,7 +101,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T21:24:03.691460+00:00",
+      "published": "2026-04-11T22:22:03.546369+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -116,9 +116,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Threat actors compromised the npm account of an Axios developer, publishing malicious versions of the package that executed postinstall scripts and deployed a remote access trojan. This supply chain attack allows attackers to gain unauthorized access to affected systems. Defenders should immediately update their Axios packages and monitor for suspicious activity.",
+      "ai_summary": "Threat actors compromised the npm account of an Axios developer, publishing malicious versions of the package that executed postinstall scripts and deployed a remote access trojan. This supply chain attack demonstrates the risk of compromised dependencies in software development. Defenders should prioritize monitoring and validating dependencies in their software supply chain.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -131,7 +131,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T21:24:03.691433+00:00",
+      "published": "2026-04-11T22:22:03.546343+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -153,7 +153,7 @@
         }
       ],
       "ai_summary": "A sophisticated attack chain uses a fake Adobe Acrobat Reader download page to trick victims into installing ScreenConnect, a legitimate remote access tool exploited for malicious purposes. The attack employs heavy obfuscation, .NET reflection, and dynamic code construction to evade detection. Defenders should prioritize monitoring for suspicious ScreenConnect activity and implementing robust security controls to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -167,7 +167,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T21:24:03.691408+00:00",
+      "published": "2026-04-11T22:22:03.546316+00:00",
       "ttps": [
         {
           "id": "T1583.008",
@@ -206,8 +206,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning. The actor captures authentication tokens and session cookies through adversary-in-the-middle techniques. Defenders should block malicious sign-in pages and monitor for suspicious user activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning, capturing authentication tokens and session cookies through adversary-in-the-middle techniques. This campaign targets users searching for generic terms like 'Office 365'. Defenders should prioritize monitoring for malvertising and SEO poisoning tactics.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -219,9 +219,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T21:24:03.691386+00:00",
+      "published": "2026-04-11T22:22:03.546294+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -236,11 +236,11 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "KadNap malware targets Asus routers, turning them into a 14,000-node botnet for proxying malicious traffic. The malware uses a custom Kademlia protocol to evade network monitoring. Defenders should immediately update Asus router firmware to prevent further infections.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Application Layer Protocol]:::tactic\n    B -->|T1583.005| C[Botnet]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "ai_summary": "KadNap malware targets Asus routers, exploiting them to form a botnet for proxying malicious traffic. It utilizes a custom Kademlia Distributed Hash Table protocol to hide its command-and-control infrastructure within a peer-to-peer system. To defend, network administrators should implement robust router security measures, including regular firmware updates and monitoring for unusual traffic patterns.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1071| D[Persistence]:::tactic\n    D -->|T1583.005| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Stolen Service Accounts Lead to Rogue Workstations and Deep AD Compromise",
@@ -251,11 +251,11 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T21:24:03.691362+00:00",
+      "published": "2026-04-11T22:22:03.546269+00:00",
       "ttps": [],
-      "ai_summary": "Attackers exploit FortiGate NGFW vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to establish a foothold in targeted environments. Defenders should prioritize securing FortiGate devices and monitoring Active Directory for suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1552| D[Steal or Capture Credentials]:::tactic\n    D -->|T1053| E[Unsecured Credentials]:::tactic\n    E -->|T1068| F[Active Directory]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Attackers exploit FortiGate vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to gain unauthorized access and control. Defender action: Implement robust credential management and monitoring to detect and prevent similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1552| C[Steal or Capture Credentials]:::tactic\n    C -->|T1053| D[Unsecured Credentials]:::tactic\n    D -->|T1068| E[Active Directory]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -268,7 +268,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T21:24:03.691316+00:00",
+      "published": "2026-04-11T22:22:03.546241+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -289,7 +289,7 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. The attack tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should monitor for suspicious Deno activity and block user execution of unknown commands.",
+      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. The attack tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should monitor for suspicious Deno activity and user execution of unknown commands.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-11T21:24:03.691283+00:00",
+      "published": "2026-04-11T22:22:03.546206+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -319,154 +319,139 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The RondoDox botnet exploits 174 vulnerabilities to conduct DoS attacks on IoT devices and internet-exposed services. This botnet uses compromised residential IPs and rapidly adopts newly disclosed vulnerabilities. Defenders should prioritize monitoring for T1583.005 and T1498 TTPs.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The RondoDox botnet is a significant threat exploiting 174 vulnerabilities since May 2025, primarily targeting IoT devices for DoS attacks. Its infrastructure includes exploiting and hosting components, with evidence of compromised residential IPs. Defenders should prioritize monitoring for T1583.005 and T1498 TTPs.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-34568: CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, mo...",
-      "description": "CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, modular architecture with RBAC authorization and theme support. Prior to version 0.31.0.0, the application fails to properly sanitize user-controlled input when creating or editing blog posts. An attacker can inject a malicious JavaScript payload into blog post content, which is then stored server-side. This stored paylo",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34568",
-      "cve_id": "CVE-2026-34568",
+      "title": "CVE-2026-32927: V-SFT versions 6.2.10.0 and prior contain an out-of-bounds read vulnerability in...",
+      "description": "V-SFT versions 6.2.10.0 and prior contain an out-of-bounds read vulnerability in VS6MemInIF!set_temp_type_default. Opening a crafted V7 file may lead to information disclosure from the affected product.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32927",
+      "cve_id": "CVE-2026-32927",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-11T21:24:00.717839+00:00",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-11T22:22:00.653478+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-32927 is an out-of-bounds read vulnerability in V-SFT versions 6.2.10.0 and prior, potentially leading to information disclosure. Exploitation occurs when opening a crafted V7 file. Defenders should update to a patched version to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-32926: V-SFT versions 6.2.10.0 and prior contain an out-of-bounds read vulnerability in...",
+      "description": "V-SFT versions 6.2.10.0 and prior contain an out-of-bounds read vulnerability in VS6ComFile!load_link_inf. Opening a crafted V7 file may lead to information disclosure from the affected product.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32926",
+      "cve_id": "CVE-2026-32926",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-11T22:22:00.653462+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-32926 is an out-of-bounds read vulnerability in V-SFT versions 6.2.10.0 and prior, potentially leading to information disclosure. This vulnerability can be exploited by opening a crafted V7 file. Defenders should update to V-SFT version 6.2.10.1 or later to mitigate this issue.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-32925: V-SFT versions 6.2.10.0 and prior contain a stack-based buffer overflow in VS6Co...",
+      "description": "V-SFT versions 6.2.10.0 and prior contain a stack-based buffer overflow in VS6ComFile!CV7BaseMap::WriteV7DataToRom. Opening a crafted V7 file may lead to arbitrary code execution on the affected product.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32925",
+      "cve_id": "CVE-2026-32925",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-11T22:22:00.653446+00:00",
       "ttps": [
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         },
         {
-          "id": "T1059.007",
-          "name": "JavaScript",
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
           "tactic": "Execution",
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "CVE-2026-34568 is a critical vulnerability in CI4MS, a CodeIgniter 4-based CMS, allowing attackers to inject malicious JavaScript payloads via unsanitized user input. This can lead to arbitrary code execution and potentially severe consequences. Defenders should immediately update CI4MS to version 0.31.0.0 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.007| C[JavaScript]:::tactic\n    C -->|T1059.007| D[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
+      "ai_summary": "CVE-2026-32925 is a stack-based buffer overflow in V-SFT versions 6.2.10.0 and prior, allowing arbitrary code execution via crafted V7 files. This vulnerability has a CVSS score of 7.8, indicating a high severity. Defenders should prioritize patching affected systems to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-34567: CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, mo...",
-      "description": "CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, modular architecture with RBAC authorization and theme support. Prior to version 0.31.0.0, the application fails to properly sanitize user-controlled input when creating or editing blog posts within the Categories section. An attacker can inject a malicious JavaScript payload into the Categories content, which is then st",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34567",
-      "cve_id": "CVE-2026-34567",
+      "title": "CVE-2025-66487: IBM Aspera Shares 1.9.9 through 1.11.0 does not properly rate limit the frequenc...",
+      "description": "IBM Aspera Shares 1.9.9 through 1.11.0 does not properly rate limit the frequency that an authenticated user can send emails, which could result in email flooding or a denial of service.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66487",
+      "cve_id": "CVE-2025-66487",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-11T21:24:00.717823+00:00",
+      "severity": "low",
+      "cvss_score": 2.7,
+      "published": "2026-04-11T22:22:00.653431+00:00",
       "ttps": [
         {
-          "id": "T1059.007",
-          "name": "JavaScript",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
+          "id": "T1498",
+          "name": "Network Denial of Service",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "CVE-2026-34567 is a critical vulnerability in CI4MS, a CodeIgniter 4-based CMS, allowing attackers to inject malicious JavaScript payloads via unsanitized user input. This can lead to arbitrary code execution and potentially severe consequences. Defenders should update CI4MS to version 0.31.0.0 or later to mitigate this threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.007| B[Command and Control]:::tactic\n    B -->|T1059.007| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
+      "ai_summary": "CVE-2025-66487 is a vulnerability in IBM Aspera Shares that allows an authenticated user to send emails at an excessive frequency, potentially causing email flooding or denial of service. This is a network denial of service (NDoS) attack, which can disrupt service availability. Defenders should prioritize monitoring for excessive email traffic and implementing rate limiting to prevent abuse.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1498| B[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 2.7,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-34566: CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, mo...",
-      "description": "CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, modular architecture with RBAC authorization and theme support. Prior to version 0.31.0.0, the application fails to properly sanitize user-controlled input within the Page Management functionality when creating or editing pages. Multiple input fields accept attacker-controlled JavaScript payloads that are stored server-s",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34566",
-      "cve_id": "CVE-2026-34566",
+      "title": "CVE-2025-66486: IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to HTML injection. A remote...",
+      "description": "IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to HTML injection. A remote attacker could inject malicious HTML code, which when viewed, would be executed in the victim's Web browser within the security context of the hosting site.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66486",
+      "cve_id": "CVE-2025-66486",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-11T21:24:00.717806+00:00",
-      "ttps": [
-        {
-          "id": "T1059.007",
-          "name": "JavaScript",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "CVE-2026-34566 is a critical vulnerability in CI4MS, a CodeIgniter 4-based CMS, allowing attackers to inject JavaScript payloads via un sanitized user input. This enables arbitrary code execution, posing a significant risk to affected systems. Defenders should immediately update CI4MS to version 0.31.0.0 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.007| B[Command and Control]:::tactic\n    B -->|T1059.007| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
+      "severity": "medium",
+      "cvss_score": 4.8,
+      "published": "2026-04-11T22:22:00.653415+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2025-66486 is a remote HTML injection vulnerability in IBM Aspera Shares 1.9.9 through 1.11.0, allowing attackers to inject malicious code executed in the victim's browser. This vulnerability has a CVSS score of 4.8, indicating a medium severity threat. Defenders should update IBM Aspera Shares to a patched version to mitigate this risk.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-34565: CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, mo...",
-      "description": "CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, modular architecture with RBAC authorization and theme support. Prior to version 0.31.0.0, the application fails to properly sanitize user-controlled input when adding Posts to navigation menus through the Menu Management functionality. Post-related data selected via the Posts section is stored server-side and rendered w",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34565",
-      "cve_id": "CVE-2026-34565",
+      "title": "CVE-2025-66485: IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to HTTP header injection, c...",
+      "description": "IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to HTTP header injection, caused by improper validation of input by the HOST headers.  This could allow an attacker to conduct various attacks against the vulnerable system, including cross-site scripting, cache poisoning or session hijacking.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66485",
+      "cve_id": "CVE-2025-66485",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-11T21:24:00.717785+00:00",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-11T22:22:00.653400+00:00",
       "ttps": [
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-34565 is a critical vulnerability in CI4MS, a CodeIgniter 4-based CMS, allowing attackers to exploit public-facing applications via T1190. This flaw enables unauthorized access to sensitive data and functionality. Defenders should immediately update CI4MS to version 0.31.0.0 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-34564: CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, mo...",
-      "description": "CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, modular architecture with RBAC authorization and theme support. Prior to version 0.31.0.0, the application fails to properly sanitize user-controlled input when adding Pages to navigation menus through the Menu Management functionality. Page-related data selected via the Pages section is stored server-side and rendered w",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34564",
-      "cve_id": "CVE-2026-34564",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-11T21:24:00.717770+00:00",
-      "ttps": [
+          "id": "T1539",
+          "name": "Steal Web Session Cookie",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        },
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "CVE-2026-34564 is a critical vulnerability in CI4MS, a CodeIgniter 4-based CMS, allowing attackers to exploit public-facing applications via T1190. This flaw enables attackers to inject malicious input, leading to potential RCE. Defenders should update CI4MS to version 0.31.0.0 or later to mitigate this threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-34563: CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, mo...",
-      "description": "CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, modular architecture with RBAC authorization and theme support. Prior to version 0.31.0.0, the application fails to properly sanitize user-controlled input when handling backup uploads and processing backup metadata. An attacker can inject a malicious JavaScript payload into the backup filename via the uploaded xss.sql, ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34563",
-      "cve_id": "CVE-2026-34563",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-11T21:24:00.717754+00:00",
-      "ttps": [
-        {
-          "id": "T1059.007",
-          "name": "JavaScript",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
+          "id": "T1563",
+          "name": "Remote Service Session Hijacking",
+          "tactic": "Lateral Movement",
+          "tactic_id": "TA0008"
         }
       ],
       "ai_summary": "AI analysis pending",
@@ -476,39 +461,15 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-34562: CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, mo...",
-      "description": "CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, modular architecture with RBAC authorization and theme support. Prior to version 0.31.0.0, the application fails to properly sanitize user-controlled input within System Settings – Company Information. Several administrative configuration fields accept attacker-controlled input that is stored server-side and later render",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34562",
-      "cve_id": "CVE-2026-34562",
+      "title": "CVE-2025-66484: IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to stored cross-site script...",
+      "description": "IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to stored cross-site scripting. This vulnerability allows users to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66484",
+      "cve_id": "CVE-2025-66484",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 4.7,
-      "published": "2026-04-11T21:24:00.717738+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-34561: CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, mo...",
-      "description": "CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, modular architecture with RBAC authorization and theme support. Prior to version 0.31.0.0, the application fails to properly sanitize user-controlled input within System Settings – Social Media Management. Multiple configuration fields, including Social Media and Social Media Link, accept attacker-controlled input that i",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34561",
-      "cve_id": "CVE-2026-34561",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.7,
-      "published": "2026-04-11T21:24:00.717720+00:00",
+      "cvss_score": 5.5,
+      "published": "2026-04-11T22:22:00.653380+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -517,23 +478,16 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-34560: CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, mo...",
-      "description": "CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, modular architecture with RBAC authorization and theme support. Prior to version 0.31.0.0, the application renders user-controlled input unsafely within the logs interface. If any stored XSS payload exists within logged data, it is rendered without proper output encoding. This issue becomes a Blind XSS scenario because t",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34560",
-      "cve_id": "CVE-2026-34560",
+      "title": "CVE-2025-66483: IBM Aspera Shares 1.9.9 through 1.11.0 does not invalidate session after a passw...",
+      "description": "IBM Aspera Shares 1.9.9 through 1.11.0 does not invalidate session after a password reset which could allow an authenticated user to impersonate another user on the system.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66483",
+      "cve_id": "CVE-2025-66483",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-11T21:24:00.717697+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        }
-      ],
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-11T22:22:00.653364+00:00",
+      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -541,29 +495,33 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-34559: CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, mo...",
-      "description": "CI4MS is a CodeIgniter 4-based CMS skeleton that delivers a production-ready, modular architecture with RBAC authorization and theme support. Prior to version 0.31.0.0, the application fails to properly sanitize user-controlled input when creating or editing blog tags. An attacker can inject a malicious JavaScript payload into the tag name field, which is then stored server-side. This stored paylo",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34559",
-      "cve_id": "CVE-2026-34559",
+      "title": "CVE-2025-36375: IBM DataPower Gateway 10.6CD 10.6.1.0 through 10.6.5.0 and IBM DataPower Gateway...",
+      "description": "IBM DataPower Gateway 10.6CD 10.6.1.0 through 10.6.5.0 and IBM DataPower Gateway 10.5.0 10.5.0.0 through 10.5.0.20 and IBM DataPower Gateway 10.6.0 10.6.0.0 through 10.6.0.8 IBM DataPower Gateway is vulnerable to cross-site request forgery which could allow an attacker to execute malicious and unauthorized actions transmitted from a user that the website trusts.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-36375",
+      "cve_id": "CVE-2025-36375",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-11T21:24:00.717655+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059.007",
-          "name": "JavaScript",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-11T22:22:00.653343+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2025-0711: Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering...",
+      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0711",
+      "cve_id": "CVE-2025-0711",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-11T22:22:00.653300+00:00",
+      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

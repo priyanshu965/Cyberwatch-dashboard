@@ -1,532 +1,197 @@
 {
-  "last_updated": "2026-04-11T22:23:55.591867+00:00",
-  "total_items": 75,
+  "last_updated": "2026-04-11T23:26:50.929683+00:00",
+  "total_items": 60,
   "items": [
     {
-      "title": "Hack-for-Hire Campaign Targets Journalists Across MENA Region",
-      "description": "A hack-for-hire operation with suspected links to the Bitter threat actor targeted journalists, activists, and government officials across the Middle East and North Africa between 2023 and 2025. The campaign employed sophisticated spear-phishing attacks via LinkedIn, Apple Messages, WhatsApp, and email to compromise Apple and Google accounts. Victims included Egyptian journalists Mostafa Al-A'sar ",
-      "url": "https://otx.alienvault.com/pulse/69d7e4115268dc2f9177cba2",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:03.546443+00:00",
-      "ttps": [
-        {
-          "id": "T1566",
-          "name": "Phishing",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and activists. The threat actor employs phishing tactics, specifically T1566, to gain initial access to victim accounts. To defend against this threat, organizations should implement robust email and messaging security measures, including multi-factor authentication and regular security awareness training.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "The long road to your crypto: ClipBanker and its marathon infection chain",
-      "description": "Proxifiers are speciaized software designed to tunnel traffic for programs that do not natively support proxy servers. They are a go-to for making sure these apps are functional within secured development environments. By coincidence, Proxifier is also a name for a proprietary proxifier developed by VentoByte, which is distributed under a paid license. If you search for Proxifier (or a proxifier),",
-      "url": "https://otx.alienvault.com/pulse/69d77818426ba84dc9eb0371",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:03.546419+00:00",
-      "ttps": [
-        {
-          "id": "T1572",
-          "name": "Protocol Tunneling",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "ClipBanker is a malware that utilizes a proxifier to tunnel traffic, allowing it to bypass security measures and gain access to sensitive information, including cryptocurrency. The infection chain is complex and involves multiple stages, making it challenging to detect and mitigate. To defend against ClipBanker, it is essential to monitor network traffic for suspicious activity and implement robust security measures, such as firewalls and intrusion detection systems.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "Stealer Campaign Impacting SLTT macOS Users",
-      "description": "MacSync Stealer is a macOS infostealer operating as Malware-as-a-Service (MaaS), distributed through SEO poisoning and fake ClickFix CAPTCHAs. The campaign has evolved through three iterations since November 2025, shifting from fake download sites to malicious ChatGPT conversations and finally to sophisticated shell-based loaders with dynamic AppleScript payloads. Threat actors use Google-sponsore",
-      "url": "https://otx.alienvault.com/pulse/69d7ed2e323d7edb856fa161",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:03.546392+00:00",
-      "ttps": [
-        {
-          "id": "T1588",
-          "name": "Obtain Capabilities",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1608.006",
-          "name": "SEO Poisoning",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1059.002",
-          "name": "AppleScript",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ],
-      "ai_summary": "The MacSync Stealer malware is a macOS infostealer distributed through SEO poisoning, fake ClickFix CAPTCHAs, and malicious ChatGPT conversations. It has evolved through three iterations since November 2025, using dynamic AppleScript payloads. Defenders should prioritize monitoring for suspicious AppleScript activity and SEO poisoning tactics.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Obtain Capabilities]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Command and Control]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "NPM Package Supply Chain Compromise Leads to RAT Deployment",
-      "description": "A supply chain attack targeting the Axios npm package has been identified after threat actors compromised the npm account of the company's lead developer. Malicious versions (axios@1.14.1 and axios@0.30.4) were published containing a hidden dependency that executed postinstall scripts during npm installation. This automated execution downloaded and deployed a remote access trojan on affected syste",
-      "url": "https://otx.alienvault.com/pulse/69d8b0c258b4fef5541358bb",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:03.546369+00:00",
-      "ttps": [
-        {
-          "id": "T1195",
-          "name": "Supply Chain Compromise",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "Threat actors compromised the npm account of an Axios developer, publishing malicious versions of the package that executed postinstall scripts and deployed a remote access trojan. This supply chain attack demonstrates the risk of compromised dependencies in software development. Defenders should prioritize monitoring and validating dependencies in their software supply chain.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "In-Memory Loader Drops ScreenConnect",
-      "description": "In February 2026, an attack chain was discovered that utilized a fraudulent Adobe Acrobat Reader download page to deceive victims into installing ConnectWise's ScreenConnect, a legitimate remote access tool exploited for malicious purposes. The attack employs sophisticated evasion techniques including heavy obfuscation, .NET reflection for in-memory payload execution, and dynamic code construction",
-      "url": "https://otx.alienvault.com/pulse/69d8b1848ae30fd4dab9095d",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:03.546343+00:00",
-      "ttps": [
-        {
-          "id": "T1027",
-          "name": "Obfuscated Files or Information",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        },
-        {
-          "id": "T1562",
-          "name": "Impair Defenses",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "A sophisticated attack chain uses a fake Adobe Acrobat Reader download page to trick victims into installing ScreenConnect, a legitimate remote access tool exploited for malicious purposes. The attack employs heavy obfuscation, .NET reflection, and dynamic code construction to evade detection. Defenders should prioritize monitoring for suspicious ScreenConnect activity and implementing robust security controls to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "Payroll pirate attacks targeting Canadian employees",
-      "description": "Microsoft Incident Response researchers identified Storm-2755, a financially motivated threat actor conducting payroll pirate attacks against Canadian users. The campaign uses malvertising and SEO poisoning on generic search terms like \"Office 365\" to lure victims to a fraudulent sign-in page. Through adversary-in-the-middle techniques, the actor captures authentication tokens and session cookies,",
-      "url": "https://otx.alienvault.com/pulse/69d80c2c976a9ec209e19217",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:03.546316+00:00",
-      "ttps": [
-        {
-          "id": "T1583.008",
-          "name": "Malvertising",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1608.006",
-          "name": "SEO Poisoning",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1189",
-          "name": "Drive-by Compromise",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1539",
-          "name": "Steal Web Session Cookie",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1557",
-          "name": "Adversary-in-the-Middle",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ],
-      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning, capturing authentication tokens and session cookies through adversary-in-the-middle techniques. This campaign targets users searching for generic terms like 'Office 365'. Defenders should prioritize monitoring for malvertising and SEO poisoning tactics.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "KadNap Malware Turning Asus Routers Into Botnets",
-      "description": "A sophisticated new malware called KadNap has been discovered targeting Asus routers and conscripting them into a botnet for proxying malicious traffic. The malware employs a custom version of the Kademlia Distributed Hash Table protocol to conceal its command-and-control infrastructure within a peer-to-peer system, evading traditional network monitoring. The botnet, which has grown to over 14,000",
-      "url": "https://otx.alienvault.com/pulse/69b13da0db907023c1bfc480",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:03.546294+00:00",
-      "ttps": [
-        {
-          "id": "T1583.005",
-          "name": "Botnet",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1071",
-          "name": "Application Layer Protocol",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "KadNap malware targets Asus routers, exploiting them to form a botnet for proxying malicious traffic. It utilizes a custom Kademlia Distributed Hash Table protocol to hide its command-and-control infrastructure within a peer-to-peer system. To defend, network administrators should implement robust router security measures, including regular firmware updates and monitoring for unusual traffic patterns.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1071| D[Persistence]:::tactic\n    D -->|T1583.005| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "Stolen Service Accounts Lead to Rogue Workstations and Deep AD Compromise",
-      "description": "SentinelOne's DFIR team has responded to multiple incidents involving compromised FortiGate NGFW appliances used to establish footholds in targeted environments. Attackers exploited vulnerabilities or weak credentials to access FortiGate devices, extract configuration files containing service account credentials, and use those to join rogue workstations to Active Directory. In one case, the attack",
-      "url": "https://otx.alienvault.com/pulse/69b14da61bf814f470228146",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:03.546269+00:00",
-      "ttps": [],
-      "ai_summary": "Attackers exploit FortiGate vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to gain unauthorized access and control. Defender action: Implement robust credential management and monitoring to detect and prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1552| C[Steal or Capture Credentials]:::tactic\n    C -->|T1053| D[Unsecured Credentials]:::tactic\n    D -->|T1068| E[Active Directory]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CastleRAT attack first to abuse Deno JavaScript runtime to evade enterprise security",
-      "description": "A sophisticated infection chain has been discovered that installs CastleRAT malware without leaving traces on disk. The attack uniquely abuses the Deno runtime as a malicious framework, combining social engineering, steganography, and in-memory execution to evade detection. The process involves tricking users into executing a command, installing Deno, running obfuscated JavaScript, and decoding a ",
-      "url": "https://otx.alienvault.com/pulse/69b14da6cb1bf921c7ac6d22",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:03.546241+00:00",
-      "ttps": [
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1027",
-          "name": "Obfuscated Files or Information",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        },
-        {
-          "id": "T1562",
-          "name": "Impair Defenses",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        }
-      ],
-      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. The attack tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should monitor for suspicious Deno activity and user execution of unknown commands.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "RondoDox Botnet: From Zero to 174 Exploited Vulnerabilities",
-      "description": "The RondoDox botnet has emerged as a significant threat, exploiting 174 different vulnerabilities since May 2025. It primarily targets IoT devices and internet-exposed services for DoS attacks. The botnet's infrastructure includes exploiting and hosting components, with evidence suggesting the use of compromised residential IPs. RondoDox's operators have shown a rapid adoption of newly disclosed v",
-      "url": "https://otx.alienvault.com/pulse/69b18f0dc8f031c3594cfcc9",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:03.546206+00:00",
-      "ttps": [
-        {
-          "id": "T1583.005",
-          "name": "Botnet",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "The RondoDox botnet is a significant threat exploiting 174 vulnerabilities since May 2025, primarily targeting IoT devices for DoS attacks. Its infrastructure includes exploiting and hosting components, with evidence of compromised residential IPs. Defenders should prioritize monitoring for T1583.005 and T1498 TTPs.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-32927: V-SFT versions 6.2.10.0 and prior contain an out-of-bounds read vulnerability in...",
-      "description": "V-SFT versions 6.2.10.0 and prior contain an out-of-bounds read vulnerability in VS6MemInIF!set_temp_type_default. Opening a crafted V7 file may lead to information disclosure from the affected product.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32927",
-      "cve_id": "CVE-2026-32927",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-11T22:22:00.653478+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-32927 is an out-of-bounds read vulnerability in V-SFT versions 6.2.10.0 and prior, potentially leading to information disclosure. Exploitation occurs when opening a crafted V7 file. Defenders should update to a patched version to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-32926: V-SFT versions 6.2.10.0 and prior contain an out-of-bounds read vulnerability in...",
-      "description": "V-SFT versions 6.2.10.0 and prior contain an out-of-bounds read vulnerability in VS6ComFile!load_link_inf. Opening a crafted V7 file may lead to information disclosure from the affected product.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32926",
-      "cve_id": "CVE-2026-32926",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-11T22:22:00.653462+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-32926 is an out-of-bounds read vulnerability in V-SFT versions 6.2.10.0 and prior, potentially leading to information disclosure. This vulnerability can be exploited by opening a crafted V7 file. Defenders should update to V-SFT version 6.2.10.1 or later to mitigate this issue.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-32925: V-SFT versions 6.2.10.0 and prior contain a stack-based buffer overflow in VS6Co...",
-      "description": "V-SFT versions 6.2.10.0 and prior contain a stack-based buffer overflow in VS6ComFile!CV7BaseMap::WriteV7DataToRom. Opening a crafted V7 file may lead to arbitrary code execution on the affected product.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32925",
-      "cve_id": "CVE-2026-32925",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-11T22:22:00.653446+00:00",
-      "ttps": [
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "CVE-2026-32925 is a stack-based buffer overflow in V-SFT versions 6.2.10.0 and prior, allowing arbitrary code execution via crafted V7 files. This vulnerability has a CVSS score of 7.8, indicating a high severity. Defenders should prioritize patching affected systems to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2025-66487: IBM Aspera Shares 1.9.9 through 1.11.0 does not properly rate limit the frequenc...",
-      "description": "IBM Aspera Shares 1.9.9 through 1.11.0 does not properly rate limit the frequency that an authenticated user can send emails, which could result in email flooding or a denial of service.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66487",
-      "cve_id": "CVE-2025-66487",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": 2.7,
-      "published": "2026-04-11T22:22:00.653431+00:00",
-      "ttps": [
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "CVE-2025-66487 is a vulnerability in IBM Aspera Shares that allows an authenticated user to send emails at an excessive frequency, potentially causing email flooding or denial of service. This is a network denial of service (NDoS) attack, which can disrupt service availability. Defenders should prioritize monitoring for excessive email traffic and implementing rate limiting to prevent abuse.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1498| B[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 2.7,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2025-66486: IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to HTML injection. A remote...",
-      "description": "IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to HTML injection. A remote attacker could inject malicious HTML code, which when viewed, would be executed in the victim's Web browser within the security context of the hosting site.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66486",
-      "cve_id": "CVE-2025-66486",
+      "title": "CVE-2026-5321: A flaw has been found in vanna-ai vanna up to 2.0.2. Affected by this issue is s...",
+      "description": "A flaw has been found in vanna-ai vanna up to 2.0.2. Affected by this issue is some unknown functionality of the component FastAPI/Flask Server. Executing a manipulation can lead to permissive cross-domain policy with untrusted domains. The attack can be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in an",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5321",
+      "cve_id": "CVE-2026-5321",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 4.8,
-      "published": "2026-04-11T22:22:00.653415+00:00",
+      "cvss_score": 4.3,
+      "published": "2026-04-11T23:24:32.374719+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2025-66486 is a remote HTML injection vulnerability in IBM Aspera Shares 1.9.9 through 1.11.0, allowing attackers to inject malicious code executed in the victim's browser. This vulnerability has a CVSS score of 4.8, indicating a medium severity threat. Defenders should update IBM Aspera Shares to a patched version to mitigate this risk.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-5321 is a flaw in vanna-ai vanna up to 2.0.2 that allows for permissive cross-domain policy with untrusted domains through remote manipulation. This can lead to unauthorized access to sensitive data. To defend against this, ensure proper input validation and implement a robust cross-domain policy.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1061| D[Discovery]:::tactic\n    D -->|T1531| E[Account Manipulation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.3,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-5320: A vulnerability was detected in vanna-ai vanna up to 2.0.2. Affected by this vul...",
+      "description": "A vulnerability was detected in vanna-ai vanna up to 2.0.2. Affected by this vulnerability is an unknown functionality of the file /api/vanna/v2/ of the component Chat API Endpoint. Performing a manipulation results in missing authentication. The attack can be initiated remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5320",
+      "cve_id": "CVE-2026-5320",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.3,
+      "published": "2026-04-11T23:24:32.374703+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-5320 is a vulnerability in vanna-ai vanna up to 2.0.2, allowing remote attackers to exploit missing authentication in the Chat API Endpoint. This can lead to unauthorized access to sensitive data. The most important defender action is to update vanna-ai to a version beyond 2.0.2 or apply mitigations to secure the affected API endpoint.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation for Client Execution]:::tactic\n    B -->|T1550| C[Initial Access]:::tactic\n    C -->|T1078| D[Valid Accounts]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.3,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-5319: A security vulnerability has been detected in itsourcecode Payroll Management Sy...",
+      "description": "A security vulnerability has been detected in itsourcecode Payroll Management System up to 1.0. Affected is an unknown function of the file /navbar.php. Such manipulation of the argument page leads to cross site scripting. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5319",
+      "cve_id": "CVE-2026-5319",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-11T23:24:32.374684+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-5319 is a cross-site scripting vulnerability in the itsourcecode Payroll Management System, allowing remote attackers to manipulate the 'page' argument in the /navbar.php file. This vulnerability has a CVSS score of 4.3 and can be exploited publicly. To defend against this threat, prioritize patching the affected system to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-5318: A weakness has been identified in LibRaw up to 0.22.0. This impacts the function...",
+      "description": "A weakness has been identified in LibRaw up to 0.22.0. This impacts the function HuffTable::initval of the file src/decompressors/losslessjpeg.cpp of the component JPEG DHT Parser. This manipulation of the argument bits[] causes out-of-bounds write. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5318",
+      "cve_id": "CVE-2026-5318",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-11T23:24:32.374641+00:00",
+      "ttps": [
+        {
+          "id": "T1140",
+          "name": "Deobfuscate/Decode Files",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        }
+      ],
+      "ai_summary": "CVE-2026-5318 is a weakness in LibRaw up to 0.22.0, allowing remote out-of-bounds write via the HuffTable::initval function. This vulnerability has been made public and can be exploited for attacks. Defenders should upgrade to a patched version of LibRaw.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1140| B[Deobfuscate/Decode Files]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5317: A security flaw has been discovered in Nothings stb up to 1.22. This affects the...",
+      "description": "A security flaw has been discovered in Nothings stb up to 1.22. This affects the function start_decoder of the file stb_vorbis.c. The manipulation results in out-of-bounds write. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5317",
+      "cve_id": "CVE-2026-5317",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-11T23:24:32.374626+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-5317 is a remote out-of-bounds write vulnerability in Nothings stb up to 1.22. This flaw can be exploited for attacks, and the exploit has been publicly released. Defenders should update Nothings stb to a version not affected by this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1068| C[Discovery]:::tactic\n    C -->|T1071| D[Initial Access]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.3,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-1243: IBM Content Navigator 3.0.15, 3.1.0, and 3.2.0 is vulnerable to cross-site scrip...",
+      "description": "IBM Content Navigator 3.0.15, 3.1.0, and 3.2.0 is vulnerable to cross-site scripting. This vulnerability allows an authenticated user to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1243",
+      "cve_id": "CVE-2026-1243",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-11T23:24:32.374610+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-1243 is a cross-site scripting vulnerability in IBM Content Navigator 3.0.15, 3.1.0, and 3.2.0, allowing an authenticated user to embed arbitrary JavaScript code. This can lead to credentials disclosure within a trusted session. Patch the vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1210| C[Privilege Escalation]:::tactic\n    C -->|T1071| D[Credential Access]:::tactic\n    D -->|T1562| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.4,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5316: A vulnerability was identified in Nothings stb up to 1.22. The impacted element ...",
+      "description": "A vulnerability was identified in Nothings stb up to 1.22. The impacted element is the function setup_free of the file stb_vorbis.c. The manipulation leads to allocation of resources. The attack is possible to be carried out remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5316",
+      "cve_id": "CVE-2026-5316",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-11T23:24:32.374594+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-5316 is a publicly exploitable vulnerability in Nothings stb up to 1.22, allowing remote attackers to allocate resources. The exploit is publicly available, and the vendor's lack of response increases the risk of exploitation. Defenders should update Nothings stb to a patched version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-66485: IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to HTTP header injection, c...",
-      "description": "IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to HTTP header injection, caused by improper validation of input by the HOST headers.  This could allow an attacker to conduct various attacks against the vulnerable system, including cross-site scripting, cache poisoning or session hijacking.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66485",
-      "cve_id": "CVE-2025-66485",
+      "title": "CVE-2026-5315: A vulnerability was determined in Nothings stb up to 1.26. The affected element ...",
+      "description": "A vulnerability was determined in Nothings stb up to 1.26. The affected element is the function stbtt__buf_get8 in the library stb_truetype.h of the component TTF File Handler. Executing a manipulation can lead to out-of-bounds read. The attack can be executed remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not res",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5315",
+      "cve_id": "CVE-2026-5315",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 5.4,
-      "published": "2026-04-11T22:22:00.653400+00:00",
-      "ttps": [
-        {
-          "id": "T1539",
-          "name": "Steal Web Session Cookie",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1563",
-          "name": "Remote Service Session Hijacking",
-          "tactic": "Lateral Movement",
-          "tactic_id": "TA0008"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "cvss_score": 4.3,
+      "published": "2026-04-11T23:24:32.374576+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-5315 is a remotely exploitable out-of-bounds read vulnerability in Nothings stb up to 1.26. This can lead to potential data exposure. Defenders should update to the latest version of stb.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1210| C[Command and Control]:::tactic\n    C -->|T1071| D[Data Encrypted for Impact]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-66484: IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to stored cross-site script...",
-      "description": "IBM Aspera Shares 1.9.9 through 1.11.0 is vulnerable to stored cross-site scripting. This vulnerability allows users to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66484",
-      "cve_id": "CVE-2025-66484",
+      "title": "CVE-2026-21767: HCL BigFix Platform is affected by insufficient authentication.  The application...",
+      "description": "HCL BigFix Platform is affected by insufficient authentication.  The application might allow users to access sensitive areas of the application without proper authentication.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21767",
+      "cve_id": "CVE-2026-21767",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 5.5,
-      "published": "2026-04-11T22:22:00.653380+00:00",
+      "cvss_score": 4.0,
+      "published": "2026-04-11T23:24:32.374554+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "The HCL BigFix Platform vulnerability (CVE-2026-21767) allows users to access sensitive areas without proper authentication, posing a medium-level risk. This is due to insufficient authentication, which can be exploited by threat actors. Defenders should prioritize patching the vulnerability to prevent unauthorized access.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Unusual User Behavior]:::tactic\n    B -->|T1078| C[Valid Accounts]:::tactic\n    C -->|T1068| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-66483: IBM Aspera Shares 1.9.9 through 1.11.0 does not invalidate session after a passw...",
-      "description": "IBM Aspera Shares 1.9.9 through 1.11.0 does not invalidate session after a password reset which could allow an authenticated user to impersonate another user on the system.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66483",
-      "cve_id": "CVE-2025-66483",
+      "title": "CVE-2026-21765: HCL BigFix Platform is affected by insecure permissions on private cryptographic...",
+      "description": "HCL BigFix Platform is affected by insecure permissions on private cryptographic keys.  The private cryptographic keys located on a Windows host machine might be subject to overly permissive file system permissions.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21765",
+      "cve_id": "CVE-2026-21765",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.3,
-      "published": "2026-04-11T22:22:00.653364+00:00",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-11T23:24:32.374513+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2025-36375: IBM DataPower Gateway 10.6CD 10.6.1.0 through 10.6.5.0 and IBM DataPower Gateway...",
-      "description": "IBM DataPower Gateway 10.6CD 10.6.1.0 through 10.6.5.0 and IBM DataPower Gateway 10.5.0 10.5.0.0 through 10.5.0.20 and IBM DataPower Gateway 10.6.0 10.6.0.0 through 10.6.0.8 IBM DataPower Gateway is vulnerable to cross-site request forgery which could allow an attacker to execute malicious and unauthorized actions transmitted from a user that the website trusts.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-36375",
-      "cve_id": "CVE-2025-36375",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-11T22:22:00.653343+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2025-0711: Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering...",
-      "description": "Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0711",
-      "cve_id": "CVE-2025-0711",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-11T22:22:00.653300+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "CVE-2026-21765 is a high-severity vulnerability in HCL BigFix Platform due to insecure permissions on private cryptographic keys, allowing potential unauthorized access. This vulnerability has a CVSS score of 8.8, indicating a high risk of exploitation. Defenders should immediately update the platform to the latest version to mitigate this risk.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Brute Force]:::tactic\n    C -->|T1068| D[Exploitation of Vulnerability]:::tactic\n    D -->|T1211| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Over 20,000 crypto fraud victims identified in international crackdown",
@@ -535,7 +200,7 @@
       "cve_id": null,
       "source": "Bleeping Computer",
       "category": "news",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
       "published": "2026-04-11T14:20:40+00:00",
       "ttps": [
@@ -546,11 +211,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "Threat actors exploited public-facing applications (T1190) to commit cryptocurrency fraud, impacting over 20,000 victims across three countries. This highlights the need for organizations to regularly update and secure their public-facing applications. Defenders should prioritize patching and vulnerability management to prevent similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Citizen Lab: Law Enforcement Used Webloc to Track 500 Million Devices via Ad Data",
@@ -559,7 +224,7 @@
       "cve_id": null,
       "source": "The Hacker News",
       "category": "news",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
       "published": "2026-04-11T06:02:00+00:00",
       "ttps": [
@@ -576,11 +241,11 @@
           "tactic_id": "TA0007"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "Law enforcement agencies used Webloc, a global geolocation surveillance system, to track 500 million devices via ad data. This was achieved through exploiting public-facing applications and discovering system locations. Defenders should monitor for suspicious geolocation tracking and application exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1614| C[System Location Discovery]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "ChatGPT rolls out new $100 Pro subscription to challenge Claude",
@@ -589,73 +254,15 @@
       "cve_id": null,
       "source": "Bleeping Computer",
       "category": "news",
-      "severity": "medium",
+      "severity": "low",
       "cvss_score": null,
       "published": "2026-04-11T02:08:16+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Senator launches inquiry into 8 tech giants for failures to adequately report CSAM",
-      "description": "The inquiry follows reports from the National Center for Missing and Exploited Children (NCMEC) that allege the tech giants are deficient in their reporting of CSAM and data related to generative AI generally.",
-      "url": "https://therecord.media/senator-launches-inquiry-into-tech-giants-csam",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": null,
-      "published": "2026-04-10T18:05:00+00:00",
-      "ttps": [
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "UK government threatens tech bosses with jail time if they do not adequately fight nudification tools",
-      "description": "A U.K. communications regulator, Ofcom, has said it will be cracking down on the spread of the images in the aftermath of the Grok scandal, which led to millions of “nudified” images of women and children to be circulated worldwide.",
-      "url": "https://therecord.media/uk-threatens-tech-bosses-with-jail-ai-nudification",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-10T17:35:00+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "‘It reads like a spy novel’: $280 million theft from Drift involved North Korean fake companies, cutouts",
-      "description": "Drift officials said the operation began six months ago, when they were approached at a cryptocurrency conference by members of a company claiming to focus on quantitative trading.",
-      "url": "https://therecord.media/drift-crypto-theft-post-mortem-north-korea",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-10T17:33:00+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "This is a business news item about OpenAI's new ChatGPT Pro subscription, with no technical threat or real-world cybersecurity impact. The most important defender action is to remain informed about emerging technologies and their potential future security implications.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|None| B[Initial Access]:::tactic\n    B -->|None| C[Execution]:::tactic\n    C -->|None| D[Command and Control]:::tactic\n    D -->|None| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 1.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Nearly 4,000 US industrial devices exposed to Iranian cyberattacks",
@@ -668,35 +275,11 @@
       "cvss_score": null,
       "published": "2026-04-10T15:52:45+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Florida investigates OpenAI for role ChatGPT may have played in deadly shooting",
-      "description": "Last week, the family of one of two victims in the attack announced it plans to sue OpenAI because the gunman allegedly constantly communicated with ChatGPT in the days leading to the shootings.",
-      "url": "https://therecord.media/florida-investigates-openai-chatgpt-deadly-shooting",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-10T14:07:00+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "Iranian-linked hackers targeted nearly 4,000 US industrial devices, specifically Internet-exposed Rockwell Automation PLCs, posing a significant risk to critical infrastructure networks. This attack highlights the importance of securing industrial control systems and implementing robust network segmentation. Defenders should prioritize vulnerability scanning and patching of exposed PLCs.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1491| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Analysis of one billion CISA KEV remediation records exposes limits of human-scale security",
@@ -709,11 +292,11 @@
       "cvss_score": null,
       "published": "2026-04-10T14:01:11+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
+      "ai_summary": "A massive analysis of 1 billion CISA KEV remediation records reveals a breaking point for human-scale security, where most critical flaws are exploited before defenders can patch them. This highlights the limitations of relying solely on human-scale security measures. Defenders must adopt more proactive and automated approaches to stay ahead of threats.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1210| C[Reconnaissance]:::tactic\n    C -->|T1078| D[Collection]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "GlassWorm Campaign Uses Zig Dropper to Infect Multiple Developer IDEs",
@@ -749,23 +332,6 @@
       "severity": "medium",
       "cvss_score": null,
       "published": "2026-04-10T13:12:42+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "UK says it exposed Russian submarine activity near undersea cables",
-      "description": "A Russian attack submarine and vessels from the country’s Main Directorate of Deep Sea Research (GUGI) were involved in what the UK Ministry of Defence called “nefarious activity over critical undersea infrastructure elsewhere.”",
-      "url": "https://therecord.media/uk-says-it-exposed-russian-submarine-activity",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "incident",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-10T13:03:00+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",

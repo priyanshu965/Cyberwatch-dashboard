@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T18:32:43.683453+00:00",
+  "last_updated": "2026-04-11T19:30:55.095827+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:50.826456+00:00",
+      "published": "2026-04-11T19:29:02.524319+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -20,7 +20,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The hack-for-hire campaign targets journalists and officials in the MENA region using sophisticated spear-phishing attacks to compromise Apple and Google accounts. The threat actor employs phishing tactics, such as T1566, to gain initial access. To defend against this threat, organizations should educate users on identifying and reporting suspicious phishing attempts.",
+      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and government officials. The threat actor employs phishing tactics, specifically T1566, to gain initial access to victim accounts. To defend against this threat, organizations should implement robust email and messaging security measures, including multi-factor authentication and regular security awareness training.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -35,7 +35,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:50.826432+00:00",
+      "published": "2026-04-11T19:29:02.524296+00:00",
       "ttps": [
         {
           "id": "T1572",
@@ -44,9 +44,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "ClipBanker utilizes a marathon infection chain to target cryptocurrency, leveraging specialized software like Proxifier to tunnel traffic and evade detection. The real-world impact involves potential financial loss due to unauthorized access to crypto assets. The most important defender action is to monitor network traffic for unusual protocol tunneling activity, such as T1572.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059| C[Command and Control]:::tactic\n    C -->|T1041| D[Exfiltration]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "ClipBanker is a malware that utilizes proxifiers to tunnel traffic, allowing it to bypass security measures and remain undetected. This technique enables the malware to maintain its functionality within secured environments. To defend against this threat, it is essential to monitor and restrict the use of proxifiers and other tunneling tools.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -59,7 +59,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:50.826397+00:00",
+      "published": "2026-04-11T19:29:02.524270+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -86,11 +86,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The MacSync Stealer campaign is a macOS infostealer that operates as Malware-as-a-Service, utilizing tactics such as SEO poisoning and fake CAPTCHAs to distribute malware. This campaign has evolved over time, incorporating new techniques like shell-based loaders with dynamic AppleScript payloads. To defend against this threat, users should be cautious of suspicious download sites and conversations, and prioritize verifying the authenticity of sources.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Persistence]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "The MacSync Stealer malware is a macOS infostealer distributed through SEO poisoning, fake ClickFix CAPTCHAs, and malicious ChatGPT conversations. It has evolved through three iterations since November 2025, using dynamic AppleScript payloads. Defenders should prioritize monitoring for suspicious AppleScript activity and SEO poisoning tactics.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Obtain Capabilities]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Command and Control]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "NPM Package Supply Chain Compromise Leads to RAT Deployment",
@@ -101,7 +101,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:50.826373+00:00",
+      "published": "2026-04-11T19:29:02.524245+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -116,11 +116,11 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Threat actors compromised the npm account of an Axios developer, publishing malicious versions of the package that executed postinstall scripts and deployed a remote access trojan (RAT) on affected systems. This supply chain attack leverages T1195 and T1219 tactics. Defenders should immediately audit and update their npm packages to prevent similar RAT deployments.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat involves a supply chain compromise of the Axios npm package, where malicious versions were published with a hidden dependency that executes postinstall scripts to download and deploy a remote access trojan. This allows threat actors to gain unauthorized access to affected systems. To defend against this, developers should verify the integrity of dependencies and use secure package management practices.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1219| D[Persistence]:::tactic\n    D -->|T1078| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "In-Memory Loader Drops ScreenConnect",
@@ -131,7 +131,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:50.826348+00:00",
+      "published": "2026-04-11T19:29:02.524210+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -152,8 +152,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A sophisticated attack chain uses a fake Adobe Acrobat Reader download page to trick victims into installing ScreenConnect, a legitimate remote access tool exploited for malicious purposes. The attack employs heavy obfuscation, .NET reflection for in-memory payload execution, and dynamic code construction. Defenders should prioritize monitoring for suspicious Adobe Acrobat Reader downloads and ScreenConnect activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1562| C[Impair Defenses]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A sophisticated attack chain uses a fake Adobe Acrobat Reader download page to trick victims into installing ScreenConnect, a legitimate remote access tool exploited for malicious purposes. The attackers employ heavy obfuscation, .NET reflection, and dynamic code construction to evade detection. Defenders should prioritize monitoring for suspicious ScreenConnect activity and implementing robust security controls to prevent similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -167,7 +167,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:50.826322+00:00",
+      "published": "2026-04-11T19:29:02.524184+00:00",
       "ttps": [
         {
           "id": "T1583.008",
@@ -206,7 +206,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning, capturing authentication tokens and session cookies through adversary-in-the-middle techniques. This campaign uses generic search terms like 'Office 365' to lure victims to a fraudulent sign-in page. Defenders should prioritize monitoring for malvertising and SEO poisoning tactics.",
+      "ai_summary": "Storm-2755, a financially motivated threat actor, uses malvertising and SEO poisoning to capture authentication tokens and session cookies from Canadian users. The actor conducts payroll pirate attacks through adversary-in-the-middle techniques. Defenders should prioritize monitoring for malvertising and SEO poisoning on generic search terms.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -221,7 +221,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:50.826299+00:00",
+      "published": "2026-04-11T19:29:02.524162+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -249,13 +249,13 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "high",
+      "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:50.826274+00:00",
+      "published": "2026-04-11T19:29:02.524137+00:00",
       "ttps": [],
-      "ai_summary": "Attackers exploit FortiGate vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to establish a foothold in targeted environments. Defenders should prioritize securing FortiGate devices and monitoring Active Directory for suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1552| D[Steal or Capture Credentials]:::tactic\n    D -->|T1053| E[Unsecured Credentials]:::tactic\n    E -->|T1068| F[Active Directory]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Attackers exploit FortiGate vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to gain unauthorized access and control. Defenders should immediately review and secure FortiGate configurations and monitor for suspicious AD activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1552| D[Credentials from Password Stores]:::tactic\n    D -->|T1053| E[Unsecured Credentials]:::tactic\n    E -->|T1068| F[Active Directory]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -268,7 +268,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:50.826246+00:00",
+      "published": "2026-04-11T19:29:02.524108+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -289,8 +289,8 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. The attack tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should monitor for suspicious Deno activity and user execution.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection, abusing social engineering, steganography, and in-memory execution. This sophisticated infection chain tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should prioritize monitoring for suspicious Deno activity and user execution tactics.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:50.826212+00:00",
+      "published": "2026-04-11T19:29:02.524070+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -319,9 +319,128 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The RondoDox botnet is a significant threat exploiting 174 vulnerabilities since May 2025, primarily targeting IoT devices for DoS attacks. Its infrastructure includes exploiting and hosting components, with evidence of compromised residential IPs. Defenders should prioritize monitoring for T1583.005 (Botnet) and T1498 (Network Denial of Service) TTPs.",
+      "ai_summary": "The RondoDox botnet exploits 174 vulnerabilities to conduct DoS attacks on IoT devices and internet-exposed services. This botnet uses compromised residential IPs and rapidly adopts newly disclosed vulnerabilities. Defenders should prioritize monitoring for T1583.005 and T1498 TTPs.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5311: A security flaw has been discovered in D-Link DNS-120, DNR-202L, DNS-315L, DNS-3...",
+      "description": "A security flaw has been discovered in D-Link DNS-120, DNR-202L, DNS-315L, DNS-320, DNS-320L, DNS-320LW, DNS-321, DNR-322L, DNS-323, DNS-325, DNS-326, DNS-327L, DNR-326, DNS-340L, DNS-343, DNS-345, DNS-726-4, DNS-1100-4, DNS-1200-05 and DNS-1550-04 up to 20260205. Affected is the function Webdav_Access_List of the file /cgi-bin/file_center.cgi. Performing a manipulation of the argument cmd results",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5311",
+      "cve_id": "CVE-2026-5311",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.3,
+      "published": "2026-04-11T19:28:59.970401+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-5311 is a security flaw in D-Link DNS devices, allowing manipulation of the Webdav_Access_List function via the cmd argument. This vulnerability has a CVSS score of 5.3, indicating a medium severity risk. Defenders should update affected devices to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34872: An issue was discovered in Mbed TLS 3.5.x and 3.6.x through 3.6.5 and TF-PSA-Cry...",
+      "description": "An issue was discovered in Mbed TLS 3.5.x and 3.6.x through 3.6.5 and TF-PSA-Crypto 1.0. There is a lack of contributory behavior in FFDH due to improper input validation. Using finite-field Diffie-Hellman, the other party can force the shared secret into a small set of values (lack of contributory behavior). This is a problem for protocols that depend on contributory behavior (which is not the ca",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34872",
+      "cve_id": "CVE-2026-34872",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.1,
+      "published": "2026-04-11T19:28:59.970387+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-34872 is a critical vulnerability in Mbed TLS 3.5.x and 3.6.x, allowing an attacker to exploit public-facing applications via T1190. This can lead to a shared secret being forced into a small set of values, compromising protocols that rely on contributory behavior. Defenders should update Mbed TLS to a secure version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34750: Payload is a free and open source headless content management system. Prior to v...",
+      "description": "Payload is a free and open source headless content management system. Prior to version 3.78.0 in @payloadcms/storage-azure, @payloadcms/storage-gcs, @payloadcms/storage-r2, and @payloadcms/storage-s3, the client-upload signed-URL endpoints for S3, GCS, Azure, and R2 did not properly sanitize filenames. An attacker could craft filenames to escape the intended storage location. This issue has been p",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34750",
+      "cve_id": "CVE-2026-34750",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-11T19:28:59.970371+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "ai_summary": "CVE-2026-34750 is a vulnerability in Payload CMS prior to v3.78.0, allowing attackers to craft filenames to escape intended storage locations. This issue enables exploitation of public-facing applications and potential certificate theft. Defenders should update Payload CMS to v3.78.0 or later.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34749: Payload is a free and open source headless content management system. Prior to v...",
+      "description": "Payload is a free and open source headless content management system. Prior to version 3.79.1, a Cross-Site Request Forgery (CSRF) vulnerability exists in the authentication flow. Under certain conditions, the configured CSRF protection could be bypassed, allowing cross-site requests to be made. This issue has been patched in version 3.79.1.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34749",
+      "cve_id": "CVE-2026-34749",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-11T19:28:59.970355+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-34749 is a CSRF vulnerability in Payload's authentication flow prior to v3.79.1, allowing cross-site requests to be made. This issue has been patched in version 3.79.1. Defenders should ensure they are running the latest version of Payload.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.4,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34748: Payload is a free and open source headless content management system. Prior to v...",
+      "description": "Payload is a free and open source headless content management system. Prior to version 3.78.0 in @payloadcms/next, a stored Cross-Site Scripting (XSS) vulnerability existed in the admin panel. An authenticated user with write access to a collection could save content that, when viewed by another user, would execute in their browser. This issue has been patched in version 3.78.0.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34748",
+      "cve_id": "CVE-2026-34748",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.7,
+      "published": "2026-04-11T19:28:59.970339+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-34748 is a stored XSS vulnerability in Payload CMS prior to v3.78.0, allowing authenticated users to inject malicious content. This issue has been patched in v3.78.0. Defenders should update Payload CMS to the latest version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -334,7 +453,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.5,
-      "published": "2026-04-11T18:30:48.283442+00:00",
+      "published": "2026-04-11T19:28:59.970323+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -343,11 +462,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-34747 is a SQL injection vulnerability in the Payload headless content management system prior to v3.79.1. An attacker can craft malicious requests to influence SQL query execution, potentially exposing or modifying data. Patch version 3.79.1 fixes this issue.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-34746: Payload is a free and open source headless content management system. Prior to v...",
@@ -358,7 +477,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.7,
-      "published": "2026-04-11T18:30:48.283426+00:00",
+      "published": "2026-04-11T19:28:59.970303+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -367,11 +486,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-34746 is a Server-Side Request Forgery (SSRF) vulnerability in Payload's upload functionality, allowing authenticated users to make arbitrary HTTP requests. This issue has been patched in version 3.79.1. Defenders should update to the latest version to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-34456: Reviactyl is an open-source game server management panel built using Laravel, Re...",
@@ -382,7 +501,7 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.1,
-      "published": "2026-04-11T18:30:48.283409+00:00",
+      "published": "2026-04-11T19:28:59.970285+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -397,11 +516,11 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "CVE-2026-34456 is a critical vulnerability in Reviactyl, an open-source game server management panel, allowing attackers to link social accounts via OAuth authentication flow. This vulnerability affects versions 26.2.0-beta.1 to 26.2.0-beta.5. To defend, update Reviactyl to version 26.2.0-beta.5 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-34455: Hi.Events is an open-source event management and ticket selling platform. From v...",
@@ -410,9 +529,9 @@
       "cve_id": "CVE-2026-34455",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-11T18:30:48.283391+00:00",
+      "published": "2026-04-11T19:28:59.970263+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -421,11 +540,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-34455 is a SQL injection vulnerability in Hi.Events, an open-source event management platform, allowing attackers to exploit public-facing applications. This issue has been patched in version 1.7.1-beta. Defenders should update to the latest version to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2025-66442: In Mbed TLS through 4.0.0, there is a compiler-induced timing side channel (in R...",
@@ -436,100 +555,8 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.1,
-      "published": "2026-04-11T18:30:48.283373+00:00",
+      "published": "2026-04-11T19:28:59.970223+00:00",
       "ttps": [],
-      "ai_summary": "CVE-2025-66442 is a compiler-induced timing side channel in Mbed TLS and TF-PSA-Crypto, allowing attackers to potentially exploit RSA and CBC/ECB decryption. This vulnerability has a CVSS score of 5.1, indicating a medium severity. Defenders should update affected libraries to mitigate this issue.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Command and Control]:::tactic\n    B -->|T1210| C[Exploitation of Remote Services]:::tactic\n    C -->|T1068| D[Discovery of Network Service]:::tactic\n    D -->|T1071| E[Application Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-35000: ChangeDetection.io versions prior to 0.54.7 contain a protection bypass vulnerab...",
-      "description": "ChangeDetection.io versions prior to 0.54.7 contain a protection bypass vulnerability in the SafeXPath3Parser implementation that allows attackers to read arbitrary local files by using unblocked XPath 3.0/3.1 functions such as json-doc() and similar file-access primitives. Attackers can exploit the incomplete blocklist of dangerous XPath functions to access sensitive data from the local filesyste",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35000",
-      "cve_id": "CVE-2026-35000",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-11T18:30:48.283357+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-34874: An issue was discovered in Mbed TLS through 3.6.5 and 4.x through 4.0.0. There i...",
-      "description": "An issue was discovered in Mbed TLS through 3.6.5 and 4.x through 4.0.0. There is a NULL pointer dereference in distinguished name parsing that allows an attacker to write to address 0.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34874",
-      "cve_id": "CVE-2026-34874",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-11T18:30:48.283342+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-34871: An issue was discovered in Mbed TLS before 3.6.6 and 4.x before 4.1.0 and TF-PSA...",
-      "description": "An issue was discovered in Mbed TLS before 3.6.6 and 4.x before 4.1.0 and TF-PSA-Crypto before 1.1.0. There is a Predictable Seed in a Pseudo-Random Number Generator (PRNG).",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34871",
-      "cve_id": "CVE-2026-34871",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.7,
-      "published": "2026-04-11T18:30:48.283325+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-25835: Mbed TLS before 3.6.6 and TF-PSA-Crypto before 1.1.0 misuse seeds in a Pseudo-Ra...",
-      "description": "Mbed TLS before 3.6.6 and TF-PSA-Crypto before 1.1.0 misuse seeds in a Pseudo-Random Number Generator (PRNG).",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25835",
-      "cve_id": "CVE-2026-25835",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.7,
-      "published": "2026-04-11T18:30:48.283304+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-25833: Mbed TLS 3.5.0 to 3.6.5 fixed in 3.6.6 and 4.1.0 has a buffer overflow in the x5...",
-      "description": "Mbed TLS 3.5.0 to 3.6.5 fixed in 3.6.6 and 4.1.0 has a buffer overflow in the x509_inet_pton_ipv6() function",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25833",
-      "cve_id": "CVE-2026-25833",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-11T18:30:48.283264+00:00",
-      "ttps": [
-        {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

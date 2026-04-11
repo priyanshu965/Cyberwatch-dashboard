@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-11T13:50:50.804721+00:00",
+  "last_updated": "2026-04-11T14:31:33.036762+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T13:48:58.213529+00:00",
+      "published": "2026-04-11T14:29:36.171416+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -20,7 +20,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and government officials. The threat actor employs phishing tactics, specifically T1566, to gain initial access to victim accounts. To defend against this threat, it is essential to implement robust email and messaging security measures, including education and awareness programs to prevent successful phishing attempts.",
+      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and activists. The campaign's real-world impact includes potential data breaches and surveillance of targeted individuals. To defend against this threat, individuals should be cautious of suspicious messages on social media and messaging platforms.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -35,7 +35,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T13:48:58.213506+00:00",
+      "published": "2026-04-11T14:29:36.171393+00:00",
       "ttps": [
         {
           "id": "T1572",
@@ -44,8 +44,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "ClipBanker utilizes a complex infection chain to target cryptocurrency, leveraging specialized software like Proxifier to tunnel traffic and evade detection. The real-world impact involves potential financial loss due to unauthorized access to crypto assets. The most important defender action is to monitor network traffic for suspicious protocol tunneling activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "ClipBanker uses Proxifier to tunnel traffic, evading security controls. This technique, known as protocol tunneling (T1572), allows the malware to maintain connectivity with its command and control server. To defend against this, organizations should monitor for suspicious proxy activity and restrict the use of proxifiers to only trusted applications.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Command and Control]:::tactic\n    B -->|T1041| C[Execution]:::tactic\n    C -->|T1059.001| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -59,7 +59,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T13:48:58.213480+00:00",
+      "published": "2026-04-11T14:29:36.171367+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -86,11 +86,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The MacSync Stealer campaign is a macOS infostealer that operates as Malware-as-a-Service, distributed through SEO poisoning and fake ClickFix CAPTCHAs, with threat actors utilizing AppleScript payloads to steal sensitive information. The campaign has evolved over three iterations, adapting its tactics to evade detection. To defend against this threat, users should be cautious when interacting with suspicious websites and conversations, and ensure their systems are updated with the latest security patches.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Initial Access]:::tactic\n    B -->|T1588| C[Resource Development]:::tactic\n    C -->|T1059.002| D[Execution]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The MacSync Stealer malware is a macOS infostealer distributed through SEO poisoning, fake ClickFix CAPTCHAs, and malicious ChatGPT conversations. It has evolved through three iterations since November 2025, using dynamic AppleScript payloads. Defenders should prioritize monitoring for suspicious AppleScript activity and SEO poisoning tactics.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Obtain Capabilities]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Command and Control]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "NPM Package Supply Chain Compromise Leads to RAT Deployment",
@@ -101,7 +101,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T13:48:58.213456+00:00",
+      "published": "2026-04-11T14:29:36.171343+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -116,9 +116,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Threat actors compromised the npm account of an Axios lead developer, publishing malicious versions of the package that executed postinstall scripts and deployed a remote access trojan. This supply chain attack leverages T1195 and T1219 tactics. Defenders should immediately audit their npm dependencies and update to secure versions.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "ai_summary": "Threat actors compromised the npm account of an Axios lead developer, publishing malicious versions of the package that executed postinstall scripts and deployed a remote access trojan. This supply chain attack allows attackers to gain unauthorized access to affected systems. Defenders should immediately update dependencies and monitor for suspicious npm package activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -131,7 +131,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T13:48:58.213431+00:00",
+      "published": "2026-04-11T14:29:36.171308+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -152,9 +152,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A sophisticated attack chain utilizes a fraudulent Adobe Acrobat Reader download page to install ConnectWise's ScreenConnect, a legitimate remote access tool, for malicious purposes. The attack employs heavy obfuscation, .NET reflection for in-memory payload execution, and dynamic code construction. Defenders should prioritize monitoring for suspicious Adobe Acrobat Reader downloads and in-memory payload execution.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "A sophisticated attack chain uses a fake Adobe Acrobat Reader download page to trick victims into installing ScreenConnect, a legitimate remote access tool exploited for malicious purposes. The attack employs heavy obfuscation, .NET reflection, and dynamic code construction to evade detection. Defenders should prioritize monitoring for suspicious ScreenConnect activity and implementing robust security controls to prevent similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -167,7 +167,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T13:48:58.213403+00:00",
+      "published": "2026-04-11T14:29:36.171283+00:00",
       "ttps": [
         {
           "id": "T1583.008",
@@ -206,7 +206,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning. The actor captures authentication tokens and session cookies through adversary-in-the-middle techniques. Defenders should prioritize monitoring generic search terms and sign-in pages for suspicious activity.",
+      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising, SEO poisoning, and adversary-in-the-middle techniques. The actor captures authentication tokens and session cookies through drive-by compromise and user execution. Defenders should prioritize monitoring for malvertising and SEO poisoning to prevent initial access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -219,9 +219,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "high",
+      "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-11T13:48:58.213370+00:00",
+      "published": "2026-04-11T14:29:36.171261+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -237,8 +237,8 @@
         }
       ],
       "ai_summary": "KadNap malware targets Asus routers, turning them into a botnet for proxying malicious traffic. The malware uses a custom Kademlia protocol to evade network monitoring. Defenders should immediately update Asus router firmware to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Application Layer Protocol]:::tactic\n    B -->|T1583.005| C[Botnet]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Initial Access]:::tactic\n    B -->|T1583.005| C[Command and Control]:::tactic\n    C -->|T1583.005| D[Botnet]:::tactic\n    D -->|T1583.005| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -251,11 +251,11 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T13:48:58.213347+00:00",
+      "published": "2026-04-11T14:29:36.171237+00:00",
       "ttps": [],
-      "ai_summary": "Attackers exploit FortiGate vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This technique leverages stolen service accounts to establish a foothold in targeted environments. Defenders should prioritize monitoring and securing FortiGate devices and Active Directory access.",
+      "ai_summary": "Attackers exploit FortiGate NGFW vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to gain unauthorized access and control. Defender action: Implement multi-factor authentication and monitor FortiGate device access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Public-Facing Application]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    E -->|T1486| F[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -268,7 +268,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-11T13:48:58.213320+00:00",
+      "published": "2026-04-11T14:29:36.171210+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -289,7 +289,7 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. The attack tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should monitor for suspicious Deno usage and user execution of unknown commands.",
+      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. The attack tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should monitor for suspicious Deno activity and user execution of unknown commands.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-11T13:48:58.213289+00:00",
+      "published": "2026-04-11T14:29:36.171179+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -319,116 +319,104 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "RondoDox botnet exploits 174 vulnerabilities, targeting IoT devices and internet-exposed services for DoS attacks. This botnet uses compromised residential IPs and rapidly adopts newly disclosed vulnerabilities. Defenders should prioritize monitoring for T1583.005 and T1498 TTPs.",
+      "ai_summary": "RondoDox botnet exploits 174 vulnerabilities, targeting IoT devices and internet-exposed services for DoS attacks. The botnet's infrastructure includes exploiting and hosting components, using compromised residential IPs. Defenders should prioritize monitoring for T1583.005 and T1498 TTPs.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-35094: A flaw was found in libinput. An attacker capable of deploying a Lua plugin file...",
-      "description": "A flaw was found in libinput. An attacker capable of deploying a Lua plugin file in specific system directories can exploit a dangling pointer vulnerability. This occurs when a garbage collection cleanup function is called, leaving a pointer that can then be printed to system logs. This could potentially expose sensitive data if the memory location is re-used, leading to information disclosure. Fo",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35094",
-      "cve_id": "CVE-2026-35094",
+      "title": "CVE-2025-67807: The login mechanism of Sage DPW 2025_06_004 displays distinct responses for vali...",
+      "description": "The login mechanism of Sage DPW 2025_06_004 displays distinct responses for valid and invalid usernames, allowing enumeration of existing accounts in versions before 2021_06_000. On-premise administrators can toggle this behaviour in newer versions.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67807",
+      "cve_id": "CVE-2025-67807",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.7,
+      "published": "2026-04-11T14:29:33.642095+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2025-67807 is a medium-severity vulnerability in Sage DPW 2025_06_004, allowing on-premise administrators to enumerate existing accounts. This occurs due to distinct responses for valid and invalid usernames. To mitigate, update to versions 2021_06_000 or later.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1110| B[Reconnaissance]:::tactic\n    B -->|T1552| C[Network Service Scanning]:::tactic\n    C -->|T1210| D[Exploitation of Service]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2025-67806: The login mechanism of Sage DPW 2021_06_004 displays distinct responses for vali...",
+      "description": "The login mechanism of Sage DPW 2021_06_004 displays distinct responses for valid and invalid usernames, allowing enumeration of existing accounts in versions before 2021_06_000. On-premise administrators can toggle this behavior in newer versions.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67806",
+      "cve_id": "CVE-2025-67806",
       "source": "NVD",
       "category": "cve",
       "severity": "low",
-      "cvss_score": 3.3,
-      "published": "2026-04-11T13:48:55.624409+00:00",
+      "cvss_score": 3.7,
+      "published": "2026-04-11T14:29:33.642080+00:00",
       "ttps": [],
-      "ai_summary": "A vulnerability in libinput (CVE-2026-35094) allows an attacker to deploy a Lua plugin file, potentially exposing sensitive data through information disclosure. This occurs due to a dangling pointer vulnerability. Defenders should update libinput to the latest version to mitigate this issue.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1022| C[Privilege Escalation]:::tactic\n    C -->|T1055| D[Information Disclosure]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2025-67806 is a login mechanism vulnerability in Sage DPW 2021_06_004, allowing enumeration of existing accounts in versions before 2021_06_000. This issue has a CVSS score of 3.7, indicating a low severity. On-premise administrators can mitigate this vulnerability by toggling the behavior in newer versions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1110| B[Reconnaissance]:::tactic\n    B -->|T1552| C[Credential Dumping]:::tactic\n    C -->|T1566| D[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 3.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-35093: A flaw was found in libinput. A local attacker who can place a specially crafted...",
-      "description": "A flaw was found in libinput. A local attacker who can place a specially crafted Lua bytecode file in certain system or user configuration directories can bypass security restrictions. This allows the attacker to run unauthorized code with the same permissions as the program using libinput, such as a graphical compositor. This could lead to the attacker monitoring keyboard input and sending that i",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35093",
-      "cve_id": "CVE-2026-35093",
+      "title": "CVE-2025-67805: A non-default configuration in Sage DPW 2025_06_004 allows unauthenticated acces...",
+      "description": "A non-default configuration in Sage DPW 2025_06_004 allows unauthenticated access to diagnostic endpoints within the Database Monitor feature, exposing sensitive information such as hashes and table names. This feature is disabled by default in all installations and never available in Sage DPW Cloud. It was forcibly disabled again in version 2025_06_003.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67805",
+      "cve_id": "CVE-2025-67805",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-11T13:48:55.624394+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-35093 is a local privilege escalation vulnerability in libinput, allowing an attacker to bypass security restrictions and run unauthorized code with elevated permissions. This could enable the attacker to monitor keyboard input and send it to a remote server. Defenders should update libinput to the latest version to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1068| D[Privilege Escalation]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-35092: A flaw was found in Corosync. An integer overflow vulnerability in Corosync's jo...",
-      "description": "A flaw was found in Corosync. An integer overflow vulnerability in Corosync's join message sanity validation allows a remote, unauthenticated attacker to send crafted User Datagram Protocol (UDP) packets. This can cause the service to crash, leading to a denial of service. This vulnerability specifically affects Corosync deployments configured to use totemudp/totemudpu mode.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35092",
-      "cve_id": "CVE-2026-35092",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-11T13:48:55.624379+00:00",
+      "severity": "medium",
+      "cvss_score": 5.9,
+      "published": "2026-04-11T14:29:33.642064+00:00",
       "ttps": [
         {
           "id": "T1190",
           "name": "Exploit Public-Facing Application",
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "CVE-2026-35092 is an integer overflow vulnerability in Corosync's join message sanity validation, allowing a remote attacker to crash the service via crafted UDP packets, leading to a denial of service. This affects Corosync deployments in totemudp/totemudpu mode. Defenders should update Corosync to the latest version to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2025-67805 is a non-default configuration vulnerability in Sage DPW 2025_06_004, allowing unauthenticated access to diagnostic endpoints. This exposes sensitive information such as hashes and table names. Disable the Database Monitor feature to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.9,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-30573: A Business Logic vulnerability exists in SourceCodester Pharmacy Product Managem...",
+      "description": "A Business Logic vulnerability exists in SourceCodester Pharmacy Product Management System 1.0. The vulnerability is located in the add-sales.php file. The application fails to validate the \"txtprice\" and \"txttotalcost\" parameters, allowing attackers to submit negative values for sales transactions. This leads to incorrect financial calculations, corruption of sales reports, and potential financia",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30573",
+      "cve_id": "CVE-2026-30573",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "published": "2026-04-11T14:29:33.642046+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-30573 is a Business Logic vulnerability in SourceCodester Pharmacy Product Management System 1.0, allowing attackers to submit negative sales transaction values, corrupting financial reports and potentially leading to financial loss. This vulnerability can be exploited via T1190 (Exploit Public-Facing Application). To defend, ensure proper input validation for sensitive parameters.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-35091: A flaw was found in Corosync. A remote unauthenticated attacker can exploit a wr...",
-      "description": "A flaw was found in Corosync. A remote unauthenticated attacker can exploit a wrong return value vulnerability in the Corosync membership commit token sanity check by sending a specially crafted User Datagram Protocol (UDP) packet. This can lead to an out-of-bounds read, causing a denial of service (DoS) and potentially disclosing limited memory contents. This vulnerability affects Corosync when r",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35091",
-      "cve_id": "CVE-2026-35091",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.2,
-      "published": "2026-04-11T13:48:55.624360+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "A remote unauthenticated attacker can exploit a wrong return value vulnerability in Corosync via a specially crafted UDP packet, leading to a denial of service (DoS) and potential disclosure of limited memory contents. This vulnerability affects Corosync when running with r. The most important defender action is to update Corosync to the latest version.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-34999: OpenViking versions 0.2.5 prior to 0.2.14 contain a missing authentication vulne...",
-      "description": "OpenViking versions 0.2.5 prior to 0.2.14 contain a missing authentication vulnerability in the bot proxy router that allows remote unauthenticated attackers to access protected bot proxy functionality by sending requests to the POST /bot/v1/chat and POST /bot/v1/chat/stream endpoints. Attackers can bypass authentication checks and interact directly with the upstream bot backend through the OpenVi",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34999",
-      "cve_id": "CVE-2026-34999",
+      "title": "CVE-2026-30526: A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Zo...",
+      "description": "A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Zoo Management System v1.0. The vulnerability is located in the login page, specifically within the msg parameter. The application reflects the content of the msg parameter back to the user without proper HTML encoding or sanitization. This allows remote attackers to inject arbitrary web script or HTML via a crafted URL.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30526",
+      "cve_id": "CVE-2026-30526",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-11T13:48:55.624346+00:00",
+      "cvss_score": 6.1,
+      "published": "2026-04-11T14:29:33.642032+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -437,23 +425,118 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-34999 is a missing authentication vulnerability in OpenViking versions 0.2.5 to 0.2.14, allowing remote attackers to bypass authentication checks and interact with the upstream bot backend. This vulnerability can be exploited using T1190 (Exploit Public-Facing Application). To defend, ensure OpenViking is updated to version 0.2.14 or later.",
+      "ai_summary": "CVE-2026-30526 is a Reflected Cross-Site Scripting (XSS) vulnerability in SourceCodester Zoo Management System v1.0, allowing remote attackers to inject arbitrary web script or HTML via a crafted URL. This vulnerability can be exploited using T1190 (Exploit Public-Facing Application). Defenders should prioritize patching or mitigating this vulnerability to prevent potential attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.5,
+      "severity_score": 6.1,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-34430: ByteDance Deer-Flow versions prior to commit 92c7a20 contain a sandbox escape vu...",
-      "description": "ByteDance Deer-Flow versions prior to commit 92c7a20 contain a sandbox escape vulnerability in bash tool handling that allows attackers to execute arbitrary commands on the host system by bypassing regex-based validation using shell features such as directory changes and relative paths. Attackers can exploit the incomplete shell semantics modeling to read and modify files outside the sandbox bound",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34430",
-      "cve_id": "CVE-2026-34430",
+      "title": "CVE-2026-30523: A Business Logic vulnerability exists in SourceCodester Loan Management System v...",
+      "description": "A Business Logic vulnerability exists in SourceCodester Loan Management System v1.0 due to the lack of proper input validation. The application allows administrators to define \"Loan Plans\" which determine the duration of a loan (in months). However, the backend fails to validate that the duration must be a positive integer. An attacker can submit a negative value for the months parameter. The syst",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30523",
+      "cve_id": "CVE-2026-30523",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-11T14:29:33.642018+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-30292: An arbitrary file overwrite vulnerability in Docudepot PDF Reader: PDF Viewer AP...",
+      "description": "An arbitrary file overwrite vulnerability in Docudepot PDF Reader: PDF Viewer APP v1.0.34 allows attackers to overwrite critical internal files via the file import process, leading to arbitrary code execution or information exposure.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30292",
+      "cve_id": "CVE-2026-30292",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-11T13:48:55.624331+00:00",
+      "cvss_score": 8.4,
+      "published": "2026-04-11T14:29:33.642004+00:00",
       "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-30291: An arbitrary file overwrite vulnerability in Ora Tools PDF Reader ' Reader & Edi...",
+      "description": "An arbitrary file overwrite vulnerability in Ora Tools PDF Reader ' Reader & Editor APPv4.3.5 allows attackers to overwrite critical internal files via the file import process, leading to arbitrary code execution or information exposure.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30291",
+      "cve_id": "CVE-2026-30291",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.4,
+      "published": "2026-04-11T14:29:33.641989+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-29598: Multiple stored cross-site scripting (XSS) vulnerabilities in the submit_add_use...",
+      "description": "Multiple stored cross-site scripting (XSS) vulnerabilities in the submit_add_user.asp endpoint of DDSN Interactive Acora CMS v10.7.1 allow attackers to execute arbitrary web scripts or HTML via injecting a crafted payload into the First Name and Last Name parameters.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29598",
+      "cve_id": "CVE-2026-29598",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-11T14:29:33.641969+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2025-13535: The King Addons for Elementor plugin for WordPress is vulnerable to multiple Con...",
+      "description": "The King Addons for Elementor plugin for WordPress is vulnerable to multiple Contributor+ DOM-Based Stored Cross-Site Scripting vulnerabilities in all versions up to, and including, 51.1.38. This is due to insufficient input sanitization and output escaping across multiple widgets and features. The plugin uses esc_attr() and esc_url() within JavaScript inline event handlers (onclick attributes), w",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-13535",
+      "cve_id": "CVE-2025-13535",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.4,
+      "published": "2026-04-11T14:29:33.641930+00:00",
+      "ttps": [
+        {
+          "id": "T1546",
+          "name": "Event Triggered Execution",
+          "tactic": "Persistence",
+          "tactic_id": "TA0003"
+        },
         {
           "id": "T1649",
           "name": "Steal or Forge Authentication Certificates",
@@ -468,15 +551,15 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-30522: A Business Logic vulnerability exists in SourceCodester Loan Management System v...",
-      "description": "A Business Logic vulnerability exists in SourceCodester Loan Management System v1.0 due to improper server-side validation. The application allows administrators to create \"Loan Plans\" with specific penalty rates for overdue payments. While the frontend interface prevents users from entering negative numbers in the \"Monthly Overdue Penalty\" field, this constraint is not enforced on the backend. An",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30522",
-      "cve_id": "CVE-2026-30522",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-11T13:48:55.624316+00:00",
+      "title": "Over 20,000 crypto fraud victims identified in international crackdown",
+      "description": "An international law enforcement action led by the U.K.'s National Crime Agency (NCA) has identified over 20,000 victims of cryptocurrency fraud across Canada, the United Kingdom, and the United States. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/police-identifies-20-000-victims-in-international-crypto-fraud-crackdown/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "news",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-11T14:20:40+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -485,71 +568,6 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-30289: An arbitrary file overwrite vulnerability in Tinybeans Private Family Album App ...",
-      "description": "An arbitrary file overwrite vulnerability in Tinybeans Private Family Album App v5.9.5-prod allows attackers to overwrite critical internal files via the file import process, leading to arbitrary code execution or information exposure.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30289",
-      "cve_id": "CVE-2026-30289",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.4,
-      "published": "2026-04-11T13:48:55.624300+00:00",
-      "ttps": [
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-30287: An arbitrary file overwrite vulnerability in Deep Thought Industries ACE Scanner...",
-      "description": "An arbitrary file overwrite vulnerability in Deep Thought Industries ACE Scanner PDF Scanner v1.4.5 allows attackers to overwrite critical internal files via the file import process, leading to arbitrary code execution or information exposure.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30287",
-      "cve_id": "CVE-2026-30287",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.4,
-      "published": "2026-04-11T13:48:55.624281+00:00",
-      "ttps": [
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-0522: A local file inclusion vulnerability in the upload/download flow of the VertiGIS...",
-      "description": "A local file inclusion vulnerability in the upload/download flow of the VertiGIS FM application allows authenticated attackers to read arbitrary files from the server by manipulating a file's path during its upload. When the file is subsequently downloaded, the file in the attacker controlled path is returned. Due to the application's ASP.NET architecture, this could potentially lead to remote cod",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0522",
-      "cve_id": "CVE-2026-0522",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-11T13:48:55.624241+00:00",
-      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -1024,30 +1042,6 @@
           "name": "Data Encrypted for Impact",
           "tactic": "Impact",
           "tactic_id": "TA0040"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Google Chrome adds infostealer protection against session cookie theft",
-      "description": "Google has rolled out Device Bound Session Credentials (DBSC) protection in Chrome 146 for Windows, designed to block info-stealing malware from harvesting session cookies. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/google-chrome-adds-infostealer-protection-against-session-cookie-theft/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-09T18:33:29+00:00",
-      "ttps": [
-        {
-          "id": "T1539",
-          "name": "Steal Web Session Cookie",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
         }
       ],
       "ai_summary": "AI analysis pending",

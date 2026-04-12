@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-12T01:45:29.510502+00:00",
+  "last_updated": "2026-04-12T04:41:19.504712+00:00",
   "total_items": 75,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T01:43:56.508744+00:00",
+      "published": "2026-04-12T04:40:02.493696+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -20,7 +20,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and government officials. The threat actor employs phishing tactics, specifically T1566, to gain initial access to victim accounts. To defend against this threat, it is essential to implement robust email and messaging security measures, including education and awareness programs to prevent successful phishing attempts.",
+      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and government officials. The threat actor employs T1566 phishing tactics to gain initial access. To defend against this threat, organizations should implement robust email and messaging security measures to detect and block phishing attempts.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -35,7 +35,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T01:43:56.508721+00:00",
+      "published": "2026-04-12T04:40:02.493672+00:00",
       "ttps": [
         {
           "id": "T1572",
@@ -44,8 +44,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "ClipBanker utilizes a complex infection chain to target cryptocurrency, leveraging specialized software like Proxifier to tunnel traffic and evade detection. The real-world impact involves potential financial loss due to unauthorized access to crypto assets. The most important defender action is to monitor network traffic for unusual protocol tunneling activity, such as T1572.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "ClipBanker utilizes a complex infection chain to target cryptocurrency, leveraging specialized software like Proxifier to tunnel traffic and evade detection. The real-world impact involves potential financial loss due to unauthorized access to crypto assets. The most important defender action is to monitor network traffic for suspicious protocol tunneling activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Command and Control]:::tactic\n    B -->|T1041| C[Execution]:::tactic\n    C -->|T1059.001| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -59,7 +59,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T01:43:56.508695+00:00",
+      "published": "2026-04-12T04:40:02.493645+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -86,9 +86,9 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The MacSync Stealer campaign is a macOS infostealer that operates as Malware-as-a-Service, using tactics like SEO poisoning and fake CAPTCHAs to distribute malware. This campaign has evolved over time, incorporating new techniques such as shell-based loaders with dynamic AppleScript payloads. To defend against this threat, users should be cautious of suspicious download sites and conversations, and ensure their systems are updated with the latest security patches.",
+      "ai_summary": "MacSync Stealer is a macOS infostealer distributed through SEO poisoning and fake CAPTCHAs, utilizing AppleScript payloads to steal sensitive information. The campaign has evolved over three iterations, adapting its tactics to evade detection. To defend against this threat, users should be cautious when interacting with suspicious websites and conversations, and ensure their systems are updated with the latest security patches.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Persistence]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -101,7 +101,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T01:43:56.508672+00:00",
+      "published": "2026-04-12T04:40:02.493619+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -116,7 +116,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat involves a supply chain compromise of the Axios npm package, where malicious versions were published with a hidden dependency that executes postinstall scripts to download and deploy a remote access trojan. This attack has a significant real-world impact as it can lead to unauthorized access and control of affected systems. The most important defender action is to ensure that only trusted and verified npm packages are installed, and to monitor for suspicious postinstall script executions.",
+      "ai_summary": "The threat involves a supply chain compromise of the Axios npm package, where malicious versions were published with a hidden dependency that executes postinstall scripts to download and deploy a remote access trojan. This allows threat actors to gain unauthorized access to affected systems. To defend against this, developers should verify the integrity of npm packages before installation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1219| D[Persistence]:::tactic\n    D -->|T1078| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -131,7 +131,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T01:43:56.508648+00:00",
+      "published": "2026-04-12T04:40:02.493593+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -152,8 +152,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat involves a sophisticated attack chain utilizing a fraudulent Adobe Acrobat Reader download page to install ScreenConnect, a legitimate remote access tool, for malicious purposes. The attack employs evasion techniques such as heavy obfuscation and .NET reflection for in-memory payload execution. The most important defender action is to monitor for unusual activity related to remote access software and implement defenses against obfuscated files and impaired defenses.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Defense Evasion]:::tactic\n    B -->|T1562| C[Impair Defenses]:::tactic\n    C -->|T1219| D[Remote Access]:::tactic\n    D -->|T1027| E[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat involves a sophisticated attack chain that utilizes a fraudulent Adobe Acrobat Reader download page to install ScreenConnect, a legitimate remote access tool, for malicious purposes. The attack employs evasion techniques such as heavy obfuscation and in-memory payload execution. To defend against this threat, it is essential to implement robust endpoint security measures, including regular software updates and monitoring for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Defense Evasion]:::tactic\n    B -->|T1562| C[Impair Defenses]:::tactic\n    C -->|T1219| D[Remote Access]:::tactic\n    D -->|T1027| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -167,7 +167,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T01:43:56.508621+00:00",
+      "published": "2026-04-12T04:40:02.493566+00:00",
       "ttps": [
         {
           "id": "T1583.008",
@@ -206,8 +206,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users through malvertising and SEO poisoning, capturing authentication tokens and session cookies. The real-world impact includes potential financial loss and compromised sensitive information. The most important defender action is to educate users about the risks of generic search terms and suspicious sign-in pages.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1608.006| C[Execution]:::tactic\n    C -->|T1204| D[Persistence]:::tactic\n    D -->|T1539| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Storm-2755 threat actor is conducting payroll pirate attacks against Canadian users through malvertising and SEO poisoning, capturing authentication tokens and session cookies using adversary-in-the-middle techniques. This campaign has real-world impact as it compromises sensitive financial information. The most important defender action is to educate users about generic search term risks and implement robust authentication token protection.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1608.006| C[Execution]:::tactic\n    C -->|T1189| D[Persistence]:::tactic\n    D -->|T1539| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -221,7 +221,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T01:43:56.508598+00:00",
+      "published": "2026-04-12T04:40:02.493543+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -236,9 +236,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "KadNap malware targets Asus routers, using a custom Kademlia protocol to hide its command-and-control infrastructure within a peer-to-peer system, and conscripts them into a botnet for proxying malicious traffic. The botnet has grown to over 14,000 routers. To defend, prioritize securing router devices and monitoring for unusual application layer protocol activity.",
+      "ai_summary": "KadNap malware targets Asus routers, conscripting them into a botnet for proxying malicious traffic, utilizing a custom Kademlia Distributed Hash Table protocol for command-and-control. This botnet has grown to over 14,000 nodes, posing significant threats. To defend, prioritize securing router devices and monitoring for unusual application layer protocol activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1071| D[Persistence]:::tactic\n    D -->|T1583.005| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -251,13 +251,13 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T01:43:56.508573+00:00",
+      "published": "2026-04-12T04:40:02.493504+00:00",
       "ttps": [],
-      "ai_summary": "Attackers exploit FortiGate NGFW vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to gain unauthorized access and control. Defenders should immediately audit and rotate service account credentials.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Exploitation of Resource Vulnerability]:::tactic\n    B -->|T1552| C[Abnormal Account Authentication]:::tactic\n    C -->|T1068| D[Active Directory Domain Policy Modification]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The threat involves compromised FortiGate NGFW appliances used to gain access to targeted environments through stolen service accounts. Attackers exploit vulnerabilities or weak credentials to extract configuration files and join rogue workstations to Active Directory, leading to deep AD compromise. The most important defender action is to ensure strong credentials and monitor for suspicious activity on FortiGate devices and Active Directory.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1021| C[Execution]:::tactic\n    C -->|T1552| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "CastleRAT attack first to abuse Deno JavaScript runtime to evade enterprise security",
@@ -268,7 +268,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T01:43:56.508534+00:00",
+      "published": "2026-04-12T04:40:02.493476+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -289,11 +289,11 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. The attack tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should monitor for suspicious Deno activity and block user execution of unknown commands.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "ai_summary": "The CastleRAT attack utilizes the Deno JavaScript runtime to evade enterprise security through a sophisticated infection chain, combining social engineering, steganography, and in-memory execution. This allows the malware to install without leaving disk traces, making detection challenging. To defend against this, it's crucial to implement robust user execution controls and monitor for obfuscated files or information.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Execution]:::tactic\n    B -->|T1027| C[Defense Evasion]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1055| E[Collection]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "RondoDox Botnet: From Zero to 174 Exploited Vulnerabilities",
@@ -302,9 +302,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T01:43:56.508501+00:00",
+      "published": "2026-04-12T04:40:02.493441+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -319,9 +319,50 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The RondoDox botnet is a significant threat exploiting 174 vulnerabilities since May 2025, primarily targeting IoT devices for DoS attacks. Its infrastructure includes exploiting and hosting components, with evidence of compromised residential IPs. Defenders should prioritize monitoring for T1583.005 and T1498 TTPs.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "ai_summary": "The RondoDox botnet is a significant threat that exploits multiple vulnerabilities to conduct DoS attacks on IoT devices and internet-exposed services. Its operators rapidly adopt newly disclosed vulnerabilities, making it essential for defenders to prioritize patch management and vulnerability remediation. To mitigate this threat, defenders should focus on securing IoT devices and internet-exposed services through regular updates and patches.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1498| C[Impact]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-5032: The W3 Total Cache plugin for WordPress is vulnerable to information exposure in...",
+      "description": "The W3 Total Cache plugin for WordPress is vulnerable to information exposure in all versions up to, and including, 2.9.3. This is due to the plugin bypassing its entire output buffering and processing pipeline when the request's User-Agent header contains \"W3 Total Cache\", which causes raw mfunc/mclude dynamic fragment HTML comments — including the W3TC_DYNAMIC_SECURITY security token — to be ren",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5032",
+      "cve_id": "CVE-2026-5032",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "published": "2026-04-12T04:39:58.909880+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-5032 is a vulnerability in the W3 Total Cache plugin for WordPress, allowing information exposure due to bypassed output buffering. This affects all versions up to 2.9.3. Defenders should update the plugin to a secure version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Information Gathering]:::tactic\n    B -->|T1162| C[Input Validation Error]:::tactic\n    C -->|T1190| D[Web Shell]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-0688: The Webmention plugin for WordPress is vulnerable to Server-Side Request Forgery...",
+      "description": "The Webmention plugin for WordPress is vulnerable to Server-Side Request Forgery in all versions up to, and including, 5.6.2 via the 'Tools::read' function. This makes it possible for authenticated attackers, with Subscriber-level access and above, to make web requests to arbitrary locations originating from the web application and can be used to query and modify information from internal services",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0688",
+      "cve_id": "CVE-2026-0688",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.4,
+      "published": "2026-04-12T04:39:58.909865+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-0688 is a Server-Side Request Forgery (SSRF) vulnerability in the WordPress Webmention plugin, allowing authenticated attackers to make web requests to arbitrary locations. This can be used to query and modify internal services. Defenders should update the Webmention plugin to a version not vulnerable to SSRF.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.4,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -334,7 +375,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.2,
-      "published": "2026-04-12T01:43:52.393119+00:00",
+      "published": "2026-04-12T04:39:58.909848+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -343,7 +384,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-0686 is a Server-Side Request Forgery (SSRF) vulnerability in the WordPress Webmention plugin, allowing unauthenticated attackers to make web requests to arbitrary locations. This can be used to query and modify internal server information. Defenders should update the Webmention plugin to version 5.6.3 or later to mitigate this vulnerability.",
+      "ai_summary": "CVE-2026-0686 is a Server-Side Request Forgery (SSRF) vulnerability in the WordPress Webmention plugin, allowing unauthenticated attackers to make web requests to arbitrary locations. This can be used to query and modify internal server information. Defenders should update the Webmention plugin to version 5.6.3 or later.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -358,7 +399,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 3.5,
-      "published": "2026-04-12T01:43:52.393102+00:00",
+      "published": "2026-04-12T04:39:58.909829+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -373,9 +414,9 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-5325 is a cross-site scripting (XSS) vulnerability in SourceCodester Simple Customer Relationship Management System 1.0, allowing remote exploitation. This publicly disclosed vulnerability can be exploited using T1190 (Exploit Public-Facing Application). Defenders should update the system to the latest version to mitigate this risk.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.0,
+      "ai_summary": "CVE-2026-5325 is a cross-site scripting vulnerability in SourceCodester Simple Customer Relationship Management System 1.0, allowing remote exploitation through public disclosure of an exploit. This vulnerability has a CVSS score of 3.5, indicating a low to medium severity. Defenders should prioritize patching the affected system to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -388,7 +429,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-12T01:43:52.393083+00:00",
+      "published": "2026-04-12T04:39:58.909814+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -403,9 +444,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "CVE-2026-5323 is a server-side request forgery vulnerability in priyankark a11y-mcp up to 1.0.5, allowing attackers to exploit public-facing applications and encrypt data for impact. This vulnerability has been made public and can be used by attackers. Defenders should update the affected product to the latest version.",
+      "ai_summary": "CVE-2026-5323 is a server-side request forgery vulnerability in priyankark a11y-mcp up to 1.0.5. An attacker can exploit this vulnerability from a local position. Defenders should patch the vulnerability to prevent exploitation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.3,
+      "severity_score": 5.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -418,7 +459,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-12T01:43:52.393062+00:00",
+      "published": "2026-04-12T04:39:58.909799+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -427,11 +468,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-5322 is a publicly disclosed SQL injection vulnerability in AlejandroArciniegas mcp-data-vis, exploitable remotely via T1190. This allows attackers to inject malicious SQL code, potentially leading to data breaches or other impacts. Defenders should prioritize patching or mitigating this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-4347: The MW WP Form plugin for WordPress is vulnerable to arbitrary file moving due t...",
@@ -442,7 +483,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.1,
-      "published": "2026-04-12T01:43:52.393046+00:00",
+      "published": "2026-04-12T04:39:58.909785+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -457,11 +498,11 @@
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "CVE-2026-4347 is a remote code execution vulnerability in the MW WP Form plugin for WordPress, exploitable by unauthenticated attackers via arbitrary file moving. This can lead to significant data breaches and system compromise. Defenders should immediately update the plugin to version 5.1.1 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
       "title": "CVE-2026-1540: The Spam Protect for Contact Form 7 WordPress plugin before 1.2.10 allows loggin...",
@@ -472,7 +513,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.2,
-      "published": "2026-04-12T01:43:52.393029+00:00",
+      "published": "2026-04-12T04:39:58.909768+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -502,7 +543,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.3,
-      "published": "2026-04-12T01:43:52.393012+00:00",
+      "published": "2026-04-12T04:39:58.909747+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -519,56 +560,8 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-12T01:43:52.392994+00:00",
+      "published": "2026-04-12T04:39:58.909704+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-5319: A security vulnerability has been detected in itsourcecode Payroll Management Sy...",
-      "description": "A security vulnerability has been detected in itsourcecode Payroll Management System up to 1.0. Affected is an unknown function of the file /navbar.php. Such manipulation of the argument page leads to cross site scripting. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5319",
-      "cve_id": "CVE-2026-5319",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.3,
-      "published": "2026-04-12T01:43:52.392971+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-5318: A weakness has been identified in LibRaw up to 0.22.0. This impacts the function...",
-      "description": "A weakness has been identified in LibRaw up to 0.22.0. This impacts the function HuffTable::initval of the file src/decompressors/losslessjpeg.cpp of the component JPEG DHT Parser. This manipulation of the argument bits[] causes out-of-bounds write. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5318",
-      "cve_id": "CVE-2026-5318",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.3,
-      "published": "2026-04-12T01:43:52.392929+00:00",
-      "ttps": [
-        {
-          "id": "T1140",
-          "name": "Deobfuscate/Decode Files",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        }
-      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,

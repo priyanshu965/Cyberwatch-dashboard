@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-12T16:30:03.610380+00:00",
-  "total_items": 70,
+  "last_updated": "2026-04-12T17:29:16.684708+00:00",
+  "total_items": 75,
   "items": [
     {
       "title": "Hack-for-Hire Campaign Targets Journalists Across MENA Region",
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T16:28:11.335793+00:00",
+      "published": "2026-04-12T17:27:12.474101+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -20,7 +20,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and government officials. The threat actor employs phishing attacks via various platforms, including LinkedIn and WhatsApp. To defend against this threat, organizations should implement robust email and messaging security measures, including multi-factor authentication and regular security awareness training.",
+      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and government officials. The threat actor employs phishing tactics, specifically T1566, to gain initial access to victim accounts. To defend against this threat, organizations should implement robust email and messaging security measures, including multi-factor authentication and regular security awareness training.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -33,9 +33,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T16:28:11.335766+00:00",
+      "published": "2026-04-12T17:27:12.474078+00:00",
       "ttps": [
         {
           "id": "T1572",
@@ -44,9 +44,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "ClipBanker utilizes Proxifier software to tunnel traffic, allowing it to bypass security controls and remain undetected within secured development environments. This technique enables the malware to maintain its functionality while evading detection. To defend against this, it is essential to monitor and restrict the use of proxifier software within the network.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Command and Control]:::tactic\n    B -->|T1041| C[Execution]:::tactic\n    C -->|T1059.001| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
+      "ai_summary": "ClipBanker utilizes a marathon infection chain to target cryptocurrency, leveraging specialized software like Proxifier to tunnel traffic and evade detection. The real-world impact involves potential financial loss due to unauthorized access to cryptocurrency wallets. The most important defender action is to monitor network traffic for suspicious protocol tunneling activity, such as T1572.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -59,7 +59,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T16:28:11.335739+00:00",
+      "published": "2026-04-12T17:27:12.474052+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -86,11 +86,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "MacSync Stealer is a macOS infostealer distributed through SEO poisoning and fake CAPTCHAs, with threat actors utilizing AppleScript payloads to steal sensitive information. The campaign has evolved over three iterations, indicating a high level of adaptability and sophistication. To defend against this threat, users should be cautious when interacting with suspicious websites and conversations, and ensure their systems are updated with the latest security patches.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Persistence]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The MacSync Stealer malware is a macOS infostealer distributed through SEO poisoning, fake ClickFix CAPTCHAs, and malicious ChatGPT conversations. It has evolved through three iterations since November 2025, with threat actors using Google-sponsored ads. Defenders should prioritize monitoring for suspicious AppleScript payloads and SEO poisoning tactics.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Obtain Capabilities]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Command and Control]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "NPM Package Supply Chain Compromise Leads to RAT Deployment",
@@ -101,7 +101,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T16:28:11.335713+00:00",
+      "published": "2026-04-12T17:27:12.474028+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -116,7 +116,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Threat actors compromised the npm account of an Axios developer, publishing malicious versions of the package that executed postinstall scripts and deployed a remote access trojan. This supply chain attack allows attackers to gain unauthorized access to affected systems. Defenders should immediately update dependencies and monitor for suspicious npm activity.",
+      "ai_summary": "Threat actors compromised the npm account of an Axios developer, publishing malicious versions of the package that executed postinstall scripts, downloading and deploying a remote access trojan. This supply chain attack allows for remote access to affected systems. Defenders should immediately audit and update their npm packages to prevent similar attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -131,7 +131,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T16:28:11.335687+00:00",
+      "published": "2026-04-12T17:27:12.474003+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -152,9 +152,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A sophisticated attack chain uses a fraudulent Adobe Acrobat Reader download page to install ConnectWise's ScreenConnect, a legitimate remote access tool, for malicious purposes. The attack employs heavy obfuscation, .NET reflection, and dynamic code construction for evasion. Defenders should prioritize monitoring for suspicious Adobe Acrobat Reader downloads and in-memory payload execution.",
+      "ai_summary": "A sophisticated attack chain uses a fake Adobe Acrobat Reader download page to trick victims into installing ScreenConnect, a legitimate remote access tool exploited for malicious purposes. The attackers employ heavy obfuscation, .NET reflection for in-memory payload execution, and dynamic code construction. Defenders should prioritize monitoring for suspicious Adobe Acrobat Reader downloads and ScreenConnect activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1562| C[Impair Defenses]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -167,7 +167,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T16:28:11.335643+00:00",
+      "published": "2026-04-12T17:27:12.473965+00:00",
       "ttps": [
         {
           "id": "T1583.008",
@@ -206,8 +206,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning, capturing authentication tokens and session cookies through adversary-in-the-middle techniques. This campaign targets users searching for generic terms like 'Office 365'. Defenders should prioritize monitoring for malvertising and SEO poisoning tactics.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning. The actor captures authentication tokens and session cookies through adversary-in-the-middle techniques. Defenders should prioritize monitoring for malvertising and SEO poisoning campaigns targeting Canadian users.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -219,9 +219,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T16:28:11.335617+00:00",
+      "published": "2026-04-12T17:27:12.473943+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -237,8 +237,8 @@
         }
       ],
       "ai_summary": "KadNap malware targets Asus routers, turning them into a botnet for proxying malicious traffic. The malware uses a custom Kademlia protocol to evade network monitoring. Defenders should immediately update Asus router firmware to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Initial Access]:::tactic\n    B -->|T1583.005| C[Command and Control]:::tactic\n    C -->|T1583.005| D[Botnet]:::tactic\n    D -->|T1583.005| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Application Layer Protocol]:::tactic\n    B -->|T1583.005| C[Botnet]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -251,11 +251,11 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T16:28:11.335591+00:00",
+      "published": "2026-04-12T17:27:12.473919+00:00",
       "ttps": [],
-      "ai_summary": "Attackers exploit FortiGate vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to establish a foothold in targeted environments. Defenders should immediately review and secure FortiGate configurations and monitor for suspicious AD activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Public-Facing Application]:::tactic\n    C -->|T1003| D[Command and Control]:::tactic\n    D -->|T1071| E[Application Account]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Attackers exploit FortiGate vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to gain unauthorized access and control. Defenders should immediately audit and rotate service account credentials.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Exploitation of Resource Vulnerability]:::tactic\n    B -->|T1552| C[Abnormal Account Authentication]:::tactic\n    C -->|T1068| D[Active Directory Domain Policy Modification]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -268,7 +268,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T16:28:11.335562+00:00",
+      "published": "2026-04-12T17:27:12.473891+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -289,7 +289,7 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. This sophisticated infection chain tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should prioritize monitoring for suspicious Deno activity and user execution tactics.",
+      "ai_summary": "The CastleRAT attack abuses Deno JavaScript runtime to evade detection, using social engineering, steganography, and in-memory execution. This sophisticated infection chain installs malware without leaving disk traces. Defenders should prioritize monitoring for suspicious Deno usage and user execution tactics.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-12T16:28:11.335525+00:00",
+      "published": "2026-04-12T17:27:12.473857+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -319,112 +319,208 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The RondoDox botnet exploits 174 vulnerabilities to conduct DoS attacks on IoT devices and internet-exposed services. Its infrastructure includes compromised residential IPs and rapidly adopts newly disclosed vulnerabilities. Defenders should prioritize monitoring for T1583.005 and T1498 TTPs.",
+      "ai_summary": "RondoDox botnet exploits 174 vulnerabilities, targeting IoT devices and internet-exposed services for DoS attacks. This botnet uses compromised residential IPs and rapidly adopts newly disclosed vulnerabilities. Defenders should prioritize monitoring for T1583.005 (Botnet) and T1498 (Network Denial of Service) TTPs.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-34230: Rack is a modular Ruby web server interface. Prior to versions 2.2.23, 3.1.21, a...",
-      "description": "Rack is a modular Ruby web server interface. Prior to versions 2.2.23, 3.1.21, and 3.2.6, Rack::Utils.select_best_encoding processes Accept-Encoding values with quadratic time complexity when the header contains many wildcard (*) entries. Because this method is used by Rack::Deflater to choose a response encoding, an unauthenticated attacker can send a single request with a crafted Accept-Encoding",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34230",
-      "cve_id": "CVE-2026-34230",
+      "title": "CVE-2026-34122: A stack-based buffer overflow vulnerability was identified in TP-Link Tapo C520W...",
+      "description": "A stack-based buffer overflow vulnerability was identified in TP-Link Tapo C520WS v2.6 within a configuration handling component due to insufficient input validation.  An attacker can exploit this vulnerability by supplying an excessively long value for a vulnerable configuration parameter, resulting in a stack overflow.\n\nSuccessful exploitation results in Denial-of-Service (DoS) condition, leadin",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34122",
+      "cve_id": "CVE-2026-34122",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-12T16:28:08.145230+00:00",
+      "cvss_score": 6.5,
+      "published": "2026-04-12T17:27:10.059183+00:00",
       "ttps": [
         {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "CVE-2026-34230 is a vulnerability in Rack, a Ruby web server interface, allowing an unauthenticated attacker to send a crafted request and exploit the quadratic time complexity of Rack::Utils.select_best_encoding. This can lead to a denial-of-service (DoS) condition. Defenders should update Rack to versions 2.2.23, 3.1.21, or 3.2.6 to mitigate this threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1586.002| C[Email Accounts]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.3,
+      "ai_summary": "CVE-2026-34122 is a stack-based buffer overflow vulnerability in TP-Link Tapo C520WS v2.6, allowing an attacker to cause a Denial-of-Service (DoS) condition by supplying an excessively long configuration parameter value. This vulnerability can be exploited using T1203 (Exploitation for Client Execution). To defend, ensure timely patching and input validation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-34083: Signal K Server is a server application that runs on a central hub in a boat. Pr...",
-      "description": "Signal K Server is a server application that runs on a central hub in a boat. Prior to version 2.24.0, SignalK Server contains a code-level vulnerability in its OIDC login and logout handlers where the unvalidated HTTP Host header is used to construct the OAuth2 redirect_uri. Because the redirectUri configuration is silently unset by default, an attacker can spoof the Host header to steal OAuth au",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34083",
-      "cve_id": "CVE-2026-34083",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-12T16:28:08.145212+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        }
-      ],
-      "ai_summary": "CVE-2026-34083 is a code-level vulnerability in Signal K Server's OIDC login and logout handlers, allowing attackers to steal OAuth access tokens by spoofing the Host header. This vulnerability has a CVSS score of 6.1, indicating a medium severity impact. Defenders should update Signal K Server to version 2.24.0 or later to mitigate this vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Application Access]:::tactic\n    D -->|T1068| E[Data Stolen]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33951: Signal K Server is a server application that runs on a central hub in a boat. Pr...",
-      "description": "Signal K Server is a server application that runs on a central hub in a boat. Prior to version 2.24.0-beta.1, the SignalK Server exposes an unauthenticated HTTP endpoint that allows remote attackers to modify navigation data source priorities. This endpoint, accessible via PUT /signalk/v1/api/sourcePriorities, does not enforce authentication or authorization checks and directly assigns user-contro",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33951",
-      "cve_id": "CVE-2026-33951",
+      "title": "CVE-2026-34121: An authentication bypass vulnerability within the HTTP handling of the DS config...",
+      "description": "An authentication bypass vulnerability within the HTTP handling of the DS configuration service in TP-Link Tapo C520WS v2.6 was identified, due to inconsistent parsing and authorization logic in JSON requests during authentication check.  An unauthenticated attacker can append an authentication-exempt action to a request containing privileged DS do actions, bypassing authorization checks.\n\nSuccess",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34121",
+      "cve_id": "CVE-2026-34121",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-12T16:28:08.145194+00:00",
+      "cvss_score": 8.8,
+      "published": "2026-04-12T17:27:10.059169+00:00",
       "ttps": [
         {
           "id": "T1190",
           "name": "Exploit Public-Facing Application",
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-34121 is an authentication bypass vulnerability in TP-Link Tapo C520WS cameras that allows unauthenticated attackers to execute privileged actions by manipulating JSON requests. This could lead to unauthorized control and potential compromise of the affected device. Implement a patch or firmware update as soon as it becomes available.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1190| C[Initial Access]:::tactic\n    C -->|T1190| D[Privilege Escalation]:::tactic\n    D -->|T1190| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.8,
+      "ai_provider": "gemini",
+      "ai_model": "gemini-2.5-flash-lite"
+    },
+    {
+      "title": "CVE-2026-34120: A heap-based buffer overflow vulnerability was identified in TP-Link Tapo C520WS...",
+      "description": "A heap-based buffer overflow vulnerability was identified in TP-Link Tapo C520WS v2.6 within the asynchronous parsing of local video stream content due to\ninsufficient alignment and validation of buffer boundaries when processing streaming inputs.An attacker\non the same network segment could trigger heap memory corruption conditions by\nsending crafted payloads that cause write operations beyond al",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34120",
+      "cve_id": "CVE-2026-34120",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 6.5,
+      "published": "2026-04-12T17:27:10.059154+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2026-34120 is a heap-based buffer overflow vulnerability in TP-Link Tapo C520WS, allowing an attacker on the same network to execute arbitrary code by sending crafted payloads. This vulnerability can lead to heap memory corruption and potentially allow an attacker to gain control of the device. To defend against this, users should update their devices to the latest firmware version.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1055| C[Unmanaged Application Execution]:::tactic\n    C -->|T1210| D[Exploitation of Remote Services]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
+    {
+      "title": "CVE-2026-34119: A heap-based buffer overflow vulnerability was identified in TP-Link Tapo C520WS...",
+      "description": "A heap-based buffer overflow vulnerability was identified in TP-Link Tapo C520WS v2.6 within the HTTP parsing\nloop\nwhen appending segmented request bodies without\ncontinuous write‑boundary verification, due to insufficient boundary validation when handling externally supplied HTTP input.  An attacker\non the same network segment could trigger heap memory corruption conditions by\nsending crafted pay",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34119",
+      "cve_id": "CVE-2026-34119",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 6.5,
+      "published": "2026-04-12T17:27:10.059138+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         },
         {
-          "id": "T1187",
-          "name": "Forced Authentication",
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "ai_summary": "CVE-2026-34119 is a heap-based buffer overflow vulnerability in TP-Link Tapo C520WS v2.6, allowing an attacker on the same network segment to trigger heap memory corruption conditions. This can lead to data breach or ransomware attacks. Defenders should prioritize patching the vulnerability to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34118: A heap-based buffer overflow vulnerability was identified in TP-Link Tapo C520WS...",
+      "description": "A heap-based buffer overflow vulnerability was identified in TP-Link Tapo C520WS v2.6 in the HTTP POST body parsing logic due to missing validation of remaining buffer capacity after dynamic allocation, due to insufficient boundary validation when handling externally supplied HTTP input.  An attacker\non the same network segment could trigger heap memory corruption conditions by\nsending crafted pay",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34118",
+      "cve_id": "CVE-2026-34118",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-12T17:27:10.059122+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "CVE-2026-34118 is a heap-based buffer overflow vulnerability in TP-Link Tapo C520WS v2.6, allowing an attacker on the same network segment to trigger heap memory corruption conditions. This vulnerability can be exploited for client execution (T1203). Defenders should prioritize patching the affected device to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33271: Local privilege escalation due to insecure folder permissions. The following pro...",
+      "description": "Local privilege escalation due to insecure folder permissions. The following products are affected: Acronis True Image (Windows) before build 42902.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33271",
+      "cve_id": "CVE-2026-33271",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.7,
+      "published": "2026-04-12T17:27:10.059104+00:00",
+      "ttps": [
+        {
+          "id": "T1068",
+          "name": "Exploitation for Privilege Escalation",
+          "tactic": "Privilege Escalation",
+          "tactic_id": "TA0004"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
           "tactic": "Credential Access",
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-33951 is a server-side request forgery (SSRF) vulnerability in Signal K Server, allowing remote attackers to modify navigation data source priorities without authentication. This vulnerability can be exploited using T1190 (Exploit Public-Facing Application) and T1187 (Forced Authentication) tactics. Defenders should prioritize patching Signal K Server to version 2.24.0-beta.1 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1187| C[Forced Authentication]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    E -->|T1486| F[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2026-33950: Signal K Server is a server application that runs on a central hub in a boat. Pr...",
-      "description": "Signal K Server is a server application that runs on a central hub in a boat. Prior to version 2.24.0-beta.4, there is a privilege escalation vulnerability by Admin Role Injection via /enableSecurity. An unauthenticated attacker can gain full Administrator access to the SignalK server at any time, allowing them to modify sensitive vessel routing data, alter server configurations, and access restri",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33950",
-      "cve_id": "CVE-2026-33950",
+      "title": "CVE-2026-32762: Rack is a modular Ruby web server interface. From versions 3.0.0.beta1 to before...",
+      "description": "Rack is a modular Ruby web server interface. From versions 3.0.0.beta1 to before 3.1.21 and 3.2.0 to before 3.2.6, Rack::Utils.forwarded_values parses the RFC 7239 Forwarded header by splitting on semicolons before handling quoted-string values. Because quoted values may legally contain semicolons, a header can be interpreted by Rack as multiple Forwarded directives rather than as a single quoted ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32762",
+      "cve_id": "CVE-2026-32762",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.4,
-      "published": "2026-04-12T16:28:08.145168+00:00",
+      "severity": "medium",
+      "cvss_score": 4.8,
+      "published": "2026-04-12T17:27:10.059084+00:00",
       "ttps": [
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-28728: Local privilege escalation due to DLL hijacking vulnerability. The following pro...",
+      "description": "Local privilege escalation due to DLL hijacking vulnerability. The following products are affected: Acronis True Image (Windows) before build 42902.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28728",
+      "cve_id": "CVE-2026-28728",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.7,
+      "published": "2026-04-12T17:27:10.059067+00:00",
+      "ttps": [
+        {
+          "id": "T1574",
+          "name": "Hijack Execution Flow",
+          "tactic": "Persistence",
+          "tactic_id": "TA0003"
         },
         {
           "id": "T1068",
@@ -439,28 +535,28 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-33950 is a privilege escalation vulnerability in Signal K Server, allowing unauthenticated attackers to gain full Administrator access. This enables attackers to modify sensitive vessel routing data and alter server configurations. Defenders should immediately update Signal K Server to version 2.24.0-beta.4 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1068| C[Exploitation for Privilege Escalation]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.4,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
     },
     {
-      "title": "CVE-2026-30603: An issue in the firmware update mechanism of Qianniao QN-L23PA0904 v20250721.164...",
-      "description": "An issue in the firmware update mechanism of Qianniao QN-L23PA0904 v20250721.1640 allows attackers to gain root access, install backdoors, and exfiltrate data via supplying a crafted iu.sh script contained in an SD card.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30603",
-      "cve_id": "CVE-2026-30603",
+      "title": "CVE-2026-27774: Local privilege escalation due to DLL hijacking vulnerability. The following pro...",
+      "description": "Local privilege escalation due to DLL hijacking vulnerability. The following products are affected: Acronis True Image (Windows) before build 42902.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27774",
+      "cve_id": "CVE-2026-27774",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.8,
-      "published": "2026-04-12T16:28:08.145135+00:00",
+      "cvss_score": 6.7,
+      "published": "2026-04-12T17:27:10.059045+00:00",
       "ttps": [
         {
-          "id": "T1059.004",
-          "name": "Unix Shell",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
+          "id": "T1574",
+          "name": "Hijack Execution Flow",
+          "tactic": "Persistence",
+          "tactic_id": "TA0003"
         },
         {
           "id": "T1068",
@@ -469,35 +565,12 @@
           "tactic_id": "TA0004"
         },
         {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        },
-        {
-          "id": "T1041",
-          "name": "Exfiltration Over C2 Channel",
-          "tactic": "Exfiltration",
-          "tactic_id": "TA0010"
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-30603 is a firmware update mechanism vulnerability in Qianniao QN-L23PA0904 v20250721.1640, allowing attackers to gain root access, install backdoors, and exfiltrate data. This vulnerability has a CVSS score of 6.8, indicating a medium severity. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Initial Access]:::tactic\n    B -->|T1059.004| C[Execution]:::tactic\n    C -->|T1068| D[Privilege Escalation]:::tactic\n    D -->|T1041| E[Exfiltration Over C2 Channel]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-26961: Rack is a modular Ruby web server interface. Prior to versions 2.2.23, 3.1.21, a...",
-      "description": "Rack is a modular Ruby web server interface. Prior to versions 2.2.23, 3.1.21, and 3.2.6, Rack::Multipart::Parser extracts the boundary parameter from multipart/form-data using a greedy regular expression. When a Content-Type header contains multiple boundary parameters, Rack selects the last one rather than the first. In deployments where an upstream proxy, WAF, or intermediary interprets the fir",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26961",
-      "cve_id": "CVE-2026-26961",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": 3.7,
-      "published": "2026-04-12T16:28:08.145115+00:00",
-      "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -505,92 +578,15 @@
       "ai_model": "none"
     },
     {
-      "title": "CVE-2026-26895: User enumeration vulnerability in /pwreset.php in osTicket v1.18.2 allows remote...",
-      "description": "User enumeration vulnerability in /pwreset.php in osTicket v1.18.2 allows remote attackers to enumerate valid usernames registered in the platform.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26895",
-      "cve_id": "CVE-2026-26895",
+      "title": "CVE-2026-26962: Rack is a modular Ruby web server interface. From version 3.2.0 to before versio...",
+      "description": "Rack is a modular Ruby web server interface. From version 3.2.0 to before version 3.2.6, Rack::Multipart::Parser unfolds folded multipart part headers incorrectly. When a multipart header contains an obs-fold sequence, Rack preserves the embedded CRLF in parsed parameter values such as filename or name instead of removing the folded line break during unfolding. As a result, applications that later",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26962",
+      "cve_id": "CVE-2026-26962",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-12T16:28:08.145098+00:00",
-      "ttps": [
-        {
-          "id": "T1087",
-          "name": "Account Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-25212: An issue was discovered in Percona PMM before 3.7. Because an internal database ...",
-      "description": "An issue was discovered in Percona PMM before 3.7. Because an internal database user retains specific superuser privileges, an attacker with pmm-admin rights can abuse the \"Add data source\" feature to break out of the database context and execute shell commands on the underlying operating system.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25212",
-      "cve_id": "CVE-2026-25212",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.9,
-      "published": "2026-04-12T16:28:08.145080+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059.004",
-          "name": "Unix Shell",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2025-65114: Apache Traffic Server allows request smuggling if chunked messages are malformed...",
-      "description": "Apache Traffic Server allows request smuggling if chunked messages are malformed. \n\nThis issue affects Apache Traffic Server: from 9.0.0 through 9.2.12, from 10.0.0 through 10.1.1.\n\nUsers are recommended to upgrade to version 9.2.13 or 10.1.2, which fix the issue.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-65114",
-      "cve_id": "CVE-2025-65114",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-12T16:28:08.145058+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2025-58136: A bug in POST request handling causes a crash under a certain condition.\n\nThis i...",
-      "description": "A bug in POST request handling causes a crash under a certain condition.\n\nThis issue affects Apache Traffic Server: from 10.0.0 through 10.1.1, from 9.0.0 through 9.2.12.\n\nUsers are recommended to upgrade to version 10.1.2 or 9.2.13, which fix the issue.\n\nA workaround for older versions is to set proxy.config.http.request_buffer_enabled to 0 (the default value is 0).",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58136",
-      "cve_id": "CVE-2025-58136",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-12T16:28:08.145017+00:00",
+      "cvss_score": 4.8,
+      "published": "2026-04-12T17:27:10.059006+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -748,6 +744,64 @@
       "ai_model": "none"
     },
     {
+      "title": "Senator launches inquiry into 8 tech giants for failures to adequately report CSAM",
+      "description": "The inquiry follows reports from the National Center for Missing and Exploited Children (NCMEC) that allege the tech giants are deficient in their reporting of CSAM and data related to generative AI generally.",
+      "url": "https://therecord.media/senator-launches-inquiry-into-tech-giants-csam",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "cve",
+      "severity": "low",
+      "cvss_score": null,
+      "published": "2026-04-10T18:05:00+00:00",
+      "ttps": [
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "UK government threatens tech bosses with jail time if they do not adequately fight nudification tools",
+      "description": "A U.K. communications regulator, Ofcom, has said it will be cracking down on the spread of the images in the aftermath of the Grok scandal, which led to millions of “nudified” images of women and children to be circulated worldwide.",
+      "url": "https://therecord.media/uk-threatens-tech-bosses-with-jail-ai-nudification",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "news",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-10T17:35:00+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "‘It reads like a spy novel’: $280 million theft from Drift involved North Korean fake companies, cutouts",
+      "description": "Drift officials said the operation began six months ago, when they were approached at a cryptocurrency conference by members of a company claiming to focus on quantitative trading.",
+      "url": "https://therecord.media/drift-crypto-theft-post-mortem-north-korea",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "news",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-10T17:33:00+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
       "title": "Nearly 4,000 US industrial devices exposed to Iranian cyberattacks",
       "description": "The attack surface targeted by Iranian-linked hackers in cyberattacks against U.S. critical infrastructure networks includes thousands of Internet-exposed programmable logic controllers (PLCs) manufactured by Rockwell Automation. [...]",
       "url": "https://www.bleepingcomputer.com/news/security/nearly-4-000-us-industrial-devices-exposed-to-iranian-cyberattacks/",
@@ -758,6 +812,30 @@
       "cvss_score": null,
       "published": "2026-04-10T15:52:45+00:00",
       "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Florida investigates OpenAI for role ChatGPT may have played in deadly shooting",
+      "description": "Last week, the family of one of two victims in the attack announced it plans to sue OpenAI because the gunman allegedly constantly communicated with ChatGPT in the days leading to the shootings.",
+      "url": "https://therecord.media/florida-investigates-openai-chatgpt-deadly-shooting",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-10T14:07:00+00:00",
+      "ttps": [
+        {
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        }
+      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -815,6 +893,23 @@
       "severity": "medium",
       "cvss_score": null,
       "published": "2026-04-10T13:12:42+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "UK says it exposed Russian submarine activity near undersea cables",
+      "description": "A Russian attack submarine and vessels from the country’s Main Directorate of Deep Sea Research (GUGI) were involved in what the UK Ministry of Defence called “nefarious activity over critical undersea infrastructure elsewhere.”",
+      "url": "https://therecord.media/uk-says-it-exposed-russian-submarine-activity",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-10T13:03:00+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",

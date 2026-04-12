@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-12T13:56:23.609315+00:00",
-  "total_items": 75,
+  "last_updated": "2026-04-12T14:36:30.691015+00:00",
+  "total_items": 70,
   "items": [
     {
       "title": "Hack-for-Hire Campaign Targets Journalists Across MENA Region",
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T13:54:36.366538+00:00",
+      "published": "2026-04-12T14:34:34.866952+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -20,7 +20,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The hack-for-hire campaign utilizes sophisticated spear-phishing attacks to compromise Apple and Google accounts of journalists and government officials. The campaign's real-world impact includes potential data breaches and surveillance of targeted individuals. The most important defender action is to educate users about phishing attacks and implement robust account security measures.",
+      "ai_summary": "The hack-for-hire campaign technically involves sophisticated spear-phishing attacks to compromise Apple and Google accounts, having a real-world impact on journalists, activists, and government officials across the Middle East and North Africa. The most important defender action is to educate users about phishing attacks and implement robust account security measures. This campaign highlights the need for increased vigilance against social engineering tactics.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -33,9 +33,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T13:54:36.366514+00:00",
+      "published": "2026-04-12T14:34:34.866928+00:00",
       "ttps": [
         {
           "id": "T1572",
@@ -44,9 +44,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "ClipBanker utilizes Proxifier software to tunnel traffic, enabling malicious programs to bypass security controls. This technique, known as protocol tunneling (T1572), allows attackers to maintain access to compromised systems. To defend against this, organizations should monitor for unusual proxy server activity and restrict the use of proxifiers to only necessary applications.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Command and Control]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
+      "ai_summary": "ClipBanker utilizes a complex infection chain to target cryptocurrency, leveraging specialized software like Proxifier to tunnel traffic and evade detection. The real-world impact involves potential financial loss due to unauthorized access to cryptocurrency wallets. The most important defender action is to monitor network traffic for suspicious protocol tunneling activity, such as T1572.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -59,7 +59,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T13:54:36.366488+00:00",
+      "published": "2026-04-12T14:34:34.866902+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -86,11 +86,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The MacSync Stealer campaign is a macOS infostealer that operates as Malware-as-a-Service, utilizing tactics such as SEO poisoning and fake CAPTCHAs to distribute malware. This campaign has evolved over time, incorporating new techniques like shell-based loaders with dynamic AppleScript payloads. To defend against this threat, users should be cautious when interacting with suspicious websites or chat conversations and avoid downloading software from untrusted sources.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Persistence]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "The MacSync Stealer malware is a macOS infostealer distributed through SEO poisoning, fake ClickFix CAPTCHAs, and malicious ChatGPT conversations. It has evolved through three iterations since November 2025, using dynamic AppleScript payloads. Defenders should monitor for suspicious AppleScript activity and block malicious ChatGPT conversations.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1608.006| B[Obtain Capabilities]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1588| D[Command and Control]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "NPM Package Supply Chain Compromise Leads to RAT Deployment",
@@ -101,7 +101,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T13:54:36.366450+00:00",
+      "published": "2026-04-12T14:34:34.866878+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -116,7 +116,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Threat actors compromised the npm account of an Axios developer, publishing malicious versions of the package that executed postinstall scripts and deployed a remote access trojan. This supply chain attack allows attackers to gain unauthorized access to affected systems. Defenders should immediately update dependencies and monitor for suspicious npm activity.",
+      "ai_summary": "Threat actors compromised an npm account, publishing malicious versions of the Axios package that executed postinstall scripts, downloading and deploying a remote access trojan. This supply chain attack allows attackers to gain unauthorized access to affected systems. Defenders should immediately update dependencies and monitor for suspicious npm package activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1219| D[Command and Control]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -131,7 +131,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T13:54:36.366410+00:00",
+      "published": "2026-04-12T14:34:34.866853+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -152,8 +152,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A sophisticated attack chain uses a fake Adobe Acrobat Reader download page to trick victims into installing ScreenConnect, a legitimate remote access tool exploited for malicious purposes. The attackers employ heavy obfuscation, .NET reflection, and dynamic code construction to evade detection. Defenders should prioritize monitoring for suspicious ScreenConnect activity and implementing robust security controls to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1562| C[Impair Defenses]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A sophisticated attack chain uses a fraudulent Adobe Acrobat Reader download page to install ConnectWise's ScreenConnect, a legitimate remote access tool, for malicious purposes. The attack employs heavy obfuscation, .NET reflection, and dynamic code construction for evasion. Defenders should prioritize monitoring for suspicious Adobe Acrobat Reader downloads and in-memory payload execution.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -167,7 +167,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T13:54:36.366382+00:00",
+      "published": "2026-04-12T14:34:34.866814+00:00",
       "ttps": [
         {
           "id": "T1583.008",
@@ -206,7 +206,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning. The actor captures authentication tokens and session cookies through adversary-in-the-middle techniques. Defenders should prioritize monitoring for malvertising and SEO poisoning campaigns targeting Canadian users.",
+      "ai_summary": "Storm-2755, a financially motivated threat actor, conducts payroll pirate attacks against Canadian users via malvertising and SEO poisoning, capturing authentication tokens and session cookies through adversary-in-the-middle techniques. This campaign targets users searching for generic terms like 'Office 365'. Defenders should prioritize monitoring for malvertising and SEO poisoning tactics.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.008| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1557| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -219,9 +219,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T13:54:36.366360+00:00",
+      "published": "2026-04-12T14:34:34.866792+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -237,8 +237,8 @@
         }
       ],
       "ai_summary": "KadNap malware targets Asus routers, turning them into a botnet for proxying malicious traffic. The malware uses a custom Kademlia protocol to evade network monitoring. Defenders should immediately update Asus router firmware to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Initial Access]:::tactic\n    B -->|T1583.005| C[Command and Control]:::tactic\n    C -->|T1583.005| D[Botnet]:::tactic\n    D -->|T1583.005| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1071| B[Application Layer Protocol]:::tactic\n    B -->|T1583.005| C[Botnet]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -251,13 +251,13 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T13:54:36.366336+00:00",
+      "published": "2026-04-12T14:34:34.866768+00:00",
       "ttps": [],
-      "ai_summary": "The threat involves compromised FortiGate NGFW appliances used to gain access to targeted environments through stolen service accounts, leading to deep Active Directory compromise. Attackers exploit vulnerabilities or weak credentials to extract configuration files and join rogue workstations to the domain. Defenders should prioritize securing FortiGate devices and service accounts to prevent initial access.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1021| C[Execution]:::tactic\n    C -->|T1552| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "ai_summary": "Attackers exploit FortiGate vulnerabilities or weak credentials to extract service account credentials, join rogue workstations to Active Directory, and achieve deep AD compromise. This tactic leverages stolen service accounts to establish a foothold in targeted environments. Defenders should prioritize monitoring and securing FortiGate devices and Active Directory.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1552| D[Steal or Capture Credentials]:::tactic\n    D -->|T1053| E[Unsecured Credentials]:::tactic\n    E -->|T1021| F[Remote Services]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "CastleRAT attack first to abuse Deno JavaScript runtime to evade enterprise security",
@@ -268,7 +268,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-12T13:54:36.366308+00:00",
+      "published": "2026-04-12T14:34:34.866740+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -289,7 +289,7 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "The CastleRAT attack abuses Deno JavaScript runtime to evade detection, using social engineering, steganography, and in-memory execution. This sophisticated infection chain installs malware without leaving disk traces. Defenders should prioritize monitoring user execution and obfuscated files.",
+      "ai_summary": "CastleRAT malware uses Deno JavaScript runtime to evade detection through social engineering, steganography, and in-memory execution. The attack tricks users into executing a command, installing Deno, and running obfuscated JavaScript. Defenders should monitor for suspicious Deno activity and user execution of unknown commands.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1562| D[Impair Defenses]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -304,7 +304,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-12T13:54:36.366274+00:00",
+      "published": "2026-04-12T14:34:34.866707+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -319,97 +319,246 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The RondoDox botnet exploits 174 vulnerabilities to conduct DoS attacks on IoT devices and internet-exposed services. Its operators rapidly adopt newly disclosed vulnerabilities, indicating a high level of sophistication. Defenders should prioritize patching and monitoring for signs of botnet activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The RondoDox botnet is a significant threat exploiting 174 vulnerabilities since May 2025, primarily targeting IoT devices and internet-exposed services for DoS attacks. Its infrastructure includes exploiting and hosting components, with evidence of compromised residential IPs. Defenders should prioritize monitoring for T1583.005 (Botnet) and T1498 (Network Denial of Service) TTPs.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1498| C[Network Denial of Service]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-31932: Suricata is a network IDS, IPS and NSM engine. Prior to versions 7.0.15 and 8.0....",
-      "description": "Suricata is a network IDS, IPS and NSM engine. Prior to versions 7.0.15 and 8.0.4, inefficiency in KRB5 buffering can lead to performance degradation. This issue has been patched in versions 7.0.15 and 8.0.4.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31932",
-      "cve_id": "CVE-2026-31932",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-12T13:54:33.468364+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-31932 is a performance degradation vulnerability in Suricata network IDS, IPS and NSM engine prior to versions 7.0.15 and 8.0.4. The issue is caused by inefficiency in KRB5 buffering. Patched in versions 7.0.15 and 8.0.4.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1210| C[Reconnaissance]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-31931: Suricata is a network IDS, IPS and NSM engine. From version 8.0.0 to before vers...",
-      "description": "Suricata is a network IDS, IPS and NSM engine. From version 8.0.0 to before version 8.0.4, use of the \"tls.alpn\" rule keyword can cause Suricata to crash with a NULL dereference. This issue has been patched in version 8.0.4.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31931",
-      "cve_id": "CVE-2026-31931",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-12T13:54:33.468350+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-31931 is a NULL dereference vulnerability in Suricata's 'tls.alpn' rule keyword, causing a crash. This issue affects Suricata versions 8.0.0 to 8.0.4. Update to version 8.0.4 to patch the vulnerability.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1212| D[Denial of Service]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-30867: CocoaMQTT is a MQTT 5.0 client library for iOS and macOS written in Swift. Prior...",
-      "description": "CocoaMQTT is a MQTT 5.0 client library for iOS and macOS written in Swift. Prior to version 2.2.2, a vulnerability exists in the packet parsing logic of CocoaMQTT that allows an attacker (or a compromised/malicious MQTT broker) to remotely crash the host iOS/macOS/tvOS application. If an attacker publishes the 4-byte malformed payload to a shared topic with the RETAIN flag set to true, the MQTT br",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30867",
-      "cve_id": "CVE-2026-30867",
+      "title": "CVE-2026-34729: phpMyFAQ is an open source FAQ web application. Prior to version 4.1.1, there is...",
+      "description": "phpMyFAQ is an open source FAQ web application. Prior to version 4.1.1, there is a stored XSS vulnerability via Regex Bypass in Filter::removeAttributes(). This issue has been patched in version 4.1.1.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34729",
+      "cve_id": "CVE-2026-34729",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 5.7,
-      "published": "2026-04-12T13:54:33.468334+00:00",
-      "ttps": [],
-      "ai_summary": "CVE-2026-30867 is a remote crash vulnerability in CocoaMQTT, a MQTT client library for iOS and macOS. An attacker can exploit this vulnerability by publishing a malformed payload to a shared topic, causing the host application to crash. Defenders should update CocoaMQTT to version 2.2.2 or later to mitigate this threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1210| C[Crash]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.7,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-2737: A vulnerability exists in Progress Flowmon versions prior to 12.5.8 and 13.0.6, ...",
-      "description": "A vulnerability exists in Progress Flowmon versions prior to 12.5.8 and 13.0.6, whereby an administrator who clicks a malicious link provided by an attacker may inadvertently trigger unintended actions within their authenticated web session.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2737",
-      "cve_id": "CVE-2026-2737",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-12T13:54:33.468319+00:00",
+      "cvss_score": 6.1,
+      "published": "2026-04-12T14:34:32.475548+00:00",
       "ttps": [
         {
-          "id": "T1566.002",
-          "name": "Spearphishing Link",
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "CVE-2026-2737 is a vulnerability in Progress Flowmon versions prior to 12.5.8 and 13.0.6, allowing an attacker to trigger unintended actions via a spearphishing link. This vulnerability can lead to unauthorized access and potential data breaches. Defenders should update Progress Flowmon to the latest version to mitigate this threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The phpMyFAQ stored XSS vulnerability (CVE-2026-34729) allows attackers to exploit public-facing applications via T1190. This issue has been patched in version 4.1.1, but prior versions are vulnerable. Defenders should update phpMyFAQ to version 4.1.1 or later.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34728: phpMyFAQ is an open source FAQ web application. Prior to version 4.1.1, the Medi...",
+      "description": "phpMyFAQ is an open source FAQ web application. Prior to version 4.1.1, the MediaBrowserController::index() method handles file deletion for the media browser. When the fileRemove action is triggered, the user-supplied name parameter is concatenated with the base upload directory path without any path traversal validation. The FILTER_SANITIZE_SPECIAL_CHARS filter only encodes HTML special characte",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34728",
+      "cve_id": "CVE-2026-34728",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.7,
+      "published": "2026-04-12T14:34:32.475532+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1070.004",
+          "name": "File Deletion",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        }
+      ],
+      "ai_summary": "The phpMyFAQ vulnerability (CVE-2026-34728) allows attackers to exploit the MediaBrowserController::index() method via a fileRemove action, leading to file deletion without path traversal validation. This can result in unauthorized access to sensitive files. Defenders should update phpMyFAQ to version 4.1.1 or later to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1070.004| C[File Deletion]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33641: Glances is an open-source system cross-platform monitoring tool. Prior to versio...",
+      "description": "Glances is an open-source system cross-platform monitoring tool. Prior to version 4.5.3, Glances supports dynamic configuration values in which substrings enclosed in backticks are executed as system commands during configuration parsing. This behavior occurs in Config.get_value() and is implemented without validation or restriction of the executed commands. If an attacker can modify or influence ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33641",
+      "cve_id": "CVE-2026-33641",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-12T14:34:32.475517+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-33641 is a vulnerability in Glances, an open-source monitoring tool, allowing attackers to execute system commands via dynamic configuration values. This can lead to privilege escalation or data breach. Defenders should update Glances to version 4.5.3 or later.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33544: Tinyauth is an authentication and authorization server. Prior to version 5.0.5, ...",
+      "description": "Tinyauth is an authentication and authorization server. Prior to version 5.0.5, all three OAuth service implementations (GenericOAuthService, GithubOAuthService, GoogleOAuthService) store PKCE verifiers and access tokens as mutable struct fields on singleton instances shared across all concurrent requests. When two users initiate OAuth login for the same provider concurrently, a race condition bet",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33544",
+      "cve_id": "CVE-2026-33544",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.7,
+      "published": "2026-04-12T14:34:32.475497+00:00",
+      "ttps": [],
+      "ai_summary": "CVE-2026-33544 is a race condition vulnerability in Tinyauth's OAuth service implementations, allowing concurrent requests to access sensitive tokens. This can lead to unauthorized access and data breaches. Defenders should update Tinyauth to version 5.0.5 or later to mitigate this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Command and Control]:::tactic\n    B -->|T1210| C[Exploitation of Remote Services]:::tactic\n    C -->|T1210| D[Exploitation of Remote Services]:::tactic\n    D -->|T1071| E[Application Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-2701: Authenticated user can upload a malicious file to the server and execute it, whi...",
-      "description": "Authenticated user can upload a malicious file to the server and execute it, which leads to remote code execution.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2701",
-      "cve_id": "CVE-2026-2701",
+      "title": "CVE-2026-33533: Glances is an open-source system cross-platform monitoring tool. Prior to versio...",
+      "description": "Glances is an open-source system cross-platform monitoring tool. Prior to version 4.5.3, the Glances XML-RPC server (activated with glances -s or glances --server) sends Access-Control-Allow-Origin: * on every HTTP response. Because the XML-RPC handler does not validate the Content-Type header, an attacker-controlled webpage can issue a CORS \"simple request\" (POST with Content-Type: text/plain) co",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33533",
+      "cve_id": "CVE-2026-33533",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-12T14:34:32.475483+00:00",
+      "ttps": [
+        {
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "CVE-2026-33533 is a vulnerability in Glances, an open-source monitoring tool, allowing attackers to exploit public-facing applications via CORS simple requests. This can lead to unauthorized access and data exposure. Defenders should update Glances to version 4.5.3 or later to mitigate this risk.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1586.002| C[Email Accounts]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-32871: FastMCP is a Pythonic way to build MCP servers and clients. Prior to version 3.2...",
+      "description": "FastMCP is a Pythonic way to build MCP servers and clients. Prior to version 3.2.0, the OpenAPIProvider in FastMCP exposes internal APIs to MCP clients by parsing OpenAPI specifications. The RequestDirector class is responsible for constructing HTTP requests to the backend service. A vulnerability exists in the _build_url() method. When an OpenAPI operation defines path parameters (e.g., /api/v1/u",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32871",
+      "cve_id": "CVE-2026-32871",
       "source": "NVD",
       "category": "cve",
       "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-12T13:54:33.468305+00:00",
+      "cvss_score": 10.0,
+      "published": "2026-04-12T14:34:32.475468+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-32629: phpMyFAQ is an open source FAQ web application. Prior to version 4.1.1, an unaut...",
+      "description": "phpMyFAQ is an open source FAQ web application. Prior to version 4.1.1, an unauthenticated attacker can submit a guest FAQ with an email address that is syntactically valid per RFC 5321 (quoted local part) yet contains raw HTML — for example \"<script>alert(1)</script>\"@evil.com. PHP's FILTER_VALIDATE_EMAIL accepts this email as valid. The email is stored in the database without HTML sanitization a",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32629",
+      "cve_id": "CVE-2026-32629",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.1,
+      "published": "2026-04-12T14:34:32.475453+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-31937: Suricata is a network IDS, IPS and NSM engine. Prior to version 7.0.15, ineffici...",
+      "description": "Suricata is a network IDS, IPS and NSM engine. Prior to version 7.0.15, inefficiency in DCERPC buffering can lead to a performance degradation. This issue has been patched in version 7.0.15.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31937",
+      "cve_id": "CVE-2026-31937",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "published": "2026-04-12T14:34:32.475436+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-31935: Suricata is a network IDS, IPS and NSM engine. Prior to versions 7.0.15 and 8.0....",
+      "description": "Suricata is a network IDS, IPS and NSM engine. Prior to versions 7.0.15 and 8.0.4, flooding of craft HTTP2 continuation frames can lead to memory exhaustion, usually resulting in the Suricata process being shut down by the operating system. This issue has been patched in versions 7.0.15 and 8.0.4.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31935",
+      "cve_id": "CVE-2026-31935",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "published": "2026-04-12T14:34:32.475415+00:00",
+      "ttps": [
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "CVE-2026-31934: Suricata is a network IDS, IPS and NSM engine. From version 8.0.0 to before vers...",
+      "description": "Suricata is a network IDS, IPS and NSM engine. From version 8.0.0 to before version 8.0.4, there is a quadratic complexity issue when searching for URLs in mime encoded messages over SMTP leading to a performance impact. This issue has been patched in version 8.0.4.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31934",
+      "cve_id": "CVE-2026-31934",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "published": "2026-04-12T14:34:32.475376+00:00",
+      "ttps": [],
+      "ai_summary": "AI analysis pending",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": null,
+      "ai_provider": "none",
+      "ai_model": "none"
+    },
+    {
+      "title": "Critical Marimo pre-auth RCE flaw now under active exploitation",
+      "description": "A critical pre-authentication remote code execution (RCE) vulnerability in Marimo is now under active exploitation, leveraged for credential theft. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/critical-marimo-pre-auth-rce-flaw-now-under-active-exploitation/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-12T14:20:31+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -422,131 +571,6 @@
           "name": "Command and Scripting Interpreter",
           "tactic": "Execution",
           "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "CVE-2026-2701 is a critical remote code execution vulnerability allowing authenticated users to upload and execute malicious files. This exploit can be achieved through T1190 (Exploit Public-Facing Application) and T1059 (Command and Scripting Interpreter) tactics. Defenders should prioritize patching this vulnerability to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-2699: Customer Managed ShareFile Storage Zones Controller (SZC) allows an unauthentica...",
-      "description": "Customer Managed ShareFile Storage Zones Controller (SZC) allows an unauthenticated attacker to access restricted configuration pages. This leads to changing system configuration and potential remote code execution.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2699",
-      "cve_id": "CVE-2026-2699",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-12T13:54:33.468290+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-29782: OpenSTAManager is an open source management software for technical assistance an...",
-      "description": "OpenSTAManager is an open source management software for technical assistance and invoicing. Prior to version 2.10.2, the oauth2.php file in OpenSTAManager is an unauthenticated endpoint ($skip_permissions = true). It loads a record from the zz_oauth2 table using the attacker-controlled GET parameter state, and during the OAuth2 configuration flow calls unserialize() on the access_token field with",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29782",
-      "cve_id": "CVE-2026-29782",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.2,
-      "published": "2026-04-12T13:54:33.468275+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-28805: OpenSTAManager is an open source management software for technical assistance an...",
-      "description": "OpenSTAManager is an open source management software for technical assistance and invoicing. Prior to version 2.10.2, multiple AJAX select handlers in OpenSTAManager are vulnerable to Time-Based Blind SQL Injection through the options[stato] GET parameter. The user-supplied value is read from $superselect['stato'] and concatenated directly into SQL WHERE clauses as a bare expression, without any s",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28805",
-      "cve_id": "CVE-2026-28805",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-12T13:54:33.468257+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-26928: SzafirHost downloads necessary files in the context of the initiating web page. ...",
-      "description": "SzafirHost downloads necessary files in the context of the initiating web page. When called, SzafirHost updates its dynamic library. JAR files are correctly verified based on a list of trusted file hashes, and if a file was not on that list, it was checked to see if it had been digitally signed by the vendor. The application doesn't verify hash or vendor's digital signature of uploaded DLL, SO, JN",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26928",
-      "cve_id": "CVE-2026-26928",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-12T13:54:33.468234+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "CVE-2026-26927: Szafir SDK Web is a browser plug-in that can run SzafirHost application which do...",
-      "description": "Szafir SDK Web is a browser plug-in that can run SzafirHost application which download the necessary files when launched.\nIn Szafir SDK Web it is possible to change the URL (HTTP Origin) of the application call location. An unauthenticated attacker can craft a website that is able to launch SzafirHost application with arbitrary arguments via Szafir SDK Web browser addon. No validation will be perf",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26927",
-      "cve_id": "CVE-2026-26927",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-12T13:54:33.468188+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
         }
       ],
       "ai_summary": "AI analysis pending",
@@ -675,64 +699,6 @@
       "ai_model": "none"
     },
     {
-      "title": "Senator launches inquiry into 8 tech giants for failures to adequately report CSAM",
-      "description": "The inquiry follows reports from the National Center for Missing and Exploited Children (NCMEC) that allege the tech giants are deficient in their reporting of CSAM and data related to generative AI generally.",
-      "url": "https://therecord.media/senator-launches-inquiry-into-tech-giants-csam",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": null,
-      "published": "2026-04-10T18:05:00+00:00",
-      "ttps": [
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "UK government threatens tech bosses with jail time if they do not adequately fight nudification tools",
-      "description": "A U.K. communications regulator, Ofcom, has said it will be cracking down on the spread of the images in the aftermath of the Grok scandal, which led to millions of “nudified” images of women and children to be circulated worldwide.",
-      "url": "https://therecord.media/uk-threatens-tech-bosses-with-jail-ai-nudification",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-10T17:35:00+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "‘It reads like a spy novel’: $280 million theft from Drift involved North Korean fake companies, cutouts",
-      "description": "Drift officials said the operation began six months ago, when they were approached at a cryptocurrency conference by members of a company claiming to focus on quantitative trading.",
-      "url": "https://therecord.media/drift-crypto-theft-post-mortem-north-korea",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-10T17:33:00+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
       "title": "Nearly 4,000 US industrial devices exposed to Iranian cyberattacks",
       "description": "The attack surface targeted by Iranian-linked hackers in cyberattacks against U.S. critical infrastructure networks includes thousands of Internet-exposed programmable logic controllers (PLCs) manufactured by Rockwell Automation. [...]",
       "url": "https://www.bleepingcomputer.com/news/security/nearly-4-000-us-industrial-devices-exposed-to-iranian-cyberattacks/",
@@ -743,30 +709,6 @@
       "cvss_score": null,
       "published": "2026-04-10T15:52:45+00:00",
       "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Florida investigates OpenAI for role ChatGPT may have played in deadly shooting",
-      "description": "Last week, the family of one of two victims in the attack announced it plans to sue OpenAI because the gunman allegedly constantly communicated with ChatGPT in the days leading to the shootings.",
-      "url": "https://therecord.media/florida-investigates-openai-chatgpt-deadly-shooting",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-10T14:07:00+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        }
-      ],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": null,
@@ -824,23 +766,6 @@
       "severity": "medium",
       "cvss_score": null,
       "published": "2026-04-10T13:12:42+00:00",
-      "ttps": [],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "UK says it exposed Russian submarine activity near undersea cables",
-      "description": "A Russian attack submarine and vessels from the country’s Main Directorate of Deep Sea Research (GUGI) were involved in what the UK Ministry of Defence called “nefarious activity over critical undersea infrastructure elsewhere.”",
-      "url": "https://therecord.media/uk-says-it-exposed-russian-submarine-activity",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "incident",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-10T13:03:00+00:00",
       "ttps": [],
       "ai_summary": "AI analysis pending",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
@@ -1065,36 +990,6 @@
           "name": "Phishing",
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "AI analysis pending",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|Recon| B[Initial Access]:::tactic\n    B -->|Exploit| C[Execution]:::tactic\n    C -->|Persist| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": null,
-      "ai_provider": "none",
-      "ai_model": "none"
-    },
-    {
-      "title": "Healthcare IT solutions provider ChipSoft hit by ransomware attack",
-      "description": "Dutch healthcare software vendor ChipSoft has been impacted by a ransomware attack that forced the company to take offline its website and digital services for patients and healthcare providers. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/healthcare-it-solutions-provider-chipsoft-hit-by-ransomware-attack/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "incident",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-09T19:46:44+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1486",
-          "name": "Data Encrypted for Impact",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
         }
       ],
       "ai_summary": "AI analysis pending",

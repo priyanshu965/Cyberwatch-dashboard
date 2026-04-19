@@ -42,6 +42,7 @@ if (typeof mermaid !== 'undefined') {
 let allItems     = [];
 let filteredItems = [];
 let activeFilter  = 'all';
+let activeSeverity = null;
 let searchQuery   = '';
 let mermaidSeq    = 0;   // unique ID counter for each mermaid diagram
 
@@ -49,6 +50,7 @@ let mermaidSeq    = 0;   // unique ID counter for each mermaid diagram
 document.addEventListener('DOMContentLoaded', () => {
   initFilters();
   initSearch();
+  initSeverityFilters();
   loadIntelData();
 });
 
@@ -112,6 +114,10 @@ function applyFilters() {
     const catMatch = activeFilter === 'all' || item.category === activeFilter;
     if (!catMatch) return false;
 
+    if (activeSeverity && (item.severity||'').toLowerCase() !== activeSeverity) {
+      return false;
+    }
+
     const q = searchQuery.toLowerCase();
     if (!q) return true;
     return (
@@ -126,6 +132,7 @@ function applyFilters() {
     );
   });
 
+  showContent();
   renderCards();
   updateHeaderStats();
 }
@@ -151,6 +158,29 @@ function initSearch() {
       searchQuery = input.value.trim();
       applyFilters();
     }, 250);
+  });
+}
+
+function initSeverityFilters() {
+  document.querySelectorAll('.stat-pill').forEach(pill => {
+    pill.style.cursor = 'pointer';
+    pill.addEventListener('click', () => {
+      const sev = pill.id.replace('stat-', '');
+      if (sev === 'items') {
+        activeSeverity = null;
+        document.querySelectorAll('.stat-pill').forEach(p => p.classList.remove('active'));
+      } else {
+        if (activeSeverity === sev) {
+          activeSeverity = null;
+          pill.classList.remove('active');
+        } else {
+          activeSeverity = sev;
+          document.querySelectorAll('.stat-pill').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+        }
+      }
+      applyFilters();
+    });
   });
 }
 
@@ -581,8 +611,10 @@ window.filterByThreatActor = function(actor) {
 function updateHeaderStats() {
   const critical = filteredItems.filter(i => (i.severity||'').toLowerCase() === 'critical').length;
   const high     = filteredItems.filter(i => (i.severity||'').toLowerCase() === 'high').length;
+  const medium   = filteredItems.filter(i => (i.severity||'').toLowerCase() === 'medium').length;
   document.getElementById('count-critical').textContent = critical;
   document.getElementById('count-high').textContent     = high;
+  document.getElementById('count-medium').textContent   = medium;
   document.getElementById('count-total').textContent    = filteredItems.length;
 }
 
@@ -591,6 +623,7 @@ function showContent() {
   document.getElementById('loading-state').style.display   = 'none';
   document.getElementById('error-state').style.display     = 'none';
   document.getElementById('matrix-view').style.display     = 'none';
+  document.getElementById('timeline-view').style.display   = 'none';
   document.getElementById('cards-container').style.display = 'flex';
 }
 
@@ -600,9 +633,14 @@ function showError() {
 }
 
 function showMatrixView() {
+  if (allItems.length === 0) {
+    document.getElementById('loading-state').style.display = 'flex';
+    return;
+  }
   document.getElementById('loading-state').style.display   = 'none';
   document.getElementById('error-state').style.display     = 'none';
   document.getElementById('cards-container').style.display = 'none';
+  document.getElementById('timeline-view').style.display   = 'none';
   document.getElementById('no-results').style.display      = 'none';
   document.getElementById('matrix-view').style.display     = 'block';
   renderMatrixGrid();
@@ -989,6 +1027,10 @@ function renderTimelineView() {
 }
 
 function showTimelineView() {
+  if (allItems.length === 0) {
+    document.getElementById('loading-state').style.display = 'flex';
+    return;
+  }
   document.getElementById('loading-state').style.display = 'none';
   document.getElementById('error-state').style.display = 'none';
   document.getElementById('cards-container').style.display = 'none';
@@ -1049,6 +1091,7 @@ document.addEventListener('keydown', e => {
       applyFilters();
       break;
     case 't':
+      if (allItems.length === 0) return;
       activeFilter = 'timeline';
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'timeline'));
       showTimelineView();

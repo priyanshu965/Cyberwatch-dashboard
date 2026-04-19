@@ -105,10 +105,7 @@ function applyFilters() {
     showMatrixView();
     return;
   }
-  if (activeFilter === 'timeline') {
-    showTimelineView();
-    return;
-  }
+  
 
   filteredItems = allItems.filter(item => {
     const catMatch = activeFilter === 'all' || item.category === activeFilter;
@@ -623,7 +620,6 @@ function showContent() {
   document.getElementById('loading-state').style.display   = 'none';
   document.getElementById('error-state').style.display     = 'none';
   document.getElementById('matrix-view').style.display     = 'none';
-  document.getElementById('timeline-view').style.display   = 'none';
   document.getElementById('cards-container').style.display = 'flex';
 }
 
@@ -640,7 +636,6 @@ function showMatrixView() {
   document.getElementById('loading-state').style.display   = 'none';
   document.getElementById('error-state').style.display     = 'none';
   document.getElementById('cards-container').style.display = 'none';
-  document.getElementById('timeline-view').style.display   = 'none';
   document.getElementById('no-results').style.display      = 'none';
   document.getElementById('matrix-view').style.display     = 'block';
   renderMatrixGrid();
@@ -684,6 +679,20 @@ function renderDailySummary() {
                     allItems.find(i => i.severity === 'high');
   if (top && topThreat) {
     top.innerHTML = `🔴 Top threat: <strong>${escapeHTML(topThreat.title.substring(0,80))}${topThreat.title.length>80?'…':''}</strong>`;
+    top.style.cursor = 'pointer';
+    top.onclick = () => {
+      activeFilter = 'all';
+      searchQuery = '';
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+      applyFilters();
+      setTimeout(() => {
+        const firstCard = document.querySelector('.intel-card');
+        if (firstCard) {
+          firstCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          firstCard.classList.add('expanded');
+        }
+      }, 100);
+    };
   }
   bar.style.display = 'block';
 }
@@ -970,77 +979,6 @@ function escapeHTML(str) {
     .replace(/'/g, '&#039;');
 }
 
-// ─── Timeline View ─────────────────────────────────────────────────────────
-function renderTimelineView() {
-  const grid = document.getElementById('timeline-view-grid');
-  if (!grid) return;
-
-  const timelineData = {};
-  allItems.forEach(item => {
-    if (!item.published) return;
-    const date = new Date(item.published).toISOString().split('T')[0];
-    if (!timelineData[date]) {
-      timelineData[date] = { critical: 0, high: 0, medium: 0, low: 0, total: 0 };
-    }
-    const sev = (item.severity || 'medium').toLowerCase();
-    if (sev in timelineData[date]) {
-      timelineData[date][sev]++;
-    }
-    timelineData[date].total++;
-  });
-
-  const sortedDates = Object.keys(timelineData).sort().reverse().slice(0, 14);
-  
-  if (sortedDates.length === 0) {
-    grid.innerHTML = '<div class="no-results">No timeline data available</div>';
-    return;
-  }
-
-  const maxTotal = Math.max(...Object.values(timelineData).map(d => d.total), 1);
-  
-  grid.innerHTML = sortedDates.map(date => {
-    const d = timelineData[date];
-    const heightPct = (d.total / maxTotal) * 100;
-    return `
-      <div class="timeline-day">
-        <div class="timeline-bar-wrap">
-          <div class="timeline-bar" style="height:${heightPct}%">
-            <div class="timeline-segments">
-              ${d.critical > 0 ? `<div class="segment critical" style="height:${(d.critical/d.total)*100}%"></div>` : ''}
-              ${d.high > 0 ? `<div class="segment high" style="height:${(d.high/d.total)*100}%"></div>` : ''}
-              ${d.medium > 0 ? `<div class="segment medium" style="height:${(d.medium/d.total)*100}%"></div>` : ''}
-              ${d.low > 0 ? `<div class="segment low" style="height:${(d.low/d.total)*100}%"></div>` : ''}
-            </div>
-          </div>
-        </div>
-        <div class="timeline-date">${new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</div>
-        <div class="timeline-count">${d.total}</div>
-        <div class="timeline-tooltip">
-          <span class="critical">${d.critical} Critical</span>
-          <span class="high">${d.high} High</span>
-          <span class="medium">${d.medium} Medium</span>
-          <span class="low">${d.low} Low</span>
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
-function showTimelineView() {
-  if (allItems.length === 0) {
-    document.getElementById('loading-state').style.display = 'flex';
-    return;
-  }
-  document.getElementById('loading-state').style.display = 'none';
-  document.getElementById('error-state').style.display = 'none';
-  document.getElementById('cards-container').style.display = 'none';
-  document.getElementById('matrix-view').style.display = 'none';
-  document.getElementById('timeline-view').style.display = 'flex';
-  document.getElementById('no-results').style.display = 'none';
-  renderTimelineView();
-  document.getElementById('feed-count').textContent = 'Timeline — CVE activity over last 14 days';
-}
-
 // ─── Keyboard Shortcuts ─────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
@@ -1053,8 +991,7 @@ document.addEventListener('keydown', e => {
     case 'Escape':
       closeCveModal();
       const matrixView = document.getElementById('matrix-view');
-      const timelineView = document.getElementById('timeline-view');
-      if (matrixView?.style.display === 'block' || timelineView?.style.display === 'flex') {
+      if (matrixView?.style.display === 'block') {
         showContent();
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
         activeFilter = 'all';
@@ -1090,12 +1027,7 @@ document.addEventListener('keydown', e => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'matrix'));
       applyFilters();
       break;
-    case 't':
-      if (allItems.length === 0) return;
-      activeFilter = 'timeline';
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'timeline'));
-      showTimelineView();
-      break;
+    
   }
 });
 

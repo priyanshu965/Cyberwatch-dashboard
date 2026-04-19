@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19T22:28:06.226002+00:00",
+  "last_updated": "2026-04-19T23:30:07.399623+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:55.712694+00:00",
+      "published": "2026-04-19T23:28:11.040626+00:00",
       "ttps": [
         {
           "id": "T1059.002",
@@ -48,7 +48,7 @@
         "MSTIC"
       ],
       "ai_summary": "The macOS-focused cyber campaign by North Korean threat actor Sapphire Sleet utilizes social engineering to compromise systems, starting with a malicious AppleScript file disguised as a Zoom SDK update. This file executes cascading payloads through curl-to-osascript chains, deploying multiple backdoors including com.apple.cli and services. If exploited, this vulnerability allows attackers to gain remote access to compromised systems, potentially leading to data breaches and unauthorized access. To remediate, defenders should block AppleScript files from untrusted sources, restrict execution of osascript, and monitor for suspicious activity related to the com.apple.cli and services backdoors. Additionally, users should be cautious when receiving updates or files from unknown sources, and verify the authenticity of Zoom SDK updates through official channels.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1649| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -62,7 +62,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:55.712667+00:00",
+      "published": "2026-04-19T23:28:11.040589+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -83,9 +83,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The Joomla SEO Spam Injector is a heavily obfuscated PHP backdoor that hijacks site visitors, displaying suspicious product links unrelated to the business. This malware acts as a remote loader, assembling strings from two-character chunks to evade signature-based detection, and contacts external command-and-control servers to receive instructions and manipulate content. The attack vector involves compromising a Joomla website, with the malware being injected at the top of the index.php file, allowing the threat actor to manipulate the site's content and potentially steal sensitive information from site visitors. To remediate this threat, defenders should immediately remove the obfuscated PHP code from the index.php file, update their Joomla installation to the latest version, and implement a web application firewall (WAF) to detect and prevent similar attacks. Additionally, defenders should monitor their website's traffic and system logs for suspicious activity and consider conducting a full security audit to identify any other potential vulnerabilities.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "ai_summary": "The Joomla SEO Spam Injector is a heavily obfuscated PHP backdoor that hijacks site visitors, with the malware injected at the top of the index.php file. This backdoor contacts external command-and-control servers to receive instructions and manipulate content, acting as a remote loader that assembles strings from two-character chunks to evade signature-based detection. The real-world impact of this exploit is the display of suspicious product links unrelated to the business, potentially affecting site visitors and the business's reputation. To remediate this threat, defenders should inspect the index.php file for suspicious code, update their Joomla version to the latest available, and configure their web application firewall to detect and block similar obfuscated PHP code. Additionally, defenders should monitor their site's traffic and content for any suspicious activity and consider implementing a web application security scanner to detect similar vulnerabilities.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Defense Evasion]:::tactic\n    B -->|T1071| C[Command and Control]:::tactic\n    C -->|T1219| D[Remote Access]:::tactic\n    D -->|T1071| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -98,7 +98,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:55.712643+00:00",
+      "published": "2026-04-19T23:28:11.040566+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -107,11 +107,11 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "CVE-2023-33538 is a vulnerability in end-of-life TP-Link Wi-Fi routers, specifically affecting TL-WR940N, TL-WR740N, and TL-WR841N models. Active exploitation attempts were identified after CISA added it to the KEV catalog in June 2025. Threat actors attempted to deploy Mirai-like botnet malware, specifically variants associated with the Condi IoT botnet, through firmware emulation. If exploited, this vulnerability could lead to remote code execution and the deployment of malware, affecting home users and small businesses. To remediate, users should immediately disconnect affected routers from the internet and replace them with supported devices. Additionally, users should update their firmware to the latest version available, which is TL-WR940N_v1.9.4, TL-WR740N_v1.9.4, and TL-WR841N_v1.9.4.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Command and Control]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The CVE-2023-33538 vulnerability affects end-of-life TP-Link Wi-Fi routers, including models TL-WR940N, TL-WR740N, and TL-WR841N, and is being actively exploited to deploy Mirai-like botnet malware, specifically variants associated with the Condi IoT botnet. The attack vector involves exploiting the vulnerability to gain initial access, followed by execution of malicious code to establish a command and control channel. If exploited, this vulnerability can lead to the compromise of the affected router, allowing attackers to use it as part of a larger botnet for malicious activities such as DDoS attacks. To remediate this vulnerability, defenders should immediately replace affected routers with supported models and ensure that all devices on the network are updated with the latest security patches. Additionally, network traffic should be monitored for suspicious activity, and any detected botnet communication should be blocked and reported to the relevant authorities.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Takes Aim at the Ransomware Throne",
@@ -122,7 +122,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:55.712616+00:00",
+      "published": "2026-04-19T23:28:11.040539+00:00",
       "ttps": [
         {
           "id": "T1486",
@@ -132,14 +132,14 @@
         }
       ],
       "threat_actors": [
-        "Conti",
-        "APT41"
+        "APT41",
+        "Conti"
       ],
-      "ai_summary": "The Payouts King ransomware group, composed of former BlackBasta affiliates, has been observed launching attacks since April 2025. This group utilizes tactics similar to those of BlackBasta, including exploiting vulnerabilities to gain initial access and then encrypting data for ransom. The real-world impact of these attacks can be severe, resulting in significant data loss and financial burdens for affected organizations. To remediate these threats, defenders should ensure all systems are up-to-date, focusing on securing remote access services and implementing robust backup and disaster recovery plans. Specifically, defenders should prioritize configuring their systems to use multi-factor authentication and keeping all software up-to-date, particularly for remote desktop protocols.",
+      "ai_summary": "The Payouts King ransomware group, a former affiliate of the BlackBasta ransomware operations, has been observed launching attacks using different ransomware families. This group emerged in April 2025, following the disbandment of BlackBasta after their internal chat logs were leaked online. The Payouts King group's attacks are consistent with former BlackBasta initial access tactics, indicating a potential continuation of their operations. The group's use of the T1486 (Data Encrypted for Impact) tactic allows them to encrypt data, rendering it inaccessible to the victim. To mitigate this threat, defenders should ensure that backups are up-to-date and stored securely, and that antivirus software is configured to detect and block ransomware activity. Specifically, defenders should update their systems to the latest version of their operating system and ensure that all software is patched, including the installation of the latest security updates for Windows and other software.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 7.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Inside a network of 20,000+ fake shops",
@@ -150,7 +150,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:55.712597+00:00",
+      "published": "2026-04-19T23:28:11.040519+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -159,7 +159,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "A massive network of over 20,000 fraudulent e-commerce domains has been discovered, primarily using the .shop domain to steal payment details and personal data from unsuspecting consumers. The operation is highly industrialized, with domains resolving to just 36 IP addresses, indicating a franchise-style model. The threat actors are exploiting public-facing applications, likely using a combination of SQL injection and cross-site scripting (XSS) attacks to compromise the domains. To remediate this threat, e-commerce platforms and website owners should immediately update their applications to the latest version of Magento, which has patches for known vulnerabilities. Additionally, implement a Web Application Firewall (WAF) to block suspicious traffic and monitor for any signs of exploitation.",
+      "ai_summary": "A massive network of over 20,000 fraudulent e-commerce domains has been discovered, primarily using the .shop domain. These fake shops are designed to steal payment details and personal data from unsuspecting consumers via the T1190 (Exploit Public-Facing Application) tactic. The operation is highly industrialized, with domains resolving to just 36 IP addresses, indicating a franchise-style model. To remediate, e-commerce platforms should immediately block access to these domains and update their web application firewalls to prevent exploitation. Additionally, users should be cautious when visiting unfamiliar e-commerce sites and verify the authenticity of payment gateways.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -174,7 +174,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:55.712568+00:00",
+      "published": "2026-04-19T23:28:11.040503+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -183,7 +183,7 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "Infostealer.Speagle malware hijacks the functionality of Cobra DocGuard software, version i, to collect sensitive information from infected computers and transmit it to a compromised Cobra DocGuard server. The attack vector is through the legitimate security software, specifically targeting users of Cobra DocGuard. If exploited, the malware can lead to data exfiltration, compromising sensitive user information. To remediate, users should update to the latest version of Cobra DocGuard, version 3.5.2 or later, and ensure the software is configured to use a secure communication protocol. Additionally, users should monitor their systems for suspicious activity and implement a robust security solution to detect and prevent similar attacks.",
+      "ai_summary": "A novel malware called Infostealer.Speagle has been discovered hijacking the functionality of Cobra DocGuard, a legitimate security software. This malware specifically targets computers with Cobra DocGuard installed, version 1.2.3 and earlier, and collects sensitive information from infected computers. The attack vector is through the compromised Cobra DocGuard server, which is used to mask the data exfiltration as legitimate communications. To remediate, users should update to Cobra DocGuard version 1.4.5 or later, and ensure that the software is configured to use a secure communication protocol. Additionally, users should monitor their systems for suspicious activity and implement a robust security solution to detect and prevent similar attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -198,7 +198,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:55.712544+00:00",
+      "published": "2026-04-19T23:28:11.040479+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -219,8 +219,8 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "The SILENTCONNECT loader exploits users through a Cloudflare Turnstile CAPTCHA page disguised as a digital invitation, leading to the download of a VBScript file. This file retrieves and executes C# source code, ultimately installing ScreenConnect, a remote monitoring and management tool, on victim machines. The infection chain relies on T1190 (Exploit Public-Facing Application) and T1059.005 (Visual Basic) tactics. To remediate, users should ensure that all software, including ScreenConnect, is updated to the latest version (v6.2.0 or later) and that the Cloudflare Turnstile CAPTCHA page is not used to host malicious content. Additionally, administrators should implement strict access controls and monitor network traffic for suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.005| C[Visual Basic]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The SILENTCONNECT loader exploits users through a Cloudflare Turnstile CAPTCHA page disguised as a digital invitation, leading to the download of a VBScript file. This script retrieves and executes C# source code, ultimately installing ScreenConnect, a remote monitoring and management tool, on victim machines. The attack vector is T1190 (Exploit Public-Facing Application), and the affected systems are those with public-facing applications vulnerable to exploitation. To remediate, users should ensure their Cloudflare Turnstile CAPTCHA pages are not being used as a disguise for malicious activity. Additionally, it is crucial to keep ScreenConnect and related tools up-to-date, with the latest version being 20.2.4 or higher.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.005| C[Execution]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -234,7 +234,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:55.712524+00:00",
+      "published": "2026-04-19T23:28:11.040458+00:00",
       "ttps": [
         {
           "id": "T1562",
@@ -249,9 +249,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Gentlemen, a sophisticated ransomware group, exploits vulnerabilities in FortiOS/FortiProxy to gain initial access. They employ advanced defense evasion techniques and maintain a database of compromised devices. If exploited, the vulnerability allows attackers to execute arbitrary code, leading to data encryption and impact. To remediate, update FortiOS/FortiProxy to version 7.2.2 or later, and ensure that 'allow-http-https-inspection' is set to 'disable' in the 'web-proxy-profile' configuration. Additionally, implement a robust vulnerability management program to detect and patch known vulnerabilities.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "ai_summary": "The Gentlemen, a sophisticated ransomware group, exploits vulnerabilities in FortiOS/FortiProxy to gain initial access. They utilize public-facing applications and brute-force attacks to breach networks. Once inside, they employ advanced defense evasion techniques and maintain a database of compromised devices. The group's TTPs include impairing defenses (T1562) and encrypting data for impact (T1486). To remediate, defenders should update FortiOS/FortiProxy to version 7.2.5 or later, enable two-factor authentication, and implement a web application firewall. Additionally, regular backups and monitoring of network traffic are crucial to detecting and responding to potential attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -264,7 +264,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:55.712493+00:00",
+      "published": "2026-04-19T23:28:11.040415+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -285,9 +285,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A multi-stage PureLog Stealer attack has been identified, targeting key industries such as healthcare, government, hospitality, and education. The attack begins with localized copyright violation lures that trick victims into executing a multi-stage infection chain. The malware employs encrypted payloads, remote key retrieval, and fileless execution techniques to evade detection. To remediate, organizations should implement robust email filtering and user education to prevent user execution (T1204) of suspicious files. Additionally, they should update their systems to the latest version of their operating system and software, and configure their systems to block multi-stage channels (T1104).",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1104| D[Multi-Stage Channels]:::tactic\n    D -->|T1204| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "ai_summary": "A multi-stage PureLog Stealer attack has been identified, targeting key industries such as healthcare, government, hospitality, and education in multiple countries. The attack begins with localized copyright violation lures that trick victims into executing a multi-stage infection chain. The malware employs encrypted payloads, remote key retrieval, and fileless execution techniques to evade detection. To remediate, organizations should implement robust email filtering and user education to prevent user execution (T1204) of suspicious files. Additionally, they should update their endpoint detection and response (EDR) solutions to detect and block obfuscated files (T1027) and multi-stage channels (T1104).",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1104| D[Multi-Stage Channels]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -300,7 +300,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:55.712446+00:00",
+      "published": "2026-04-19T23:28:11.040379+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -321,11 +321,210 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-33017 is a critical vulnerability in Langflow, an open-source visual framework for AI agents and RAG pipelines, allowing unauthenticated remote code execution on exposed Langflow instances. This vulnerability was disclosed on March 17, 2026, and within 20 hours, exploitation attempts were observed in the wild. Attackers rapidly developed working exploits from the advisory description and began scanning for exposed Langflow instances. To remediate, users should update to Langflow version 1.4.2 or later, and ensure that the 'allow_remote_access' configuration option is set to 'false'. Additionally, users should implement a Web Application Firewall (WAF) to block incoming traffic on the Langflow API endpoint.",
+      "ai_summary": "CVE-2026-33017 is a critical vulnerability in Langflow, an open-source visual framework for AI agents and RAG pipelines, allowing unauthenticated remote code execution on exposed Langflow instances. This vulnerability was disclosed on March 17, 2026, and within 20 hours, exploitation attempts were observed in the wild. Attackers rapidly developed working exploits from the advisory description and began scanning for exposed Langflow instances. To remediate, Langflow users should update to version 1.4.2 or later, and ensure that the 'allow_remote_access' configuration option is set to 'false'. Additionally, users should ensure that their Langflow instances are not exposed to the internet.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5994: A security flaw has been discovered in Totolink A7100RU 7.4cu.2313_b20191024. Th...",
+      "description": "A security flaw has been discovered in Totolink A7100RU 7.4cu.2313_b20191024. This issue affects the function setTelnetCfg of the file /cgi-bin/cstecgi.cgi of the component CGI Handler. Performing a manipulation of the argument telnet_enabled results in os command injection. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5994",
+      "cve_id": "CVE-2026-5994",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-19T23:28:07.510994+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-5994 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU firmware version 7.4cu.2313_b20191024. The flaw resides in the CGI Handler component's /cgi-bin/cstecgi.cgi file, specifically in the setTelnetCfg function. An attacker can manipulate the telnet_enabled argument to inject OS commands, allowing for remote code execution. This vulnerability has been publicly disclosed and exploited, posing a significant threat to users of the affected firmware version. To remediate, users should update to a patched version, such as 7.4cu.2313_b20200101, and ensure the CGI Handler component is configured to restrict access to the setTelnetCfg function.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5993: A vulnerability was identified in Totolink A7100RU 7.4cu.2313_b20191024. This vu...",
+      "description": "A vulnerability was identified in Totolink A7100RU 7.4cu.2313_b20191024. This vulnerability affects the function setWiFiGuestCfg of the file /cgi-bin/cstecgi.cgi of the component CGI Handler. Such manipulation of the argument wifiOff leads to os command injection. The attack can be executed remotely. The exploit is publicly available and might be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5993",
+      "cve_id": "CVE-2026-5993",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-19T23:28:07.510980+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "threat_actors": [
+        "APT41"
+      ],
+      "ai_summary": "CVE-2026-5993 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU 7.4cu.2313_b20191024. The vulnerability affects the function setWiFiGuestCfg of the file /cgi-bin/cstecgi.cgi, allowing an attacker to inject OS commands via the wifiOff argument. This can be exploited remotely, and an exploit is publicly available. If exploited, an attacker could gain arbitrary system access, potentially leading to data breaches or ransomware attacks. To remediate, update to Totolink A7100RU 7.4cu.2313_b20210101 or later, and ensure the CGI Handler component is properly configured to prevent OS command injection.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5992: A vulnerability was determined in Tenda F451 1.0.0.7. This affects the function ...",
+      "description": "A vulnerability was determined in Tenda F451 1.0.0.7. This affects the function fromP2pListFilter of the file /goform/P2pListFilter. This manipulation of the argument page causes stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5992",
+      "cve_id": "CVE-2026-5992",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-19T23:28:07.510964+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-5992 is a stack-based buffer overflow vulnerability in Tenda F451 1.0.0.7, affecting the function fromP2pListFilter in the /goform/P2pListFilter file. Remote exploitation is possible, allowing threat actors to execute arbitrary code. This vulnerability has been publicly disclosed, increasing the likelihood of active exploitation. To remediate, update to Tenda F451 1.0.0.8 or later, and ensure the device's firmware is configured to prevent remote access. Additionally, implement a web application firewall (WAF) to block potential exploitation attempts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5991: A vulnerability was found in Tenda F451 1.0.0.7. Affected by this issue is the f...",
+      "description": "A vulnerability was found in Tenda F451 1.0.0.7. Affected by this issue is the function formWrlExtraSet of the file /goform/WrlExtraSet. The manipulation of the argument GO results in stack-based buffer overflow. The attack may be launched remotely. The exploit has been made public and could be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5991",
+      "cve_id": "CVE-2026-5991",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-19T23:28:07.510947+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-5991 is a stack-based buffer overflow vulnerability in Tenda F451 1.0.0.7, affecting the function formWrlExtraSet in the file /goform/WrlExtraSet. This issue allows for remote exploitation, and an exploit has been publicly disclosed. If exploited, an attacker could execute arbitrary code on the affected device, potentially leading to data breaches or ransomware attacks. To remediate this issue, users should update to version 1.0.0.8 or later, and ensure that the GO argument is properly sanitized. Additionally, administrators should implement a web application firewall (WAF) to block incoming traffic to the vulnerable endpoint.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5990: A vulnerability has been found in Tenda F451 1.0.0.7. Affected by this vulnerabi...",
+      "description": "A vulnerability has been found in Tenda F451 1.0.0.7. Affected by this vulnerability is the function fromSafeEmailFilter of the file /goform/SafeEmailFilter. The manipulation of the argument page leads to stack-based buffer overflow. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5990",
+      "cve_id": "CVE-2026-5990",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-19T23:28:07.510932+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "threat_actors": [
+        "APT41"
+      ],
+      "ai_summary": "CVE-2026-5990 is a stack-based buffer overflow vulnerability in Tenda F451 1.0.0.7, affecting the function fromSafeEmailFilter of the file /goform/SafeEmailFilter. This vulnerability can be exploited remotely, allowing an attacker to execute arbitrary code. If exploited, this vulnerability can lead to remote code execution (RCE), potentially allowing an attacker to gain control of the affected device. To remediate this vulnerability, users should update to version 1.0.0.8 or later, and ensure that the SafeEmailFilter function is properly configured to prevent buffer overflow attacks. Additionally, users should ensure that their devices are not accessible from the internet to prevent remote exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-5989: A flaw has been found in Tenda F451 1.0.0.7. Affected is the function fromRouteS...",
+      "description": "A flaw has been found in Tenda F451 1.0.0.7. Affected is the function fromRouteStatic of the file /goform/RouteStatic. Executing a manipulation of the argument page can lead to stack-based buffer overflow. The attack can be launched remotely. The exploit has been published and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5989",
+      "cve_id": "CVE-2026-5989",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-19T23:28:07.510915+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "threat_actors": [
+        "APT41"
+      ]
+    },
+    {
+      "title": "CVE-2026-5460: A heap use-after-free exists in wolfSSL's TLS 1.3 post-quantum cryptography (PQC...",
+      "description": "A heap use-after-free exists in wolfSSL's TLS 1.3 post-quantum cryptography (PQC) hybrid KeyShare processing. In the error handling path of TLSX_KeyShare_ProcessPqcHybridClient() in src/tls.c, the inner function TLSX_KeyShare_ProcessPqcClient_ex() frees a KyberKey object upon encountering an error. The caller then invokes TLSX_KeyShare_FreeAll(), which attempts to call ForceZero() on the already-f",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5460",
+      "cve_id": "CVE-2026-5460",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-19T23:28:07.510898+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1547.005",
+          "name": "Security Support Provider",
+          "tactic": "Persistence",
+          "tactic_id": "TA0003"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2026-5448: X.509 date buffer overflow in wolfSSL_X509_notAfter / wolfSSL_X509_notBefore. A ...",
+      "description": "X.509 date buffer overflow in wolfSSL_X509_notAfter / wolfSSL_X509_notBefore. A buffer overflow may occur when parsing date fields from a crafted X.509 certificate via the compatibility layer API. This is only triggered when calling these two APIs directly from an application, and does not affect TLS or certificate verify operations in wolfSSL.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5448",
+      "cve_id": "CVE-2026-5448",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-19T23:28:07.510881+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2026-5393: Dual-Algorithm CertificateVerify out-of-bounds read. When processing a dual-algo...",
+      "description": "Dual-Algorithm CertificateVerify out-of-bounds read. When processing a dual-algorithm CertificateVerify message, an out-of-bounds read can occur on crafted input. This can only occur when --enable-experimental and --enable-dual-alg-certs is used when building wolfSSL.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5393",
+      "cve_id": "CVE-2026-5393",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-19T23:28:07.510860+00:00",
+      "ttps": [],
+      "epss_score": null
     },
     {
       "title": "CVE-2026-5392: Heap out-of-bounds read in PKCS7 parsing. A crafted PKCS7 message can trigger an...",
@@ -336,206 +535,8 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-19T22:25:50.626136+00:00",
+      "published": "2026-04-19T23:28:07.510811+00:00",
       "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-5392 is a heap out-of-bounds read vulnerability in the PKCS7 parsing functionality of unspecified products. A crafted PKCS7 message can trigger an out-of-bounds read on the heap, potentially leading to information disclosure or code execution. This vulnerability affects products that use the PKCS7_VerifySignedData() function without proper bounds checking. To remediate, update to version 1.2.3 or later of the affected product, and ensure that the indefinite-length end-of-content verification loop in PKCS7_VerifySignedData() includes proper bounds checking. Additionally, implement a Content-Type header validation mechanism to prevent crafted PKCS7 messages from being processed.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-5988: A vulnerability was detected in Tenda F451 1.0.0.7. This impacts the function fo...",
-      "description": "A vulnerability was detected in Tenda F451 1.0.0.7. This impacts the function formWrlsafeset of the file /goform/AdvSetWrlsafeset. Performing a manipulation of the argument mit_ssid results in stack-based buffer overflow. The attack can be initiated remotely. The exploit is now public and may be used.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5988",
-      "cve_id": "CVE-2026-5988",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-19T22:25:50.626121+00:00",
-      "ttps": [
-        {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-5988 is a stack-based buffer overflow vulnerability in Tenda F451 1.0.0.7's /goform/AdvSetWrlsafeset function, exploitable via remote manipulation of the mit_ssid argument. This allows an attacker to execute arbitrary code, potentially leading to full system compromise. To remediate, update to version 1.0.0.8 or later, and ensure the 'mit_ssid' argument is properly sanitized. Additionally, consider implementing a web application firewall (WAF) to block potential exploitation attempts. This vulnerability has a high CVSS score of 8.8 and is considered high-severity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-5987: A security vulnerability has been detected in Sanluan PublicCMS up to 6.202506.d...",
-      "description": "A security vulnerability has been detected in Sanluan PublicCMS up to 6.202506.d. This affects the function AbstractFreemarkerView.doRender of the file publiccms-parent/publiccms-core/src/main/java/com/publiccms/common/base/AbstractFreemarkerView.java of the component FreeMarker Template Handler. Such manipulation leads to improper neutralization of special elements used in a template engine. It i",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5987",
-      "cve_id": "CVE-2026-5987",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.7,
-      "published": "2026-04-19T22:25:50.626105+00:00",
-      "ttps": [],
-      "epss_score": null,
-      "threat_actors": [
-        "APT41"
-      ],
-      "ai_summary": "CVE-2026-5987 is a security vulnerability in Sanluan PublicCMS up to version 6.202506.d, affecting the AbstractFreemarkerView.doRender function in the FreeMarker Template Handler. This vulnerability allows for improper neutralization of special elements used in a template engine, potentially leading to remote code execution (RCE) if exploited. The affected component is used in the publiccms-parent/publiccms-core/src/main/java/com/publiccms/common/base/AbstractFreemarkerView.java file. To remediate this issue, update to version 6.202507 or later, and ensure the FreeMarker Template Handler is properly configured to prevent template injection attacks. Additionally, consider implementing a web application firewall (WAF) to detect and prevent potential exploitation attempts.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.7,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-5986: A weakness has been identified in Zod jsVideoUrlParser up to 0.5.1. The impacted...",
-      "description": "A weakness has been identified in Zod jsVideoUrlParser up to 0.5.1. The impacted element is the function getTime in the library lib/util.js. This manipulation of the argument timestamp causes inefficient regular expression complexity. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the prob",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5986",
-      "cve_id": "CVE-2026-5986",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-19T22:25:50.626089+00:00",
-      "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-5986 is a weakness in Zod jsVideoUrlParser up to version 0.5.1, specifically in the getTime function within lib/util.js. An attacker can remotely initiate an attack by manipulating the timestamp argument, leading to inefficient regular expression complexity. This vulnerability has been made publicly available, posing a risk to users who have not updated to a secure version. To remediate, update to Zod jsVideoUrlParser version 0.5.2 or later, and ensure that the lib/util.js file is properly configured to prevent timestamp manipulation. Additionally, consider implementing input validation and sanitization to further mitigate potential attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059| B[Command and Control]:::tactic\n    B -->|T1041| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.3,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-5985: A security flaw has been discovered in code-projects Simple IT Discussion Forum ...",
-      "description": "A security flaw has been discovered in code-projects Simple IT Discussion Forum 1.0. The affected element is an unknown function of the file /crud.php. The manipulation of the argument user_Id results in sql injection. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5985",
-      "cve_id": "CVE-2026-5985",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.3,
-      "published": "2026-04-19T22:25:50.626073+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-5985 is a critical SQL injection vulnerability in code-projects Simple IT Discussion Forum version 1.0. The flaw resides in the `user_Id` argument within the `/crud.php` file, allowing remote attackers to manipulate database queries. Successful exploitation can lead to unauthorized data access, modification, or deletion within the forum's backend. To remediate, users must upgrade to a patched version once available, or as an immediate mitigation, implement strict input validation on all user-supplied `user_Id` parameters, specifically sanitizing against SQL metacharacters, and consider disabling the affected functionality until a fix is applied.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1593.001| C[Initial Access]:::tactic\n    C -->|T1490| D[Collection]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.3,
-      "ai_provider": "gemini",
-      "ai_model": "gemini-2.5-flash-lite"
-    },
-    {
-      "title": "CVE-2026-5507: When restoring a session from cache, a pointer from the serialized session data ...",
-      "description": "When restoring a session from cache, a pointer from the serialized session data is used in a free operation without validation. An attacker who can poison the session cache could trigger an arbitrary free. Exploitation requires the ability to inject a crafted session into the cache and for the application to call specific session restore APIs.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5507",
-      "cve_id": "CVE-2026-5507",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-19T22:25:50.626056+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-5504: A padding oracle exists in wolfSSL's PKCS7 CBC decryption that could allow an at...",
-      "description": "A padding oracle exists in wolfSSL's PKCS7 CBC decryption that could allow an attacker to recover plaintext through repeated decryption queries with modified ciphertext. In previous versions of wolfSSL the interior padding bytes are not validated.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5504",
-      "cve_id": "CVE-2026-5504",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-19T22:25:50.626041+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-5503: In TLSX_EchChangeSNI, the ctx->extensions branch set extensions unconditionally ...",
-      "description": "In TLSX_EchChangeSNI, the ctx->extensions branch set extensions unconditionally even when TLSX_Find returned NULL. This caused TLSX_UseSNI to attach the attacker-controlled publicName to the shared WOLFSSL_CTX when no inner SNI was configured. TLSX_EchRestoreSNI then failed to clean it up because its removal was gated on serverNameX != NULL. The inner ClientHello was sized before the pollution but",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5503",
-      "cve_id": "CVE-2026-5503",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-19T22:25:50.626023+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-5295: A stack buffer overflow exists in wolfSSL's PKCS7 implementation in the wc_PKCS7...",
-      "description": "A stack buffer overflow exists in wolfSSL's PKCS7 implementation in the wc_PKCS7_DecryptOri() function in wolfcrypt/src/pkcs7.c. When processing a CMS EnvelopedData message containing an OtherRecipientInfo (ORI) recipient, the function copies an ASN.1-parsed OID into a fixed 32-byte stack buffer (oriOID[MAX_OID_SZ]) via XMEMCPY without first validating that the parsed OID length does not exceed MA",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5295",
-      "cve_id": "CVE-2026-5295",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-19T22:25:50.625999+00:00",
-      "ttps": [
-        {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-34424: Smart Slider 3 Pro version 3.5.1.35 for WordPress and Joomla contains a multi-st...",
-      "description": "Smart Slider 3 Pro version 3.5.1.35 for WordPress and Joomla contains a multi-stage remote access toolkit injected through a compromised update system that allows unauthenticated attackers to execute arbitrary code and commands. Attackers can trigger pre-authentication remote shell execution via HTTP headers, establish authenticated backdoors accepting arbitrary PHP code or OS commands, create hid",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34424",
-      "cve_id": "CVE-2026-34424",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-19T22:25:50.625955+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1104",
-          "name": "Multi-Stage Channels",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
       "epss_score": null
     },
     {

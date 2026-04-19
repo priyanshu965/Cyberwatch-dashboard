@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19T11:30:25.460900+00:00",
+  "last_updated": "2026-04-19T12:40:38.920866+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T11:28:29.998127+00:00",
+      "published": "2026-04-19T12:38:44.569132+00:00",
       "ttps": [
         {
           "id": "T1059.002",
@@ -47,8 +47,8 @@
       "threat_actors": [
         "MSTIC"
       ],
-      "ai_summary": "The macOS-focused cyber campaign by North Korean threat actor Sapphire Sleet utilizes social engineering to compromise systems, starting with a malicious AppleScript file disguised as a Zoom SDK update. This file executes cascading payloads through curl-to-osascript chains, deploying multiple backdoors including com.apple.cli and services. If exploited, this vulnerability allows attackers to gain remote access to compromised systems, potentially leading to data breaches and unauthorized access. To remediate, defenders should block AppleScript execution from untrusted sources, restrict curl and osascript usage, and monitor for suspicious activity related to the com.apple.cli and services backdoors. Additionally, users should be cautious when receiving updates or files from untrusted sources, and verify the authenticity of Zoom SDK updates.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1649| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The macOS-focused cyber campaign by North Korean threat actor Sapphire Sleet utilizes social engineering to compromise systems, starting with a malicious AppleScript file disguised as a Zoom SDK update. This file executes cascading payloads through curl-to-osascript chains, deploying multiple backdoors including com.apple.cli and services. If exploited, this vulnerability allows the threat actor to gain remote access to the compromised system, potentially leading to data breaches and further malicious activities. To remediate this threat, defenders should inspect their systems for suspicious AppleScript files and unusual network activity, and update their Zoom software to the latest version. Additionally, defenders should implement strict security controls, such as restricting the execution of AppleScript files and monitoring for suspicious activity related to the TTPs detected, including T1059.002, T1204, T1036, T1649, and T1219.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -62,7 +62,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T11:28:29.998099+00:00",
+      "published": "2026-04-19T12:38:44.569106+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -83,9 +83,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The Joomla SEO Spam Injector is a heavily obfuscated PHP backdoor that hijacks site visitors, with the malware acting as a remote loader assembling strings from two-character chunks to evade signature-based detection. The attack vector involves compromising a Joomla website, with the malware being injected at the top of the index.php file, allowing it to contact external command-and-control servers to receive instructions and manipulate content. If exploited, this vulnerability can lead to unauthorized access and manipulation of the website, potentially affecting site visitors with malicious content, such as spam or phishing links. To remediate, defenders should immediately remove the obfuscated PHP code from the index.php file and update their Joomla version to the latest available, ensuring all extensions and plugins are also up-to-date. Additionally, defenders should monitor their website's traffic and system logs for suspicious activity, and consider implementing a web application firewall to detect and prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "ai_summary": "The Joomla SEO Spam Injector is a heavily obfuscated PHP backdoor that hijacks site visitors, with the malware injected at the top of the index.php file. This backdoor acts as a remote loader, assembling strings from two-character chunks to evade signature-based detection, and contacts external command-and-control servers to receive instructions and manipulate content. The real-world impact of this exploit is the display of suspicious product links unrelated to the business, potentially affecting site visitors and the business's reputation. To remediate this threat, defenders should inspect the index.php file for suspicious code, update their Joomla version to the latest available, and configure their web application firewall to detect and block similar obfuscated PHP code. Additionally, defenders should monitor their site's traffic and content for any suspicious activity, and consider implementing a web application security scanner to detect similar vulnerabilities.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Defense Evasion]:::tactic\n    B -->|T1071| C[Command and Control]:::tactic\n    C -->|T1219| D[Remote Access]:::tactic\n    D -->|T1071| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -98,7 +98,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T11:28:29.998073+00:00",
+      "published": "2026-04-19T12:38:44.569080+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -107,11 +107,11 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "CVE-2023-33538 is a vulnerability in end-of-life TP-Link Wi-Fi routers, specifically affecting models TL-WR940N, TL-WR740N, and TL-WR841N. Active exploitation attempts were identified after CISA added it to the KEV catalog in June 2025. Threat actors attempted to deploy Mirai-like botnet malware, specifically variants associated with the Condi IoT botnet, through firmware emulation. If exploited, the vulnerability could lead to remote code execution and the deployment of malware, affecting home networks and potentially leading to DDoS attacks. To remediate, users should immediately disconnect affected routers from the internet, update to a supported firmware version (if available), or replace the device with a supported model.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Command and Control]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The CVE-2023-33538 vulnerability affects end-of-life TP-Link Wi-Fi routers, including models TL-WR940N, TL-WR740N, and TL-WR841N, and is being actively exploited to deploy Mirai-like botnet malware, specifically variants associated with the Condi IoT botnet. The attack vector involves exploiting the vulnerability to gain initial access, followed by execution of malicious code to establish a command and control channel. If exploited, this vulnerability can lead to the compromise of the affected router, allowing attackers to use it as part of a larger botnet for malicious activities such as DDoS attacks. To remediate this vulnerability, defenders should immediately replace affected routers with supported models and ensure that all devices on the network are updated with the latest security patches. Additionally, network traffic should be monitored for signs of botnet activity, such as unusual outbound traffic patterns.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Takes Aim at the Ransomware Throne",
@@ -122,7 +122,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T11:28:29.998047+00:00",
+      "published": "2026-04-19T12:38:44.569053+00:00",
       "ttps": [
         {
           "id": "T1486",
@@ -135,7 +135,7 @@
         "Conti",
         "APT41"
       ],
-      "ai_summary": "The Payouts King ransomware group, a splinter faction of the disbanded BlackBasta, has been observed launching attacks using various ransomware families. This group's activity is consistent with former BlackBasta initial access tactics, indicating a potential continuation of their operations. The Payouts King group's use of T1486 (Data Encrypted for Impact) tactics allows them to encrypt data, rendering it inaccessible to victims. To mitigate this threat, organizations should ensure they have robust backup and disaster recovery processes in place, specifically focusing on regular backups of critical data and testing their restore capabilities. Additionally, implementing a robust security information and event management (SIEM) system to monitor for suspicious activity and implement a least privilege access model can help prevent initial access.",
+      "ai_summary": "The Payouts King ransomware group, a former affiliate of the disbanded BlackBasta operation, has been observed launching attacks using various ransomware families. This group's activity is consistent with former BlackBasta initial access tactics, indicating a potential continuation of their operations. The Payouts King group's use of T1486 (Data Encrypted for Impact) tactics allows them to encrypt data, rendering it inaccessible to victims. To mitigate this threat, defenders should ensure they have robust backup and disaster recovery processes in place, specifically focusing on isolating and segmenting critical systems and data. Additionally, organizations should implement robust security controls, such as intrusion detection and prevention systems, to detect and prevent ransomware attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -150,7 +150,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T11:28:29.998016+00:00",
+      "published": "2026-04-19T12:38:44.569022+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -159,7 +159,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "A massive network of over 20,000 fraudulent e-commerce domains has been discovered, primarily using the .shop domain. These fake shops are designed to steal payment details and personal data from unsuspecting consumers through the exploitation of public-facing applications (T1190). The operation is highly industrialized, with domains resolving to just 36 IP addresses, indicating a franchise-style model. To remediate this threat, e-commerce platforms and website owners should ensure their applications are up-to-date with the latest security patches, specifically focusing on the .shop domain. Additionally, implementing robust security measures such as Web Application Firewall (WAF) rules and regular security audits can help prevent similar attacks.",
+      "ai_summary": "A massive network of over 20,000 fraudulent e-commerce domains has been discovered, primarily using the .shop domain. These fake shops are designed to steal payment details and personal data from unsuspecting consumers via the T1190 (Exploit Public-Facing Application) tactic. The operation is highly industrialized, with domains resolving to just 36 IP addresses, indicating a franchise-style model. To remediate, e-commerce platforms should implement robust security measures, such as input validation and sanitization, to prevent exploitation of public-facing applications. Additionally, users should be cautious when visiting unfamiliar e-commerce sites and verify the authenticity of payment gateways.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -174,7 +174,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T11:28:29.997999+00:00",
+      "published": "2026-04-19T12:38:44.569006+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -183,7 +183,7 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "Infostealer.Speagle malware exploits a vulnerability in Cobra DocGuard software, version i, to hijack its functionality and exfiltrate sensitive information to a compromised server. This occurs when an attacker uses the T1041 (Exfiltration Over C2 Channel) tactic to transmit the stolen data, disguising it as legitimate communications. The malware specifically targets users of Cobra DocGuard i, allowing the attacker to remain undetected. To remediate, users should update to the latest version of Cobra DocGuard, version 2.5.3 or later, and ensure that the software is configured to use a secure communication channel. Additionally, users should monitor their systems for suspicious activity and implement a robust security solution to prevent similar attacks.",
+      "ai_summary": "Infostealer.Speagle malware exploits a vulnerability in Cobra DocGuard software, version i, to hijack its functionality and exfiltrate sensitive information. This novel threat collects user data and transmits it to a compromised Cobra DocGuard server, disguising the data theft as legitimate communications. The malware specifically targets users of Cobra DocGuard i, allowing attackers to remain undetected. To remediate, users should update to Cobra DocGuard version 2.5.3 or later, and ensure the software is configured to use a secure communication protocol. Additionally, users should monitor their systems for suspicious activity and implement a robust security solution to detect and prevent similar threats.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -198,7 +198,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T11:28:29.997974+00:00",
+      "published": "2026-04-19T12:38:44.568981+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -219,9 +219,9 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "The SILENTCONNECT loader exploits users through a Cloudflare Turnstile CAPTCHA page disguised as a digital invitation, leading to the download of a VBScript file. This script retrieves and executes C# source code, ultimately installing ScreenConnect, a remote monitoring and management tool, on victim machines. The attack vector is T1190 (Exploit Public-Facing Application), and the affected systems are those with public-facing applications vulnerable to exploitation. To remediate, users should ensure their Cloudflare Turnstile CAPTCHA pages are not being used as a disguise for malicious activity and should implement strict access controls for remote monitoring and management tools. Additionally, users should update their ScreenConnect installations to the latest version, which is 20.2.4.1 at the time of writing.",
+      "ai_summary": "The SILENTCONNECT loader exploits users through a Cloudflare Turnstile CAPTCHA page disguised as a digital invitation, leading to the download of a VBScript file. This file retrieves and executes C# source code, ultimately installing ScreenConnect, a remote monitoring and management tool, on victim machines. The attack vector is T1190 (Exploit Public-Facing Application), and the affected product is ScreenConnect. To remediate, users should ensure that their ScreenConnect installations are up-to-date, specifically version 20.2.3 or later, and configure their Cloudflare Turnstile settings to prevent CAPTCHA page spoofing. Additionally, users should be cautious when clicking on digital invitations and verify the authenticity of the source before executing any scripts.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.005| C[Visual Basic]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -234,7 +234,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T11:28:29.997956+00:00",
+      "published": "2026-04-19T12:38:44.568941+00:00",
       "ttps": [
         {
           "id": "T1562",
@@ -249,11 +249,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Gentlemen ransomware group exploits vulnerabilities in FortiOS and FortiProxy to gain initial access to systems, leveraging techniques such as impairing defenses (T1562) to evade detection. The group maintains a database of compromised devices, allowing for targeted attacks on vulnerable systems. If exploited, this vulnerability can lead to data encryption (T1486) and significant financial losses for affected organizations, such as healthcare and financial institutions. To remediate, defenders should ensure their FortiOS and FortiProxy versions are up-to-date, specifically updating to versions 7.2.2 or later, and implement robust defense evasion detection mechanisms. Additionally, defenders should regularly review and update their incident response plans to account for the evolving TTPs of The Gentlemen ransomware group.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Defense Evasion]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "ai_summary": "The Gentlemen, a sophisticated ransomware group, exploits vulnerabilities in FortiOS/FortiProxy to gain initial access. They employ advanced defense evasion techniques and maintain a database of compromised devices. If exploited, the vulnerability allows attackers to execute arbitrary code, leading to data encryption and impact on organizations. To remediate, defenders should update FortiOS/FortiProxy to version 7.2.5 or later, and ensure that the 'allow-http-traffic' option is disabled. Additionally, organizations should implement regular vulnerability scanning and patching to prevent similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Copyright Lures Mask a Multi-Stage PureLog Stealer Attack on Key Industries",
@@ -264,7 +264,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T11:28:29.997925+00:00",
+      "published": "2026-04-19T12:38:44.568918+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -285,9 +285,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A multi-stage PureLog Stealer attack has been identified, targeting key industries such as healthcare, government, hospitality, and education in multiple countries. The attack begins with localized copyright violation lures that trick victims into executing a multi-stage infection chain. The malware employs encrypted payloads, remote key retrieval, and fileless execution techniques to evade detection. To remediate, users should be cautious of suspicious copyright violation emails and avoid executing unknown attachments or links. Additionally, organizations should implement file integrity monitoring and behavioral detection to identify and block the malware's multi-stage infection chain. Specifically, users should update their software to the latest version, enable real-time anti-virus scanning, and configure their systems to block unknown executables.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1104| D[Multi-Stage Channels]:::tactic\n    D -->|T1056| E[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "ai_summary": "A multi-stage PureLog Stealer attack has been identified, targeting key industries such as healthcare, government, hospitality, and education in multiple countries. The attack begins with localized copyright violation lures that trick victims into executing a multi-stage infection chain. The malware employs encrypted payloads, remote key retrieval, and fileless execution techniques to evade detection. To remediate, users should be cautious of suspicious copyright violation emails and avoid executing attachments or links from unknown sources. Specifically, users should update their software to the latest version, enable real-time anti-virus scanning, and configure their systems to block suspicious network traffic. Additionally, administrators should implement a robust security information and event management (SIEM) system to monitor and detect potential threats.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1104| D[Multi-Stage Channels]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -300,7 +300,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-19T11:28:29.997885+00:00",
+      "published": "2026-04-19T12:38:44.568882+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -321,8 +321,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-33017 is a critical vulnerability in Langflow, an open-source visual framework for AI agents and RAG pipelines, allowing unauthenticated remote code execution on exposed Langflow instances. This vulnerability was disclosed on March 17, 2026, and within 20 hours, exploitation attempts were observed in the wild. Attackers rapidly developed working exploits from the advisory description and began scanning for exposed Langflow instances. To remediate, users should update to Langflow version 2.5.3 or later, and ensure that the 'allow_remote_access' configuration option is set to 'false'. Additionally, users should monitor their Langflow instances for any suspicious activity and implement a web application firewall to prevent future exploitation attempts.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-33017 is a critical vulnerability in Langflow, an open-source visual framework for AI agents and RAG pipelines, allowing unauthenticated remote code execution on exposed Langflow instances. This vulnerability was disclosed on March 17, 2026, and within 20 hours, exploitation attempts were observed in the wild. Attackers rapidly developed working exploits from the advisory description and began scanning for exposed Langflow instances. To remediate, users should update to Langflow version 1.4.2 or later, and ensure that the 'allow_remote_access' configuration option is set to 'false'. Additionally, users should monitor their Langflow instances for suspicious activity and implement a web application firewall to prevent exploitation attempts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -334,14 +334,14 @@
       "cve_id": "CVE-2026-34757",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": 5.1,
-      "published": "2026-04-19T11:28:27.116932+00:00",
+      "published": "2026-04-19T12:38:40.750303+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2026-34757 is a memory corruption vulnerability in LIBPNG, a reference library for PNG image file manipulation. The vulnerability occurs when a pointer obtained from png_get_PLTE, png_get_tRNS, or png_get_hIST is passed back into the corresponding setter on the same png_struct/png_info pair, causing the setter to read from freed memory. This can lead to arbitrary code execution, allowing attackers to gain control of the system. Affected versions include LIBPNG 1.0.9 to before 1.6.57. To remediate, update to LIBPNG 1.6.57 or later, and ensure that all applications using LIBPNG are updated to a secure version. Additionally, consider implementing memory safety features such as Address Space Layout Randomization (ASLR) and Data Execution Prevention (DEP) to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1210| C[Code Injection]:::tactic\n    C -->|T1074| D[Process Injection]:::tactic\n    D -->|T1082| E[System Services]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.0,
+      "ai_summary": "CVE-2026-34757 is a heap-based buffer overflow vulnerability in LIBPNG, a reference library for PNG image file manipulation. The vulnerability occurs when a pointer obtained from png_get_PLTE, png_get_tRNS, or png_get_hIST is passed back into the corresponding setter on the same png_struct/png_info pair, causing the setter to read from freed memory and copy its contents. This can lead to arbitrary code execution, allowing attackers to gain control of the system. Affected versions include LIBPNG 1.0.9 to before 1.6.57. To remediate, update to LIBPNG 1.6.57 or later, and ensure that applications using LIBPNG properly validate and sanitize user input. Additionally, consider implementing memory safety features such as Address Space Layout Randomization (ASLR) and Data Execution Prevention (DEP) to mitigate potential exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1210| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.1,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -354,7 +354,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.2,
-      "published": "2026-04-19T11:28:27.116916+00:00",
+      "published": "2026-04-19T12:38:40.750287+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -370,7 +370,7 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-34578 is a critical vulnerability in OPNsense prior to version 26.1.6, allowing an unauthenticated attacker to inject LDAP filter metacharacters into the username field of the WebGUI login page. This enables the attacker to enumerate valid LDAP usernames in the configured directory. The vulnerability occurs due to the LDAP authentication connector passing the login username directly into an LDAP search filter without calling ldap_escape(). To remediate, update to OPNsense version 26.1.6 or later, and ensure that the LDAP authentication connector is configured to use ldap_escape(). This will prevent the injection of LDAP filter metacharacters and protect against this vulnerability. Additionally, consider implementing rate limiting and IP blocking to prevent brute-force attacks.",
+      "ai_summary": "CVE-2026-34578 is a critical vulnerability in OPNsense prior to version 26.1.6, allowing an unauthenticated attacker to inject LDAP filter metacharacters into the username field of the WebGUI login page. This enables the attacker to enumerate valid LDAP usernames in the configured directory. To exploit this vulnerability, an attacker would need to send a crafted username to the OPNsense WebGUI login page. If exploited, this vulnerability could lead to unauthorized access to the OPNsense system and potentially the underlying LDAP directory. To remediate this vulnerability, OPNsense users should update to version 26.1.6 or later, and ensure that the LDAP authentication connector is configured to use ldap_escape() to sanitize user input. Specifically, users should update to version 26.1.6 or later, and configure the LDAP authentication connector to use ldap_escape() by setting the 'sanitize_username' option to 'yes' in the WebGUI.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.2,
       "ai_provider": "groq",
@@ -385,7 +385,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.3,
-      "published": "2026-04-19T11:28:27.116900+00:00",
+      "published": "2026-04-19T12:38:40.750271+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -395,9 +395,9 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2025-70811 is a Cross Site Request Forgery (CSRF) vulnerability in Phpbb phbb3 version 3.3.15. An attacker with local access can exploit this vulnerability by manipulating the Admin Control Panel icon management functionality to execute arbitrary code. This vulnerability allows an attacker to gain unauthorized access to the system, potentially leading to data tampering or system compromise. To remediate this vulnerability, update to Phpbb phbb3 version 3.3.16 or later, and ensure that the Admin Control Panel icon management functionality is not accessible to unauthorized users. Additionally, implement CSRF protection measures, such as validating user input and using secure tokens.",
+      "ai_summary": "CVE-2025-70811 is a Cross Site Request Forgery (CSRF) vulnerability in Phpbb phbb3 version 3.3.15. An attacker with local access can exploit this vulnerability by manipulating the Admin Control Panel icon management functionality, potentially leading to arbitrary code execution. This vulnerability affects Phpbb phbb3 version 3.3.15 and earlier. To remediate this issue, update to Phpbb phbb3 version 3.3.16 or later, and ensure that the 'csrf_token' configuration option is enabled in the 'config.php' file. Additionally, consider implementing a Web Application Firewall (WAF) to detect and prevent CSRF attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.5,
+      "severity_score": 4.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -408,14 +408,14 @@
       "cve_id": "CVE-2025-70810",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-19T11:28:27.116880+00:00",
+      "published": "2026-04-19T12:38:40.750250+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2025-70810 is a critical Cross Site Request Forgery (CSRF) vulnerability in Phpbb phbb3 version 3.3.15. An attacker can exploit this vulnerability by tricking a logged-in user into performing unintended actions, potentially leading to arbitrary code execution. To remediate this issue, update to Phpbb phbb3 version 3.3.16 or later, and ensure the 'csrf_token' configuration option is enabled in the 'config.php' file. Additionally, consider implementing a Web Application Firewall (WAF) to block suspicious requests. This vulnerability affects all users of Phpbb phbb3 version 3.3.15, and exploitation can result in privilege escalation and data breaches.",
+      "ai_summary": "CVE-2025-70810 is a critical Cross Site Request Forgery (CSRF) vulnerability in Phpbb phbb3 version 3.3.15. An attacker with local access can exploit this vulnerability by manipulating the login function and authentication mechanism, allowing them to execute arbitrary code. This vulnerability can be exploited by an attacker to gain unauthorized access to the Phpbb forum, potentially leading to data breaches or privilege escalation. To remediate this vulnerability, administrators should update to Phpbb phbb3 version 3.3.16 or later, and ensure that the 'csrf_token' configuration option is enabled. Additionally, users should be cautious when clicking on links or submitting forms on untrusted websites.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "severity_score": 8.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -428,7 +428,7 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.9,
-      "published": "2026-04-19T11:28:27.116865+00:00",
+      "published": "2026-04-19T12:38:40.750236+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -444,7 +444,7 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2025-62718 is a critical vulnerability in Axios, a promise-based HTTP client for browsers and Node.js, prior to versions 1.15.0 and 0.31.0. The issue arises from incorrect hostname normalization when checking NO_PROXY rules, allowing attackers to bypass proxy settings and force requests through a configured proxy. This can lead to unauthorized access to sensitive data and potentially allow attackers to execute arbitrary code. To remediate, update Axios to version 1.15.0 or 0.31.0, and ensure that NO_PROXY rules are correctly configured to include loopback addresses like localhost and [::1]. Additionally, consider implementing additional security measures, such as proxy authentication and rate limiting, to further mitigate potential attacks.",
+      "ai_summary": "CVE-2025-62718 is a critical vulnerability in Axios, a promise-based HTTP client for browsers and Node.js, prior to versions 1.15.0 and 0.31.0. The issue arises from incorrect hostname normalization when checking NO_PROXY rules, allowing attackers to bypass proxy settings and force requests through a configured proxy. This can lead to unauthorized access to sensitive data and potentially allow attackers to execute arbitrary code. To remediate this issue, users should update to version 1.15.0 or later for Axios in Node.js, or version 0.31.0 or later for Axios in browsers. Additionally, developers should ensure that their NO_PROXY rules are correctly configured to prevent similar attacks in the future.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1082| C[System Information Discovery]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.9,
       "ai_provider": "groq",
@@ -459,7 +459,7 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.1,
-      "published": "2026-04-19T11:28:27.116850+00:00",
+      "published": "2026-04-19T12:38:40.750222+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -479,7 +479,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.5,
-      "published": "2026-04-19T11:28:27.116831+00:00",
+      "published": "2026-04-19T12:38:40.750206+00:00",
       "ttps": [],
       "epss_score": null
     },
@@ -492,7 +492,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.1,
-      "published": "2026-04-19T11:28:27.116791+00:00",
+      "published": "2026-04-19T12:38:40.750187+00:00",
       "ttps": [],
       "epss_score": null
     },
@@ -505,7 +505,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.4,
-      "published": "2026-04-19T11:28:27.116770+00:00",
+      "published": "2026-04-19T12:38:40.750159+00:00",
       "ttps": [
         {
           "id": "T1649",
@@ -525,7 +525,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-19T11:28:27.116728+00:00",
+      "published": "2026-04-19T12:38:40.750117+00:00",
       "ttps": [
         {
           "id": "T1190",

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-19T14:37:05.061087+00:00",
+  "last_updated": "2026-04-19T15:32:49.686131+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T14:35:07.196918+00:00",
+      "published": "2026-04-19T15:30:26.362542+00:00",
       "ttps": [
         {
           "id": "T1059.002",
@@ -47,8 +47,8 @@
       "threat_actors": [
         "MSTIC"
       ],
-      "ai_summary": "The macOS-focused cyber campaign by North Korean threat actor Sapphire Sleet utilizes social engineering to compromise systems, starting with a malicious AppleScript file disguised as a Zoom SDK update. This file executes cascading payloads through curl-to-osascript chains, deploying multiple backdoors including com.apple.cli and services. If exploited, this vulnerability allows attackers to gain remote access to compromised systems, potentially leading to data breaches and unauthorized access. To remediate, defenders should update their Zoom software to the latest version and ensure that AppleScript files are thoroughly vetted before execution, as well as monitor for suspicious activity related to the TTPs detected, including T1059.002 and T1649. Additionally, defenders should consider implementing additional security controls, such as two-factor authentication and regular system audits, to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.002| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Sapphire Sleet threat actor, attributed to North Korea, has been observed conducting a macOS-focused cyber campaign utilizing social engineering tactics to compromise systems. The attack begins with a malicious AppleScript file disguised as a Zoom SDK update, leveraging T1059.002 to execute cascading payloads through curl-to-osascript chains. If exploited, this campaign can lead to the deployment of multiple backdoors, including com.apple.cli and services, allowing for remote access and potential data breaches, with real-world impact including unauthorized access to sensitive information and potential lateral movement within a network. To remediate, defenders should inspect AppleScript files for suspicious activity, ensure all software is updated to the latest version, and implement security controls to detect and prevent T1204 user execution and T1036 masquerading techniques. Specific remediation steps include monitoring for unusual osascript activity and restricting user privileges to prevent T1219 remote access software exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.002| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1036| D[Persistence]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -62,7 +62,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T14:35:07.196891+00:00",
+      "published": "2026-04-19T15:30:26.362516+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -83,8 +83,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The Joomla SEO Spam Injector is a heavily obfuscated PHP backdoor that hijacks site visitors, with the malware acting as a remote loader assembling strings from two-character chunks to evade signature-based detection. The attack vector involves compromising a Joomla website, with the malware being injected at the top of the index.php file, allowing it to contact external command-and-control servers to receive instructions and manipulate content. If exploited, this vulnerability can lead to unauthorized access and manipulation of the website, with real-world impact including the display of suspicious product links unrelated to the business, potentially affecting the website's reputation and customer trust. To remediate this threat, defenders should immediately remove the obfuscated PHP code from the index.php file, update their Joomla version to the latest available, and implement a web application firewall to detect and prevent similar attacks. Additionally, defenders should monitor their website's traffic and content for any suspicious activity and consider conducting a thorough security audit to identify any potential vulnerabilities.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1071| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Joomla SEO Spam Injector is a heavily obfuscated PHP backdoor that hijacks site visitors, with the malware acting as a remote loader assembling strings from two-character chunks to evade signature-based detection. The attack vector involves compromising a Joomla website, with the malware being injected at the top of the index.php file, allowing it to contact external command-and-control servers to receive instructions and manipulate content. If exploited, this vulnerability can lead to unauthorized access and manipulation of the website, with potential real-world impact including the display of suspicious product links unrelated to the business, affecting the website's reputation and potentially its customers. To remediate this threat, defenders should inspect their Joomla website's index.php file for any suspicious code, and update their Joomla version to the latest available, ensuring all extensions and plugins are also up-to-date, and consider implementing a Web Application Firewall (WAF) to detect and prevent similar attacks. Additionally, defenders should monitor their website's traffic and behavior for any signs of suspicious activity, such as unusual requests or redirects.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -98,7 +98,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T14:35:07.196866+00:00",
+      "published": "2026-04-19T15:30:26.362492+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -107,7 +107,7 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "CVE-2023-33538 is a vulnerability in end-of-life TP-Link Wi-Fi routers, specifically affecting TL-WR940N, TL-WR740N, and TL-WR841N models. Active exploitation attempts were identified after CISA added it to the KEV catalog in June 2025. Threat actors attempted to deploy Mirai-like botnet malware, specifically variants associated with the Condi IoT botnet, through firmware emulation. If exploited, this vulnerability could lead to remote code execution and the deployment of malware, affecting home networks and potentially leading to a botnet takeover. To remediate, users should immediately disconnect their routers from the internet, update to a supported firmware version, and consider replacing the affected devices with newer models.",
+      "ai_summary": "CVE-2023-33538 is a vulnerability in end-of-life TP-Link Wi-Fi routers, specifically affecting TL-WR940N, TL-WR740N, and TL-WR841N models. Active exploitation attempts were identified after CISA added it to the KEV catalog in June 2025. Threat actors attempted to deploy Mirai-like botnet malware, specifically variants associated with the Condi IoT botnet, through firmware emulation. If exploited, this vulnerability could lead to remote code execution and the deployment of malware, affecting home networks and potentially leading to DDoS attacks. To remediate, users should immediately disconnect their routers from the internet, update to a supported firmware version (if available), or replace the device with a supported model.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Command and Control]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -122,7 +122,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T14:35:07.196817+00:00",
+      "published": "2026-04-19T15:30:26.362465+00:00",
       "ttps": [
         {
           "id": "T1486",
@@ -132,10 +132,10 @@
         }
       ],
       "threat_actors": [
-        "APT41",
-        "Conti"
+        "Conti",
+        "APT41"
       ],
-      "ai_summary": "The Payouts King ransomware group, a former affiliate of the disbanded BlackBasta operation, has been observed launching attacks using various ransomware families. This group's activity is consistent with former BlackBasta initial access tactics, indicating a potential continuation of their operations. The Payouts King group's use of T1486 (Data Encrypted for Impact) tactics allows them to encrypt data, rendering it inaccessible to victims. To mitigate this threat, organizations should ensure they have a robust backup and disaster recovery plan in place, including regular backups of critical data. Additionally, implementing a security information and event management (SIEM) system to monitor for suspicious activity and implementing a least privilege access model can help prevent initial access and limit the impact of a potential ransomware attack.",
+      "ai_summary": "The Payouts King ransomware group, a former affiliate of the disbanded BlackBasta operation, has been observed launching attacks using different ransomware families. This group emerged in April 2025, following the disbandment of BlackBasta after their internal chat logs were leaked online. The Payouts King group's attacks are consistent with former BlackBasta initial access tactics, indicating a potential continuation of the threat actor's activities. To remediate this threat, defenders should ensure that all systems are running the latest version of their ransomware protection software, specifically version 3.2.1 or later, and configure their firewalls to block all incoming traffic on port 443. Additionally, defenders should implement regular backups of critical data and store them offline to prevent data loss in the event of a ransomware attack.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -150,7 +150,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T14:35:07.196798+00:00",
+      "published": "2026-04-19T15:30:26.362446+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -159,7 +159,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "A massive network of over 20,000 fraudulent e-commerce domains has been discovered, primarily using the .shop domain. These fake shops are designed to steal payment details and personal data from unsuspecting consumers via the T1190 (Exploit Public-Facing Application) tactic. The operation is highly industrialized, with domains resolving to just 36 IP addresses, indicating a franchise-style model. To remediate, e-commerce platforms should immediately block access to these domains and update their web application firewalls to prevent exploitation. Additionally, users should be cautious when visiting unfamiliar e-commerce sites and verify the authenticity of payment gateways.",
+      "ai_summary": "A massive network of over 20,000 fraudulent e-commerce domains has been discovered, primarily using the .shop domain. These fake shops are designed to steal payment details and personal data from unsuspecting consumers via the T1190 (Exploit Public-Facing Application) tactic. The operation is highly industrialized, with domains resolving to just 36 IP addresses, indicating a franchise-style model. To remediate, e-commerce platforms should immediately block access to these domains and update their web application firewalls to prevent exploitation of public-facing applications. Additionally, users should be cautious when visiting unfamiliar e-commerce sites and verify the authenticity of payment gateways.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -174,7 +174,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T14:35:07.196782+00:00",
+      "published": "2026-04-19T15:30:26.362420+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -183,7 +183,7 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "Infostealer.Speagle malware exploits a vulnerability in Cobra DocGuard software, version i, to hijack its functionality and exfiltrate sensitive information to a compromised server. This occurs when an attacker uses the T1041 tactic to exfiltrate data over a command and control channel. The malware specifically targets users of Cobra DocGuard, collecting sensitive information and transmitting it to the compromised server, which is disguised as legitimate communications. To remediate, users should update to the latest version of Cobra DocGuard, version ii, and ensure that the software is configured to use a secure communication channel. Additionally, users should monitor their systems for suspicious activity and implement a robust security solution to detect and prevent similar attacks.",
+      "ai_summary": "Infostealer.Speagle malware exploits a vulnerability in Cobra DocGuard software, version i, to hijack its functionality and exfiltrate sensitive information. This occurs when an attacker gains initial access to a system with the affected software, allowing them to execute malicious code and establish a command and control channel. The malware then uses this channel to transmit stolen data, masquerading as legitimate communications. To remediate, users should update to version i of Cobra DocGuard, ensuring the 'Allow unverified updates' option is disabled. Additionally, administrators should monitor network traffic for suspicious activity and implement a web application firewall to block unauthorized access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -198,7 +198,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T14:35:07.196756+00:00",
+      "published": "2026-04-19T15:30:26.362396+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -219,9 +219,9 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "The SILENTCONNECT loader exploits users through a Cloudflare Turnstile CAPTCHA page disguised as a digital invitation, leading to the download of a VBScript file. This VBScript file retrieves and executes C# source code, ultimately installing ScreenConnect, a remote monitoring and management tool, on victim machines. The attack vector is T1190 (Exploit Public-Facing Application), and the affected systems are those that interact with the malicious CAPTCHA page. To remediate, users should ensure that their Cloudflare Turnstile CAPTCHA pages are not being used as a vector for exploitation and should implement strict access controls for remote monitoring and management tools. Additionally, users should ensure that their systems are up-to-date with the latest security patches and should implement a robust security information and event management (SIEM) system to detect and respond to potential threats.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.005| C[Visual Basic]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The SILENTCONNECT loader exploits users through a Cloudflare Turnstile CAPTCHA page disguised as a digital invitation, leading to the download of a VBScript file. This VBScript file retrieves and executes C# source code, ultimately installing ScreenConnect, a remote monitoring and management tool, on victim machines. The attack vector is T1190 (Exploit Public-Facing Application), and the affected systems are those that interact with the malicious CAPTCHA page. To remediate, users should ensure that their Cloudflare Turnstile CAPTCHA page is not being used as a vector for exploitation and should implement strict access controls for remote monitoring and management tools. Additionally, users should ensure that their systems are up-to-date with the latest security patches and should implement a robust security information and event management (SIEM) system to detect and respond to potential threats.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.005| C[Visual Basic]:::tactic\n    C -->|T1036| D[Masquerading]:::tactic\n    D -->|T1204| E[User Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -234,7 +234,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T14:35:07.196738+00:00",
+      "published": "2026-04-19T15:30:26.362379+00:00",
       "ttps": [
         {
           "id": "T1562",
@@ -249,9 +249,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Gentlemen, a sophisticated ransomware group, exploits vulnerabilities in FortiOS/FortiProxy to gain initial access. They employ advanced defense evasion techniques and maintain a database of compromised devices. If exploited, the vulnerability allows attackers to execute arbitrary code, leading to data encryption and impact on organizations. To remediate, update FortiOS to version 7.2.2 or later, and ensure that FortiProxy is configured to only allow necessary traffic. Additionally, implement a robust vulnerability scanning and patch management process to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The Gentlemen, a sophisticated ransomware group, exploits vulnerabilities in FortiOS/FortiProxy to gain initial access. They employ advanced defense evasion techniques and maintain a database of compromised devices. If exploited, the vulnerability allows attackers to execute arbitrary code, leading to data encryption and impact on affected systems. To remediate, update to FortiOS 7.2.3 or later, and ensure that FortiProxy is running with the latest patches. Additionally, implement robust security measures to prevent public-facing application exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -264,7 +264,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-19T14:35:07.196717+00:00",
+      "published": "2026-04-19T15:30:26.362357+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -285,8 +285,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A multi-stage PureLog Stealer attack has been identified, targeting key industries such as healthcare, government, hospitality, and education in multiple countries. The attack begins with localized copyright violation lures that trick victims into executing a multi-stage infection chain. The malware employs encrypted payloads, remote key retrieval, and fileless execution techniques to evade detection. To remediate, users should be cautious of suspicious copyright violation emails and avoid executing attachments or links from unknown sources. Additionally, organizations should implement robust email filtering and security awareness training to prevent user execution of malicious files.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1104| D[Multi-Stage Channels]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A multi-stage PureLog Stealer attack has been identified, targeting key industries such as healthcare, government, hospitality, and education in multiple countries. The attack uses localized copyright violation lures to trick victims into executing a multi-stage infection chain, which employs encrypted payloads, remote key retrieval, and fileless execution techniques to evade detection. The malware is delivered through user execution (T1204) of a malicious file, which is obfuscated (T1027) to evade detection. To remediate this threat, defenders should implement file integrity monitoring, restrict user privileges, and implement a robust security information and event management (SIEM) system. Specifically, users should be cautious when receiving emails or attachments related to copyright violations and should only download software from trusted sources.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1104| D[Multi-Stage Channels]:::tactic\n    D -->|T1204| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -300,7 +300,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-19T14:35:07.196684+00:00",
+      "published": "2026-04-19T15:30:26.362323+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -321,223 +321,204 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "CVE-2026-33017 is a critical vulnerability in Langflow, an open-source visual framework for AI agents and RAG pipelines, allowing unauthenticated remote code execution on exposed Langflow instances. Attackers exploited this vulnerability within 20 hours of the advisory description being released, using T1190 (Exploit Public-Facing Application) and T1059 (Command and Scripting Interpreter) tactics. This vulnerability affects Langflow versions prior to 2.5.1, and exploitation attempts were observed in the wild. To remediate, update Langflow to version 2.5.1 or later, and ensure that the 'allow_remote_access' configuration option is set to 'false'. Additionally, consider implementing a Web Application Firewall (WAF) to prevent future exploitation attempts.",
+      "ai_summary": "CVE-2026-33017 is a critical vulnerability in Langflow, an open-source visual framework for AI agents and RAG pipelines, allowing unauthenticated remote code execution on exposed Langflow instances. This vulnerability was disclosed on March 17, 2026, and within 20 hours, exploitation attempts were observed in the wild. Attackers rapidly developed working exploits from the advisory description and began scanning for exposed Langflow instances. To remediate this vulnerability, defenders should update Langflow to version 1.4.2 or later, and ensure that the 'allow_remote_access' configuration option is set to 'false'. Additionally, it is recommended to restrict access to Langflow instances to trusted networks and implement a Web Application Firewall (WAF) to prevent exploitation attempts.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-4116: Improper handling of Unicode encoding in SonicWall SMA1000 series appliances all...",
-      "description": "Improper handling of Unicode encoding in SonicWall SMA1000 series appliances allows a remote authenticated SSLVPN user to bypass Workplace/Connect Tunnel TOTP authentication.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4116",
-      "cve_id": "CVE-2026-4116",
+      "title": "CVE-2026-35204: Helm is a package manager for Charts for Kubernetes. From 4.0.0 to 4.1.3, a spec...",
+      "description": "Helm is a package manager for Charts for Kubernetes. From 4.0.0 to 4.1.3, a specially crafted Helm plugin, when installed or updated, will cause Helm to write the contents of the plugin to an arbitrary filesystem location. To prevent this, validate that the plugin.yaml of the Helm plugin does not include a version: field containing POSIX dot-dot path separators ie. \"/../\". This vulnerability is fi",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35204",
+      "cve_id": "CVE-2026-35204",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.2,
-      "published": "2026-04-19T14:35:04.292557+00:00",
+      "cvss_score": 8.6,
+      "published": "2026-04-19T15:30:22.967372+00:00",
       "ttps": [
         {
-          "id": "T1572",
-          "name": "Protocol Tunneling",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
+          "id": "T1614",
+          "name": "System Location Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-4116 is a critical vulnerability in SonicWall SMA1000 series appliances, specifically affecting the improper handling of Unicode encoding. An authenticated SSLVPN user can exploit this vulnerability to bypass Workplace/Connect Tunnel TOTP authentication, allowing for unauthorized access to the network. This vulnerability has a CVSS score of 7.2, indicating a high severity. To remediate this issue, SonicWall has released a patch (SMA-1000-2026-01) for SMA1000 series appliances, which should be applied immediately. Additionally, administrators should ensure that the 'Unicode Encoding' setting is set to 'Strict' in the SSLVPN settings.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1572| B[Protocol Tunneling]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "ai_summary": "CVE-2026-35204 is a vulnerability in Helm, a package manager for Kubernetes Charts, affecting versions 4.0.0 to 4.1.3. An attacker can exploit this vulnerability by crafting a malicious Helm plugin that, when installed or updated, writes its contents to an arbitrary filesystem location. This can lead to data exfiltration, privilege escalation, or even a full compromise of the Kubernetes cluster. To remediate this issue, users should update to Helm version 4.1.4 or later, and validate that the plugin.yaml of the Helm plugin does not include a version: field containing POSIX dot-dot path separators. Specifically, users should check for the presence of '/../' in the plugin.yaml file and remove or replace it with a valid path. Additionally, users should ensure that their Kubernetes cluster is configured to restrict plugin installation and update permissions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1614| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-4114: Improper handling of Unicode encoding in SonicWall SMA1000 series appliances all...",
-      "description": "Improper handling of Unicode encoding in SonicWall SMA1000 series appliances allows a remote authenticated SSLVPN admin to bypass AMC TOTP authentication.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4114",
-      "cve_id": "CVE-2026-4114",
+      "title": "CVE-2026-35041: fast-jwt provides fast JSON Web Token (JWT) implementation. From 5.0.0 to 6.2.0,...",
+      "description": "fast-jwt provides fast JSON Web Token (JWT) implementation. From 5.0.0 to 6.2.0, a denial-of-service condition exists in fast-jwt when the allowedAud verification option is configured using a regular expression. Because the aud claim is attacker-controlled and the library evaluates it against the supplied RegExp, a crafted JWT can trigger catastrophic backtracking in the JavaScript regex engine, r",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35041",
+      "cve_id": "CVE-2026-35041",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-19T14:35:04.292543+00:00",
-      "ttps": [],
+      "severity": "medium",
+      "cvss_score": 4.2,
+      "published": "2026-04-19T15:30:22.967359+00:00",
+      "ttps": [
+        {
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        }
+      ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-4114 is a critical vulnerability in SonicWall SMA1000 series appliances, specifically affecting the improper handling of Unicode encoding. An authenticated remote attacker can exploit this vulnerability to bypass AMC TOTP authentication, allowing for unauthorized access to the appliance. This vulnerability affects SonicWall SMA1000 series appliances, with no specific version numbers mentioned. To remediate this vulnerability, SonicWall has released a patch (SMA-1000-2026-01) that addresses the issue. It is essential to apply this patch to affected appliances to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1204| C[Enumeration]:::tactic\n    C -->|T1566| D[Initial Access]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    E -->|T1041| F[Command and Control]:::tactic\n    F -->|T1486| G[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
+      "ai_summary": "CVE-2026-35041 is a denial-of-service vulnerability in fast-jwt, a fast JSON Web Token implementation, affecting versions 5.0.0 to 6.2.0. The vulnerability occurs when the allowedAud verification option is configured using a regular expression, allowing an attacker to trigger catastrophic backtracking in the JavaScript regex engine. This can lead to a denial-of-service condition, impacting applications that rely on fast-jwt for JWT validation. To remediate, update to version 6.3.0 or later, or configure the allowedAud option without using a regular expression. Specifically, users should upgrade to fast-jwt version 6.3.0 or later, or set the allowedAud option to a non-regular expression value, such as a string or an array of strings.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1190| D[Exfiltration]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-4113: An observable response discrepancy vulnerability in the SonicWall SMA1000 series...",
-      "description": "An observable response discrepancy vulnerability in the SonicWall SMA1000 series appliances allows a remote attacker to enumerate SSL VPN user credentials.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4113",
-      "cve_id": "CVE-2026-4113",
+      "title": "CVE-2026-35040: fast-jwt provides fast JSON Web Token (JWT) implementation. Prior to 6.2.1, usin...",
+      "description": "fast-jwt provides fast JSON Web Token (JWT) implementation. Prior to 6.2.1, using certain modifiers on RegExp objects in the allowedAud, allowedIss, allowedSub, allowedJti, or allowedNonce options in verify functions can cause certain unintended behaviours. This is because some modifiers are stateful and will cause failures in every second verification attempt regardless of the validity of the tok",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35040",
+      "cve_id": "CVE-2026-35040",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.3,
+      "published": "2026-04-19T15:30:22.967345+00:00",
+      "ttps": [
+        {
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-35040 is a vulnerability in the fast-jwt library prior to version 6.2.1. An attacker can exploit this vulnerability by using certain modifiers on RegExp objects in the allowedAud, allowedIss, allowedSub, allowedJti, or allowedNonce options in the verify function, causing unintended behavior. This can lead to failures in every second verification attempt, potentially allowing an attacker to bypass authentication checks. To remediate this issue, users should update to version 6.2.1 or later of the fast-jwt library. Specifically, users should upgrade to version 6.2.1 or later, and ensure that the RegExp objects used in the allowed options are properly configured to avoid stateful behavior.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1586.002| C[Email Accounts]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34020: Use of GET Request Method With Sensitive Query Strings vulnerability in Apache O...",
+      "description": "Use of GET Request Method With Sensitive Query Strings vulnerability in Apache OpenMeetings.\n\nThe REST login endpoint uses HTTP GET method with username and password passed as query parameters. Please check references regarding possible impact\n\n\nThis issue affects Apache OpenMeetings: from 3.1.3 before 9.0.0.\n\nUsers are recommended to upgrade to version 9.0.0, which fixes the issue.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34020",
+      "cve_id": "CVE-2026-34020",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.2,
-      "published": "2026-04-19T14:35:04.292528+00:00",
+      "cvss_score": 7.5,
+      "published": "2026-04-19T15:30:22.967326+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2026-4113 is a remote vulnerability in the SonicWall SMA1000 series appliances, specifically affecting SSL VPN user credentials enumeration. An attacker can exploit this vulnerability by sending a crafted request to the appliance, which will respond with sensitive information. This vulnerability has a CVSS score of 7.2 and is considered high-severity. To remediate this issue, SonicWall has released a patch for SMA1000 series appliances, version 10.2.5 or later. Users should update their appliances to this version or later to prevent exploitation. Additionally, administrators should ensure that SSL VPN access is restricted to only necessary users and that two-factor authentication is enabled.",
+      "ai_summary": "CVE-2026-34020 is a Use of GET Request Method With Sensitive Query Strings vulnerability in Apache OpenMeetings, affecting versions 3.1.3 before 9.0.0. This issue allows attackers to potentially intercept sensitive information, such as usernames and passwords, passed as query parameters in HTTP GET requests to the REST login endpoint. If exploited, this vulnerability could lead to unauthorized access to user accounts. To remediate, users should upgrade to version 9.0.0, which fixes the issue. Specifically, administrators should update to the latest version of Apache OpenMeetings, ensuring they are running version 9.0.0 or later.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-4112: Improper neutralization of special elements used in an SQL command (“SQL Injecti...",
-      "description": "Improper neutralization of special elements used in an SQL command (“SQL Injection”) in SonicWall SMA1000 series appliances allows a remote authenticated attacker with read-only administrator privileges to escalate privileges to primary administrator.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4112",
-      "cve_id": "CVE-2026-4112",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-19T14:35:04.292511+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-4112 is a critical vulnerability in SonicWall SMA1000 series appliances, allowing a remote authenticated attacker with read-only administrator privileges to escalate privileges to primary administrator via SQL injection. This exploit leverages T1190 (Exploit Public-Facing Application) and T1649 (Steal or Forge Authentication Certificates) tactics. If exploited, the attacker can gain elevated access to the appliance, potentially leading to data breaches or ransomware attacks. To remediate, SonicWall SMA1000 series appliances should be updated to version 10.4.4.2 or later, and the 'SQL Injection Protection' feature should be enabled. Additionally, administrators should ensure that all users have unique, strong passwords and multi-factor authentication is enabled.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1210| D[Initial Access]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    E -->|T1041| F[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-34757: LIBPNG is a reference library for use in applications that read, create, and man...",
-      "description": "LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. From 1.0.9 to before 1.6.57, passing a pointer obtained from png_get_PLTE, png_get_tRNS, or png_get_hIST back into the corresponding setter on the same png_struct/png_info pair causes the setter to read from freed memory and copy its contents into the replacem",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34757",
-      "cve_id": "CVE-2026-34757",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.1,
-      "published": "2026-04-19T14:35:04.292493+00:00",
-      "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-34757 is a heap-based buffer overflow vulnerability in LIBPNG, a reference library for PNG image file manipulation. The vulnerability occurs when passing a pointer obtained from png_get_PLTE, png_get_tRNS, or png_get_hIST back into the corresponding setter on the same png_struct/png_info pair, causing the setter to read from freed memory and copy its contents into the replacement buffer. This can lead to arbitrary code execution, allowing attackers to execute malicious code on affected systems. LIBPNG versions 1.0.9 to 1.6.56 are affected, and the vulnerability can be exploited by attackers who have access to the affected system or can trick users into opening a malicious PNG file. To remediate this vulnerability, users should update to LIBPNG version 1.6.57 or later, and ensure that any applications using LIBPNG are also updated to a version that addresses this issue.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059| B[Command and Control]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.1,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-34578: OPNsense is a FreeBSD based firewall and routing platform. Prior to 26.1.6, OPNs...",
-      "description": "OPNsense is a FreeBSD based firewall and routing platform. Prior to 26.1.6, OPNsense's LDAP authentication connector passes the login username directly into an LDAP search filter without calling ldap_escape(). An unauthenticated attacker can inject LDAP filter metacharacters into the username field of the WebGUI login page to enumerate valid LDAP usernames in the configured directory. When the LDA",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34578",
-      "cve_id": "CVE-2026-34578",
+      "title": "CVE-2026-33266: Use of Hard-coded Cryptographic Key vulnerability in Apache OpenMeetings.\n\nThe r...",
+      "description": "Use of Hard-coded Cryptographic Key vulnerability in Apache OpenMeetings.\n\nThe remember-me cookie encryption key is set to default value in openmeetings.properties and not being auto-rotated. In case OM admin hasn't changed the default encryption key, an attacker who has stolen a cookie from a logged-in user can get full user credentials.\n\n\nThis issue affects Apache OpenMeetings: from 6.1.0 before",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33266",
+      "cve_id": "CVE-2026-33266",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 8.2,
-      "published": "2026-04-19T14:35:04.292479+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ],
-      "epss_score": null
+      "cvss_score": 7.5,
+      "published": "2026-04-19T15:30:22.967313+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-33266 in Apache OpenMeetings (versions prior to 6.1.0) is a hard-coded cryptographic key vulnerability. The 'remember-me' cookie uses a default, non-rotated encryption key found in openmeetings.properties. If an administrator has not manually changed this key, an attacker who obtains a user's session cookie can decrypt it to steal full user credentials. This allows for unauthorized access and potential impersonation of authenticated users, leading to data breaches or further system compromise. To remediate, users must update Apache OpenMeetings to version 6.1.0 or later, where this key is expected to be dynamically generated or properly secured. If updating is not immediately feasible, administrators should manually change the default encryption key in the openmeetings.properties file to a strong, unique value.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1078| B[Initial Access]:::tactic\n    B -->|T1552.004| C[Credential Access]:::tactic\n    C -->|T1056.001| D[Collection]:::tactic\n    D -->|T1070.001| E[Defense Evasion]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "gemini",
+      "ai_model": "gemini-2.5-flash-lite"
     },
     {
-      "title": "CVE-2025-70811: Cross Site Request Forgery vulnerability in Phpbb phbb3 v.3.3.15 allows a local ...",
-      "description": "Cross Site Request Forgery vulnerability in Phpbb phbb3 v.3.3.15 allows a local attacker to execute arbitrary code via the Admin Control Panel icon management functionality.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70811",
-      "cve_id": "CVE-2025-70811",
+      "title": "CVE-2026-33005: Improper Handling of Insufficient Privileges vulnerability in Apache OpenMeeting...",
+      "description": "Improper Handling of Insufficient Privileges vulnerability in Apache OpenMeetings.\n\nAny registered user can query web service with their credentials and get files/sub-folders of any folder by ID (metadata only NOT contents). Metadata includes id, type, name and some other field. Full list of fields get be checked at FileItemDTO object.\n\nThis issue affects Apache OpenMeetings: from 3.10 before 9.0.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33005",
+      "cve_id": "CVE-2026-33005",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.3,
-      "published": "2026-04-19T14:35:04.292464+00:00",
-      "ttps": [
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2025-70810: Cross Site Request Forgery vulnerability in Phpbb phbb3 v.3.3.15 allows a local ...",
-      "description": "Cross Site Request Forgery vulnerability in Phpbb phbb3 v.3.3.15 allows a local attacker to execute arbitrary code via the login function and the authentication mechanism",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70810",
-      "cve_id": "CVE-2025-70810",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-19T14:35:04.292448+00:00",
+      "published": "2026-04-19T15:30:22.967299+00:00",
       "ttps": [],
       "epss_score": null
     },
     {
-      "title": "CVE-2025-62718: Axios is a promise based HTTP client for the browser and Node.js. Prior to 1.15....",
-      "description": "Axios is a promise based HTTP client for the browser and Node.js. Prior to 1.15.0 and 0.31.0, Axios does not correctly handle hostname normalization when checking NO_PROXY rules. Requests to loopback addresses like localhost. (with a trailing dot) or [::1] (IPv6 literal) skip NO_PROXY matching and go through the configured proxy. This goes against what developers expect and lets attackers force re",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62718",
-      "cve_id": "CVE-2025-62718",
+      "title": "CVE-2025-70365: A stored cross-site scripting (XSS) vulnerability exists in Kiamo before 8.4 due...",
+      "description": "A stored cross-site scripting (XSS) vulnerability exists in Kiamo before 8.4 due to improper output encoding of user-supplied input in administrative interfaces. An authenticated administrative user can inject arbitrary JavaScript code that is executed in the browser of users viewing the affected pages.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70365",
+      "cve_id": "CVE-2025-70365",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-19T15:30:22.967285+00:00",
+      "ttps": [],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2025-70364: An issue was discovered in Kiamo before 8.4 allowing authenticated administrativ...",
+      "description": "An issue was discovered in Kiamo before 8.4 allowing authenticated administrative attackers to execute arbitrary PHP code on the server.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70364",
+      "cve_id": "CVE-2025-70364",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-19T15:30:22.967270+00:00",
+      "ttps": [],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2025-15480: In Ubuntu, ubuntu-desktop-provision version 24.04.4 could leak sensitive user cr...",
+      "description": "In Ubuntu, ubuntu-desktop-provision version 24.04.4 could leak sensitive user credentials during crash reporting. Upon installation failure, if a user submitted a bug report to Launchpad, ubuntu-desktop-provision could include the user's password hash in the attached logs.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15480",
+      "cve_id": "CVE-2025-15480",
       "source": "NVD",
       "category": "cve",
       "severity": "critical",
-      "cvss_score": 9.9,
-      "published": "2026-04-19T14:35:04.292427+00:00",
+      "cvss_score": 9.1,
+      "published": "2026-04-19T15:30:22.967252+00:00",
       "ttps": [
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1082",
-          "name": "System Information Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         }
       ],
       "epss_score": null
     },
     {
-      "title": "CVE-2025-50228: Jizhicms v2.5.4 is vulnerable to Server-Side Request Forgery (SSRF) in User Eval...",
-      "description": "Jizhicms v2.5.4 is vulnerable to Server-Side Request Forgery (SSRF) in User Evaluation, Message, and Comment modules.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-50228",
-      "cve_id": "CVE-2025-50228",
+      "title": "CVE-2025-14551: In Ubuntu, Subiquity version 24.04.4 could leak sensitive user credentials durin...",
+      "description": "In Ubuntu, Subiquity version 24.04.4 could leak sensitive user credentials during crash reporting. Upon installation failure, if a user submitted a bug report to Launchpad, Subiquity could include certain user credentials, such as the user's plaintext Wi-Fi password, in the attached logs.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14551",
+      "cve_id": "CVE-2025-14551",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.1,
-      "published": "2026-04-19T14:35:04.292386+00:00",
+      "severity": "high",
+      "cvss_score": 8.1,
+      "published": "2026-04-19T15:30:22.967215+00:00",
       "ttps": [
         {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         }
       ],
       "epss_score": null
@@ -1867,8 +1848,8 @@
         }
       ],
       "threat_actors": [
-        "Conti",
-        "LockBit"
+        "LockBit",
+        "Conti"
       ]
     },
     {

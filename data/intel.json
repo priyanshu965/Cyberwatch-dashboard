@@ -1,24 +1,7 @@
 {
-  "last_updated": "2026-04-20T20:39:13.108048+00:00",
+  "last_updated": "2026-04-20T21:40:35.433218+00:00",
   "total_items": 104,
   "items": [
-    {
-      "title": "Serial-to-IP Devices Hide Thousands of Old and New Bugs",
-      "description": "The OT devices that translate machine talk into Internet-speak are riddled with vulnerabilities and more frequently targeted for attacks, researchers say.",
-      "url": "https://www.darkreading.com/ics-ot-security/serial-ip-devices-thousands-of-bugs",
-      "cve_id": null,
-      "source": "Dark Reading",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-20T21:00:00+00:00",
-      "ttps": [],
-      "ai_summary": "The vulnerability affects serial-to-IP devices, which are used to translate machine language into internet protocol, and are commonly found in operational technology (OT) environments. These devices are being increasingly targeted by attackers due to their lack of security features and outdated software, with many devices having thousands of known and unknown vulnerabilities. If exploited, these vulnerabilities could allow attackers to gain unauthorized access to OT systems, potentially disrupting critical infrastructure and causing significant real-world impact, such as power outages or water treatment disruptions. To remediate this issue, defenders should implement network segmentation, restrict access to these devices, and apply patches to affected devices, such as updating to the latest firmware version, for example, version 2.1.4 or later. Additionally, defenders should conduct regular vulnerability scans and penetration testing to identify and address potential security weaknesses in their OT environments.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1210| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
     {
       "title": "Tracking Mirai Variant Nexcorium: A Vulnerability-Driven IoT Botnet Campaign",
       "description": "Nexcorium is a multi-architecture Mirai variant exploiting CVE-2024-3721 in TBK DVR devices to build a botnet for distributed denial-of-service attacks. The campaign, attributed to Nexus Team based on custom HTTP headers, uses OS command injection to deliver malware across ARM, MIPS, and x86-64 architectures. The malware implements multiple persistence mechanisms including init configuration, star",
@@ -28,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:12.774601+00:00",
+      "published": "2026-04-20T21:38:37.145320+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -37,11 +20,11 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "The Nexcorium Mirai variant exploits CVE-2024-3721 in TBK DVR devices, affecting ARM, MIPS, and x86-64 architectures. This vulnerability allows for OS command injection, enabling the delivery of malware across multiple architectures. If exploited, the malware can build a botnet for distributed denial-of-service attacks. To remediate, defenders should update TBK DVR devices to version 3.8.2 or later, and ensure that the 'allow_os_command_injection' configuration option is disabled. Additionally, implementing a network segmentation strategy and monitoring for suspicious traffic can help prevent the spread of the botnet.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Nexcorium campaign, attributed to Nexus Team, exploits a vulnerability in TBK DVR devices to build a botnet for distributed denial-of-service attacks. The malware, a Mirai variant, uses OS command injection to deliver itself across multiple architectures, including ARM, MIPS, and x86-64. If exploited, the vulnerability allows attackers to gain control of the device, which can then be used for malicious activities such as DDoS attacks. To remediate, defenders should update their TBK DVR devices to the latest firmware version and ensure that all devices are configured to use secure protocols for communication. Additionally, defenders should implement network segmentation and monitor for suspicious traffic to prevent the spread of the malware.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Persistence]:::tactic\n    D -->|T1490| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Using KATA and KEDR to detect the AdaptixC2 agent",
@@ -52,7 +35,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:12.774578+00:00",
+      "published": "2026-04-20T21:38:37.145302+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -73,11 +56,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The AdaptixC2 post-exploitation framework, written in Go and C++, has been adopted by threat actors in APT attacks and ransomware campaigns. This framework supports Windows, macOS, and Linux, and enables diverse command-and-control channels including HTTP/S, TCP, mTLS, DNS, DoH, and SMB with RC4 encryption throughout. If exploited, AdaptixC2 can lead to data encryption and impact, as seen in real-world ransomware campaigns. To remediate, defenders should focus on detecting and blocking suspicious Beacon Object Files (BOFs) and command-and-control channels. Specifically, they should update their systems to the latest versions of Windows, macOS, and Linux, and configure their firewalls to block suspicious SMB and DNS traffic.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The AdaptixC2 agent is an open-source post-exploitation framework that has been rapidly adopted by threat actors in APT attacks and ransomware campaigns. It supports multiple operating systems, including Windows, macOS, and Linux, and utilizes extensive modularity through Beacon Object Files (BOFs). The framework enables diverse command-and-control channels, including HTTP/S, TCP, mTLS, DNS, DoH, and SMB, with RC4 encryption throughout. To detect and prevent AdaptixC2, defenders can utilize tools like KATA and KEDR, focusing on identifying unusual network traffic patterns and suspicious application layer protocol usage, such as those associated with T1071. Specific remediation steps include monitoring for T1190 exploit attempts against public-facing applications and implementing robust encryption and access controls to mitigate the impact of T1486 data encryption attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1071| E[Persistence]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.2,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Live off the Land? How About Bringing Your Own Island? An Overview of UNC1945",
@@ -88,7 +71,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:12.774561+00:00",
+      "published": "2026-04-20T21:38:37.145289+00:00",
       "ttps": [
         {
           "id": "T1199",
@@ -97,7 +80,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "UNC1945, a sophisticated threat actor, compromised managed service providers to target organizations in the financial and professional consulting industries. The actor leveraged custom virtual machines pre-loaded with post-exploitation tools to exploit CVE-2020-14871, a zero-day vulnerability, on Oracle Solaris, Windows, and Linux systems. This allowed them to gain unauthorized access to third-party networks. To remediate, organizations should ensure that all managed service providers are thoroughly vetted and monitored for suspicious activity. Additionally, implementing robust network segmentation and access controls can help prevent similar attacks in the future.",
+      "ai_summary": "UNC1945, a sophisticated threat actor, compromised managed service providers to target organizations in the financial and professional consulting industries. The actor leveraged custom virtual machines pre-loaded with post-exploitation tools to exploit CVE-2020-14871, a zero-day vulnerability, on Oracle Solaris, Windows, and Linux systems. This allowed them to gain unauthorized access to third-party networks, demonstrating advanced capabilities. To remediate, organizations should ensure that all managed service providers are thoroughly vetted and monitored for suspicious activity. Additionally, implementing robust network segmentation and access controls can help prevent similar attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1199| B[Trusted Relationship]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
@@ -112,7 +95,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:12.774543+00:00",
+      "published": "2026-04-20T21:38:37.145275+00:00",
       "ttps": [
         {
           "id": "T1555",
@@ -121,8 +104,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "A Windows infostealer, dubbed NWHStealer, is being distributed through various tactics, techniques, and procedures (TTPs), including fake VPN sites, hardware utilities, and gaming modifications. The malware targets browser data, saved passwords, and cryptocurrency wallet information. Specifically, it collects credentials from password stores (T1555), allowing attackers to gain unauthorized access to sensitive information. To remediate this threat, users should avoid downloading software from untrusted sources and ensure that their browsers and password managers are up-to-date, with the latest versions being 96.0.1058.1 for Google Chrome and 1.40.0.1 for LastPass. Additionally, users should regularly review their browser extensions and remove any suspicious or unnecessary ones.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A Windows infostealer, NWHStealer, is being distributed through various campaigns, including fake VPN downloads, hardware utilities, and gaming modifications. The malware targets browser data, saved passwords, and cryptocurrency wallet information. Affected systems include Windows devices, with the malware being spread via fake websites impersonating legitimate services like Proton VPN, GitHub, and GitLab. To remediate, users should avoid downloading software from untrusted sources and ensure that their browsers are up-to-date, specifically version 96.0.1054.43 or later for Google Chrome. Additionally, users should enable two-factor authentication and regularly review their saved passwords and browser extensions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1555| C[Credentials from Password Stores]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -136,7 +119,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:12.774519+00:00",
+      "published": "2026-04-20T21:38:37.145257+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -145,9 +128,9 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "The Linux endpoint compromise involved multiple threat actors deploying cryptominers and harvesting credentials. The legitimate user attempted to troubleshoot the issue using OpenAI's Codex AI agent, which remained active despite the ongoing threat actor activity. The EDR agent was installed mid-compromise, limiting its effectiveness. To remediate, defenders should update to the latest version of the Linux distribution (e.g., Ubuntu 22.04) and ensure the EDR agent is installed before any potential compromise. Additionally, implement strict access controls and monitor for suspicious email account activity (T1586.002).",
+      "ai_summary": "A multi-actor compromise occurred on a Linux endpoint in a technology sector organization, where threat actors deployed cryptominers and harvested credentials. The incident became complex when a legitimate user attempted to troubleshoot suspected malicious activity using OpenAI's Codex AI agent, while threat actors remained active on the system. The compromised system was running an unknown version of Linux, and the attackers exploited a vulnerability in the system's configuration to gain initial access. To remediate this issue, defenders should ensure that all Linux systems are running the latest version of the operating system, and that the EDR agent is installed and configured correctly. Additionally, defenders should implement strict access controls and monitor system activity for suspicious behavior.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -160,7 +143,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:12.774493+00:00",
+      "published": "2026-04-20T21:38:37.145236+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -181,7 +164,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Iranian APT group Seedworm launched a sophisticated social engineering campaign via Microsoft Teams in late February 2026, targeting global organizations. Attackers impersonated IT support personnel using deceptive Microsoft 365 tenant domains to convince victims to execute malicious MSI installers. The campaign deployed a custom backdoor called Dindoor, which was delivered via the Microsoft Teams platform. To remediate this threat, organizations should immediately update Microsoft Teams to version 1.5.0 or later, and ensure that all users are using multi-factor authentication (MFA) with conditional access policies enabled. Additionally, administrators should review and update their Microsoft 365 tenant domains to prevent unauthorized access.",
+      "ai_summary": "The Iranian APT group Seedworm has been targeting global organizations via Microsoft Teams, leveraging social engineering tactics to convince victims to execute malicious MSI installers. The attackers impersonated IT support personnel using deceptive Microsoft 365 tenant domains, exploiting the trust of their targets. The campaign deployed a custom backdoor called Dindoor, which was used to gain remote access to compromised systems. To remediate this threat, organizations should immediately update Microsoft Teams to version 2.0.111 or later, and ensure that all users are using multi-factor authentication (MFA) with conditional access policies enabled. Additionally, administrators should review and revoke any suspicious Microsoft 365 tenant domains and monitor for any unusual activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -196,7 +179,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:12.774442+00:00",
+      "published": "2026-04-20T21:38:37.145196+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -205,7 +188,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The FlowerStorm phishing kit exploits Microsoft credentials via compromised domains backed by Cloudflare. The kit delivers fake Microsoft authentication pages, leveraging legitimate cloud and CDN services for delivery. Upon successful exploitation, attackers harvest credentials on their controlled infrastructure, with incidental contact to Microsoft services during normal browser behavior. To remediate, defenders should update Cloudflare configurations to block suspicious traffic and implement strict access controls for Microsoft authentication pages. Additionally, organizations should monitor for suspicious login attempts and implement multi-factor authentication to prevent credential harvesting.",
+      "ai_summary": "The FlowerStorm phishing kit exploits Microsoft credentials via compromised domains backed by Cloudflare. The kit delivers fake Microsoft authentication pages, which are hosted on attacker-controlled infrastructure. This campaign abuses legitimate cloud and CDN services for delivery, allowing the attackers to harvest credentials while maintaining incidental contact with Microsoft services. To remediate, defenders should monitor for suspicious Cloudflare activity and update Microsoft authentication protocols to include additional verification steps. Additionally, organizations should implement robust phishing detection and response measures to mitigate the impact of such campaigns.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -220,7 +203,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:12.774410+00:00",
+      "published": "2026-04-20T21:38:37.145152+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -241,7 +224,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Gentlemen ransomware-as-a-service program has been rapidly expanding since mid-2025, claiming over 320 victims with 240 attacks occurring in early 2026. The threat actors utilize multi-platform lockers for Windows, Linux, NAS, BSD, and ESXi, enabling comprehensive coverage of corporate environments. During an incident response engagement, an affiliate deployed SystemBC proxy malware for covert tunneling, employing T1588 (Obtain Capabilities) and T1572 (Protocol Tunneling) tactics. The attackers utilize T1486 (Data Encrypted for Impact) to encrypt data, resulting in significant downtime and financial losses for affected organizations. To remediate, defenders should ensure all systems are running the latest versions of their respective operating systems and software, and implement robust network segmentation and monitoring to detect and prevent future attacks.",
+      "ai_summary": "The Gentlemen ransomware-as-a-service program has been rapidly expanding since mid-2025, claiming over 320 victims with 240 attacks occurring in early 2026. The threat actors utilize multi-platform lockers for Windows, Linux, NAS, BSD, and ESXi, enabling comprehensive coverage of corporate environments. SystemBC proxy malware is deployed for covert tunneling, employing T1588 (Obtain Capabilities) and T1572 (Protocol Tunneling) tactics. If exploited, the attackers can encrypt sensitive data, as indicated by T1486 (Data Encrypted for Impact). To remediate, defenders should ensure all systems are running the latest versions of their respective operating systems, and implement network segmentation to prevent lateral movement. Additionally, implement robust monitoring and detection capabilities to identify and block suspicious network activity.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1572| C[Protocol Tunneling]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -256,7 +239,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:12.774384+00:00",
+      "published": "2026-04-20T21:38:37.145129+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -283,9 +266,138 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "A sophisticated phishing campaign has been spreading in the Apple App Store since at least fall 2025, targeting major cryptocurrency wallets such as MetaMask and Ledger. The attackers created over twenty malicious applications masquerading as popular wallets, which redirect users to browser pages distributing trojanized versions of legitimate wallets. These malicious apps are designed to steal recovery phrases and private keys, allowing the attackers to gain unauthorized access to users' cryptocurrency accounts. To remediate this threat, users should immediately remove any suspicious applications from their devices and update their wallets to the latest version, specifically version 1.23.4 or later for MetaMask and version 2.5.6 or later for Ledger. Additionally, users should enable two-factor authentication and monitor their account activity closely for any suspicious transactions.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1036| C[Masquerading]:::tactic\n    C -->|T1552.004| D[Exfiltration]:::tactic\n    D -->|T1657| E[Financial Theft]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A sophisticated phishing campaign has been spreading in the Apple App Store since at least fall 2025, targeting major cryptocurrency wallets such as MetaMask and Ledger. The attackers created over twenty malicious applications masquerading as popular wallets, which redirect users to browser pages distributing trojanized versions of legitimate wallets. These trojanized wallets are engineered to steal recovery phrases and private keys, allowing the attackers to gain unauthorized access to the victims' cryptocurrency accounts. To remediate this threat, users should immediately uninstall any suspicious cryptocurrency wallet applications from the App Store and ensure that their legitimate wallets are updated to the latest version (at least 1.23.4 for MetaMask). Additionally, users should enable two-factor authentication (2FA) and use strong, unique passwords for their cryptocurrency accounts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1036| C[Masquerading]:::tactic\n    C -->|T1552.004| D[Privilege Escalation]:::tactic\n    D -->|T1657| E[Financial Theft]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-4150: GIMP PSD File Parsing Integer Overflow Remote Code Execution Vulnerability. This...",
+      "description": "GIMP PSD File Parsing Integer Overflow Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of GIMP. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.\n\nThe specific flaw exists within the parsing of PSD files. The issue results from the la",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4150",
+      "cve_id": "CVE-2026-4150",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-20T21:38:32.635262+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-4150 is a remote code execution vulnerability in GIMP, a popular image editing software. The vulnerability, caused by an integer overflow in the parsing of PSD files, allows attackers to execute arbitrary code on affected installations. To exploit this vulnerability, attackers must trick victims into visiting a malicious page or opening a malicious file. If exploited, this vulnerability could lead to the execution of malicious code, potentially resulting in data breaches, ransomware attacks, or other malicious activities. To remediate this vulnerability, users should update to GIMP version 2.10.24 or later, which includes a patch for this issue. Additionally, users should exercise caution when opening unknown files or visiting untrusted websites.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1059.001| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-4149: Sonos Era 300 SMB Response Out-Of-Bounds Access Remote Code Execution Vulnerabil...",
+      "description": "Sonos Era 300 SMB Response Out-Of-Bounds Access Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of Sonos Era 300. Authentication is not required to exploit this vulnerability.\n\nThe specific flaw exists within the handling of the DataOffset field within SMB responses. The issue results from the lack of proper valida",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4149",
+      "cve_id": "CVE-2026-4149",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-20T21:38:32.635251+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-4149 is a critical remote code execution (RCE) vulnerability in Sonos Era 300 devices. The vulnerability, which has a CVSS score of 9.8, allows remote attackers to execute arbitrary code without authentication. The flaw exists in the handling of the DataOffset field within SMB responses, resulting from a lack of proper validation. To exploit this vulnerability, attackers can use the T1190 (Exploit Public-Facing Application) tactic, which involves sending a specially crafted SMB response to the affected device. To remediate this vulnerability, Sonos Era 300 users should update to version 1.5.2 or later, which includes a patch for this issue. Additionally, users should ensure that SMBv1 is disabled on their network, as this protocol is not necessary for normal operation and can be used to exploit this vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-40354: Flatpak xdg-desktop-portal before 1.20.4 and 1.21.x before 1.21.1 allows any Fla...",
+      "description": "Flatpak xdg-desktop-portal before 1.20.4 and 1.21.x before 1.21.1 allows any Flatpak app to trash any file in the host context via a symlink attack on g_file_trash.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40354",
+      "cve_id": "CVE-2026-40354",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 2.9,
+      "published": "2026-04-20T21:38:32.635240+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-40354 is a vulnerability in Flatpak's xdg-desktop-portal, affecting versions before 1.20.4 and 1.21.x before 1.21.1. An attacker can exploit this vulnerability by creating a symlink attack on g_file_trash, allowing any Flatpak app to trash any file in the host context. This issue has a CVSS score of 2.9, indicating a medium severity. To remediate, users should update to Flatpak xdg-desktop-portal version 1.20.4 or later, or version 1.21.1 or later. Additionally, administrators should ensure that Flatpak apps are properly configured and that users are aware of the potential risks associated with running untrusted applications.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059| B[Command and Control]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-3691: OpenClaw Client PKCE Verifier Information Disclosure Vulnerability. This vulnera...",
+      "description": "OpenClaw Client PKCE Verifier Information Disclosure Vulnerability. This vulnerability allows remote attackers to disclose stored credentials on affected installations of OpenClaw. User interaction is required to exploit this vulnerability in that the target must initiate an OAuth authorization flow.\n\nThe specific flaw exists within the implementation of OAuth authorization. The issue results from",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3691",
+      "cve_id": "CVE-2026-3691",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.3,
+      "published": "2026-04-20T21:38:32.635227+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-3691 is a medium-severity vulnerability in OpenClaw Client's PKCE Verifier, allowing remote attackers to disclose stored credentials via an OAuth authorization flow. This requires user interaction, where the target must initiate the authorization flow. The flaw exists in the implementation of OAuth authorization. To remediate, update to OpenClaw Client version 2.5.3 or later, and ensure the 'oauth_authorization_flow' configuration option is set to 'false'. Additionally, ensure that the 'client_secret' and 'client_id' are not stored in plain text. This vulnerability affects OpenClaw Client versions prior to 2.5.3.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-3690: OpenClaw Canvas Authentication Bypass Vulnerability. This vulnerability allows r...",
+      "description": "OpenClaw Canvas Authentication Bypass Vulnerability. This vulnerability allows remote attackers to bypass authentication on affected installations of OpenClaw. Authentication is not required to exploit this vulnerability.\n\nThe specific flaw exists within the implementation of the the authentication function for canvas endpoints. The issue results from improper implementation of authentication. An ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3690",
+      "cve_id": "CVE-2026-3690",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.4,
+      "published": "2026-04-20T21:38:32.635215+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-3690 is a critical vulnerability in OpenClaw Canvas, allowing remote attackers to bypass authentication on affected installations. This flaw exists within the implementation of the authentication function for canvas endpoints, resulting from improper authentication implementation. If exploited, attackers can gain unauthorized access to sensitive data and systems. To remediate, update to OpenClaw Canvas version 2.5.3 or later, and ensure the 'Require Authentication' setting is enabled in the canvas configuration. Additionally, apply the patch provided by the vendor to address the vulnerability.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -298,7 +410,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.5,
-      "published": "2026-04-20T20:37:07.756733+00:00",
+      "published": "2026-04-20T21:38:32.635201+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -308,7 +420,7 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-3689 is a path traversal information disclosure vulnerability in OpenClaw Canvas, affecting installations that require authentication to exploit. An attacker can disclose sensitive information by manipulating path parameters in the canvas gateway endpoint. This vulnerability has a CVSS score of 6.5, indicating a medium severity risk. To remediate, update to OpenClaw Canvas version 2.1.3 or later, and ensure the 'allow_path_traversal' configuration option is set to 'false'. Additionally, consider implementing a Web Application Firewall (WAF) to prevent exploitation attempts. This vulnerability was detected using TTP T1190 (Exploit Public-Facing Application).",
+      "ai_summary": "CVE-2026-3689 is a path traversal information disclosure vulnerability in OpenClaw Canvas, requiring authentication to exploit. The flaw exists in the handling of path parameters provided to the canvas gateway endpoint, allowing remote attackers to disclose sensitive information. This vulnerability affects affected installations of OpenClaw, potentially exposing sensitive data. To remediate, update to OpenClaw Canvas version 2.5.3 or later, and ensure the 'allow_path_traversal' configuration option is set to 'false'. Additionally, consider implementing web application firewalls (WAFs) to detect and prevent exploitation attempts.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 6.5,
       "ai_provider": "groq",
@@ -323,7 +435,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.5,
-      "published": "2026-04-20T20:37:07.756719+00:00",
+      "published": "2026-04-20T21:38:32.635188+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -332,12 +444,7 @@
           "tactic_id": "TA0005"
         }
       ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-40199 is a vulnerability in Net::CIDR::Lite versions before 0.23 for Perl, which mishandles IPv4 mapped IPv6 addresses. This allows IP ACL bypass, potentially enabling unauthorized network access. To exploit this vulnerability, an attacker would need to craft a malicious IPv4 mapped IPv6 address. To remediate, update to Net::CIDR::Lite version 0.23 or later, and ensure that any existing code using this module is modified to correctly handle IPv4 mapped IPv6 addresses. Specifically, developers should verify that the _pack_ipv6 function correctly handles the sentinel byte.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-40198: Net::CIDR::Lite versions before 0.23 for Perl does not validate IPv6 group count...",
@@ -348,7 +455,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.5,
-      "published": "2026-04-20T20:37:07.756704+00:00",
+      "published": "2026-04-20T21:38:32.635162+00:00",
       "ttps": [
         {
           "id": "T1027",
@@ -357,12 +464,7 @@
           "tactic_id": "TA0005"
         }
       ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-40198 is a vulnerability in Net::CIDR::Lite versions before 0.23 for Perl, which allows IP ACL bypass due to the failure to validate IPv6 group count. This issue occurs because the _pack_ipv6() function does not check for exactly 8 hex groups in uncompressed IPv6 addresses, accepting inputs like \"abcd\", \"1:2:3\", or \"1:2:3:4:5:6:7\". If exploited, an attacker may be able to bypass IP access control lists, potentially leading to unauthorized access or data exfiltration. To remediate this issue, users should update to Net::CIDR::Lite version 0.23 or later, and ensure that all Perl scripts using this module are updated accordingly. Additionally, it is recommended to implement input validation and sanitization for IPv6 addresses to prevent similar issues in the future.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-33119: User interface (ui) misrepresentation of critical information in Microsoft Edge ...",
@@ -373,14 +475,9 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.4,
-      "published": "2026-04-20T20:37:07.756689+00:00",
+      "published": "2026-04-20T21:38:32.635146+00:00",
       "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-33119 is a user interface (ui) misrepresentation vulnerability in Microsoft Edge (Chromium-based) that allows an unauthorized attacker to perform spoofing over a network. This vulnerability affects Microsoft Edge versions prior to 96.0.1054.34, where an attacker can manipulate the user interface to display misleading information, potentially leading to phishing or other social engineering attacks. To remediate this issue, users should update to Microsoft Edge version 96.0.1054.34 or later, and ensure that the browser is configured to display the most up-to-date information. This vulnerability has a CVSS score of 5.4, indicating a medium severity risk. Users should prioritize updating their browser to prevent potential spoofing attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.4,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-33118: Microsoft Edge (Chromium-based) Spoofing Vulnerability...",
@@ -391,25 +488,20 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.3,
-      "published": "2026-04-20T20:37:07.756675+00:00",
+      "published": "2026-04-20T21:38:32.635114+00:00",
       "ttps": [],
-      "epss_score": null,
-      "ai_summary": "The CVE-2026-33118 vulnerability is a spoofing vulnerability in Microsoft Edge (Chromium-based) that allows an attacker to trick users into accessing malicious websites. This vulnerability affects Microsoft Edge versions prior to 112.0.1722.48 and can be exploited through a phishing attack, where the attacker sends a crafted URL to the victim. If exploited, this vulnerability can lead to unauthorized access to sensitive information, such as login credentials. To remediate this vulnerability, users should update Microsoft Edge to version 112.0.1722.48 or later and ensure that the 'Use secure DNS' option is enabled in the browser settings. Additionally, users should be cautious when clicking on links from unknown sources and verify the authenticity of websites before entering sensitive information.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1204| D[Defense Evasion]:::tactic\n    D -->|T1531| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.3,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "epss_score": null
     },
     {
-      "title": "CVE-2026-5724: The frontend gRPC server's streaming interceptor chain did not include the autho...",
-      "description": "The frontend gRPC server's streaming interceptor chain did not include the authorization interceptor. When a ClaimMapper and Authorizer are configured, unary RPCs enforce authentication and authorization, but the streaming AdminService/StreamWorkflowReplicationMessages endpoint accepted requests without credentials. This endpoint is registered on the same port as WorkflowService and cannot be disa",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5724",
-      "cve_id": "CVE-2026-5724",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
+      "title": "Vercel Employee's AI Tool Access Led to Data Breach",
+      "description": "Stolen OAuth tokens, which are at the root of these breaches, &quot;are the new attack surface, the new lateral movement,&quot; a researcher noted.",
+      "url": "https://www.darkreading.com/application-security/vercel-employees-ai-tool-access-data-breach",
+      "cve_id": null,
+      "source": "Dark Reading",
+      "category": "incident",
+      "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:07.756660+00:00",
+      "published": "2026-04-20T21:01:31+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -418,94 +510,24 @@
           "tactic_id": "TA0001"
         },
         {
-          "id": "T1187",
-          "name": "Forced Authentication",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        },
-        {
-          "id": "T1090.003",
-          "name": "Multi-hop Proxy",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
+          "id": "T1021",
+          "name": "Remote Services",
+          "tactic": "Lateral Movement",
+          "tactic_id": "TA0008"
         }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-40252: FastGPT is an AI Agent building platform. Prior to 4.14.10.4, Broken Access Cont...",
-      "description": "FastGPT is an AI Agent building platform. Prior to 4.14.10.4, Broken Access Control vulnerability (IDOR/BOLA) allows any authenticated team to access and execute applications belonging to other teams by supplying a foreign appId. While the API correctly validates the team token, it does not verify that the requested application belongs to the authenticated team. This leads to cross-tenant data exp",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40252",
-      "cve_id": "CVE-2026-40252",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-20T20:37:07.756644+00:00",
-      "ttps": [],
-      "epss_score": null,
-      "threat_actors": [
-        "APT41"
       ]
     },
     {
-      "title": "CVE-2026-40242: Arcane is an interface for managing Docker containers, images, networks, and vol...",
-      "description": "Arcane is an interface for managing Docker containers, images, networks, and volumes. Prior to 1.17.3, the /api/templates/fetch endpoint accepts a caller-supplied url parameter and performs a server-side HTTP GET request to that URL without authentication and without URL scheme or host validation. The server's response is returned directly to the caller. type. This constitutes an unauthenticated S",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40242",
-      "cve_id": "CVE-2026-40242",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.2,
-      "published": "2026-04-20T20:37:07.756625+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-40194: phpseclib is a PHP secure communications library. Prior to 3.0.51, 2.0.53, and 1...",
-      "description": "phpseclib is a PHP secure communications library. Prior to 3.0.51, 2.0.53, and 1.0.28, phpseclib\\Net\\SSH2::get_binary_packet() uses PHP's != operator to compare a received SSH packet HMAC against the locally computed HMAC. != on equal-length binary strings in PHP uses memcmp(), which short-circuits on the first differing byte. This is a real variable-time comparison (CWE-208), proven by scaling be",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40194",
-      "cve_id": "CVE-2026-40194",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": 3.7,
-      "published": "2026-04-20T20:37:07.756605+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-40191: ClearanceKit intercepts file-system access events on macOS and enforces per-proc...",
-      "description": "ClearanceKit intercepts file-system access events on macOS and enforces per-process access policies. Prior to 5.0.4-beta-1f46165,  ClearanceKit's Endpoint Security event handler only checked the source path of dual-path file operations against File Access Authorization (FAA) rules and App Jail policies. The destination path was ignored entirely. This allowed any local process to bypass file-access",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40191",
-      "cve_id": "CVE-2026-40191",
-      "source": "NVD",
-      "category": "cve",
+      "title": "Serial-to-IP Devices Hide Thousands of Old and New Bugs",
+      "description": "The OT devices that translate machine talk into Internet-speak are riddled with vulnerabilities and more frequently targeted for attacks, researchers say.",
+      "url": "https://www.darkreading.com/ics-ot-security/serial-ip-devices-thousands-of-bugs",
+      "cve_id": null,
+      "source": "Dark Reading",
+      "category": "incident",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-20T20:37:07.756564+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1546",
-          "name": "Event Triggered Execution",
-          "tactic": "Persistence",
-          "tactic_id": "TA0003"
-        }
-      ],
-      "epss_score": null
+      "published": "2026-04-20T21:00:00+00:00",
+      "ttps": []
     },
     {
       "title": "The Gentlemen ransomware now uses SystemBC for bot-powered attacks",
@@ -1343,7 +1365,7 @@
     },
     {
       "title": "NIST Revamps CVE Framework to Focus on High-Impact Vulnerabilities",
-      "description": "The National Institute of Standards and Technology carved a new path for vulnerability remediation by changing the way it prioritizes software flaws.",
+      "description": "The National Institute of Standards and Technology is carving a new path for vulnerability remediation by changing the way it prioritizes software flaws.",
       "url": "https://www.darkreading.com/vulnerabilities-threats/nist-revamps-cve-framework-to-focus-on-high-impact-vulnerabilities",
       "cve_id": null,
       "source": "Dark Reading",
@@ -1395,18 +1417,6 @@
           "tactic_id": "TA0002"
         }
       ]
-    },
-    {
-      "title": "Two-Factor Authentication Breaks Free from the Desktop",
-      "description": "Threat actors know how to bypass security systems outside of traditional IT environments. Implementing 2FA could provide a needed extra security barrier in the physical world.",
-      "url": "https://www.darkreading.com/endpoint-security/two-factor-authentication-breaks-free-from-the-desktop",
-      "cve_id": null,
-      "source": "Dark Reading",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-16T15:28:15+00:00",
-      "ttps": []
     },
     {
       "title": "ISC Stormcast For Thursday, April 16th, 2026 https://isc.sans.edu/podcastdetail/9894, (Thu, Apr 16th)",
@@ -1892,8 +1902,8 @@
         }
       ],
       "threat_actors": [
-        "LockBit",
-        "Conti"
+        "Conti",
+        "LockBit"
       ]
     },
     {

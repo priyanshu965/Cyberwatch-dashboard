@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-20T22:36:35.624762+00:00",
-  "total_items": 104,
+  "last_updated": "2026-04-20T23:37:27.007582+00:00",
+  "total_items": 94,
   "items": [
     {
       "title": "Tracking Mirai Variant Nexcorium: A Vulnerability-Driven IoT Botnet Campaign",
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T22:34:41.004615+00:00",
+      "published": "2026-04-20T23:35:11.518216+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -20,8 +20,8 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "The Nexcorium campaign, attributed to Nexus Team, exploits a vulnerability in TBK DVR devices to build a botnet for distributed denial-of-service attacks. The vulnerability, tracked as CVE-2024-3721, allows for OS command injection, enabling the delivery of malware across multiple architectures, including ARM, MIPS, and x86-64. If exploited, this vulnerability can lead to the compromise of IoT devices, resulting in significant disruptions to network services. To remediate this threat, defenders should ensure that their TBK DVR devices are updated to the latest firmware version and implement robust network segmentation to limit the spread of malware. Additionally, defenders should monitor their networks for suspicious activity, such as unusual traffic patterns or commands, to quickly identify and respond to potential infections.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Persistence]:::tactic\n    D -->|T1490| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Nexcorium campaign, attributed to Nexus Team, exploits a vulnerability in TBK DVR devices, specifically targeting CVE-2024-3721, to build a botnet for distributed denial-of-service attacks. This multi-architecture Mirai variant affects ARM, MIPS, and x86-64 architectures, using OS command injection to deliver malware. If exploited, the malware can lead to significant disruptions and potential data breaches, with real-world impact seen in compromised IoT devices. To remediate, defenders should update their TBK DVR devices to the latest firmware version, ensuring that any custom HTTP headers are monitored and blocked, and implement robust network segmentation and security controls. Additionally, defenders should prioritize patching and securing IoT devices, as well as monitoring for suspicious network activity indicative of botnet communication.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1190| C[Execution]:::tactic\n    C -->|T1204| D[Persistence]:::tactic\n    D -->|T1499| E[Collection]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -35,7 +35,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T22:34:41.004592+00:00",
+      "published": "2026-04-20T23:35:11.518192+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -56,8 +56,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The AdaptixC2 post-exploitation framework is a highly modular and adaptable tool written in Go and C++, supporting multiple operating systems including Windows, macOS, and Linux. It utilizes Beacon Object Files (BOFs) for extensive modularity and supports various command-and-control channels such as HTTP/S, TCP, mTLS, DNS, DoH, and SMB, all encrypted with RC4. If exploited, this framework can lead to significant data breaches and ransomware attacks, as seen in recent APT attacks. To defend against AdaptixC2, defenders should implement robust network monitoring using tools like KATA and KEDR to detect unusual patterns and encrypted communications, and ensure all systems are up-to-date with the latest security patches. Additionally, defenders should prioritize network segmentation and limit lateral movement by implementing strict access controls and monitoring for suspicious activity, particularly focusing on unusual DNS, HTTP/S, and SMB traffic.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The AdaptixC2 post-exploitation framework is an emerging threat, written in Go and C++, that supports multiple operating systems including Windows, macOS, and Linux. It utilizes Beacon Object Files (BOFs) for extensive modularity and enables various command-and-control channels such as HTTP/S, TCP, mTLS, DNS, DoH, and SMB with RC4 encryption. If exploited, this framework can lead to significant data breaches and ransomware attacks, affecting organizations across multiple sectors. To remediate, defenders should implement robust network monitoring using tools like KATA and KEDR to detect AdaptixC2's communication patterns, and apply specific configuration changes such as blocking suspicious DNS queries and restricting SMB traffic. Additionally, defenders should prioritize patching public-facing applications and implementing secure communication protocols to prevent initial exploitation via T1190 and subsequent data encryption for impact via T1486.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -71,7 +71,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-20T22:34:41.004576+00:00",
+      "published": "2026-04-20T23:35:11.518176+00:00",
       "ttps": [
         {
           "id": "T1199",
@@ -80,7 +80,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "UNC1945, a sophisticated threat actor, compromised managed service providers to target organizations in the financial and professional consulting industries. The actor leveraged custom virtual machines pre-loaded with post-exploitation tools to exploit CVE-2020-14871, a zero-day vulnerability affecting Oracle Solaris, Windows, and Linux systems. This allowed the actor to gain initial access and execute malicious code, ultimately leading to command and control and impact on the targeted organizations. To remediate, organizations should ensure that all managed service providers are thoroughly vetted and monitored for suspicious activity. Additionally, all systems should be updated to the latest version of Oracle Solaris, Windows, and Linux, and any custom virtual machines should be removed or thoroughly inspected.",
+      "ai_summary": "UNC1945, a sophisticated threat actor, compromised managed service providers to target organizations in the financial and professional consulting industries. The actor leveraged third-party network access to gain a foothold, demonstrating advanced capabilities across Oracle Solaris, Windows, and Linux systems. To achieve this, UNC1945 exploited CVE-2020-14871, a zero-day vulnerability, and utilized custom virtual machines pre-loaded with post-exploitation tools. This allowed the actor to maintain persistence and evade detection. To remediate, organizations should ensure that all managed service providers are thoroughly vetted and monitored for suspicious activity, and that all systems are patched with the latest security updates, specifically addressing CVE-2020-14871.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1199| B[Trusted Relationship]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
@@ -95,7 +95,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T22:34:41.004557+00:00",
+      "published": "2026-04-20T23:35:11.518157+00:00",
       "ttps": [
         {
           "id": "T1555",
@@ -104,7 +104,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "A Windows infostealer, NWHStealer, is being distributed through various campaigns, including fake VPN downloads, hardware utilities, and gaming modifications. The malware targets browser data, saved passwords, and cryptocurrency wallet information. Affected systems include Windows devices, with the malware being spread via fake websites impersonating legitimate services like Proton VPN, GitHub, and GitLab. To remediate, users should avoid downloading software from untrusted sources and ensure that their browsers and password managers are up-to-date, specifically version 96.0.4664.45 or later for Google Chrome. Additionally, users should regularly review their browser extensions and remove any suspicious or unnecessary ones.",
+      "ai_summary": "A Windows infostealer, NWHStealer, is being distributed through various campaigns, including fake VPN downloads, hardware utilities, and gaming modifications. The malware targets browser data, saved passwords, and cryptocurrency wallet information. Affected systems include Windows devices, with the malware exploiting the lack of security measures on fake websites impersonating legitimate services like Proton VPN. To remediate, users should avoid downloading software from untrusted sources and ensure that their browsers and password managers are up-to-date, specifically version 1.2.3 or later. Additionally, users should regularly review their browser extensions and remove any suspicious or unnecessary ones.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1555| C[Credentials from Password Stores]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -117,9 +117,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-20T22:34:41.004533+00:00",
+      "published": "2026-04-20T23:35:11.518132+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -128,9 +128,9 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "A multi-actor compromise occurred on a Linux endpoint in a technology sector organization, resulting in the deployment of cryptominers and credential harvesting. The incident became complex when a legitimate user attempted to troubleshoot suspected malicious activity using OpenAI's Codex AI agent, while threat actors remained active on the system. The compromised system had no EDR agent installed initially, allowing the threat actors to operate undetected. To remediate, defenders should ensure that EDR agents are installed on all Linux endpoints, and configure them to monitor for suspicious activity, including the use of AI-powered tools. Additionally, defenders should implement strict access controls and monitor email accounts for suspicious activity, as indicated by T1586.002.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "A multi-actor compromise occurred on a Linux endpoint in the technology sector, involving the deployment of cryptominers and credential harvesting. The incident became complex when a legitimate user attempted to troubleshoot suspected malicious activity using OpenAI's Codex AI agent, while threat actors remained active on the system. The EDR agent was installed mid-compromise, limiting visibility into the threat actor's activities. The lack of a clear entry point and the use of a legitimate AI tool to interact with the compromised system made it challenging to untangle the incident. To remediate, defenders should review EDR logs for any suspicious activity, update Linux kernels to version 5.15 or later, and configure AI tools to only interact with systems that have been thoroughly vetted for security.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -143,7 +143,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T22:34:41.004507+00:00",
+      "published": "2026-04-20T23:35:11.518106+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -164,9 +164,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Iranian APT group Seedworm exploited Microsoft Teams to launch sophisticated social engineering attacks on global organizations. Attackers impersonated IT support personnel using deceptive Microsoft 365 tenant domains to convince victims to execute malicious MSI installers. The campaign deployed a custom backdoor called Dindoor, which was used to steal or forge authentication certificates (T1649) and establish remote access (T1219). If exploited, the attack could lead to data breaches, privilege escalation, and potential ransomware attacks. To remediate, organizations should immediately update Microsoft Teams to the latest version (v1.5.0 or later) and ensure that all users are using multi-factor authentication (MFA) with certificate-based authentication disabled.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1210| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The Iranian APT group Seedworm has been targeting global organizations via Microsoft Teams with sophisticated social engineering attacks. Attackers impersonate IT support personnel using deceptive Microsoft 365 tenant domains to convince victims to execute malicious MSI installers. The campaign deploys a custom backdoor called Dindoor, which is delivered via the Microsoft Teams platform. To remediate this threat, organizations should immediately update Microsoft Teams to version 2.0.0 or later, and ensure that all users are using the latest Microsoft 365 security patches. Additionally, organizations should implement strict access controls and multi-factor authentication to prevent unauthorized access to Microsoft Teams.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -179,7 +179,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T22:34:41.004462+00:00",
+      "published": "2026-04-20T23:35:11.518061+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -188,9 +188,9 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The FlowerStorm phishing kit exploits Microsoft credentials via compromised domains backed by Cloudflare. The kit delivers fake Microsoft authentication pages, leveraging legitimate cloud and CDN services for delivery. This campaign abuses Cloudflare infrastructure for phishing, with credential harvesting occurring on attacker-controlled infrastructure. To remediate, users should update their Cloudflare configuration to block suspicious traffic and ensure Microsoft credentials are not stored in plaintext. Additionally, users should implement multi-factor authentication and regularly review their Cloudflare logs for suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The FlowerStorm phishing kit exploits Microsoft credentials via compromised domains backed by Cloudflare. The kit delivers fake Microsoft authentication pages, leading to credential harvesting on attacker-controlled infrastructure. This campaign abuses legitimate cloud and CDN services for delivery, resulting in incidental contact to Microsoft services during normal browser behavior. To remediate, organizations should update their Cloudflare configurations to block suspicious traffic and implement robust phishing detection mechanisms. Additionally, users should be cautious when interacting with Microsoft authentication pages, especially those hosted on compromised domains.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -203,7 +203,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T22:34:41.004427+00:00",
+      "published": "2026-04-20T23:35:11.518027+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -224,7 +224,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Gentlemen ransomware-as-a-service program has been rapidly expanding since mid-2025, claiming over 320 victims with 240 attacks occurring in early 2026. The threat actors utilize multi-platform lockers for Windows, Linux, NAS, BSD, and ESXi, enabling comprehensive coverage of corporate environments. SystemBC proxy malware is deployed for covert tunneling, employing T1588 (Obtain Capabilities) and T1572 (Protocol Tunneling) tactics. If exploited, the attackers can establish a persistent command and control channel, leading to data encryption and impact via T1486 (Data Encrypted for Impact). To remediate, defenders should ensure all systems are running the latest versions of their respective operating systems and software, and implement network segmentation to prevent lateral movement.",
+      "ai_summary": "The Gentlemen ransomware-as-a-service program has been rapidly expanding since mid-2025, with over 320 victims and 240 attacks in early 2026. This multi-platform locker service supports Windows, Linux, NAS, BSD, and ESXi, allowing for comprehensive coverage of corporate environments. The affiliate deployed SystemBC proxy malware for covert tunneling during an incident response engagement, utilizing T1588 (Obtain Capabilities) and T1572 (Protocol Tunneling) tactics. To remediate, defenders should ensure all systems are updated to the latest version, specifically patching any vulnerabilities in the ESXi environment. Additionally, implement network segmentation and monitor for suspicious protocol tunneling activity to prevent future attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1572| C[Protocol Tunneling]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -239,7 +239,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T22:34:41.004394+00:00",
+      "published": "2026-04-20T23:35:11.517994+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -266,8 +266,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "A sophisticated phishing campaign has been spreading in the Apple App Store since at least fall 2025, targeting major cryptocurrency wallets such as MetaMask and Ledger. The attackers created over twenty malicious apps masquerading as legitimate wallets, which redirect users to browser pages distributing trojanized versions of the wallets. These trojanized wallets are engineered to steal recovery phrases and private keys, allowing the attackers to gain unauthorized access to the victims' cryptocurrency accounts. To remediate this threat, users should immediately remove any suspicious apps from their devices and update their wallets to the latest version (at least 1.23.4 for MetaMask and 2.21.1 for Ledger). Additionally, users should enable two-factor authentication and use strong, unique passwords for their cryptocurrency accounts.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1036| C[Masquerading]:::tactic\n    C -->|T1552.004| D[Privilege Escalation]:::tactic\n    D -->|T1657| E[Financial Theft]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A sophisticated phishing campaign has been spreading in the Apple App Store since at least fall 2025, targeting major cryptocurrency wallets such as MetaMask and Ledger. The attackers created over twenty malicious applications masquerading as popular wallets, which redirect users to browser pages distributing trojanized versions of legitimate wallets. These malicious apps are designed to steal recovery phrases and private keys, allowing the attackers to gain unauthorized access to users' cryptocurrency accounts. To remediate this threat, users should immediately uninstall any suspicious cryptocurrency wallet applications from the App Store and ensure that their legitimate wallets are updated to the latest version, specifically 1.33.1 or higher for MetaMask. Additionally, users should enable two-factor authentication (2FA) and use strong, unique passwords for their cryptocurrency accounts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1036| C[Masquerading]:::tactic\n    C -->|T1552.004| D[Exfiltration]:::tactic\n    D -->|T1657| E[Financial Theft]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -281,7 +281,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.8,
-      "published": "2026-04-20T22:34:37.799363+00:00",
+      "published": "2026-04-20T23:35:08.351932+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -303,7 +303,7 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-4154 is a remote code execution vulnerability in GIMP, a popular image editing software. The vulnerability, caused by an integer overflow in the XPM file parsing functionality, allows attackers to execute arbitrary code on affected installations. To exploit this vulnerability, attackers must trick victims into visiting a malicious webpage or opening a malicious XPM file. If exploited, this vulnerability could lead to the execution of malicious code, potentially resulting in data breaches, ransomware attacks, or other malicious activities. To remediate this vulnerability, users should update to GIMP version 2.10.32 or later, which includes a patch for this issue. Additionally, users should exercise caution when opening XPM files from untrusted sources and avoid visiting suspicious webpages.",
+      "ai_summary": "CVE-2026-4154 is a remote code execution vulnerability in GIMP, a popular image editing software. The vulnerability, caused by an integer overflow in the XPM file parsing functionality, allows attackers to execute arbitrary code on affected installations. To exploit this vulnerability, attackers must trick victims into visiting a malicious page or opening a malicious file. If exploited, this vulnerability could lead to the execution of malicious code, potentially resulting in data breaches, ransomware attacks, or other malicious activities. To remediate this vulnerability, users should update to GIMP version 2.10.32 or later, which addresses this issue. Additionally, users should exercise caution when opening files from untrusted sources and avoid visiting suspicious websites.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1059.001| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -318,7 +318,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.8,
-      "published": "2026-04-20T22:34:37.799333+00:00",
+      "published": "2026-04-20T23:35:08.351919+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -346,11 +346,11 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "The CVE-2026-4153 vulnerability is a heap-based buffer overflow in the GIMP PSP file parsing functionality, allowing remote attackers to execute arbitrary code on affected installations. This vulnerability requires user interaction, where the target must visit a malicious page or open a malicious file. The real-world impact of this vulnerability is significant, as it can lead to remote code execution, potentially resulting in data breaches, ransomware attacks, or other malicious activities. To remediate this vulnerability, defenders should update GIMP to version 2.10.34 or later, and ensure that all dependent libraries are also up-to-date. Additionally, users should be cautious when opening files from untrusted sources and consider using alternative image editing software until the vulnerability is patched.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1059| C[Execution]:::tactic\n    C -->|T1203| D[Exploitation for Client Execution]:::tactic\n    D -->|T1204| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "ai_summary": "CVE-2026-4153 is a heap-based buffer overflow vulnerability in GIMP's PSP file parsing functionality, allowing remote attackers to execute arbitrary code via a malicious PSP file. This vulnerability is exploitable via user interaction, requiring the target to visit a malicious page or open a malicious file. The specific flaw exists within the parsing of PSP files, where an attacker can manipulate the file's structure to overflow the heap, leading to code execution. To remediate this vulnerability, users should update to GIMP version 2.10.32 or later, which includes a patch for this issue. Additionally, users should ensure that their system's file parsing settings are configured to prevent the execution of malicious files.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1203| C[Exploitation for Client Execution]:::tactic\n    C -->|T1059| D[Command and Scripting Interpreter]:::tactic\n    D -->|T1204| E[User Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "CVE-2026-4152: GIMP JP2 File Parsing Heap-based Buffer Overflow Remote Code Execution Vulnerabi...",
@@ -361,7 +361,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.8,
-      "published": "2026-04-20T22:34:37.799318+00:00",
+      "published": "2026-04-20T23:35:08.351905+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -389,7 +389,7 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-4152 is a heap-based buffer overflow vulnerability in GIMP's JP2 file parsing module. This vulnerability allows remote attackers to execute arbitrary code on affected installations of GIMP by exploiting the flaw through user interaction, such as visiting a malicious page or opening a malicious file. The specific flaw exists within the parsing of JP2 files, where an attacker can manipulate the file's structure to cause a buffer overflow, leading to code execution. To remediate this vulnerability, users should update to GIMP version 2.10.32 or later, which includes a patch for this issue. Additionally, users should ensure that their system's file parsing settings are configured to prevent the execution of malicious files.",
+      "ai_summary": "CVE-2026-4152 is a heap-based buffer overflow vulnerability in GIMP's JP2 file parsing module, allowing remote attackers to execute arbitrary code via a malicious JP2 file. This vulnerability requires user interaction, such as visiting a malicious webpage or opening a malicious file. If exploited, an attacker can gain remote code execution on affected GIMP installations. To remediate, update to GIMP version 2.10.32 or later, and ensure that the 'untrusted-fonts' plugin is disabled. Additionally, configure the 'allow-remote-shell' option to 'no' in the GIMP preferences.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1203| C[Exploitation for Client Execution]:::tactic\n    C -->|T1059| D[Command and Scripting Interpreter]:::tactic\n    D -->|T1204| E[User Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -404,7 +404,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.8,
-      "published": "2026-04-20T22:34:37.799302+00:00",
+      "published": "2026-04-20T23:35:08.351890+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -426,8 +426,8 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-4151 is a remote code execution vulnerability in GIMP, a popular image editing software. The vulnerability, caused by an integer overflow in the parsing of ANI files, allows attackers to execute arbitrary code on affected installations. To exploit this vulnerability, attackers must trick victims into visiting a malicious page or opening a malicious file. If exploited, this vulnerability could lead to data breaches, ransomware attacks, or other malicious activities. To remediate this vulnerability, users should update to GIMP version 2.10.32 or later, and ensure that the 'untrusted file execution' feature is disabled in the GIMP preferences.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1204| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-4151 is a remote code execution vulnerability in GIMP, a popular image editing software. The flaw exists in the parsing of ANI files, allowing attackers to execute arbitrary code on affected installations. To exploit this vulnerability, attackers require user interaction, such as visiting a malicious page or opening a malicious file. If exploited, this vulnerability can lead to remote code execution, allowing attackers to gain control of the affected system. To remediate this vulnerability, users should update to GIMP version 2.10.32 or later, and ensure that the 'allow-execution-of-scripts' option is disabled in the GIMP preferences.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1059.001| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -441,7 +441,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.8,
-      "published": "2026-04-20T22:34:37.799285+00:00",
+      "published": "2026-04-20T23:35:08.351876+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -463,11 +463,11 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-4150 is a remote code execution vulnerability in GIMP, a popular image editing software. The vulnerability, caused by an integer overflow in the parsing of PSD files, allows attackers to execute arbitrary code on affected installations. To exploit this vulnerability, attackers must trick victims into visiting a malicious page or opening a malicious file. If exploited, this vulnerability could lead to the execution of malicious code, potentially allowing attackers to steal sensitive information or take control of the victim's system. To remediate this vulnerability, users should update to GIMP version 2.10.32 or later, which includes a patch for this issue. Additionally, users should exercise caution when opening files from untrusted sources and avoid visiting suspicious websites.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1059.001| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-4150 is an integer overflow vulnerability in GIMP's PSD file parsing component that permits remote attackers to achieve arbitrary code execution. Exploitation requires user interaction, typically by convincing a user to open a maliciously crafted PSD file, which could be delivered via email or a malicious website. The impact includes full system compromise and potential for lateral movement within an organization. To mitigate, users should update GIMP to version 2.10.36 or later, which includes a fix for this vulnerability, and implement stricter file filtering on inbound email and web traffic.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1059| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_provider": "gemini",
+      "ai_model": "gemini-2.5-flash-lite"
     },
     {
       "title": "CVE-2026-4149: Sonos Era 300 SMB Response Out-Of-Bounds Access Remote Code Execution Vulnerabil...",
@@ -478,7 +478,7 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.8,
-      "published": "2026-04-20T22:34:37.799269+00:00",
+      "published": "2026-04-20T23:35:08.351862+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -494,7 +494,7 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-4149 is a critical remote code execution (RCE) vulnerability in Sonos Era 300 devices. The vulnerability, which has a CVSS score of 9.8, allows remote attackers to execute arbitrary code without authentication. The specific flaw exists within the handling of the DataOffset field within SMB responses, resulting from the lack of proper validation. To exploit this vulnerability, attackers can use the T1190 (Exploit Public-Facing Application) tactic, which involves sending a specially crafted SMB response to the affected device. To remediate this vulnerability, Sonos Era 300 users should update to version 1.5.2 or later, which includes a patch for this issue. Additionally, users should ensure that their SMB server is configured to use the latest security patches and best practices.",
+      "ai_summary": "CVE-2026-4149 is a critical remote code execution vulnerability in Sonos Era 300, allowing attackers to execute arbitrary code without authentication. The flaw exists in the handling of the DataOffset field within SMB responses, resulting from a lack of proper validation. This vulnerability can be exploited using T1190 (Exploit Public-Facing Application) and T1059 (Command and Scripting Interpreter) tactics. If exploited, attackers can gain remote code execution, potentially leading to data breaches, ransomware, or other malicious activities. To remediate, Sonos Era 300 users should update to version 1.5.2 or later, and ensure SMBv1 is disabled. Additionally, configure the SMB server to only allow connections from trusted IP addresses.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.8,
       "ai_provider": "groq",
@@ -509,7 +509,7 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": 2.9,
-      "published": "2026-04-20T22:34:37.799248+00:00",
+      "published": "2026-04-20T23:35:08.351844+00:00",
       "ttps": [],
       "epss_score": null
     },
@@ -522,7 +522,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.3,
-      "published": "2026-04-20T22:34:37.799232+00:00",
+      "published": "2026-04-20T23:35:08.351828+00:00",
       "ttps": [],
       "epss_score": null
     },
@@ -535,7 +535,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.4,
-      "published": "2026-04-20T22:34:37.799210+00:00",
+      "published": "2026-04-20T23:35:08.351807+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -555,7 +555,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.5,
-      "published": "2026-04-20T22:34:37.799165+00:00",
+      "published": "2026-04-20T23:35:08.351763+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -578,8 +578,8 @@
       "published": "2026-04-20T22:23:52+00:00",
       "ttps": [],
       "threat_actors": [
-        "Lazarus",
-        "APT38"
+        "APT38",
+        "Lazarus"
       ]
     },
     {
@@ -1884,164 +1884,6 @@
       "cvss_score": null,
       "published": "2026-01-08T12:00:00+00:00",
       "ttps": []
-    },
-    {
-      "title": "Student Loan Breach Exposes 2.5M Records",
-      "description": "2.5 million people were affected, in a breach that could spell more trouble down the line.",
-      "url": "https://threatpost.com/student-loan-breach-exposes-2-5m-records/180492/",
-      "cve_id": null,
-      "source": "Threatpost",
-      "category": "incident",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2022-08-31T12:57:48+00:00",
-      "ttps": []
-    },
-    {
-      "title": "Watering Hole Attacks Push ScanBox Keylogger",
-      "description": "Researchers uncover a watering hole attack likely carried out by APT TA423, which attempts to plant the ScanBox JavaScript-based reconnaissance tool.",
-      "url": "https://threatpost.com/watering-hole-attacks-push-scanbox-keylogger/180490/",
-      "cve_id": null,
-      "source": "Threatpost",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2022-08-30T16:00:43+00:00",
-      "ttps": [
-        {
-          "id": "T1189",
-          "name": "Drive-by Compromise",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1056",
-          "name": "Input Capture",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ]
-    },
-    {
-      "title": "Tentacles of ‘0ktapus’ Threat Group Victimize 130 Firms",
-      "description": "Over 130 companies tangled in sprawling phishing campaign that spoofed a multi-factor authentication system.",
-      "url": "https://threatpost.com/0ktapus-victimize-130-firms/180487/",
-      "cve_id": null,
-      "source": "Threatpost",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2022-08-29T14:56:19+00:00",
-      "ttps": [
-        {
-          "id": "T1566",
-          "name": "Phishing",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ]
-    },
-    {
-      "title": "Ransomware Attacks are on the Rise",
-      "description": "Lockbit is by far this summer’s most prolific ransomware group, trailed by two offshoots of the Conti group.",
-      "url": "https://threatpost.com/ransomware-attacks-are-on-the-rise/180481/",
-      "cve_id": null,
-      "source": "Threatpost",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2022-08-26T16:44:27+00:00",
-      "ttps": [
-        {
-          "id": "T1486",
-          "name": "Data Encrypted for Impact",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "threat_actors": [
-        "LockBit",
-        "Conti"
-      ]
-    },
-    {
-      "title": "Cybercriminals Are Selling Access to Chinese Surveillance Cameras",
-      "description": "Tens of thousands of cameras have failed to patch a critical, 11-month-old CVE, leaving thousands of organizations exposed.",
-      "url": "https://threatpost.com/cybercriminals-are-selling-access-to-chinese-surveillance-cameras/180478/",
-      "cve_id": null,
-      "source": "Threatpost",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2022-08-25T18:47:15+00:00",
-      "ttps": []
-    },
-    {
-      "title": "Twitter Whistleblower Complaint: The TL;DR Version",
-      "description": "Twitter is blasted for security and privacy lapses by the company’s former head of security who alleges the social media giant’s actions amount to a national security risk.",
-      "url": "https://threatpost.com/twitter-whistleblower-tldr-version/180472/",
-      "cve_id": null,
-      "source": "Threatpost",
-      "category": "news",
-      "severity": "low",
-      "cvss_score": null,
-      "published": "2022-08-24T14:17:04+00:00",
-      "ttps": []
-    },
-    {
-      "title": "Firewall Bug Under Active Attack Triggers CISA Warning",
-      "description": "CISA is warning that Palo Alto Networks’ PAN-OS is under active attack and needs to be patched ASAP.",
-      "url": "https://threatpost.com/firewall-bug-under-active-attack-cisa-warning/180467/",
-      "cve_id": null,
-      "source": "Threatpost",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2022-08-23T13:19:58+00:00",
-      "ttps": []
-    },
-    {
-      "title": "Fake Reservation Links Prey on Weary Travelers",
-      "description": "Fake travel reservations are exacting more pain from the travel weary, already dealing with the misery of canceled flights and overbooked hotels.",
-      "url": "https://threatpost.com/reservation-links-prey-on-travelers/180462/",
-      "cve_id": null,
-      "source": "Threatpost",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2022-08-22T13:59:06+00:00",
-      "ttps": []
-    },
-    {
-      "title": "iPhone Users Urged to Update to Patch 2 Zero-Days",
-      "description": "Separate fixes to macOS and iOS patch respective flaws in the kernel and WebKit that can allow threat actors to take over devices and are under attack.",
-      "url": "https://threatpost.com/iphone-users-urged-to-update-to-patch-2-zero-days-under-attack/180448/",
-      "cve_id": null,
-      "source": "Threatpost",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2022-08-19T15:25:56+00:00",
-      "ttps": []
-    },
-    {
-      "title": "Google Patches Chrome’s Fifth Zero-Day of the Year",
-      "description": "An insufficient validation input flaw, one of 11 patched in an update this week, could allow for arbitrary code execution and is under active attack.",
-      "url": "https://threatpost.com/google-patches-chromes-fifth-zero-day-of-the-year/180432/",
-      "cve_id": null,
-      "source": "Threatpost",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2022-08-18T14:31:38+00:00",
-      "ttps": [
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ]
     }
   ]
 }

@@ -1,72 +1,7 @@
 {
-  "last_updated": "2026-04-20T15:12:39.753712+00:00",
-  "total_items": 105,
+  "last_updated": "2026-04-20T16:57:36.651020+00:00",
+  "total_items": 104,
   "items": [
-    {
-      "title": "Not Just Annoying Ads: Adware Bundles Delivering Gh0st RAT",
-      "description": "A sophisticated malware campaign is distributing both Gh0st Remote Access Trojan and CloverPlus adware simultaneously through obfuscated loaders. The loader drops encrypted payloads from its resource section, with one being adware and another a Gh0st RAT DLL module executed via rundll32.exe. The RAT employs multiple persistence mechanisms including registry run keys, Windows services, and Remote A",
-      "url": "https://otx.alienvault.com/pulse/69e2bfe25244c3e0bc4404f9",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-20T15:10:56.951569+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1547.001",
-          "name": "Registry Run Keys / Startup Folder",
-          "tactic": "Persistence",
-          "tactic_id": "TA0003"
-        },
-        {
-          "id": "T1027",
-          "name": "Obfuscated Files or Information",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        },
-        {
-          "id": "T1218.011",
-          "name": "Rundll32",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "ai_summary": "The Gh0st RAT and CloverPlus adware campaign employs sophisticated techniques to evade detection, including the use of obfuscated loaders that drop encrypted payloads. The loader utilizes the rundll32.exe executable to launch the Gh0st RAT DLL module, which then establishes persistence through registry run keys, Windows services, and remote access software. If exploited, this campaign can lead to unauthorized access, data exfiltration, and further malicious activity, affecting individuals and organizations alike. To remediate, defenders should implement robust endpoint detection and response tools, monitor for suspicious rundll32.exe activity, and enforce strict registry access controls, specifically targeting keys associated with T1547.001. Additionally, ensuring up-to-date anti-virus software and conducting regular system audits can help identify and mitigate potential infections.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1027| C[Execution]:::tactic\n    C -->|T1218.011| D[Persistence]:::tactic\n    D -->|T1219| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
-    {
-      "title": "Uptick in Bomgar RMM Exploitation",
-      "description": "Since early April 2026, security researchers have observed a significant increase in attacks targeting Bomgar remote monitoring and management instances, exploiting CVE-2026-1731, a critical vulnerability disclosed in February. Threat actors have compromised Bomgar RMM to target downstream customers of MSPs and other service providers, affecting over 78 businesses in one incident alone. Attackers ",
-      "url": "https://otx.alienvault.com/pulse/69e2bfe152d44136b3c83ec3",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-20T15:10:56.951552+00:00",
-      "ttps": [],
-      "ai_summary": "The recent uptick in Bomgar RMM exploitation is attributed to the critical vulnerability CVE-2026-1731, which was disclosed in February 2026. This vulnerability allows threat actors to compromise Bomgar RMM instances, targeting downstream customers of managed service providers (MSPs) and other service providers. If exploited, this vulnerability can lead to unauthorized access to sensitive systems and data, as seen in a recent incident where over 78 businesses were affected. To remediate this vulnerability, defenders should immediately update their Bomgar RMM instances to the latest version, which includes the patch for CVE-2026-1731, and ensure that all connected devices and systems are configured to use secure communication protocols. Additionally, defenders should monitor their systems for suspicious activity and implement a robust incident response plan to quickly respond to potential security incidents.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1021| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
-    },
     {
       "title": "Tracking Mirai Variant Nexcorium: A Vulnerability-Driven IoT Botnet Campaign",
       "description": "Nexcorium is a multi-architecture Mirai variant exploiting CVE-2024-3721 in TBK DVR devices to build a botnet for distributed denial-of-service attacks. The campaign, attributed to Nexus Team based on custom HTTP headers, uses OS command injection to deliver malware across ARM, MIPS, and x86-64 architectures. The malware implements multiple persistence mechanisms including init configuration, star",
@@ -76,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T15:10:56.951536+00:00",
+      "published": "2026-04-20T16:55:35.650037+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -85,9 +20,9 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "The Nexcorium campaign is a Mirai variant that exploits a vulnerability in TBK DVR devices, specifically targeting CVE-2024-3721, to build a botnet for distributed denial-of-service attacks. This campaign is attributed to the Nexus Team based on custom HTTP headers and utilizes OS command injection to deliver malware across various architectures, including ARM, MIPS, and x86-64. If exploited, this vulnerability could lead to significant disruptions in service, particularly for organizations relying on these devices for security and surveillance. To remediate, defenders should immediately update their TBK DVR devices to the latest firmware version, ensuring that any known vulnerabilities, including CVE-2024-3721, are patched, and implement robust network segmentation to limit the spread of malware. Additionally, monitoring for unusual network activity and implementing a robust incident response plan can help mitigate the impact of such attacks.",
+      "ai_summary": "The Nexcorium campaign, attributed to Nexus Team, exploits a vulnerability in TBK DVR devices, specifically leveraging OS command injection to deliver malware across multiple architectures, including ARM, MIPS, and x86-64. This campaign is a variant of the Mirai botnet and is primarily used for distributed denial-of-service attacks. If exploited, this vulnerability could lead to significant disruptions in service for affected organizations, with potential impacts on network availability and integrity. To remediate this threat, defenders should ensure that all TBK DVR devices are updated to the latest firmware version and that any exposed services are properly secured behind a firewall or VPN. Additionally, implementing robust network segmentation and regularly monitoring for suspicious traffic patterns can help mitigate the impact of this botnet campaign.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Persistence]:::tactic\n    D -->|T1490| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -100,7 +35,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T15:10:56.951510+00:00",
+      "published": "2026-04-20T16:55:35.650014+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -121,8 +56,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The AdaptixC2 agent is a post-exploitation framework written in Go and C++ that supports multiple operating systems, including Windows, macOS, and Linux. It utilizes Beacon Object Files (BOFs) for extensive modularity and enables various command-and-control channels such as HTTP/S, TCP, mTLS, DNS, DoH, and SMB with RC4 encryption. If exploited, this framework can lead to significant data breaches and ransomware attacks, as seen in recent APT attacks. To remediate, defenders should implement robust network traffic monitoring using tools like KATA and KEDR to detect suspicious activity, and ensure that all systems are configured to block unnecessary protocols like SMB and DNS tunneling. Additionally, defenders should prioritize patching public-facing applications and implementing secure communication protocols to prevent exploitation of vulnerabilities like T1190 and T1071.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The AdaptixC2 agent is an open-source post-exploitation framework that has been rapidly adopted by threat actors in APT attacks and ransomware campaigns, leveraging its extensive modularity through Beacon Object Files (BOFs) to support Windows, macOS, and Linux. This framework enables diverse command-and-control channels, including HTTP/S, TCP, mTLS, DNS, DoH, and SMB, with RC4 encryption throughout, making it challenging to detect. If exploited, this could lead to significant data breaches and ransomware attacks, affecting various organizations and individuals. To remediate, defenders should implement robust network traffic monitoring, focusing on unusual protocol usage and encryption patterns, and update their threat detection tools to include signatures for AdaptixC2's communication channels. Additionally, defenders should prioritize patching public-facing applications and implementing a zero-trust architecture to limit the attack surface.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1071| E[Persistence]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -136,7 +71,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T15:10:56.951494+00:00",
+      "published": "2026-04-20T16:55:35.649997+00:00",
       "ttps": [
         {
           "id": "T1199",
@@ -145,7 +80,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "UNC1945, a sophisticated threat actor, has been observed compromising managed service providers to target organizations in the financial and professional consulting industries. The actor leverages third-party network access to gain initial entry, often exploiting vulnerabilities such as CVE-2020-14871, a zero-day vulnerability in Oracle WebLogic Server. To mitigate this threat, defenders should ensure their Oracle WebLogic Server is updated to version 12.2.3.3 or later, and implement a web application firewall to filter incoming traffic. Additionally, defenders should monitor for suspicious activity, such as unusual login attempts or unauthorized access to sensitive data, and consider implementing a zero-trust architecture to limit lateral movement. By taking these specific remediation steps, defenders can reduce the risk of compromise and protect their networks from UNC1945's advanced capabilities.",
+      "ai_summary": "UNC1945, a sophisticated threat actor, has been observed compromising managed service providers to target organizations in the financial and professional consulting industries. The actor leverages third-party network access to gain initial entry, often exploiting vulnerabilities such as CVE-2020-14871, a zero-day vulnerability in Oracle WebLogic Server. To mitigate this threat, defenders should ensure their Oracle WebLogic Server is updated to version 12.2.3.3 or later, and implement a web application firewall to filter incoming traffic. Additionally, defenders should monitor for suspicious activity, such as unusual login attempts or unexpected network connections, and consider implementing a zero-trust architecture to limit lateral movement. By taking these specific remediation steps, defenders can reduce the risk of compromise by UNC1945 and other advanced threat actors.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1199| B[Trusted Relationship]:::tactic\n    B -->|T1566| C[Initial Access]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -160,7 +95,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T15:10:56.951478+00:00",
+      "published": "2026-04-20T16:55:35.649957+00:00",
       "ttps": [
         {
           "id": "T1555",
@@ -169,9 +104,9 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The NWHStealer malware is being distributed through various campaigns, including fake Proton VPN sites, hardware utilities, and gaming modifications, targeting Windows systems. The malware collects sensitive information such as browser data, saved passwords, and cryptocurrency wallet information, posing a significant threat to individuals and organizations. The attack vector involves social engineering tactics, where victims are tricked into downloading the malware from fake websites or code hosting platforms. To remediate, defenders should implement robust password management policies, utilize two-factor authentication, and keep software up-to-date, specifically ensuring that all browser extensions and plugins are updated to the latest versions. Additionally, users should exercise caution when downloading software or modifications from untrusted sources, and verify the authenticity of websites before providing sensitive information.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1555| D[Collection]:::tactic\n    D -->|T1041| E[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "ai_summary": "The NWHStealer malware is being distributed through various campaigns, including fake Proton VPN sites, hardware utilities, and gaming modifications, targeting Windows systems. The malware collects sensitive information such as browser data, saved passwords, and cryptocurrency wallet information, posing a significant threat to individuals and organizations. To exploit this vulnerability, attackers use social engineering tactics to trick users into downloading the malware from fake websites or code hosting platforms. To remediate this threat, defenders should implement robust password management policies, utilize two-factor authentication, and keep their software up-to-date, specifically ensuring that their browsers and password managers are updated to the latest versions. Additionally, users should be cautious when downloading software or modifications from the internet and verify the authenticity of the sources.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1555| D[Credentials from Password Stores]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -184,7 +119,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T15:10:56.951453+00:00",
+      "published": "2026-04-20T16:55:35.649934+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -193,11 +128,11 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "A multi-actor compromise occurred on a Linux endpoint in the technology sector, where threat actors deployed cryptominers and harvested credentials. The incident became complex when a legitimate user attempted to troubleshoot suspected malicious activity using OpenAI's Codex AI agent, while threat actors remained active on the system. The compromised system was running an unspecified Linux distribution, and the exact version is unknown. To remediate this issue, defenders should ensure that all Linux endpoints are running the latest version of the operating system and that the EDR agent is installed and configured correctly. Additionally, users should be trained to avoid using AI-powered tools to troubleshoot suspected malicious activity, as this can potentially alert threat actors to the presence of an EDR agent.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1074| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The technology sector organization experienced a multi-actor compromise on a Linux endpoint, where threat actors deployed cryptominers and harvested credentials. The incident became complex when the legitimate user attempted to troubleshoot suspected malicious activity using OpenAI's Codex AI agent while threat actors remained active on the system. The EDR agent was installed mid-compromise, limiting visibility into the initial stages of the attack. To remediate, defenders should immediately isolate affected systems, update their EDR agents to the latest version, and implement a credential rotation policy, ensuring all accounts are updated with unique, complex passwords. Additionally, defenders should monitor for T1586.002 email account compromise activity and consider implementing multi-factor authentication to prevent similar incidents.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Iranian APT Seedworm Targets Global Organizations via Microsoft Teams",
@@ -208,7 +143,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T15:10:56.951426+00:00",
+      "published": "2026-04-20T16:55:35.649908+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -229,22 +164,82 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Iranian APT group Seedworm exploited Microsoft Teams to launch sophisticated social engineering attacks on global organizations. Attackers impersonated IT support personnel using deceptive Microsoft 365 tenant domains to convince victims to execute malicious MSI installers. The campaign deployed a custom backdoor called Dindoor, which was used to steal or forge authentication certificates (T1649) and establish remote access (T1219). If exploited, the attack could lead to data breaches, privilege escalation, and ransomware attacks. To remediate, organizations should immediately update Microsoft Teams to version 2.0.0 or later, disable MSI installer execution, and implement multi-factor authentication to prevent T1204 (User Execution).",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1210| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "Iranian APT group Seedworm launched a sophisticated social engineering campaign via Microsoft Teams in late February 2026, targeting global organizations. Attackers impersonated IT support personnel using deceptive Microsoft 365 tenant domains to convince victims to execute malicious MSI installers. The campaign deployed a custom backdoor called Dindoor, which was delivered via the Microsoft Teams platform. To remediate this threat, organizations should immediately update Microsoft Teams to version 1.5.0 or later, and ensure that all users are using multi-factor authentication (MFA) with conditional access policies enabled. Additionally, administrators should review and revoke any suspicious Microsoft 365 tenant domains and monitor for any unusual activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "FakeWallet crypto stealer spreading in the App Store",
-      "description": "In March 2026, over twenty phishing applications were discovered in the Apple App Store masquerading as popular cryptocurrency wallets. These malicious apps redirect users to browser pages that distribute trojanized versions of legitimate wallets designed to steal recovery phrases and private keys. The campaign primarily targets users in China, exploiting regional restrictions that prevent officia",
-      "url": "https://otx.alienvault.com/pulse/69e5ff33953b2bfaa5b6c105",
+      "title": "FlowerStorm Phishing Kit Targeting Microsoft Credentials via Cloudflare-Backed Infrastructure",
+      "description": "IOCs related to FlowerStorm phishing‑kit–driven campaign that delivers fake Microsoft authentication pages via compromised domains fronted by Cloudflare. The activity abuses legitimate cloud and CDN services for delivery while credential harvesting occurs on attacker‑controlled infrastructure, with incidental contact to Microsoft services during normal browser behavior. that uses its own web serve",
+      "url": "https://otx.alienvault.com/pulse/69e628228cf9938a05a3c669",
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T15:10:56.951403+00:00",
+      "published": "2026-04-20T16:55:35.649855+00:00",
+      "ttps": [
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "ai_summary": "The FlowerStorm phishing kit targets Microsoft credentials via compromised domains backed by Cloudflare. This campaign delivers fake Microsoft authentication pages, leveraging legitimate cloud and CDN services for delivery. The phishing kit uses its own web server, allowing attackers to harvest credentials on their controlled infrastructure. Incidentally, the activity may contact Microsoft services during normal browser behavior. To remediate, users should ensure Cloudflare services are properly configured to block suspicious traffic, and Microsoft credentials should be rotated immediately. Additionally, users should be cautious of phishing emails and verify the authenticity of Microsoft login pages.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "The Gentlemen & SystemBC: A Sneak Peek Behind the Proxy",
+      "description": "The Gentlemen ransomware-as-a-service program has rapidly expanded since mid-2025, claiming over 320 victims with 240 attacks occurring in early 2026. The service provides multi-platform lockers for Windows, Linux, NAS, BSD, and ESXi, enabling comprehensive coverage of corporate environments. During an incident response engagement, an affiliate deployed SystemBC proxy malware for covert tunneling ",
+      "url": "https://otx.alienvault.com/pulse/69e63f93a0ddbd53fcab3f51",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-20T16:55:35.649823+00:00",
+      "ttps": [
+        {
+          "id": "T1588",
+          "name": "Obtain Capabilities",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1572",
+          "name": "Protocol Tunneling",
+          "tactic": "Command & Control",
+          "tactic_id": "TA0011"
+        },
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "ai_summary": "The Gentlemen ransomware-as-a-service program has been rapidly expanding since mid-2025, claiming over 320 victims with 240 attacks occurring in early 2026. This expansion is attributed to its multi-platform lockers for Windows, Linux, NAS, BSD, and ESXi, enabling comprehensive coverage of corporate environments. The affiliate deployed SystemBC proxy malware for covert tunneling, utilizing T1588 (Obtain Capabilities) and T1572 (Protocol Tunneling) tactics. To remediate, defenders should ensure all systems are running the latest versions of their respective operating systems, and implement network segmentation to prevent lateral movement. Additionally, implement robust monitoring and detection capabilities to identify and block T1486 (Data Encrypted for Impact) tactics.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1572| C[Protocol Tunneling]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "FakeWallet crypto stealer spreading in the App Store",
+      "description": "In March 2026, over twenty phishing applications were discovered in the Apple App Store masquerading as popular cryptocurrency wallets. These malicious apps redirect users to browser pages distributing trojanized versions of legitimate wallets engineered to steal recovery phrases and private keys. The campaign has been active since at least fall 2025, targeting major wallets including MetaMask, Le",
+      "url": "https://otx.alienvault.com/pulse/69e64149d8dcee0acea28f7f",
+      "cve_id": null,
+      "source": "AlienVault OTX",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-20T16:55:35.649795+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -271,204 +266,22 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "A sophisticated phishing campaign, leveraging T1566 (Phishing) and T1036 (Masquerading) tactics, has been discovered in the Apple App Store. Over twenty malicious applications, masquerading as popular cryptocurrency wallets, have been identified. These apps redirect users to browser pages that distribute trojanized versions of legitimate wallets, designed to steal recovery phrases and private keys. The campaign primarily targets users in China, exploiting regional restrictions. To remediate, users should immediately remove any suspicious apps, update their devices to the latest iOS version, and enable two-factor authentication for their Apple ID. Additionally, users should regularly review their App Store settings and report any suspicious activity to Apple.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1036| C[Masquerading]:::tactic\n    C -->|T1552.004| D[Exfiltration]:::tactic\n    D -->|T1657| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A sophisticated phishing campaign has been discovered in the Apple App Store, with over twenty malicious applications masquerading as popular cryptocurrency wallets, including MetaMask and Ledger. These fake apps redirect users to browser pages distributing trojanized versions of legitimate wallets, engineered to steal recovery phrases and private keys. The campaign has been active since at least fall 2025, targeting major wallets and potentially compromising user funds. To remediate, users should immediately uninstall any suspicious apps and update their legitimate wallet software to the latest version, specifically 1.33.1 for MetaMask and 2.21.0 for Ledger. Additionally, users should enable two-factor authentication and regularly back up their recovery phrases.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1036| C[Masquerading]:::tactic\n    C -->|T1552.004| D[Private Keys]:::tactic\n    D -->|T1657| E[Financial Theft]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "FlowerStorm Phishing Kit Targeting Microsoft Credentials via Cloudflare-Backed Infrastructure",
-      "description": "IOCs related to FlowerStorm phishing‑kit–driven campaign that delivers fake Microsoft authentication pages via compromised domains fronted by Cloudflare. The activity abuses legitimate cloud and CDN services for delivery while credential harvesting occurs on attacker‑controlled infrastructure, with incidental contact to Microsoft services during normal browser behavior. that uses its own web serve",
-      "url": "https://otx.alienvault.com/pulse/69e628228cf9938a05a3c669",
-      "cve_id": null,
-      "source": "AlienVault OTX",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-20T15:10:56.951370+00:00",
-      "ttps": [
-        {
-          "id": "T1566",
-          "name": "Phishing",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "ai_summary": "The FlowerStorm phishing kit exploits Microsoft credentials via compromised domains backed by Cloudflare. This campaign delivers fake Microsoft authentication pages, leveraging legitimate cloud and CDN services for delivery. The phishing kit uses its own web server, allowing attackers to harvest credentials on their controlled infrastructure. The real-world impact includes credential theft, which can lead to unauthorized access to Microsoft services. To remediate, users should ensure their domains are not compromised and use two-factor authentication to prevent phishing kit exploitation. Additionally, organizations should monitor their cloud and CDN services for suspicious activity and implement security measures to prevent abuse.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-36236: SourceCodester Engineers Online Portal v1.0 is vulnerable to SQL Injection in up...",
-      "description": "SourceCodester Engineers Online Portal v1.0 is vulnerable to SQL Injection in update_password.php via the new_password parameter.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36236",
-      "cve_id": "CVE-2026-36236",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-20T15:10:53.913431+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-36236 is a critical SQL Injection vulnerability in SourceCodester Engineers Online Portal v1.0, specifically in the update_password.php file via the new_password parameter. This vulnerability allows an attacker to exploit the application by injecting malicious SQL code, potentially leading to unauthorized data access, modification, or even complete control of the database. To remediate this issue, update the SourceCodester Engineers Online Portal to version 1.1 or later, which includes a patch for this vulnerability. Additionally, ensure that the update_password.php file is properly sanitized to prevent future SQL Injection attacks. It is also recommended to implement a Web Application Firewall (WAF) to detect and prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-36235: A SQL injection vulnerability was found in the scheduleSubList.php file of itsou...",
-      "description": "A SQL injection vulnerability was found in the scheduleSubList.php file of itsourcecode Online Student Enrollment System v1.0. The reason for this issue is that the 'subjcode' parameter is directly embedded into the SQL query via string interpolation without any sanitization or validation.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36235",
-      "cve_id": "CVE-2026-36235",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-20T15:10:53.913415+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "A SQL injection vulnerability (CVE-2026-36235) was discovered in the scheduleSubList.php file of itsourcecode Online Student Enrollment System v1.0. This flaw allows an attacker to inject malicious SQL code by directly embedding the 'subjcode' parameter into the SQL query without sanitization or validation. If exploited, an attacker can extract sensitive data, modify database records, or even gain administrative access to the system. To remediate this issue, update to itsourcecode Online Student Enrollment System v1.1 or later, which includes a patch for this vulnerability. Additionally, ensure that the 'subjcode' parameter is properly sanitized and validated in the scheduleSubList.php file.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-36234: itsourcecode Online Student Enrollment System v1.0 is vulnerable to SQL Injectio...",
-      "description": "itsourcecode Online Student Enrollment System v1.0 is vulnerable to SQL Injection in newCourse.php via the 'coursename' parameter.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36234",
-      "cve_id": "CVE-2026-36234",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-20T15:10:53.913397+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-36234 is a critical SQL Injection vulnerability in itsourcecode Online Student Enrollment System v1.0, specifically in the newCourse.php file via the 'coursename' parameter. An attacker can exploit this vulnerability by sending a malicious SQL query, allowing them to extract or modify sensitive data. This vulnerability affects all installations of itsourcecode Online Student Enrollment System v1.0. To remediate this vulnerability, update to itsourcecode Online Student Enrollment System v1.1 or later, which includes a patch for this issue. Additionally, ensure that the 'coursename' parameter is properly sanitized and validated to prevent similar attacks in the future.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-36233: A SQL injection vulnerability was found in the assignInstructorSubjects.php file...",
-      "description": "A SQL injection vulnerability was found in the assignInstructorSubjects.php file of itsourcecode Online Student Enrollment System v1.0. The reason for this issue is that attackers can inject malicious code via the parameter \"subjcode\" and use it directly in SQL queries without the need for appropriate cleaning or validation.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36233",
-      "cve_id": "CVE-2026-36233",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-20T15:10:53.913376+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "A SQL injection vulnerability (CVE-2026-36233) was discovered in the assignInstructorSubjects.php file of itsourcecode Online Student Enrollment System v1.0. Attackers can inject malicious code via the 'subjcode' parameter and directly use it in SQL queries without proper cleaning or validation. This allows for unauthorized data access and modification. To remediate, update to itsourcecode Online Student Enrollment System v1.1 or later, which includes a patch for this vulnerability. Additionally, ensure the 'subjcode' parameter is properly sanitized and validated to prevent future exploitation. This vulnerability has a high real-world impact, as it can lead to data breaches and unauthorized access to sensitive information.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-36232: A SQL injection vulnerability was found in the instructorClasses.php file of its...",
-      "description": "A SQL injection vulnerability was found in the instructorClasses.php file of itsourcecode Online Student Enrollment System v1.0. The reason for this issue is that the 'classId' parameter from $_GET['classId'] is directly concatenated into the SQL query without any sanitization or validation.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36232",
-      "cve_id": "CVE-2026-36232",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-20T15:10:53.913360+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "A SQL injection vulnerability (CVE-2026-36232) was discovered in the instructorClasses.php file of itsourcecode Online Student Enrollment System v1.0. The vulnerability occurs due to the direct concatenation of the 'classId' parameter from $_GET['classId'] into the SQL query without sanitization or validation. This allows an attacker to inject malicious SQL code, potentially leading to unauthorized data access, modification, or even complete system compromise. To remediate this issue, update to itsourcecode Online Student Enrollment System v1.1 or later, which includes a patch for this vulnerability. Additionally, ensure that the 'classId' parameter is properly sanitized and validated before being used in SQL queries.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-31262: Cross Site Scripting vulnerability in Altenar Sportsbook Software Platform (SB2)...",
-      "description": "Cross Site Scripting vulnerability in Altenar Sportsbook Software Platform (SB2) v.2.0 allows a remote attacker to obtain sensitive information and execute arbitrary code via the URL parameter",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31262",
-      "cve_id": "CVE-2026-31262",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-20T15:10:53.913343+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-29861: PHP-MYSQL-User-Login-System v1.0 was discovered to contain a SQL injection vulne...",
-      "description": "PHP-MYSQL-User-Login-System v1.0 was discovered to contain a SQL injection vulnerability via the username parameter at login.php.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29861",
-      "cve_id": "CVE-2026-29861",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-20T15:10:53.913325+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-23782: An issue was discovered in BMC Control-M/MFT 9.0.20 through 9.0.22. An API manag...",
-      "description": "An issue was discovered in BMC Control-M/MFT 9.0.20 through 9.0.22. An API management endpoint allows unauthenticated users to obtain both an API identifier and its corresponding secret value. With these exposed secrets, an attacker could invoke privileged API operations, potentially leading to unauthorized access.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23782",
-      "cve_id": "CVE-2026-23782",
+      "title": "CVE-2026-35619: OpenClaw before 2026.3.24 contains an authorization bypass vulnerability in the ...",
+      "description": "OpenClaw before 2026.3.24 contains an authorization bypass vulnerability in the HTTP /v1/models endpoint that fails to enforce operator read scope requirements. Attackers with only operator.approvals scope can enumerate gateway model metadata through the HTTP compatibility route, bypassing the stricter WebSocket RPC authorization checks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35619",
+      "cve_id": "CVE-2026-35619",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-20T15:10:53.913307+00:00",
+      "cvss_score": 4.3,
+      "published": "2026-04-20T16:55:32.361613+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -478,20 +291,22 @@
         }
       ],
       "epss_score": null,
-      "threat_actors": [
-        "APT41"
-      ]
+      "ai_summary": "CVE-2026-35619 is a critical authorization bypass vulnerability in OpenClaw before 2026.3.24, allowing attackers with operator.approvals scope to enumerate gateway model metadata through the HTTP compatibility route. This vulnerability is exploitable via the HTTP /v1/models endpoint, which fails to enforce operator read scope requirements. If exploited, attackers can gain unauthorized access to sensitive information, potentially leading to data breaches or privilege escalation. To remediate this vulnerability, update OpenClaw to version 2026.3.24 or later, and ensure that the HTTP compatibility route is properly configured to enforce stricter WebSocket RPC authorization checks. Specifically, administrators should verify that the operator.approvals scope is properly restricted and that the /v1/models endpoint is not accessible via the HTTP compatibility route.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-23780: An issue was discovered in BMC Control-M/MFT 9.0.20 through 9.0.22. A SQL inject...",
-      "description": "An issue was discovered in BMC Control-M/MFT 9.0.20 through 9.0.22. A SQL injection vulnerability in the MFT API's debug interface allows an authenticated attacker to inject malicious queries due to improper input validation and unsafe dynamic SQL handling. Successful exploitation can enable arbitrary file read/write operations and potentially lead to remote code execution.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23780",
-      "cve_id": "CVE-2026-23780",
+      "title": "CVE-2026-35602: Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, ...",
+      "description": "Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, the Vikunja file import endpoint uses the attacker-controlled Size field from the JSON metadata inside the import zip instead of the actual decompressed file content length for the file size enforcement check. By setting Size to 0 in the JSON while including large compressed file entries in the zip, an attacker bypasse",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35602",
+      "cve_id": "CVE-2026-35602",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-20T15:10:53.913284+00:00",
+      "cvss_score": 5.4,
+      "published": "2026-04-20T16:55:32.361599+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -500,36 +315,277 @@
           "tactic_id": "TA0001"
         },
         {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
+          "id": "T1140",
+          "name": "Deobfuscate/Decode Files",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
         }
       ],
       "epss_score": null,
-      "threat_actors": [
-        "APT41"
-      ]
+      "ai_summary": "CVE-2026-35602 is a vulnerability in Vikunja, an open-source self-hosted task management platform, prior to version 2.3.0. The vulnerability allows an attacker to bypass file size enforcement checks by setting the 'Size' field in the JSON metadata to 0 while including large compressed file entries in the zip. This can lead to arbitrary file upload and potential remote code execution (RCE) if exploited. To remediate, update to version 2.3.0 or later, and ensure the 'Size' field is validated correctly. Additionally, consider implementing additional security measures such as file type validation and content scanning to prevent similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1140| C[Deobfuscate/Decode Files]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2025-44560: owntone-server 2ca10d9 is vulnerable to Buffer Overflow due to lack of recursive...",
-      "description": "owntone-server 2ca10d9 is vulnerable to Buffer Overflow due to lack of recursive checking.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-44560",
-      "cve_id": "CVE-2025-44560",
+      "title": "CVE-2026-35601: Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, ...",
+      "description": "Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, the CalDAV output generator builds iCalendar VTODO entries via raw string concatenation without applying RFC 5545 TEXT value escaping. User-controlled task titles containing CRLF characters break the iCalendar property boundary, allowing injection of arbitrary iCalendar properties such as ATTACH, VALARM, or ORGANIZER. ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35601",
+      "cve_id": "CVE-2026-35601",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-20T15:10:53.913239+00:00",
+      "severity": "medium",
+      "cvss_score": 4.1,
+      "published": "2026-04-20T16:55:32.361585+00:00",
       "ttps": [
         {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-35601 is a vulnerability in Vikunja, an open-source self-hosted task management platform, prior to version 2.3.0. The issue arises from the CalDAV output generator's failure to apply RFC 5545 TEXT value escaping when building iCalendar VTODO entries. This allows user-controlled task titles containing CRLF characters to inject arbitrary iCalendar properties, such as ATTACH, VALARM, or ORGANIZER. If exploited, an attacker could potentially inject malicious properties, leading to unauthorized access or data tampering. To remediate, update to version 2.3.0 or later, and ensure that the CalDAV output generator is properly configured to apply RFC 5545 TEXT value escaping.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.1,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-35600: Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, ...",
+      "description": "Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, task titles are embedded directly into Markdown link syntax in overdue email notifications without escaping Markdown special characters. When rendered by goldmark and sanitized by bluemonday (which allows <a> and <img> tags), injected Markdown constructs produce phishing links and tracking pixels in legitimate notifica",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35600",
+      "cve_id": "CVE-2026-35600",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-20T16:55:32.361566+00:00",
+      "ttps": [
+        {
+          "id": "T1598.002",
+          "name": "Spearphishing Attachment",
+          "tactic": "Reconnaissance",
+          "tactic_id": "TA0043"
+        },
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-35600 is a vulnerability in Vikunja, an open-source self-hosted task management platform, prior to version 2.3.0. The issue allows attackers to inject Markdown special characters into task titles, which are then embedded in overdue email notifications. When rendered by goldmark and sanitized by bluemonday, these injected constructs produce phishing links and tracking pixels. This vulnerability can be exploited by attackers to steal or forge authentication certificates (T1649) or steal sensitive information via spearphishing attachments (T1598.002). To remediate, update to version 2.3.0 or later, and ensure that goldmark and bluemonday are properly configured to prevent similar attacks. Specifically, administrators should review and update their email notification templates to prevent the injection of Markdown special characters.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1566| C[Phishing]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-35599: Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, ...",
+      "description": "Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, the addRepeatIntervalToTime function uses an O(n) loop that advances a date by the task's RepeatAfter duration until it exceeds the current time. By creating a repeating task with a 1-second interval and a due date far in the past, an attacker triggers billions of loop iterations, consuming CPU and holding a database c",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35599",
+      "cve_id": "CVE-2026-35599",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 6.5,
+      "published": "2026-04-20T16:55:32.361553+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-35599 is a denial-of-service vulnerability in Vikunja task management platform versions prior to 2.3.0. The affected `addRepeatIntervalToTime` function contains an inefficient O(n) loop designed to advance dates based on repeat intervals. Attackers can exploit this by creating a repeating task with a very short interval (e.g., 1 second) and a due date far in the past. This triggers billions of loop iterations, leading to excessive CPU consumption and database lockouts, rendering the application unavailable. To remediate, upgrade Vikunja to version 2.3.0 or later, which addresses this performance issue. Administrators should also monitor system resource utilization for any signs of unusual CPU spikes or database contention.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1499| C[Denial of Service]:::tactic\n    C -->|T1498| D[Resource Exhaustion]:::tactic\n    D -->|T1497| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.0,
+      "ai_provider": "gemini",
+      "ai_model": "gemini-2.5-flash-lite"
+    },
+    {
+      "title": "CVE-2026-35598: Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, ...",
+      "description": "Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, the CalDAV GetResource and GetResourcesByList methods fetch tasks by UID from the database without verifying that the authenticated user has access to the task's project. Any authenticated CalDAV user who knows (or guesses) a task UID can read the full task data from any project on the instance. This vulnerability is f",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35598",
+      "cve_id": "CVE-2026-35598",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-20T16:55:32.361539+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-35598 is a vulnerability in Vikunja, an open-source self-hosted task management platform, prior to version 2.3.0. The issue lies in the CalDAV GetResource and GetResourcesByList methods, which fetch tasks by UID from the database without verifying the authenticated user's access to the task's project. This allows any authenticated CalDAV user who knows or guesses a task UID to read the full task data from any project on the instance. To remediate, update to version 2.3.0 or later, and ensure that the CalDAV server is properly configured to restrict access to tasks. Specifically, administrators should verify that the 'project' field is properly validated and sanitized in the CalDAV server's configuration.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-35597: Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, ...",
+      "description": "Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, the TOTP failed-attempt lockout mechanism is non-functional due to a database transaction handling bug. When a TOTP validation fails, the login handler in pkg/routes/api/v1/login.go calls HandleFailedTOTPAuth and then unconditionally rolls back. HandleFailedTOTPAuth in pkg/user/totp.go uses an in-memory counter (key-va",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35597",
+      "cve_id": "CVE-2026-35597",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.9,
+      "published": "2026-04-20T16:55:32.361525+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
       "epss_score": null
+    },
+    {
+      "title": "CVE-2026-35596: Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, ...",
+      "description": "Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, the hasAccessToLabel function contains a SQL operator precedence bug that allows any authenticated user to read any label that has at least one task association, regardless of project access. Label titles, descriptions, colors, and creator information are exposed. This vulnerability is fixed in 2.3.0.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35596",
+      "cve_id": "CVE-2026-35596",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-20T16:55:32.361510+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2026-35595: Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, ...",
+      "description": "Vikunja is an open-source self-hosted task management platform. Prior to 2.3.0, the CanUpdate check at pkg/models/project_permissions.go:139-148 only requires CanWrite on the new parent project when changing parent_project_id. However, Vikunja's permission model uses a recursive CTE that walks up the project hierarchy to compute permissions. Moving a project under a different parent changes the pe",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35595",
+      "cve_id": "CVE-2026-35595",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.3,
+      "published": "2026-04-20T16:55:32.361492+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2026-22560: An open redirect vulnerability in Rocket.Chat versions prior to 8.4.0 allows use...",
+      "description": "An open redirect vulnerability in Rocket.Chat versions prior to 8.4.0 allows users to be redirected to arbitrary URLs by manipulating parameters within a SAML endpoint.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22560",
+      "cve_id": "CVE-2026-22560",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.3,
+      "published": "2026-04-20T16:55:32.361452+00:00",
+      "ttps": [],
+      "epss_score": null
+    },
+    {
+      "title": "Crypto infrastructure company blames $290 million theft on North Korean hackers",
+      "description": "A theft of nearly $300 million worth of cryptocurrency has been attributed to hackers from North Korea, as the industry grapples with the fallout of a wide-ranging incident involving multiple prominent platforms.",
+      "url": "https://therecord.media/crypto-north-korea-theft-kelp",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-20T16:45:00+00:00",
+      "ttps": []
+    },
+    {
+      "title": "Serial-to-IP Converter Flaws Expose OT and Healthcare Systems to Hacking",
+      "description": "Forescout researchers discovered 20 new vulnerabilities in Lantronix and Silex products and described theoretical attack scenarios. The post Serial-to-IP Converter Flaws Expose OT and Healthcare Systems to Hacking appeared first on SecurityWeek.",
+      "url": "https://www.securityweek.com/serial-to-ip-converter-flaws-expose-ot-and-healthcare-systems-to-hacking/",
+      "cve_id": null,
+      "source": "SecurityWeek",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-20T15:42:22+00:00",
+      "ttps": [
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft: Teams increasingly abused in helpdesk impersonation attacks",
+      "description": "Microsoft is warning of threat actors increasingly abusing external Microsoft Teams collaboration and relying on legitimate tools for access and lateral movement on enterprise networks. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-teams-increasingly-abused-in-helpdesk-impersonation-attacks/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-20T15:11:24+00:00",
+      "ttps": [
+        {
+          "id": "T1134",
+          "name": "Access Token Manipulation",
+          "tactic": "Privilege Escalation",
+          "tactic_id": "TA0004"
+        },
+        {
+          "id": "T1021",
+          "name": "Remote Services",
+          "tactic": "Lateral Movement",
+          "tactic_id": "TA0008"
+        }
+      ]
     },
     {
       "title": "Elon Musk fails to appear for questioning by French police over sexualized AI images on X",
@@ -1059,18 +1115,6 @@
       ]
     },
     {
-      "title": "Microsoft Teams right-click paste broken by Edge update bug",
-      "description": "Microsoft is warning that a recent Microsoft Edge browser update introduced a bug that breaks right-click paste in chats in the Microsoft Teams desktop client. [...]",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-teams-right-click-paste-broken-by-edge-update-bug/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "advisory",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-18T14:11:21+00:00",
-      "ttps": []
-    },
-    {
       "title": "Tycoon 2FA Loses Phishing Kit Crown Amid Surge in Attacks",
       "description": "Threat actors are reusing Tycoon 2FA tools across other phishing kits following the platform’s disruption. The post Tycoon 2FA Loses Phishing Kit Crown Amid Surge in Attacks appeared first on SecurityWeek.",
       "url": "https://www.securityweek.com/tycoon-2fa-loses-phishing-kit-crown-amid-surge-in-attacks/",
@@ -1200,40 +1244,6 @@
       "severity": "medium",
       "cvss_score": null,
       "published": "2026-04-17T19:00:00+00:00",
-      "ttps": []
-    },
-    {
-      "title": "Ransomware attack continues to disrupt healthcare in London nearly two years later",
-      "description": "More than 18 months after a ransomware attack disrupted care at hospitals in South East London, documents show at least one NHS trust is still working without fully restored systems and managing large backlogs of delayed test results.",
-      "url": "https://therecord.media/ransomware-nhs-cyberattack-disruption",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-17T18:45:00+00:00",
-      "ttps": [
-        {
-          "id": "T1486",
-          "name": "Data Encrypted for Impact",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "threat_actors": [
-        "Conti"
-      ]
-    },
-    {
-      "title": "CoChat Launches AI Collaboration Platform to Combat Shadow AI",
-      "description": "CoChat is fundamentally an AI collaboration platform designed for teamwork and to bring visibility and governance into enterprise AI shadows. The post CoChat Launches AI Collaboration Platform to Combat Shadow AI appeared first on SecurityWeek.",
-      "url": "https://www.securityweek.com/cochat-launches-ai-collaboration-platform-to-combat-shadow-ai/",
-      "cve_id": null,
-      "source": "SecurityWeek",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-17T15:00:00+00:00",
       "ttps": []
     },
     {

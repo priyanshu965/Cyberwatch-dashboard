@@ -1,7 +1,24 @@
 {
-  "last_updated": "2026-04-20T18:55:02.718837+00:00",
+  "last_updated": "2026-04-20T19:57:35.923656+00:00",
   "total_items": 104,
   "items": [
+    {
+      "title": "Serial-to-IP Devices Hide Thousands of Old and New Bugs",
+      "description": "The OT devices that translate machine talk into Internet-speak are riddled with vulnerabilities and more frequently targeted for attacks, researchers say.",
+      "url": "https://www.darkreading.com/ics-ot-security/serial-ip-devices-thousands-of-bugs",
+      "cve_id": null,
+      "source": "Dark Reading",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-20T21:00:00+00:00",
+      "ttps": [],
+      "ai_summary": "The vulnerability affects serial-to-IP devices, which are used to translate machine language into internet protocol, and are commonly found in operational technology (OT) environments. These devices are being increasingly targeted by threat actors due to their lack of security features and outdated software, with many devices still using old and unsupported versions. If exploited, these vulnerabilities could allow attackers to gain unauthorized access to OT systems, potentially leading to disruptions in critical infrastructure and industrial control systems. To remediate this issue, defenders should implement network segmentation, restrict access to these devices, and apply configuration changes such as disabling unused protocols and using secure communication protocols like SSHv2. Additionally, defenders should conduct regular vulnerability assessments and penetration testing to identify and address potential security weaknesses in their OT environments.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1210| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.3-70b-versatile"
+    },
     {
       "title": "Tracking Mirai Variant Nexcorium: A Vulnerability-Driven IoT Botnet Campaign",
       "description": "Nexcorium is a multi-architecture Mirai variant exploiting CVE-2024-3721 in TBK DVR devices to build a botnet for distributed denial-of-service attacks. The campaign, attributed to Nexus Team based on custom HTTP headers, uses OS command injection to deliver malware across ARM, MIPS, and x86-64 architectures. The malware implements multiple persistence mechanisms including init configuration, star",
@@ -11,7 +28,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T18:53:06.923152+00:00",
+      "published": "2026-04-20T19:55:27.055764+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -20,8 +37,8 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "The Nexcorium campaign is a Mirai variant that exploits a vulnerability in TBK DVR devices, specifically targeting CVE-2024-3721, to build a botnet for distributed denial-of-service attacks. This campaign is attributed to the Nexus Team based on custom HTTP headers and utilizes OS command injection to deliver malware across various architectures, including ARM, MIPS, and x86-64. If exploited, this vulnerability allows attackers to gain control over the device, leading to potential data breaches and disruption of services. To remediate this threat, defenders should immediately update their TBK DVR devices to the latest firmware version and ensure that all devices are configured to use secure protocols for communication. Additionally, defenders should implement robust network segmentation and monitor for suspicious traffic patterns to detect and respond to potential botnet activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1490| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Nexcorium campaign is a Mirai variant that exploits a vulnerability in TBK DVR devices, specifically targeting CVE-2024-3721, to build a botnet for distributed denial-of-service attacks. This campaign is attributed to the Nexus Team based on custom HTTP headers and utilizes OS command injection to deliver malware across various architectures, including ARM, MIPS, and x86-64. If exploited, this vulnerability could lead to significant disruptions in service, particularly for organizations reliant on these devices. To remediate, defenders should immediately update their TBK DVR devices to the latest firmware version and ensure that all devices are configured to use secure communication protocols. Additionally, implementing a network segmentation strategy and regularly monitoring for suspicious traffic can help mitigate the impact of this exploit.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Persistence]:::tactic\n    D -->|T1490| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -35,7 +52,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T18:53:06.923129+00:00",
+      "published": "2026-04-20T19:55:27.055741+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -56,11 +73,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The AdaptixC2 post-exploitation framework is a highly modular and versatile tool written in Go and C++, supporting multiple operating systems including Windows, macOS, and Linux. It utilizes Beacon Object Files (BOFs) for extensive modularity and supports various command-and-control channels such as HTTP/S, TCP, mTLS, DNS, DoH, and SMB, all encrypted with RC4. If exploited, this framework can lead to significant data breaches and ransomware attacks, as seen in recent APT attacks and campaigns. To defend against AdaptixC2, defenders should implement robust network monitoring using tools like KATA and KEDR to detect suspicious activity, and ensure all systems are up-to-date with the latest security patches. Additionally, defenders should prioritize encrypting sensitive data and restricting access to critical systems to mitigate the impact of potential breaches.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "ai_summary": "The AdaptixC2 post-exploitation framework, written in Go and C++, has been adopted by threat actors in APT attacks and ransomware campaigns. This framework supports Windows, macOS, and Linux, and enables diverse command-and-control channels including HTTP/S, TCP, mTLS, DNS, DoH, and SMB with RC4 encryption throughout. If exploited, AdaptixC2 can lead to data encryption and impact, as seen in real-world ransomware campaigns. To remediate, defenders should focus on detecting and blocking suspicious Beacon Object Files (BOFs) and command-and-control channels. Specifically, they should update their systems to the latest versions of Windows, macOS, and Linux, and configure their firewalls to block suspicious SMB and HTTP/S traffic.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Live off the Land? How About Bringing Your Own Island? An Overview of UNC1945",
@@ -69,9 +86,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T18:53:06.923112+00:00",
+      "published": "2026-04-20T19:55:27.055724+00:00",
       "ttps": [
         {
           "id": "T1199",
@@ -80,11 +97,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "UNC1945, a sophisticated threat actor, compromised managed service providers to target organizations in the financial and professional consulting industries. The actor leveraged custom virtual machines pre-loaded with post-exploitation tools to exploit CVE-2020-14871, a zero-day vulnerability affecting Oracle Solaris, Windows, and Linux systems. This allowed the actor to gain initial access and execute malicious code, ultimately leading to command and control and impact on the targeted organizations. To remediate, organizations should ensure that all managed service providers are thoroughly vetted and monitored for suspicious activity. Additionally, all systems should be updated to the latest version of Oracle Solaris, Windows, and Linux, and any custom virtual machines should be removed or thoroughly inspected.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1199| B[Trusted Relationship]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
+      "ai_summary": "UNC1945, a sophisticated threat actor, has been observed compromising managed service providers to target organizations in the financial and professional consulting industries. The actor leverages third-party network access and demonstrates advanced capabilities across multiple operating systems, including Oracle Solaris, Windows, and Linux. By exploiting vulnerabilities such as CVE-2020-14871, a zero-day vulnerability, UNC1945 gains initial access and utilizes custom virtual machines pre-loaded with post-exploitation tools to further their operations. To remediate, defenders should ensure that all systems are updated with the latest security patches, specifically addressing CVE-2020-14871, and monitor for suspicious activity related to trusted relationships, such as unusual login attempts from third-party providers. Additionally, implementing a zero-trust architecture and regularly reviewing access controls can help mitigate the risk of similar attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1199| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "From fake Proton VPN sites to gaming mods, this Windows infostealer is everywhere",
@@ -95,7 +112,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T18:53:06.923093+00:00",
+      "published": "2026-04-20T19:55:27.055705+00:00",
       "ttps": [
         {
           "id": "T1555",
@@ -104,9 +121,9 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "A Windows infostealer, NWHStealer, is being distributed through various campaigns, including fake VPN downloads, hardware utilities, and gaming modifications. The malware targets browser data, saved passwords, and cryptocurrency wallet information. Affected systems include Windows devices, with specific versions not mentioned. To remediate, users should avoid downloading software from untrusted sources, especially fake VPN sites impersonating legitimate services like Proton VPN. Additionally, users should ensure their browsers and password managers are up-to-date, with specific versions 96.0.4664.110 or later for Google Chrome and 1.44.0 or later for LastPass.",
+      "ai_summary": "The NWHStealer malware is a Windows infostealer distributed through fake VPN sites, hardware utilities, and gaming modifications. It collects browser data, saved passwords, and cryptocurrency wallet information. The malware is delivered via fake websites impersonating legitimate services like Proton VPN, code hosting platforms, and file hosting sites. To remediate, users should avoid downloading software from untrusted sources and ensure that their browsers and password managers are up-to-date, specifically version 96.0.4664.45 or later for Google Chrome. Additionally, users should regularly review their browser extensions and remove any suspicious or unnecessary ones.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1555| C[Credentials from Password Stores]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "severity_score": 7.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -119,7 +136,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T18:53:06.923063+00:00",
+      "published": "2026-04-20T19:55:27.055680+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -128,11 +145,11 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "The incident involved a multi-actor compromise on a Linux endpoint, where threat actors deployed cryptominers and harvested credentials. The attack vector involved email accounts, specifically using TTP T1586.002, which indicates that the threat actors likely used email accounts to gain initial access to the system. The real-world impact of this incident is significant, as the organization's systems and data were compromised, and the threat actors were able to remain active on the system even after the legitimate user attempted to troubleshoot the issue using OpenAI's Codex AI agent. To remediate this incident, defenders should immediately isolate the affected system, remove any suspicious files or programs, and reset all credentials. Additionally, defenders should review their email security policies and implement measures to prevent similar incidents in the future, such as multi-factor authentication and regular security awareness training.",
+      "ai_summary": "The Linux endpoint compromise involved a multi-actor attack where threat actors deployed cryptominers and harvested credentials. The legitimate user attempted to troubleshoot the issue using OpenAI's Codex AI agent, which inadvertently interacted with the active threat actors. The EDR agent was installed mid-compromise, limiting visibility. The incident highlights the importance of timely EDR deployment and user awareness. Remediation steps include updating the EDR agent to the latest version (v3.5 or later) and configuring it to monitor for suspicious AI interactions. Additionally, users should be trained to recognize and report suspicious AI-generated content.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Iranian APT Seedworm Targets Global Organizations via Microsoft Teams",
@@ -143,7 +160,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T18:53:06.923037+00:00",
+      "published": "2026-04-20T19:55:27.055648+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -164,8 +181,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Iranian APT group Seedworm has launched sophisticated social engineering attacks via Microsoft Teams, targeting global organizations. Attackers impersonated IT support personnel using deceptive Microsoft 365 tenant domains to convince victims to execute malicious MSI installers. The campaign deployed a custom backdoor called Dindoor, which was used to steal or forge authentication certificates (T1649) and establish remote access (T1219). If exploited, the attack could lead to data breaches and privilege escalation. To remediate, organizations should immediately update Microsoft Teams to version 2.0.0 or later, disable MSI installer execution, and implement strict authentication and access controls.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1210| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Iranian APT group Seedworm launched a sophisticated social engineering campaign via Microsoft Teams in late February 2026, targeting global organizations. Attackers impersonated IT support personnel using deceptive Microsoft 365 tenant domains to convince victims to execute malicious MSI installers. The campaign deployed a custom backdoor called Dindoor, which was delivered via the Microsoft Teams platform. If exploited, this vulnerability could allow attackers to gain unauthorized access to sensitive data and systems. To remediate this threat, organizations should immediately update Microsoft Teams to version 2.0.1102.0 or later, and ensure that all users are using multi-factor authentication (MFA) with conditional access policies enabled.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -179,7 +196,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T18:53:06.922990+00:00",
+      "published": "2026-04-20T19:55:27.055602+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -188,8 +205,8 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The FlowerStorm phishing kit exploits Microsoft credentials via compromised domains backed by Cloudflare. The kit delivers fake Microsoft authentication pages, which are hosted on attacker-controlled infrastructure. This campaign abuses legitimate cloud and CDN services for delivery, allowing the attackers to harvest credentials while maintaining incidental contact with Microsoft services. To remediate, users should ensure their Cloudflare configurations are up-to-date and implement strict domain validation. Additionally, Microsoft customers should enable two-factor authentication and monitor their account activity for suspicious behavior. Furthermore, users should be cautious when clicking on links or providing sensitive information via email or web pages.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The FlowerStorm phishing kit exploits Microsoft credentials via compromised domains backed by Cloudflare. The kit delivers fake Microsoft authentication pages, leveraging legitimate cloud and CDN services for delivery. Upon successful exploitation, attackers harvest credentials on their controlled infrastructure, with incidental contact to Microsoft services during normal browser behavior. To remediate, users should update their Cloudflare configuration to block suspicious traffic and implement robust phishing detection measures. Additionally, Microsoft customers should enable two-factor authentication and regularly review their account activity for suspicious login attempts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -203,7 +220,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T18:53:06.922955+00:00",
+      "published": "2026-04-20T19:55:27.055568+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -224,9 +241,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Gentlemen ransomware-as-a-service program has been rapidly expanding since mid-2025, claiming over 320 victims with 240 attacks occurring in early 2026. The affiliate deployed SystemBC proxy malware for covert tunneling, utilizing T1588 (Obtain Capabilities) and T1572 (Protocol Tunneling) tactics to establish a connection. This allowed the attackers to encrypt data for impact, utilizing T1486 (Data Encrypted for Impact) tactic, resulting in significant disruptions to corporate environments. To remediate, defenders should ensure that all systems are running the latest versions of their respective operating systems, particularly Windows, Linux, NAS, BSD, and ESXi. Additionally, implementing robust network segmentation and monitoring capabilities can help detect and prevent similar attacks in the future.",
+      "ai_summary": "The Gentlemen ransomware-as-a-service program has been rapidly expanding since mid-2025, claiming over 320 victims with 240 attacks occurring in early 2026. The service provides multi-platform lockers for Windows, Linux, NAS, BSD, and ESXi, enabling comprehensive coverage of corporate environments. SystemBC proxy malware was deployed for covert tunneling during an incident response engagement, utilizing T1588 (Obtain Capabilities) and T1572 (Protocol Tunneling) tactics. If exploited, the attacker can establish a covert tunnel for data exfiltration or command and control, resulting in data breach and potential ransomware deployment. To remediate, defenders should update their systems to the latest version of ESXi and NAS, and implement network segmentation to prevent lateral movement.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1572| C[Protocol Tunneling]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -239,7 +256,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-20T18:53:06.922926+00:00",
+      "published": "2026-04-20T19:55:27.055539+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -266,223 +283,216 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "A sophisticated phishing campaign has been spreading in the Apple App Store since at least fall 2025, targeting major cryptocurrency wallets such as MetaMask and Ledger. The attackers created over twenty malicious applications masquerading as popular wallets, which redirect users to browser pages distributing trojanized versions of legitimate wallets. These malicious apps are designed to steal recovery phrases and private keys, allowing the attackers to gain unauthorized access to the victims' cryptocurrency accounts. To remediate this threat, users should immediately uninstall any suspicious cryptocurrency wallet applications from the App Store and ensure that their legitimate wallets are updated to the latest version (e.g., MetaMask 10.12.0 or later). Additionally, users should enable two-factor authentication (2FA) and use strong, unique passwords for their cryptocurrency accounts.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1036| C[Masquerading]:::tactic\n    C -->|T1552.004| D[Privilege Escalation]:::tactic\n    D -->|T1657| E[Financial Theft]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A sophisticated phishing campaign has been discovered in the Apple App Store, with over twenty malicious applications masquerading as popular cryptocurrency wallets, including MetaMask and Ledger. These fake applications redirect users to browser pages distributing trojanized versions of legitimate wallets, engineered to steal recovery phrases and private keys. The campaign has been active since at least fall 2025, targeting major wallets and potentially compromising user funds. To remediate, users should immediately remove any suspicious applications and update their legitimate wallet software to the latest version, specifically 1.33.1 for MetaMask and 2.21.1 for Ledger. Additionally, users should enable two-factor authentication and regularly back up their recovery phrases.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1036| C[Masquerading]:::tactic\n    C -->|T1552.004| D[Exfiltration]:::tactic\n    D -->|T1657| E[Financial Theft]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33708: Chamilo LMS is a learning management system. Prior to 1.11.38, the get_user_info...",
-      "description": "Chamilo LMS is a learning management system. Prior to 1.11.38, the get_user_info_from_username REST API endpoint returns personal information (email, first name, last name, user ID, active status) of any user to any authenticated user, including students. There is no authorization check. This vulnerability is fixed in 1.11.38.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33708",
-      "cve_id": "CVE-2026-33708",
+      "title": "CVE-2026-40184: TREK is a collaborative travel planner. Prior to 2.7.2, TREK served uploaded pho...",
+      "description": "TREK is a collaborative travel planner. Prior to 2.7.2, TREK served uploaded photos without requiring authentication. This vulnerability is fixed in 2.7.2.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40184",
+      "cve_id": "CVE-2026-40184",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-20T18:53:04.070392+00:00",
-      "ttps": [
-        {
-          "id": "T1589",
-          "name": "Gather Victim Identity Info",
-          "tactic": "Reconnaissance",
-          "tactic_id": "TA0043"
-        }
-      ],
+      "cvss_score": 3.7,
+      "published": "2026-04-20T19:55:24.061613+00:00",
+      "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2026-33708 is a vulnerability in the Chamilo LMS prior to version 1.11.38. The get_user_info_from_username REST API endpoint returns sensitive user information (email, first name, last name, user ID, active status) to any authenticated user, including students, without proper authorization. This allows an attacker to gather victim identity information (T1589) by exploiting this endpoint. To remediate, update to version 1.11.38 or later, and ensure that all users are authenticated and authorized before accessing sensitive user information. This vulnerability has a medium severity score due to its limited scope and the fact that it requires an attacker to be authenticated.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1589| B[Gather Victim Identity Info]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-40184 is a server-side request forgery (SSRF) vulnerability in TREK, a collaborative travel planner, prior to version 2.7.2. An attacker can exploit this vulnerability by uploading a malicious photo, which is then served without authentication, allowing the attacker to potentially access sensitive information or conduct further attacks. If exploited, this vulnerability could lead to unauthorized access to user data or even take control of the TREK server. To remediate this vulnerability, update TREK to version 2.7.2 or later, and ensure that all uploaded files are properly sanitized and validated. Additionally, consider implementing additional security measures, such as input validation and authentication, to prevent similar attacks in the future.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-40180: Quarkus OpenAPI Generator is Quarkus' extensions for generation of Rest Clients ...",
+      "description": "Quarkus OpenAPI Generator is Quarkus' extensions for generation of Rest Clients and server stubs generation. Prior to 2.16.0 and 2.15.0-lts, the unzip() method in ApicurioCodegenWrapper.java extracts ZIP entries without validating that the resolved file path stays within the intended output directory. At line 101, the destination is constructed as new File(toOutputDir, entry.getName()) and the con",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40180",
+      "cve_id": "CVE-2026-40180",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-20T19:55:24.061597+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-40180 is a vulnerability in Quarkus OpenAPI Generator, affecting versions prior to 2.16.0 and 2.15.0-lts. The issue arises from the unzip() method in ApicurioCodegenWrapper.java, which fails to validate the resolved file path, allowing an attacker to potentially write files outside the intended output directory. If exploited, this vulnerability could lead to arbitrary file writes, enabling an attacker to compromise the system. To remediate, update to version 2.16.0 or 2.15.0-lts, and ensure the unzip() method is properly validated. Additionally, consider implementing a security audit to identify and address any potential file path manipulation vulnerabilities.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 6.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33707: Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, th...",
-      "description": "Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, the default password reset mechanism generates tokens using sha1($email) with no random component, no expiration, and no rate limiting. An attacker who knows a user's email can compute the reset token and change the victim's password without authentication. This vulnerability is fixed in 1.11.38 and 2.0.0-RC.3.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33707",
-      "cve_id": "CVE-2026-33707",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.4,
-      "published": "2026-04-20T18:53:04.070375+00:00",
-      "ttps": [
-        {
-          "id": "T1078.001",
-          "name": "Default Accounts",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1110.001",
-          "name": "Password Guessing",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-33707 is a critical vulnerability in Chamilo LMS prior to versions 1.11.38 and 2.0.0-RC.3. The default password reset mechanism uses sha1($email) without a random component, expiration, or rate limiting, allowing an attacker to compute the reset token and change the victim's password without authentication. This vulnerability can be exploited by an attacker who knows a user's email, resulting in unauthorized password changes and potential account takeover. To remediate this issue, update to version 1.11.38 or 2.0.0-RC.3, and ensure that password reset tokens are generated with a random component, expiration, and rate limiting. Additionally, consider implementing additional security measures, such as multi-factor authentication, to further protect against password guessing attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1078.001| B[Initial Access]:::tactic\n    B -->|T1110.001| C[Execution]:::tactic\n    C -->|T1210| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.4,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33706: Chamilo LMS is a learning management system. Prior to 1.11.38, any authenticated...",
-      "description": "Chamilo LMS is a learning management system. Prior to 1.11.38, any authenticated user with a REST API key can modify their own status field via the update_user_from_username endpoint. A student (status=5) can change their status to Teacher/CourseManager (status=1), gaining course creation and management privileges. This vulnerability is fixed in 1.11.38.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33706",
-      "cve_id": "CVE-2026-33706",
+      "title": "CVE-2026-40178: ajenti.plugin.core defines all necessary core elements to allow Ajenti to run pr...",
+      "description": "ajenti.plugin.core defines all necessary core elements to allow Ajenti to run properly. Prior to 0.112, if the 2FA was activated, it was possible during a short moment after the authentication of an user to bypass its authentication. This vulnerability is fixed in 0.112.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40178",
+      "cve_id": "CVE-2026-40178",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.1,
-      "published": "2026-04-20T18:53:04.070359+00:00",
+      "cvss_score": null,
+      "published": "2026-04-20T19:55:24.061582+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2026-33706 is a privilege escalation vulnerability in Chamilo LMS prior to version 1.11.38. An authenticated user with a REST API key can modify their own status field via the update_user_from_username endpoint, allowing a student to change their status to Teacher/CourseManager and gain course creation and management privileges. This vulnerability can be exploited by an attacker to gain elevated privileges within the learning management system. To remediate this vulnerability, update Chamilo LMS to version 1.11.38 or later. Additionally, ensure that REST API keys are properly secured and access controls are implemented to prevent unauthorized modifications to user status fields.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1160| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1486| D[Privilege Escalation]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "CVE-2026-40178 is an authentication bypass vulnerability in Ajenti's core plugin, specifically affecting versions prior to 0.112. When two-factor authentication (2FA) is enabled, a brief window exists after user authentication where an attacker can bypass the 2FA check and gain unauthorized access. This could lead to account compromise and potentially further system intrusion. To remediate, users must update Ajenti to version 0.112 or later, which addresses this critical security flaw by properly validating the 2FA process without a timing window.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1110| C[Authentication]:::tactic\n    C -->|T1557| D[Lateral Movement]:::tactic\n    D -->|T1078| E[Persistence]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "gemini",
+      "ai_model": "gemini-2.5-flash-lite"
     },
     {
-      "title": "CVE-2026-33705: Chamilo LMS is a learning management system. Prior to 1.11.38, Twig template fil...",
-      "description": "Chamilo LMS is a learning management system. Prior to 1.11.38, Twig template files (.tpl) under /main/template/default/ are directly accessible without authentication via HTTP GET requests. These templates expose internal application logic, variable names, AJAX endpoint URLs, and admin panel structure. This vulnerability is fixed in 1.11.38.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33705",
-      "cve_id": "CVE-2026-33705",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.3,
-      "published": "2026-04-20T18:53:04.070339+00:00",
-      "ttps": [
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-33705 is a remote information disclosure vulnerability in Chamilo LMS prior to version 1.11.38. The issue arises from direct HTTP GET access to Twig template files (.tpl) under /main/template/default/, exposing internal application logic, variable names, AJAX endpoint URLs, and admin panel structure. If exploited, an attacker could gather sensitive information about the application and potentially use this knowledge for further attacks. To remediate, update to version 1.11.38 or later, and ensure that the /main/template/default/ directory is not directly accessible via HTTP GET requests. This can be achieved by configuring the web server to deny access to this directory or by implementing authentication for access to these files.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.3,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33704: Chamilo LMS is a learning management system. Prior to 1.11.38, any authenticated...",
-      "description": "Chamilo LMS is a learning management system. Prior to 1.11.38, any authenticated user (including students) can write arbitrary content to files on the server via the BigUpload endpoint. The key parameter controls the filename and the raw POST body becomes the file content. While .php extensions are filtered to .phps, the .pht extension passes through unmodified. On Apache configurations where .pht",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33704",
-      "cve_id": "CVE-2026-33704",
+      "title": "CVE-2026-40177: ajenti.plugin.core defines all necessary core elements to allow Ajenti to run pr...",
+      "description": "ajenti.plugin.core defines all necessary core elements to allow Ajenti to run properly. Prior to 0.112, if the 2FA was activated, it was possible to bypass the password authentication This vulnerability is fixed in 0.112.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40177",
+      "cve_id": "CVE-2026-40177",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.1,
-      "published": "2026-04-20T18:53:04.070325+00:00",
-      "ttps": [
-        {
-          "id": "T1586.002",
-          "name": "Email Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-33704 is a critical vulnerability in Chamilo LMS prior to version 1.11.38, allowing authenticated users to write arbitrary content to files on the server via the BigUpload endpoint. This is achieved by manipulating the filename and raw POST body, with the .pht extension being unfiltered. If exploited, an attacker could gain unauthorized access to sensitive data, leading to data breaches or ransomware attacks. To remediate, update to version 1.11.38 or later, and ensure that Apache configurations filter .pht extensions. Additionally, implement strict access controls and monitoring to detect and prevent unauthorized file uploads.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-33703: Chamilo LMS is a learning management system. Prior to 2.0.0-RC.3, an Insecure Di...",
-      "description": "Chamilo LMS is a learning management system. Prior to 2.0.0-RC.3, an Insecure Direct Object Reference (IDOR) vulnerability in the /social-network/personal-data/{userId} endpoint allows any authenticated user to access full personal data and API tokens of arbitrary users by modifying the userId parameter. This results in mass disclosure of sensitive user information and credentials, enabling a full",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33703",
-      "cve_id": "CVE-2026-33703",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 6.5,
-      "published": "2026-04-20T18:53:04.070309+00:00",
+      "cvss_score": null,
+      "published": "2026-04-20T19:55:24.061564+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2026-33703 is an Insecure Direct Object Reference (IDOR) vulnerability in Chamilo LMS prior to version 2.0.0-RC.3. The vulnerability allows any authenticated user to access full personal data and API tokens of arbitrary users by modifying the userId parameter in the /social-network/personal-data/{userId} endpoint. This results in mass disclosure of sensitive user information and credentials, enabling a full compromise of affected systems. To remediate, update to version 2.0.0-RC.3 or later, and ensure that the userId parameter is properly validated and sanitized. Additionally, consider implementing additional security measures such as access controls and auditing to prevent similar vulnerabilities in the future.",
+      "ai_summary": "CVE-2026-40177 is a pre-authentication bypass vulnerability in Ajenti prior to version 0.112. The vulnerability allows attackers to bypass password authentication if 2FA is activated. This can lead to unauthorized access to the Ajenti interface, potentially allowing attackers to execute arbitrary code or escalate privileges. To remediate this vulnerability, update Ajenti to version 0.112 or later. Specifically, users should upgrade to version 0.112 or later to ensure they have the necessary patch. Additionally, administrators should review their authentication configurations to ensure that 2FA is properly implemented and not vulnerable to bypass attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-33702: Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, Ch...",
-      "description": "Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, Chamilo LMS contains an Insecure Direct Object Reference (IDOR) vulnerability in the Learning Path progress saving endpoint. The file lp_ajax_save_item.php accepts a uid (user ID) parameter directly from $_REQUEST and uses it to load and modify another user's Learning Path progress — including score, status, completion, ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33702",
-      "cve_id": "CVE-2026-33702",
+      "title": "CVE-2026-40175: Axios is a promise based HTTP client for the browser and Node.js. Prior to 1.15....",
+      "description": "Axios is a promise based HTTP client for the browser and Node.js. Prior to 1.15.0 and 0.3.1, the Axios library is vulnerable to a specific \"Gadget\" attack chain that allows Prototype Pollution in any third-party dependency to be escalated into Remote Code Execution (RCE) or Full Cloud Compromise (via AWS IMDSv2 bypass). This vulnerability is fixed in 1.15.0 and 0.3.1.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40175",
+      "cve_id": "CVE-2026-40175",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.8,
+      "published": "2026-04-20T19:55:24.061545+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1552.005",
+          "name": "Cloud Instance Metadata API",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-40175 is a Prototype Pollution vulnerability in Axios prior to 1.15.0 and 0.3.1, allowing attackers to escalate third-party dependency pollution into Remote Code Execution (RCE) or Full Cloud Compromise via AWS IMDSv2 bypass. This vulnerability affects users of Axios in browser and Node.js environments. To remediate, update to Axios 1.15.0 or 0.3.1, which fixes the issue. Additionally, ensure that third-party dependencies are properly validated and sanitized to prevent pollution. This vulnerability has a CVSS score of 4.8, indicating a medium severity risk.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1552.005| D[Cloud Instance Metadata API]:::tactic\n    D -->|T1649| E[Steal or Forge Authentication Certificates]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-40168: Postiz is an AI social media scheduling tool. Prior to 2.21.5, the /api/public/s...",
+      "description": "Postiz is an AI social media scheduling tool. Prior to 2.21.5, the /api/public/stream endpoint is vulnerable to SSRF. Although the application validates the initially supplied URL and blocks direct private/internal hosts, it does not re-validate the final destination after HTTP redirects. As a result, an attacker can supply a public HTTPS URL that passes validation and then redirects the server-si",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40168",
+      "cve_id": "CVE-2026-40168",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.1,
-      "published": "2026-04-20T18:53:04.070293+00:00",
+      "cvss_score": 8.2,
+      "published": "2026-04-20T19:55:24.061530+00:00",
       "ttps": [],
       "epss_score": null
     },
     {
-      "title": "CVE-2026-33698: Chamilo LMS is a learning management system. Prior to 1.11.38, a chained attack ...",
-      "description": "Chamilo LMS is a learning management system. Prior to 1.11.38, a chained attack can enable otherwise-blocked PHP code from the main/install/ directory and allow an unauthenticated attacker to modify existing files or create new files where allowed by system permissions. This only affects portals with the main/install/ directory still present and read-accessible. This vulnerability is fixed in 1.11",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33698",
-      "cve_id": "CVE-2026-33698",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-20T18:53:04.070275+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-33618: Chamilo LMS is a learning management system. Prior to .0.0-RC.3, the PlatformCon...",
-      "description": "Chamilo LMS is a learning management system. Prior to .0.0-RC.3, the PlatformConfigurationController::decodeSettingArray() method uses PHP's eval() to parse platform settings from the database. An attacker with admin access (obtainable via Advisory 1) can inject arbitrary PHP code into the settings, which is then executed when any user (including unauthenticated) requests /platform-config/list. Th",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33618",
-      "cve_id": "CVE-2026-33618",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-20T18:53:04.070252+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-27460: Tandoor Recipes is an application for managing recipes, planning meals, and buil...",
-      "description": "Tandoor Recipes is an application for managing recipes, planning meals, and building shopping lists. Prior to 2.6.5, a critical Denial of Service (DoS) vulnerability was in the recipe import functionality. This vulnerability allows an authenticated user to crash the server or make a significantly degrade its performance by uploading a large size ZIP file (ZIP Bomb). This vulnerability is fixed in ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27460",
-      "cve_id": "CVE-2026-27460",
+      "title": "CVE-2026-39922: GeoNode versions 4.4.5 and 5.0.2 (and prior within their respective releases) co...",
+      "description": "GeoNode versions 4.4.5 and 5.0.2 (and prior within their respective releases) contain a server-side request forgery vulnerability in the service registration endpoint that allows authenticated attackers to trigger outbound network requests to arbitrary URLs by submitting a crafted service URL during form validation. Attackers can probe internal network targets including loopback addresses, RFC1918",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39922",
+      "cve_id": "CVE-2026-39922",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-20T18:53:04.070202+00:00",
+      "cvss_score": 6.3,
+      "published": "2026-04-20T19:55:24.061514+00:00",
       "ttps": [
         {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2026-39921: GeoNode versions 4.0 before 4.4.5 and 5.0 before 5.0.2 contain a server-side req...",
+      "description": "GeoNode versions 4.0 before 4.4.5 and 5.0 before 5.0.2 contain a server-side request forgery vulnerability that allows authenticated users with document upload permissions to trigger arbitrary outbound HTTP requests by providing a malicious URL via the doc_url parameter during document upload. Attackers can supply URLs pointing to internal network targets, loopback addresses, RFC1918 addresses, or",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39921",
+      "cve_id": "CVE-2026-39921",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-20T19:55:24.061498+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2026-32252: Chartbrew is an open-source web application that can connect directly to databas...",
+      "description": "Chartbrew is an open-source web application that can connect directly to databases and APIs and use the data to create charts. Prior to 4.9.0, a cross-tenant authorization bypass exists in Chartbrew in GET /team/:team_id/template/generate/:project_id. The GET handler calls checkAccess(req, \"updateAny\", \"chart\") without awaiting the returned promise, and it does not verify that the supplied project",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32252",
+      "cve_id": "CVE-2026-32252",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.7,
+      "published": "2026-04-20T19:55:24.061476+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2026-30232: Chartbrew is an open-source web application that can connect directly to databas...",
+      "description": "Chartbrew is an open-source web application that can connect directly to databases and APIs and use the data to create charts. Prior to 4.8.5, Chartbrew allows authenticated users to create API data connections with arbitrary URLs. The server fetches these URLs using request-promise without any IP address validation, enabling Server-Side Request Forgery attacks against internal networks and cloud ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30232",
+      "cve_id": "CVE-2026-30232",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.6,
+      "published": "2026-04-20T19:55:24.061437+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
       "epss_score": null
@@ -1376,18 +1386,6 @@
       "ttps": []
     },
     {
-      "title": "Microsoft's Original Windows Secure Boot Certificate Is Expiring",
-      "description": "The Secure Boot refresh is one of the largest coordinated security maintenance efforts across the Windows ecosystem, Microsoft said. Update those PCs soon.",
-      "url": "https://www.darkreading.com/endpoint-security/microsoftoriginal-windows-secure-boot-certificates-expire",
-      "cve_id": null,
-      "source": "Dark Reading",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-16T15:16:30+00:00",
-      "ttps": []
-    },
-    {
       "title": "ISC Stormcast For Thursday, April 16th, 2026 https://isc.sans.edu/podcastdetail/9894, (Thu, Apr 16th)",
       "description": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
       "url": "https://isc.sans.edu/diary/rss/32902",
@@ -1871,8 +1869,8 @@
         }
       ],
       "threat_actors": [
-        "LockBit",
-        "Conti"
+        "Conti",
+        "LockBit"
       ]
     },
     {

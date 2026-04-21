@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21T22:33:59.110943+00:00",
+  "last_updated": "2026-04-21T23:30:56.562674+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T22:31:59.135394+00:00",
+      "published": "2026-04-21T23:28:43.352325+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -38,7 +38,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The FakeWallet crypto stealer campaign involves over twenty phishing applications masquerading as popular cryptocurrency wallets in the Apple App Store, primarily targeting users in China. These malicious apps redirect users to browser pages that distribute trojanized versions of legitimate wallets, exploiting regional restrictions to steal recovery phrases and private keys. The attack vector involves phishing (T1566) and masquerading (T1036) to gain initial access, followed by the theft of private keys (T1552.004) and ultimately resulting in financial theft (T1657). To remediate, defenders should implement strict verification processes for cryptocurrency wallet applications, ensuring they are from trusted sources, and advise users to use two-factor authentication and keep their devices and software up-to-date. Additionally, users should be cautious of suspicious links and never enter sensitive information on untrusted websites.",
+      "ai_summary": "The FakeWallet crypto stealer campaign involves phishing applications masquerading as popular cryptocurrency wallets in the Apple App Store, primarily targeting users in China. These malicious apps, over twenty of which were discovered in March 2026, redirect users to browser pages that distribute trojanized versions of legitimate wallets designed to steal recovery phrases and private keys, exploiting regional restrictions that prevent official wallets from being available. The attack vector involves T1566 phishing tactics, where users are tricked into installing the fake wallets, which then use T1036 masquerading to appear legitimate. To remediate, defenders should immediately remove any suspicious wallet applications and update their devices to the latest iOS version, ensuring that all wallet applications are verified through official channels. Additionally, users should enable two-factor authentication for their cryptocurrency accounts and use a reputable password manager to securely store their private keys and recovery phrases.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1036| C[Persistence]:::tactic\n    C -->|T1552.004| D[Privilege Escalation]:::tactic\n    D -->|T1657| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -53,7 +53,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T22:31:59.135371+00:00",
+      "published": "2026-04-21T23:28:43.352301+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -62,8 +62,8 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The FlowerStorm phishing kit targets Microsoft credentials by delivering fake authentication pages via compromised domains backed by Cloudflare. This campaign abuses legitimate cloud and CDN services for delivery, while credential harvesting occurs on attacker-controlled infrastructure. The attack vector involves phishing emails or messages that trick victims into accessing the fake Microsoft authentication pages, potentially leading to significant data breaches and unauthorized access. To remediate, defenders should implement robust email filtering and educate users about phishing attacks, ensuring they verify the authenticity of websites before entering credentials. Additionally, monitoring for unusual Cloudflare traffic and implementing multi-factor authentication can help mitigate the impact of such attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1204| D[Persistence]:::tactic\n    D -->|T1531| E[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The FlowerStorm phishing kit targets Microsoft credentials by delivering fake authentication pages via compromised domains backed by Cloudflare, leveraging the legitimacy of cloud and CDN services for malicious delivery. This campaign exploits user trust in Microsoft services, with the phishing kit hosted on attacker-controlled infrastructure, and credential harvesting occurs outside of Microsoft's direct control. The attack vector involves phishing emails or messages that redirect victims to these fake pages, where they unknowingly surrender their credentials. To defend against this, organizations should implement specific email filtering rules to block known phishing email patterns and educate users about the risks of interacting with unsolicited emails or links. Additionally, enabling multi-factor authentication (MFA) for all Microsoft services can significantly reduce the impact of credential theft.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1189| C[Execution]:::tactic\n    C -->|T1204| D[Defense Evasion]:::tactic\n    D -->|T1557| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -77,7 +77,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T22:31:59.135339+00:00",
+      "published": "2026-04-21T23:28:43.352270+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -98,7 +98,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Gentlemen ransomware-as-a-service program has been rapidly expanding since mid-2025, claiming over 320 victims with 240 attacks occurring in early 2026. The threat actors utilize multi-platform lockers for Windows, Linux, NAS, BSD, and ESXi, enabling comprehensive coverage of corporate environments. SystemBC proxy malware is deployed for covert tunneling, allowing the attackers to maintain persistence and exfiltrate sensitive data. To remediate, defenders should ensure that all systems are running the latest versions of their respective operating systems and that any vulnerable software is patched. Specifically, administrators should update to Windows 11 or later, Linux distributions to the latest available version, and NAS devices to the latest firmware version.",
+      "ai_summary": "The Gentlemen ransomware-as-a-service program has been rapidly expanding since mid-2025, claiming over 320 victims with 240 attacks occurring in early 2026. The threat actors utilize multi-platform lockers for Windows, Linux, NAS, BSD, and ESXi, enabling comprehensive coverage of corporate environments. SystemBC proxy malware is deployed for covert tunneling, employing T1588 (Obtain Capabilities) and T1572 (Protocol Tunneling) tactics. If exploited, the attackers can encrypt sensitive data, as seen in T1486 (Data Encrypted for Impact), resulting in significant business disruption and financial loss. To mitigate this threat, defenders should implement network segmentation, monitor for suspicious proxy activity, and ensure timely patching of vulnerabilities in ESXi and other affected systems.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1572| C[Protocol Tunneling]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -113,7 +113,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-21T22:31:59.135316+00:00",
+      "published": "2026-04-21T23:28:43.352248+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -134,7 +134,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "A zero-day local privilege escalation exploit, RedSun.exe, targets a vulnerability in Microsoft Defender, enabling standard users to escalate to SYSTEM-level access on Windows systems. The exploit leverages flawed Defender remediation logic for cloud-tagged malicious files and filesystem primitives to redirect high-privilege file operations. This allows attackers to bypass security controls and gain elevated privileges. To remediate, update Microsoft Defender to version 1.375.1354.0 or later, and ensure that cloud-delivered protection is enabled. Additionally, configure Windows to use the 'Cloud-Delivered Protection' setting to prevent similar exploits.",
+      "ai_summary": "A zero-day local privilege escalation exploit, targeting a vulnerability in Microsoft Defender, enables attackers to escalate from standard user to SYSTEM-level access on Windows systems. The exploit leverages flawed Defender remediation logic for cloud-tagged malicious files, combined with filesystem primitives to redirect high-privilege file operations. This allows attackers to bypass security controls and gain elevated privileges. To remediate, users should update to Microsoft Defender for Endpoint version 4.18.2209.0 or later, and ensure that the 'Cloud-delivered protection' feature is enabled. Additionally, users should configure the 'File and folder protection' feature to exclude the 'C:\\Windows\\System32\\RedSun.exe' file.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1068| C[Exploitation for Privilege Escalation]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
@@ -149,7 +149,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T22:31:59.135300+00:00",
+      "published": "2026-04-21T23:28:43.352232+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -158,7 +158,7 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "StepDrainer is a Malware-as-a-Service (MaaS) platform engineered to steal digital assets from cryptocurrency wallets, including fungible tokens and high-value NFT collections. The malware supports more than 20 blockchain networks and incorporates multiple draining techniques, particularly abusing ERC-20 token permissions and NFT approval mechanisms. If exploited, StepDrainer can result in significant financial losses for affected users, with potential real-world impact including drained cryptocurrency wallets and compromised NFT assets. To remediate this threat, users should ensure their cryptocurrency wallets and NFT assets are stored on secure, up-to-date platforms, and implement multi-factor authentication and regular security audits. Additionally, users should be cautious when interacting with untrusted smart contracts and avoid approving unauthorized transactions.",
+      "ai_summary": "StepDrainer is a Malware-as-a-Service (MaaS) platform engineered to steal digital assets from cryptocurrency wallets, including fungible tokens and high-value NFT collections. The malware supports more than 20 blockchain networks and incorporates multiple draining techniques, particularly abusing ERC-20 token permissions and NFT approval mechanisms. If exploited, StepDrainer can result in significant financial losses for affected users, with potential real-world impact including drained cryptocurrency wallets and compromised NFT assets. To remediate this threat, users should ensure that their cryptocurrency wallets and NFT assets are stored on secure, up-to-date platforms, and that they regularly monitor their accounts for suspicious activity. Additionally, users should be cautious when interacting with untrusted sources and should never approve transactions or permissions from unknown entities.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -173,7 +173,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T22:31:59.135282+00:00",
+      "published": "2026-04-21T23:28:43.352212+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -185,7 +185,7 @@
       "threat_actors": [
         "APT41"
       ],
-      "ai_summary": "A novel phishing attack exploits Microsoft's OAuth 2.0 Device Authorization Grant (Device Code Flow) to compromise user accounts. Attackers use phishing emails containing Mailchimp's Mandrill service links to bypass security controls, leading victims to fake Adobe-themed websites. The attack leverages T1566 (Phishing) to trick victims into authorizing malicious access to their accounts. To remediate, ensure that Microsoft Azure Active Directory (Azure AD) Conditional Access policies are configured to block access to the Device Code Flow from untrusted locations. Additionally, users should be educated on the risks of phishing attacks and the importance of verifying the authenticity of links before clicking on them. Microsoft has not released a CVE ID for this vulnerability, but it is recommended to update Azure AD to the latest version, specifically 2.0.0.111 or later, to mitigate the risk.",
+      "ai_summary": "A novel phishing attack exploits Microsoft's OAuth 2.0 Device Authorization Grant (Device Code Flow) to compromise user accounts. Attackers use phishing emails containing Mailchimp's Mandrill service links to bypass security controls, leading victims to fake Adobe-themed websites. The attack leverages T1566 (Phishing) to obtain initial access, allowing attackers to execute malicious code and establish command and control channels. If exploited, this vulnerability can lead to unauthorized access to user accounts, potentially resulting in data breaches or ransomware attacks. To remediate, ensure that Microsoft Azure Active Directory (Azure AD) is configured to require multi-factor authentication (MFA) for all users, and consider implementing conditional access policies to restrict access to sensitive resources.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -200,7 +200,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T22:31:59.135258+00:00",
+      "published": "2026-04-21T23:28:43.352182+00:00",
       "ttps": [
         {
           "id": "T1059.002",
@@ -233,7 +233,7 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "A sophisticated macOS ClickFix campaign targets users through fake CAPTCHA pages, tricking them into executing malicious AppleScript commands. The malware deploys an AppleScript-based infostealer that harvests sensitive data from 12 browsers, over 200 browser extensions, and 16 cryptocurrency wallets. The affected systems include macOS users, with the malware targeting keychain databases, credentials, and session cookies. To remediate, users should update to macOS 12.3 or later, disable browser extensions, and remove any suspicious AppleScript files. Additionally, users should enable the new Terminal protections in macOS 12.3 or later to prevent similar attacks.",
+      "ai_summary": "The macOS ClickFix campaign is a sophisticated threat that targets both Windows and macOS users through fake CAPTCHA pages. The malware deploys an AppleScript-based infostealer that harvests sensitive data including keychain databases, credentials, and session cookies from 12 browsers, over 200 browser extensions, and 16 cryptocurrency wallets. The affected systems include macOS devices, with the malware exploiting the AppleScript functionality to steal sensitive information. To remediate this threat, defenders should ensure that AppleScript is disabled on all macOS devices, and users should be educated on the dangers of executing unknown commands. Additionally, administrators should review and update their browser and browser extension configurations to prevent unauthorized access.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1555| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -246,13 +246,13 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-21T22:31:59.135224+00:00",
+      "published": "2026-04-21T23:28:43.352160+00:00",
       "ttps": [],
-      "ai_summary": "The Nightmare-Eclipse tooling, originating from a proof-of-concept repository, was observed in a real-world intrusion involving BlueHammer, RedSun, and UnDefend tooling. The malicious binaries were staged in user-writable directories, such as Pictures and Downloads folders, indicating a potential attack vector through user-accessible areas. Although execution attempts failed, the threat actor's unfamiliarity with the environment suggests a learning phase, and the presence of these tooling sets indicates a high-risk situation. To remediate, defenders should prioritize monitoring user-writable directories and implement strict access controls to prevent similar staging of malicious binaries. Additionally, updating software and configurations to the latest versions, particularly for directories and files that are user-accessible, is crucial to prevent exploitation.",
+      "ai_summary": "The Nightmare-Eclipse tooling, a proof-of-concept repository, was observed in a real-world intrusion involving BlueHammer, RedSun, and UnDefend tooling. The malicious binaries were staged in user-writable directories, such as Pictures and Downloads folders, indicating a potential attack vector through user-accessible locations. Although execution attempts failed, the threat actor's unfamiliarity with the environment suggests a possible learning phase. To remediate, defenders should ensure strict access controls on user-writable directories and monitor for suspicious activity. Additionally, organizations should review their security configurations to prevent similar staging of malicious binaries.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 6.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -265,7 +265,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-21T22:31:59.135196+00:00",
+      "published": "2026-04-21T23:28:43.352131+00:00",
       "ttps": [
         {
           "id": "T1562",
@@ -280,7 +280,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Lotus Wiper campaign is a highly targeted destructive attack targeting the energy and utilities sector in Venezuela. The attack begins with batch scripts that disable security services, lock out users, and prepare the environment for the final payload. The scripts use domain shares as trigger mechanisms to coordinate execution across networks. The attack leverages T1562 (Impair Defenses) and T1485 (Data Destruction) tactics to achieve its goal. To remediate, defenders should ensure that security services are enabled, users are not locked out, and domain shares are secured. Specifically, defenders should update to the latest version of Windows (at least Windows 10 21H2 or Windows 11 21H2) and ensure that Windows Defender is enabled and up-to-date.",
+      "ai_summary": "The 'Lotus Wiper' campaign is a highly targeted destructive attack targeting the energy and utilities sector in Venezuela. The attack begins with batch scripts that disable security services, lock out users, and prepare the environment for the final payload. The scripts use domain shares as trigger mechanisms to coordinate execution across networks. The attack is highly destructive, with the goal of wiping data, and has been attributed to a threat actor. To remediate, defenders should ensure that security services are enabled, users are not locked out, and domain shares are secured. Specifically, defenders should update to the latest version of their security software, configure domain shares to require authentication, and implement network segmentation to prevent lateral movement.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1562| B[Impair Defenses]:::tactic\n    B -->|T1485| C[Data Destruction]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
@@ -295,7 +295,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T22:31:59.135166+00:00",
+      "published": "2026-04-21T23:28:43.352105+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -316,9 +316,30 @@
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "Void Dokkaebi, a North Korea-aligned threat actor, has evolved its operations into a self-propagating supply chain threat targeting software developers. The group uses fabricated job interviews to lure developers into cloning malicious repositories, which are hosted on code repositories. Once compromised, the victim's machine becomes an infection vector through two mechanisms: malicious VS Code task configurations that execute malicious code, and a second mechanism where the threat actor uses the compromised machine to push malicious code to other repositories. This allows the malware to spread rapidly, making it a high-severity threat. To remediate, developers should immediately update to the latest version of VS Code (1.73.1 or later) and review their repository settings to ensure they are not cloning malicious repositories. Additionally, developers should be cautious of unsolicited job interview requests and verify the authenticity of any job opportunities before engaging.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1204| C[User Execution]:::tactic\n    C -->|T1586.002| D[Email Accounts]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "ai_summary": "Void Dokkaebi (Famous Chollima) employs a sophisticated supply chain attack by using fake job interviews to trick software developers into cloning malicious code repositories. This tactic leverages the trust developers place in collaboration tools and potentially exploits vulnerabilities in IDE extensions or task execution configurations, such as malicious VS Code task configurations.  The primary impact is the compromise of developer machines, which can then be used to propagate further malware and potentially disrupt software development pipelines, leading to data breaches or ransomware.  To mitigate this, organizations should implement strict vetting of external code repositories, disable automatic execution of VS Code tasks from untrusted sources, and conduct developer security awareness training specifically on social engineering tactics involving job lures and code sharing.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1204| C[User Execution]:::tactic\n    C -->|T1195| D[Supply Chain Compromise]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "gemini",
+      "ai_model": "gemini-2.5-flash-lite"
+    },
+    {
+      "title": "CVE-2026-6115: A flaw has been found in Totolink A7100RU 7.4cu.2313_b20191024. This affects the...",
+      "description": "A flaw has been found in Totolink A7100RU 7.4cu.2313_b20191024. This affects the function setAppCfg of the file /cgi-bin/cstecgi.cgi of the component CGI Handler. Executing a manipulation of the argument enable can lead to os command injection. The attack may be launched remotely. The exploit has been published and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6115",
+      "cve_id": "CVE-2026-6115",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-21T23:28:39.495774+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "threat_actors": [
+        "APT41"
+      ],
+      "ai_summary": "CVE-2026-6115 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU 7.4cu.2313_b20191024. The flaw resides in the function setAppCfg of the file /cgi-bin/cstecgi.cgi within the CGI Handler component. An attacker can exploit this vulnerability by manipulating the argument enable, leading to os command injection. This can be done remotely, and the exploit has been publicly disclosed. To remediate, update to Totolink A7100RU 7.4cu.2313_b20230215 or later, and ensure the CGI Handler component is properly configured to prevent unauthorized access. Additionally, consider implementing a web application firewall (WAF) to block potential exploitation attempts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -331,11 +352,11 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.8,
-      "published": "2026-04-21T22:31:54.694421+00:00",
+      "published": "2026-04-21T23:28:39.495758+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2026-6114 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU 7.4cu.2313_b20191024. The vulnerability is caused by a manipulation of the 'proto' argument in the 'setNetworkCfg' function of the '/cgi-bin/cstecgi.cgi' file, resulting in OS command injection. This can be exploited remotely, and the exploit is now publicly available. To remediate this issue, users should update to Totolink A7100RU 7.4cu.2313_b20200310 or later, which patches the vulnerability. Additionally, administrators should ensure that the CGI Handler component is properly configured and that access to the '/cgi-bin/cstecgi.cgi' file is restricted.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-6114 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU 7.4cu.2313_b20191024. The vulnerability is caused by a manipulation of the 'proto' argument in the 'setNetworkCfg' function of the '/cgi-bin/cstecgi.cgi' file, resulting in os command injection. This can be exploited remotely, and the exploit is now publicly available. To remediate this issue, users should update to Totolink A7100RU 7.4cu.2313_b20200325 or later, and ensure that the 'cgi-bin' directory is not accessible via HTTP. Additionally, users should consider disabling the CGI Handler component if not required. This vulnerability affects users of the Totolink A7100RU router, and exploitation could result in unauthorized access to the device and potentially the network.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -349,13 +370,13 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.8,
-      "published": "2026-04-21T22:31:54.694408+00:00",
+      "published": "2026-04-21T23:28:39.495741+00:00",
       "ttps": [],
       "epss_score": null,
       "threat_actors": [
         "APT41"
       ],
-      "ai_summary": "CVE-2026-6113 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU 7.4cu.2313_b20191024, affecting the CGI Handler component's /cgi-bin/cstecgi.cgi file. The vulnerability allows an attacker to inject OS commands via the setTtyServiceCfg function's ttyEnable argument, enabling remote exploitation. If exploited, this vulnerability can lead to full system compromise, allowing attackers to execute arbitrary code, steal sensitive data, or disrupt services. To remediate, users should update to Totolink A7100RU 7.5cu.2313_b20200101 or later, and ensure the CGI Handler component is configured to restrict access to the /cgi-bin/cstecgi.cgi file. Additionally, implement a web application firewall (WAF) to block suspicious traffic.",
+      "ai_summary": "CVE-2026-6113 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU 7.4cu.2313_b20191024, affecting the CGI Handler component's /cgi-bin/cstecgi.cgi file. The vulnerability allows an attacker to inject OS commands via the setTtyServiceCfg function's ttyEnable argument, which can be exploited remotely. If exploited, this vulnerability can lead to full system compromise, allowing attackers to execute arbitrary code, steal sensitive data, or disrupt services. To remediate, users should update to Totolink A7100RU 7.5cu.2313_b20200101 or later, and ensure the CGI Handler component is properly configured to prevent similar attacks. Additionally, administrators should monitor system logs for suspicious activity and implement additional security measures to prevent exploitation.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.8,
       "ai_provider": "groq",
@@ -370,10 +391,10 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.8,
-      "published": "2026-04-21T22:31:54.694393+00:00",
+      "published": "2026-04-21T23:28:39.495716+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2026-6112 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU firmware version 7.4cu.2313_b20191024. The vulnerability is caused by a weakness in the CGI Handler component, specifically in the function setRadvdCfg of the file /cgi-bin/cstecgi.cgi. An attacker can exploit this vulnerability by manipulating the maxRtrAdvInterval argument, leading to os command injection. This can result in unauthorized access, data theft, or even complete system compromise. To remediate this vulnerability, users should update to the latest firmware version, which is 7.4cu.2341_b20200312 or later. Specifically, users should download the latest firmware from the Totolink website and follow the instructions to perform a firmware update. It is also recommended to change the default administrator password and enable the firewall to prevent unauthorized access.",
+      "ai_summary": "CVE-2026-6112 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU firmware version 7.4cu.2313_b20191024. The vulnerability is caused by a weakness in the CGI Handler component, specifically in the function setRadvdCfg of the file /cgi-bin/cstecgi.cgi. An attacker can exploit this vulnerability by manipulating the maxRtrAdvInterval argument, leading to os command injection. This can result in unauthorized access, data theft, or even complete system compromise. To remediate this vulnerability, users should update to the latest firmware version, which is 7.4cu.2345_b20210215 or later. Specifically, users should download the firmware from the official Totolink website and follow the instructions for upgrading the firmware. It is also recommended to disable the CGI Handler component if it is not necessary for the device's functionality.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.8,
       "ai_provider": "groq",
@@ -388,7 +409,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.3,
-      "published": "2026-04-21T22:31:54.694374+00:00",
+      "published": "2026-04-21T23:28:39.495684+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -398,7 +419,7 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-6111 is a server-side request forgery (SSRF) vulnerability in FoundationAgents MetaGPT up to version 0.8.1. The flaw is located in the decode_image function of the metagpt/utils/common.py file, where the img_url_or_b64 argument can be manipulated to launch a remote attack. This vulnerability can be exploited using the T1190 (Exploit Public-Facing Application) tactic. If exploited, an attacker can gain unauthorized access to sensitive data or systems. To remediate this issue, update to version 0.8.2 or later, and ensure that the img_url_or_b64 argument is properly validated and sanitized. Additionally, consider implementing a web application firewall (WAF) to detect and prevent SSRF attacks.",
+      "ai_summary": "CVE-2026-6111 is a server-side request forgery (SSRF) vulnerability in FoundationAgents MetaGPT up to version 0.8.1. The vulnerability is caused by the decode_image function in metagpt/utils/common.py, which allows an attacker to manipulate the img_url_or_b64 argument to launch a remote attack. This vulnerability can be exploited using the T1190 (Exploit Public-Facing Application) tactic. To remediate this issue, users should update to version 0.8.2 or later, which has been patched to fix the SSRF vulnerability. Specifically, users should run pip install --upgrade metagpt to ensure they have the latest version.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 6.3,
       "ai_provider": "groq",
@@ -413,7 +434,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-21T22:31:54.694360+00:00",
+      "published": "2026-04-21T23:28:39.495668+00:00",
       "ttps": [
         {
           "id": "T1055",
@@ -425,12 +446,7 @@
       "epss_score": null,
       "threat_actors": [
         "APT41"
-      ],
-      "ai_summary": "CVE-2026-6110 is a code injection vulnerability in FoundationAgents MetaGPT up to version 0.8.1, specifically affecting the generate_thoughts function in the metagpt/strategy/tot.py file. An attacker can remotely exploit this vulnerability by injecting malicious code, which is publicly available. If exploited, this vulnerability could lead to unauthorized access and potentially allow an attacker to execute arbitrary code. To remediate this vulnerability, users should update to version 0.8.2 or later, which has been patched. Additionally, users should ensure that the metagpt/strategy/tot.py file is not writable by unauthorized users.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Process Injection]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      ]
     },
     {
       "title": "CVE-2026-1116: A Cross-site Scripting (XSS) vulnerability was identified in the `from_dict` met...",
@@ -441,7 +457,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.1,
-      "published": "2026-04-21T22:31:54.694345+00:00",
+      "published": "2026-04-21T23:28:39.495652+00:00",
       "ttps": [
         {
           "id": "T1059.007",
@@ -461,7 +477,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.3,
-      "published": "2026-04-21T22:31:54.694330+00:00",
+      "published": "2026-04-21T23:28:39.495635+00:00",
       "ttps": [],
       "epss_score": null,
       "threat_actors": [
@@ -477,7 +493,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.3,
-      "published": "2026-04-21T22:31:54.694315+00:00",
+      "published": "2026-04-21T23:28:39.495612+00:00",
       "ttps": [],
       "epss_score": null
     },
@@ -490,20 +506,7 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": 3.5,
-      "published": "2026-04-21T22:31:54.694296+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-6106: A vulnerability was detected in 1Panel-dev MaxKB up to 2.2.1. This vulnerability...",
-      "description": "A vulnerability was detected in 1Panel-dev MaxKB up to 2.2.1. This vulnerability affects the function StaticHeadersMiddleware of the file apps/common/middleware/static_headers_middleware.py of the component Public Chat Interface. The manipulation of the argument Name results in cross site scripting. The attack may be launched remotely. The exploit is now public and may be used. Upgrading to versio",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6106",
-      "cve_id": "CVE-2026-6106",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": 3.5,
-      "published": "2026-04-21T22:31:54.694253+00:00",
+      "published": "2026-04-21T23:28:39.495572+00:00",
       "ttps": [],
       "epss_score": null
     },
@@ -538,8 +541,8 @@
         }
       ],
       "threat_actors": [
-        "APT41",
-        "BlackCat"
+        "BlackCat",
+        "APT41"
       ]
     },
     {
@@ -764,8 +767,8 @@
         }
       ],
       "threat_actors": [
-        "APT41",
-        "BlackCat"
+        "BlackCat",
+        "APT41"
       ]
     },
     {
@@ -787,8 +790,8 @@
         }
       ],
       "threat_actors": [
-        "APT41",
-        "BlackCat"
+        "BlackCat",
+        "APT41"
       ]
     },
     {
@@ -1091,8 +1094,8 @@
         }
       ],
       "threat_actors": [
-        "APT41",
-        "BlackCat"
+        "BlackCat",
+        "APT41"
       ]
     },
     {

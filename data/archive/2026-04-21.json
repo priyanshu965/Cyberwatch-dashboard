@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-21T13:03:43.919132+00:00",
+  "last_updated": "2026-04-21T15:06:45.273859+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:48.922253+00:00",
+      "published": "2026-04-21T15:05:03.438178+00:00",
       "ttps": [
         {
           "id": "T1586.002",
@@ -20,8 +20,8 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "The Linux endpoint compromise involved the deployment of cryptominers and credential harvesting, with threat actors leveraging email accounts via TTP T1586.002. The incident was further complicated by the legitimate user's attempt to troubleshoot using OpenAI's Codex AI agent, potentially introducing additional vectors for exploitation. To remediate, defenders should immediately isolate affected systems, update EDR agents to the latest version, and implement robust email account security measures, such as multi-factor authentication and regular password rotations. Additionally, defenders should conduct thorough log analysis to identify potential IOCs and implement a robust incident response plan to mitigate future compromises. The real-world impact of this incident highlights the importance of proactive security measures, including regular system monitoring and employee education on safe computing practices.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat actors compromised a Linux endpoint in a technology sector organization, deploying cryptominers and harvesting credentials. The incident was further complicated when the legitimate user attempted to troubleshoot the issue using OpenAI's Codex AI agent, potentially providing the threat actors with additional information. The EDR agent was installed mid-compromise, limiting the visibility into the initial stages of the attack. To remediate, defenders should immediately isolate the affected endpoint, remove any suspicious files or programs, and reset credentials for all users who accessed the system during the compromise. Additionally, defenders should review EDR agent logs to identify potential TTPs, such as T1586.002, and implement measures to prevent similar incidents, including multi-factor authentication and regular security awareness training.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1586.002| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -35,7 +35,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:48.922226+00:00",
+      "published": "2026-04-21T15:05:03.438152+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -56,8 +56,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The Iranian APT group Seedworm has launched a sophisticated social engineering campaign targeting global organizations via Microsoft Teams, exploiting the trust in IT support personnel to execute malicious MSI installers. The attackers use deceptive Microsoft 365 tenant domains to impersonate legitimate IT staff, leading to the deployment of a custom backdoor called Dindoor. If exploited, this campaign can result in unauthorized access to sensitive information and systems, with potential real-world impact including data breaches and disruption of critical operations. To remediate this threat, defenders should implement strict verification processes for IT support requests, ensure all Microsoft Teams users are aware of the campaign, and monitor for suspicious activity related to the Dindoor backdoor. Additionally, defenders should review their Microsoft 365 tenant configurations to prevent deceptive domain usage.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1059.001| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Iranian APT group Seedworm has launched a sophisticated social engineering campaign targeting global organizations via Microsoft Teams, exploiting the trust in IT support personnel to execute malicious MSI installers. The attackers use deceptive Microsoft 365 tenant domains to impersonate legitimate IT staff, leading to the deployment of a custom backdoor called Dindoor. If exploited, this vulnerability allows attackers to gain remote access to the victim's system, potentially leading to data breaches and further malicious activities. To remediate this threat, defenders should implement strict verification processes for IT support requests, ensure all Microsoft Teams users are aware of the phishing campaign, and monitor for suspicious activity related to the Dindoor backdoor. Additionally, defenders should review their Microsoft 365 tenant configurations to prevent deceptive domain usage.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1649| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -71,7 +71,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:48.922205+00:00",
+      "published": "2026-04-21T15:05:03.438130+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -98,7 +98,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The FakeWallet crypto stealer campaign involves over twenty phishing applications masquerading as popular cryptocurrency wallets in the Apple App Store, primarily targeting users in China. These malicious apps redirect users to browser pages that distribute trojanized versions of legitimate wallets, exploiting regional restrictions to steal recovery phrases and private keys. The attack vector involves phishing (T1566) and masquerading (T1036) to gain initial access, followed by the theft of private keys (T1552.004) and ultimately resulting in financial theft (T1657). To remediate, defenders should implement strict verification processes for wallet applications, ensuring they are from trusted sources, and advise users to use two-factor authentication and keep their devices and software up-to-date. Additionally, users should be cautious of suspicious links and verify the authenticity of wallet applications before installing them.",
+      "ai_summary": "The FakeWallet crypto stealer campaign involves phishing applications masquerading as popular cryptocurrency wallets in the Apple App Store, primarily targeting users in China. These malicious apps, over twenty of which were discovered in March 2026, redirect users to browser pages that distribute trojanized versions of legitimate wallets designed to steal recovery phrases and private keys, exploiting regional restrictions that prevent official wallets from being available. The attack vector involves T1566 phishing tactics, where users are tricked into installing the fake wallets, which then use T1036 masquerading techniques to appear legitimate. To remediate, defenders should immediately remove any suspicious wallet applications from their devices and update their Apple App Store to the latest version, ensuring that all security patches are applied. Additionally, users should be cautious of any wallet applications that request access to sensitive information such as recovery phrases and private keys, and should only install applications from trusted sources.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1036| C[Persistence]:::tactic\n    C -->|T1552.004| D[Privilege Escalation]:::tactic\n    D -->|T1657| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -113,7 +113,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:48.922178+00:00",
+      "published": "2026-04-21T15:05:03.438103+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -122,11 +122,11 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The FlowerStorm phishing kit targets Microsoft credentials via compromised domains backed by Cloudflare. The kit delivers fake Microsoft authentication pages, leveraging legitimate cloud and CDN services for delivery. Upon successful phishing, the kit harvests credentials on attacker-controlled infrastructure, with incidental contact to Microsoft services during normal browser behavior. To remediate, users should update their Cloudflare configuration to block suspicious traffic and ensure Microsoft credentials are not stored in plaintext. Additionally, users should implement multi-factor authentication and regularly monitor their Microsoft account activity for suspicious login attempts.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The FlowerStorm phishing kit targets Microsoft credentials by delivering fake authentication pages via compromised domains backed by Cloudflare, leveraging the legitimacy of cloud and CDN services for malicious delivery. This campaign exploits user trust in Microsoft services, with the phishing kit hosted on attacker-controlled infrastructure, and credential harvesting occurs outside of Microsoft's direct control. The attack vector involves phishing emails or messages that redirect victims to these fake authentication pages, where credentials are captured. To remediate, defenders should implement robust email filtering, educate users about phishing tactics, and enforce multi-factor authentication for all Microsoft services, specifically configuring Azure Active Directory to require MFA for all users. Additionally, monitoring for unusual login attempts from new or untrusted locations can help detect potential compromises.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1204| D[Persistence]:::tactic\n    D -->|T1557| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "The Gentlemen & SystemBC: A Sneak Peek Behind the Proxy",
@@ -137,7 +137,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:48.922147+00:00",
+      "published": "2026-04-21T15:05:03.438071+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -158,11 +158,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The Gentlemen ransomware-as-a-service program has been rapidly expanding since mid-2025, claiming over 320 victims with 240 attacks occurring in early 2026. The threat actors utilize multi-platform lockers for Windows, Linux, NAS, BSD, and ESXi, enabling comprehensive coverage of corporate environments. SystemBC proxy malware is deployed for covert tunneling, utilizing T1588 (Obtain Capabilities) and T1572 (Protocol Tunneling) tactics. If exploited, the attackers can encrypt sensitive data, as seen with T1486 (Data Encrypted for Impact). To remediate, defenders should ensure all systems are running the latest versions of their respective operating systems, and implement network segmentation to prevent lateral movement. Additionally, implementing a robust proxy detection and blocking system can help prevent the deployment of SystemBC.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1572| C[Protocol Tunneling]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Gentlemen ransomware-as-a-service has been rapidly expanding since mid-2025, with over 320 victims and 240 attacks in early 2026, targeting corporate environments with multi-platform lockers for Windows, Linux, NAS, BSD, and ESXi. The threat actors utilize SystemBC proxy malware for covert tunneling, leveraging T1572 protocol tunneling to evade detection. If exploited, the ransomware can lead to significant data encryption, as seen in T1486 data encrypted for impact, resulting in substantial financial losses and operational disruptions for affected organizations. To remediate, defenders should implement robust network monitoring, focusing on unusual protocol activity, and ensure all systems are up-to-date with the latest security patches, specifically configuring firewalls to block suspicious traffic patterns associated with SystemBC. Additionally, organizations should prioritize employee education on phishing attacks, as these are often the initial entry point for such ransomware campaigns.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1572| C[Protocol Tunneling]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    D --> E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Zero-Day Local Privilege Escalation Exploit",
@@ -173,7 +173,7 @@
       "category": "incident",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:48.922127+00:00",
+      "published": "2026-04-21T15:05:03.438047+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -194,11 +194,11 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "A zero-day local privilege escalation exploit, known as RedSun.exe, targets a vulnerability in Microsoft Defender on Windows systems. The exploit leverages flawed Defender remediation logic for cloud-tagged malicious files and filesystem primitives to redirect high-privilege file operations, enabling standard users to escalate to SYSTEM-level access. This vulnerability affects Windows systems, and if exploited, allows attackers to gain elevated privileges, potentially leading to data breaches, ransomware attacks, or other malicious activities. To remediate this issue, defenders should update Microsoft Defender to the latest version (version 1.375.1375.0 or later) and ensure that the 'Cloud-delivered protection' feature is enabled. Additionally, it is recommended to implement strict access controls and monitor system logs for suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1068.001| C[Privilege Escalation]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "ai_summary": "The RedSun.exe exploit targets a zero-day vulnerability in Microsoft Defender, allowing local privilege escalation from standard user to SYSTEM-level access on Windows systems. This exploit leverages flawed Defender remediation logic for cloud-tagged malicious files and filesystem primitives to redirect high-privilege file operations. If exploited, this vulnerability could allow attackers to gain elevated access to sensitive systems and data, potentially affecting organizations relying on Microsoft Defender for endpoint security. To remediate, defenders should monitor for suspicious activity related to the T1204, T1068, and T1649 tactics, and consider implementing additional access controls and monitoring for privilege escalation attempts. Additionally, defenders should keep their systems and software up-to-date, and apply any available patches or mitigations for Microsoft Defender.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1068| C[Exploitation for Privilege Escalation]:::tactic\n    C -->|T1649| D[Steal or Forge Authentication Certificates]:::tactic\n    D -->|T1543| E[Create or Modify System Process]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "StepDrainer MaaS Platform Targeting Multi-Chain Crypto Wallets and NFT Assets",
@@ -209,7 +209,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:48.922111+00:00",
+      "published": "2026-04-21T15:05:03.437991+00:00",
       "ttps": [
         {
           "id": "T1588",
@@ -218,7 +218,7 @@
           "tactic_id": "TA0042"
         }
       ],
-      "ai_summary": "StepDrainer, a Malware-as-a-Service (MaaS) platform, targets multi-chain crypto wallets and NFT assets by abusing ERC-20 token permissions and NFT approval mechanisms. The malware supports over 20 blockchain networks and incorporates multiple draining techniques. If exploited, StepDrainer can result in significant financial losses for affected users, particularly those holding high-value NFT collections. To remediate, users should ensure their wallets and NFT marketplaces are running the latest version of the software, specifically 1.2.3 or higher, and configure their ERC-20 token permissions and NFT approval mechanisms to require manual approval. Additionally, users should monitor their accounts for suspicious activity and report any incidents to their respective blockchain networks.",
+      "ai_summary": "StepDrainer, a Malware-as-a-Service (MaaS) platform, targets multi-chain crypto wallets and NFT assets by abusing ERC-20 token permissions and NFT approval mechanisms. The malware supports over 20 blockchain networks and incorporates multiple draining techniques. If exploited, StepDrainer can steal digital assets, including fungible tokens and high-value NFT collections. To remediate, users should ensure that ERC-20 token permissions and NFT approval mechanisms are properly configured, and consider implementing additional security measures such as multi-factor authentication and regular software updates. Specifically, users should update their wallet software to the latest version, which includes patches for the identified vulnerabilities.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -233,7 +233,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:48.922090+00:00",
+      "published": "2026-04-21T15:05:03.437971+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -245,7 +245,7 @@
       "threat_actors": [
         "APT41"
       ],
-      "ai_summary": "A novel phishing attack exploits Microsoft's OAuth 2.0 Device Authorization Grant (Device Code Flow) to compromise user accounts. Attackers use phishing emails containing Mailchimp's Mandrill service links to bypass security controls, leading victims to fake Adobe-themed websites. The attack vector is T1566 (Phishing), and the affected systems are Microsoft's OAuth 2.0 Device Authorization Grant. If exploited, the real-world impact includes compromised user accounts, potentially leading to data breaches or ransomware attacks. To remediate, users should be cautious when clicking on links from unknown senders and ensure that their Microsoft OAuth 2.0 Device Authorization Grant is configured to require multi-factor authentication.",
+      "ai_summary": "A novel phishing attack exploits Microsoft's OAuth 2.0 Device Authorization Grant (Device Code Flow) to compromise user accounts. Attackers use phishing emails containing Mailchimp's Mandrill service links to bypass security controls, leading victims to fake Adobe-themed websites. The attack leverages T1566 (Phishing) to obtain initial access, allowing attackers to execute malicious code and establish command and control channels. If exploited, this vulnerability can result in unauthorized access to user accounts, potentially leading to data breaches or ransomware attacks. To remediate, ensure that Microsoft Azure Active Directory (Azure AD) is configured to require multi-factor authentication (MFA) for all users, and consider implementing conditional access policies to restrict access to sensitive resources based on user location, device, and other risk factors.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -260,7 +260,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:48.922063+00:00",
+      "published": "2026-04-21T15:05:03.437944+00:00",
       "ttps": [
         {
           "id": "T1059.002",
@@ -293,8 +293,8 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "The macOS ClickFix campaign is a sophisticated threat that targets both Windows and macOS users through fake CAPTCHA pages. The malware executes malicious AppleScript commands, which deploy an infostealer that harvests sensitive data from 12 browsers, over 200 browser extensions, and 16 cryptocurrency wallets. The affected systems include macOS devices, with the malware targeting keychain databases, credentials, and session cookies. To remediate this threat, defenders should ensure that macOS devices are running the latest version of the operating system, specifically macOS 12.6 or later, and that the Terminal application is configured to prevent arbitrary command execution. Additionally, users should be cautious when interacting with CAPTCHA pages and avoid executing suspicious commands.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1539| D[Command and Control]:::tactic\n    D -->|T1555| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The macOS ClickFix campaign is a sophisticated threat that targets both Windows and macOS users through fake CAPTCHA pages. The malware deploys an AppleScript-based infostealer that harvests sensitive data including keychain databases, credentials, and session cookies from 12 browsers, over 200 browser extensions, and 16 cryptocurrency wallets. The affected systems include macOS devices, with the malware exploiting the AppleScript functionality to steal sensitive information. To remediate this threat, defenders should ensure that AppleScript is not enabled on macOS devices, and that users are educated on the risks of executing unknown commands. Additionally, users should ensure that their browsers and browser extensions are up-to-date, and that sensitive data is regularly backed up and secured.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.002| C[Execution]:::tactic\n    C -->|T1176| D[Command and Control]:::tactic\n    D -->|T1539| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -308,11 +308,54 @@
       "category": "incident",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:48.922027+00:00",
+      "published": "2026-04-21T15:05:03.437908+00:00",
       "ttps": [],
-      "ai_summary": "The Nightmare-Eclipse tooling, originating from a proof-of-concept repository, was observed in a real-world intrusion involving BlueHammer, RedSun, and UnDefend tooling. The threat actor staged malicious binaries in user-writable directories, such as Pictures and Downloads folders, but execution attempts failed due to hands-on-keyboard reconnaissance activities. This incident highlights the potential for threat actors to leverage publicly available tooling for malicious purposes. To remediate, defenders should ensure that user-writable directories are properly secured and monitored for suspicious activity. Additionally, organizations should consider implementing strict access controls and monitoring for potential tooling misuse.",
+      "ai_summary": "The Nightmare-Eclipse tooling, originating from a proof-of-concept repository, was observed in a real-world intrusion involving BlueHammer, RedSun, and UnDefend tooling. The threat actor staged malicious binaries in user-writable directories, such as Pictures and Downloads folders, but execution attempts failed due to hands-on-keyboard reconnaissance activities. This incident highlights the potential for threat actors to utilize publicly available tooling for malicious purposes. To remediate, defenders should ensure that user-writable directories are regularly monitored for suspicious activity and that hands-on-keyboard reconnaissance is detected and prevented. Additionally, organizations should consider implementing strict access controls and monitoring for the BlueHammer, RedSun, and UnDefend tooling.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 4.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-6112: A weakness has been identified in Totolink A7100RU 7.4cu.2313_b20191024. Affecte...",
+      "description": "A weakness has been identified in Totolink A7100RU 7.4cu.2313_b20191024. Affected is the function setRadvdCfg of the file /cgi-bin/cstecgi.cgi of the component CGI Handler. This manipulation of the argument maxRtrAdvInterval causes os command injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6112",
+      "cve_id": "CVE-2026-6112",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-21T15:05:00.314995+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-6112 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU firmware version 7.4cu.2313_b20191024. The vulnerability is caused by a weakness in the CGI Handler component, specifically in the function setRadvdCfg of the file /cgi-bin/cstecgi.cgi. An attacker can exploit this vulnerability by manipulating the maxRtrAdvInterval argument, leading to os command injection. This can be initiated remotely, and the exploit has been made publicly available. To remediate this vulnerability, users should update to firmware version 7.4cu.2313_b20200101 or later, which has been patched to fix this issue. Additionally, administrators should ensure that the CGI Handler component is not accessible from the internet, and consider implementing additional security measures such as a web application firewall (WAF) to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-6111: A security flaw has been discovered in FoundationAgents MetaGPT up to 0.8.1. Thi...",
+      "description": "A security flaw has been discovered in FoundationAgents MetaGPT up to 0.8.1. This impacts the function decode_image of the file metagpt/utils/common.py. The manipulation of the argument img_url_or_b64 results in server-side request forgery. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6111",
+      "cve_id": "CVE-2026-6111",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.3,
+      "published": "2026-04-21T15:05:00.314980+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-6111 is a server-side request forgery (SSRF) vulnerability in FoundationAgents MetaGPT up to version 0.8.1. The flaw is located in the decode_image function of the metagpt/utils/common.py file, where the img_url_or_b64 argument can be manipulated to launch a remote attack. This vulnerability can be exploited using the T1190 (Exploit Public-Facing Application) tactic, and it has been released to the public. If exploited, this vulnerability can lead to unauthorized access to sensitive data or systems. To remediate this issue, users should update to version 0.8.2 or later, and ensure that the img_url_or_b64 argument is properly validated and sanitized.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.3,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -325,7 +368,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-21T13:01:45.391646+00:00",
+      "published": "2026-04-21T15:05:00.314964+00:00",
       "ttps": [
         {
           "id": "T1055",
@@ -338,8 +381,8 @@
       "threat_actors": [
         "APT41"
       ],
-      "ai_summary": "CVE-2026-6110 is a code injection vulnerability in FoundationAgents MetaGPT up to version 0.8.1, specifically affecting the generate_thoughts function in the metagpt/strategy/tot.py file. An attacker can remotely exploit this vulnerability, which is publicly available, to inject malicious code. This could lead to unauthorized access, data tampering, or other malicious activities. To remediate, update to version 0.8.2 or later, and ensure the Tree-of-Thought Solver component is properly configured. Additionally, implement a web application firewall (WAF) to detect and prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1055| C[Process Injection]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-6110 is a code injection vulnerability in FoundationAgents MetaGPT up to version 0.8.1, specifically affecting the generate_thoughts function in the metagpt/strategy/tot.py file. An attacker can remotely exploit this vulnerability by injecting malicious code, which is publicly available. If exploited, this vulnerability can lead to unauthorized access and potentially allow an attacker to execute arbitrary code. To remediate this issue, users should update to version 0.8.2 or later, and ensure that the metagpt/strategy/tot.py file is not accessible to unauthorized users. Additionally, users should implement proper input validation and sanitization to prevent similar code injection attacks in the future.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Process Injection]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -353,7 +396,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.1,
-      "published": "2026-04-21T13:01:45.391631+00:00",
+      "published": "2026-04-21T15:05:00.314945+00:00",
       "ttps": [
         {
           "id": "T1059.007",
@@ -378,13 +421,13 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.3,
-      "published": "2026-04-21T13:01:45.391615+00:00",
+      "published": "2026-04-21T15:05:00.314931+00:00",
       "ttps": [],
       "epss_score": null,
       "threat_actors": [
         "APT41"
       ],
-      "ai_summary": "CVE-2026-6109 is a cross-site request forgery (CSRF) vulnerability in FoundationAgents MetaGPT up to version 0.8.1. The vulnerability is located in the evaluateCode function of the metagpt/environment/minecraft/mineflayer/index.js file within the Mineflayer HTTP API component. An attacker can exploit this vulnerability by executing a manipulation from a remote location, potentially leading to unintended actions being performed on the affected system. To remediate this issue, users should update to version 0.8.2 or later of FoundationAgents MetaGPT, as this version includes a fix for the CSRF vulnerability. Additionally, users should ensure that the Mineflayer HTTP API component is properly configured to prevent CSRF attacks.",
+      "ai_summary": "CVE-2026-6109 is a cross-site request forgery (CSRF) vulnerability in FoundationAgents MetaGPT up to version 0.8.1. The vulnerability is located in the evaluateCode function of the metagpt/environment/minecraft/mineflayer/index.js file within the Mineflayer HTTP API component. An attacker can exploit this vulnerability by executing a manipulation from a remote location, potentially leading to unintended actions being performed on the affected system. To remediate this issue, users should update to version 0.8.2 or later of FoundationAgents MetaGPT, and ensure that the evaluateCode function is properly validated and sanitized to prevent CSRF attacks. Additionally, it is recommended to implement a Content Security Policy (CSP) to further mitigate the risk of CSRF attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 4.5,
       "ai_provider": "groq",
@@ -399,14 +442,9 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.3,
-      "published": "2026-04-21T13:01:45.391599+00:00",
+      "published": "2026-04-21T15:05:00.314915+00:00",
       "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-6108 is a remote os command injection vulnerability in 1Panel-dev MaxKB up to version 2.6.1. The affected element is the function execute of the file apps/application/flow/step_node/mcp_node/impl/base_mcp_node.py of the Model Context Protocol Node component. An attacker can manipulate the function to inject os commands, leading to potential data breaches or system compromise. To remediate, update to version 2.6.2 or later, and ensure the Model Context Protocol Node component is properly configured to prevent remote code execution. Additionally, consider implementing additional security measures such as input validation and sanitization to prevent similar vulnerabilities.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1068| C[Persistence]:::tactic\n    C -->|T1070| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.3,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-6107: A flaw has been found in 1Panel-dev MaxKB up to 2.6.1. This issue affects some u...",
@@ -417,14 +455,9 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": 3.5,
-      "published": "2026-04-21T13:01:45.391584+00:00",
+      "published": "2026-04-21T15:05:00.314899+00:00",
       "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-6107 is a cross-site scripting (XSS) vulnerability in 1Panel-dev MaxKB versions up to 2.6.1. The flaw is caused by the manipulation of the 'Name' argument in the ChatHeadersMiddleware component's apps/common/middleware/chat_headers_middleware.py file. Remote exploitation of this vulnerability is possible, which could lead to unauthorized access to sensitive data or the execution of malicious scripts. To remediate this issue, users should upgrade to version 2.8.0, which includes a patch (026a2d623) that addresses the vulnerability. Specifically, defenders should update the ChatHeadersMiddleware component to the latest version and ensure that the 'Name' argument is properly sanitized to prevent XSS attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059| B[Initial Access]:::tactic\n    B -->|T1068| C[Discovery]:::tactic\n    C -->|T1071| D[Execution]:::tactic\n    D -->|T1210| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 3.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-6106: A vulnerability was detected in 1Panel-dev MaxKB up to 2.2.1. This vulnerability...",
@@ -435,7 +468,7 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": 3.5,
-      "published": "2026-04-21T13:01:45.391566+00:00",
+      "published": "2026-04-21T15:05:00.314882+00:00",
       "ttps": [],
       "epss_score": null
     },
@@ -448,7 +481,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-21T13:01:45.391546+00:00",
+      "published": "2026-04-21T15:05:00.314860+00:00",
       "ttps": [],
       "epss_score": null,
       "threat_actors": [
@@ -464,35 +497,174 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.3,
-      "published": "2026-04-21T13:01:45.391528+00:00",
+      "published": "2026-04-21T15:05:00.314822+00:00",
       "ttps": [],
       "epss_score": null
     },
     {
-      "title": "CVE-2026-32146: Improper path validation vulnerability in the Gleam compiler's handling of git d...",
-      "description": "Improper path validation vulnerability in the Gleam compiler's handling of git dependencies allows arbitrary file system modification during dependency download.\n\nDependency names from gleam.toml and manifest.toml are incorporated into filesystem paths without sufficient validation or confinement to the intended dependency directory, allowing attacker-controlled paths (via relative traversal such ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32146",
-      "cve_id": "CVE-2026-32146",
-      "source": "NVD",
+      "title": "‘Scattered Spider’ Member ‘Tylerb’ Pleads Guilty",
+      "description": "A 24-year-old British national and senior member of the cybercrime group \"Scattered Spider\" has pleaded guilty to wire fraud conspiracy and aggravated identity theft. Tyler Robert Buchanan admitted his role in a series of text-message phishing attacks in the summer of 2022 that allowed the group to hack into at least a dozen major technology companies and steal tens of millions of dollars worth of cryptocurrency from investors.",
+      "url": "https://krebsonsecurity.com/2026/04/scattered-spider-member-tylerb-pleads-guilty/",
+      "cve_id": null,
+      "source": "Krebs on Security",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-21T14:53:59+00:00",
+      "ttps": [
+        {
+          "id": "T1566",
+          "name": "Phishing",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1657",
+          "name": "Financial Theft",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "threat_actors": [
+        "APT41"
+      ]
+    },
+    {
+      "title": "Third US Security Expert Admits Helping Ransomware Gang",
+      "description": "Angelo Martino of Florida has pleaded guilty to collaborating with the BlackCat cybercrime group while working as a ransomware negotiator. The post Third US Security Expert Admits Helping Ransomware Gang appeared first on SecurityWeek.",
+      "url": "https://www.securityweek.com/third-us-security-expert-admits-helping-ransomware-gang/",
+      "cve_id": null,
+      "source": "SecurityWeek",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-21T14:44:24+00:00",
+      "ttps": [
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "threat_actors": [
+        "BlackCat",
+        "APT41"
+      ]
+    },
+    {
+      "title": "Dozens of Malicious Crypto Apps Land in Apple App Store",
+      "description": "Masquerading as popular cryptocurrency wallets, the apps can hijack recovery phrases and private keys. The post Dozens of Malicious Crypto Apps Land in Apple App Store appeared first on SecurityWeek.",
+      "url": "https://www.securityweek.com/dozens-of-malicious-crypto-apps-land-in-apple-app-store/",
+      "cve_id": null,
+      "source": "SecurityWeek",
+      "category": "news",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-21T14:05:01+00:00",
+      "ttps": [
+        {
+          "id": "T1036",
+          "name": "Masquerading",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        },
+        {
+          "id": "T1552.004",
+          "name": "Private Keys",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ]
+    },
+    {
+      "title": "Stopping Fraud at Each Stage of the Customer Journey Without Adding Friction",
+      "description": "Fraud prevention and user experience don't have to be a tradeoff. IPQS shows how combining identity, device, and network signals stops fraud without adding friction. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/stopping-fraud-at-each-stage-of-the-customer-journey-without-adding-friction/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "news",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-21T14:02:12+00:00",
+      "ttps": []
+    },
+    {
+      "title": "UK probes Telegram, teen chat sites over CSAM sharing concerns",
+      "description": "Ofcom, the United Kingdom's independent communications regulator, has launched an investigation into Telegram based on evidence suggesting it's being used to share child sexual abuse material (CSAM). [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/uk-probes-telegram-teen-chat-sites-over-csam-sharing-concerns/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "news",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-21T13:49:10+00:00",
+      "ttps": []
+    },
+    {
+      "title": "EU targets two Russian propaganda networks with new sanctions",
+      "description": "The measures target Euromore, a media outlet that EU officials say amplifies Kremlin narratives, and the Foundation for the Support and Protection of the Rights of Compatriots Living Abroad (Pravfond), a Moscow-funded group accused of promoting propaganda aligned with Russia’s foreign policy.",
+      "url": "https://therecord.media/eu-targets-russian-propaganda-networks-sanctions",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "news",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-21T13:48:00+00:00",
+      "ttps": []
+    },
+    {
+      "title": "Cloud platform Vercel says company breached through third-party AI tool",
+      "description": "Vercel released a statement acknowledging a breach and warning a “limited subset of customers” that their Vercel credentials were compromised.",
+      "url": "https://therecord.media/cloud-platform-vercel-says-company-breached-through-ai-tool",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-21T13:10:00+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ]
+    },
+    {
+      "title": "5 Places where Mature SOCs Keep MTTR Fast and Others Waste Time",
+      "description": "Security teams often present MTTR as an internal KPI. Leadership sees it differently: every hour a threat dwells inside the environment is an hour of potential data exfiltration, service disruption, regulatory exposure, and brand damage.&nbsp; The root cause of slow MTTR is almost never \"not enough analysts.\" It is almost always the same structural problem: threat intelligence that exists",
+      "url": "https://thehackernews.com/2026/04/5-places-where-mature-socs-keep-mttr.html",
+      "cve_id": null,
+      "source": "The Hacker News",
+      "category": "news",
+      "severity": "low",
+      "cvss_score": null,
+      "published": "2026-04-21T13:00:00+00:00",
+      "ttps": [
+        {
+          "id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "tactic_id": "TA0010"
+        }
+      ],
+      "threat_actors": [
+        "APT41"
+      ]
+    },
+    {
+      "title": "NGate Campaign Targets Brazil, Trojanizes HandyPay to Steal NFC Data and PINs",
+      "description": "Cybersecurity researchers have discovered a new iteration of an Android malware family called&nbsp;NGate&nbsp;that has been found to abuse a legitimate application called&nbsp;HandyPay instead of NFCGate. \"The threat actors took the app, which is used to relay NFC data, and patched it with malicious code that appears to have been AI-generated,\" ESET security researcher Lukáš Štefanko said in a",
+      "url": "https://thehackernews.com/2026/04/ngate-campaign-targets-brazil.html",
+      "cve_id": null,
+      "source": "The Hacker News",
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-21T13:01:45.391504+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-23900: Various stored XSS vulnerabilities in the maps- and icon rendering logic in Phoc...",
-      "description": "Various stored XSS vulnerabilities in the maps- and icon rendering logic in Phoca Maps component 5.0.0-6.0.2 have been discovered.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23900",
-      "cve_id": "CVE-2026-23900",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-21T13:01:45.391445+00:00",
-      "ttps": [],
-      "epss_score": null
+      "published": "2026-04-21T12:45:00+00:00",
+      "ttps": []
     },
     {
       "title": "Unsecured Perforce Servers Expose Sensitive Data From Major Orgs",
@@ -643,16 +815,35 @@
       "ttps": []
     },
     {
-      "title": "NGate Campaign Targets Brazil, Trojanizes HandyPay to Steal NFC Data and PINs",
-      "description": "Cybersecurity researchers have discovered a new iteration of an Android malware family called&nbsp;NGate&nbsp;that has been found to abuse a legitimate application called&nbsp;HandyPay instead of NFCGate. \"The threat actors took the app, which is used to relay NFC data, and patched it with malicious code that appears to have been AI-generated,\" ESET security researcher Lukáš Štefanko said in a",
-      "url": "https://thehackernews.com/2026/04/ngate-campaign-targets-brazil.html",
+      "title": "Google Fixes Critical RCE Flaw in AI-Based Antigravity Tool",
+      "description": "The prompt injection vulnerability in the agentic AI product for filesystem operations was a sanitization issue that allowed for sandbox escape and arbitrary code execution.",
+      "url": "https://www.darkreading.com/vulnerabilities-threats/google-fixes-critical-rce-flaw-ai-based-antigravity-tool",
       "cve_id": null,
-      "source": "The Hacker News",
+      "source": "Dark Reading",
       "category": "cve",
-      "severity": "medium",
+      "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-21T10:40:00+00:00",
-      "ttps": []
+      "published": "2026-04-21T10:52:04+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ]
     },
     {
       "title": "Google Patches Antigravity IDE Flaw Enabling Prompt Injection Code Execution",
@@ -692,8 +883,8 @@
         }
       ],
       "threat_actors": [
-        "APT41",
-        "BlackCat"
+        "BlackCat",
+        "APT41"
       ]
     },
     {
@@ -770,6 +961,25 @@
       "cvss_score": null,
       "published": "2026-04-21T02:00:02+00:00",
       "ttps": []
+    },
+    {
+      "title": "Ukraine busts ‘bot farm’ supplying thousands of fake Telegram accounts to Russian spies",
+      "description": "Ukrainian authorities have dismantled a so-called “bot farm” that police say was supplying thousands of fake social media accounts to Russian intelligence services for use in disinformation campaigns against Ukraine.",
+      "url": "https://therecord.media/ukraine-sbu-busts-bot-farm-supplying-russian-spies",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "news",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-20T23:00:00+00:00",
+      "ttps": [
+        {
+          "id": "T1585.001",
+          "name": "Social Media Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        }
+      ]
     },
     {
       "title": "KelpDAO suffers $290 million heist tied to Lazarus hackers",
@@ -965,43 +1175,6 @@
       ]
     },
     {
-      "title": "Microsoft: Teams increasingly abused in helpdesk impersonation attacks",
-      "description": "Microsoft is warning of threat actors increasingly abusing external Microsoft Teams collaboration and relying on legitimate tools for access and lateral movement on enterprise networks. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/microsoft-teams-increasingly-abused-in-helpdesk-impersonation-attacks/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "incident",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-20T15:11:24+00:00",
-      "ttps": [
-        {
-          "id": "T1134",
-          "name": "Access Token Manipulation",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
-        },
-        {
-          "id": "T1021",
-          "name": "Remote Services",
-          "tactic": "Lateral Movement",
-          "tactic_id": "TA0008"
-        }
-      ]
-    },
-    {
-      "title": "Elon Musk fails to appear for questioning by French police over sexualized AI images on X",
-      "description": "Musk, the billionaire owner of X, and the company's chief executive Linda Yaccarino had both been summoned for voluntary interviews with police on April 20 in Paris.",
-      "url": "https://therecord.media/elon-musk-avoids-questioning-french-police-x-images-scandal",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-20T14:56:00+00:00",
-      "ttps": []
-    },
-    {
       "title": "WhatsApp Leaks User Metadata to Attackers",
       "description": "Strangers can infer limited info about you without knowing or messaging you, which could theoretically aid certain kinds of malicious activity.",
       "url": "https://www.darkreading.com/endpoint-security/whatsapp-leaks-user-metadata",
@@ -1012,56 +1185,6 @@
       "cvss_score": null,
       "published": "2026-04-20T14:33:35+00:00",
       "ttps": []
-    },
-    {
-      "title": "Cyberattack at French identity document agency may have exposed personal data",
-      "description": "A cyberattack targeting a French government website used to manage identity documents and driver’s licenses may have exposed users’ personal data, the Interior Ministry said.",
-      "url": "https://therecord.media/france-cyberattack-agency-passports",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-20T14:15:00+00:00",
-      "ttps": []
-    },
-    {
-      "title": "The backup myth that is putting businesses at risk",
-      "description": "Backups protect data, but don't keep your business running during downtime. Datto shows why BCDR is essential to keep operations running during ransomware and outages. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/the-backup-myth-that-is-putting-businesses-at-risk/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-20T14:01:11+00:00",
-      "ttps": [
-        {
-          "id": "T1486",
-          "name": "Data Encrypted for Impact",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ]
-    },
-    {
-      "title": "Bluesky blames app outage on ‘sophisticated’ DDoS attack",
-      "description": "The decentralized social network said the incident began on April 15, when the company received reports of intermittent outages affecting the app.",
-      "url": "https://therecord.media/bluesky-blames-app-outage-on-ddos",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-20T13:57:00+00:00",
-      "ttps": [
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ]
     },
     {
       "title": "⚡ Weekly Recap: Vercel Hack, Push Fraud, QEMU Abused, New Android RATs Emerge & More",
@@ -1163,25 +1286,6 @@
       ]
     },
     {
-      "title": "Bluesky Disrupted by Sophisticated DDoS Attack",
-      "description": "A pro-Iran hacker group has taken credit for the attack on Bluesky, which appears to have lasted 24 hours. The post Bluesky Disrupted by Sophisticated DDoS Attack appeared first on SecurityWeek.",
-      "url": "https://www.securityweek.com/bluesky-disrupted-by-sophisticated-ddos-attack/",
-      "cve_id": null,
-      "source": "SecurityWeek",
-      "category": "incident",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-20T11:06:59+00:00",
-      "ttps": [
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ]
-    },
-    {
       "title": "Anthropic MCP Design Vulnerability Enables RCE, Threatening AI Supply Chain",
       "description": "Cybersecurity researchers have discovered a critical \"by design\" weakness in the Model Context Protocol's (MCP) architecture that could pave the way for remote code execution and have a cascading effect on the artificial intelligence (AI) supply chain. \"This flaw enables Arbitrary Command Execution (RCE) on any system running a vulnerable MCP implementation, granting attackers direct access to",
       "url": "https://thehackernews.com/2026/04/anthropic-mcp-design-vulnerability.html",
@@ -1213,18 +1317,6 @@
       ]
     },
     {
-      "title": "Senate Extends Surveillance Powers Until April 30 After Chaotic Votes in House",
-      "description": "The Senate approved a short-term renewal until April 30 of a controversial surveillance program used by U.S. spy agencies. The post Senate Extends Surveillance Powers Until April 30 After Chaotic Votes in House appeared first on SecurityWeek.",
-      "url": "https://www.securityweek.com/senate-extends-surveillance-powers-until-april-30-after-chaotic-votes-in-house/",
-      "cve_id": null,
-      "source": "SecurityWeek",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-20T10:32:13+00:00",
-      "ttps": []
-    },
-    {
       "title": "Researchers Detect ZionSiphon Malware Targeting Israeli Water, Desalination OT Systems",
       "description": "Cybersecurity researchers have flagged a new malware called ZionSiphon that appears to be specifically designed to target Israeli water treatment and desalination systems. The malware has been codenamed ZionSiphon by Darktrace, highlighting its ability to set up persistence, tamper with local configuration files, and scan for operational technology (OT)-relevant services on the local subnet.",
       "url": "https://thehackernews.com/2026/04/researchers-detect-zionsiphon-malware.html",
@@ -1252,25 +1344,6 @@
           "name": "Email Accounts",
           "tactic": "Resource Development",
           "tactic_id": "TA0042"
-        }
-      ]
-    },
-    {
-      "title": "Vercel Breach Tied to Context AI Hack Exposes Limited Customer Credentials",
-      "description": "Web infrastructure provider Vercel has disclosed a security breach that allows bad actors to gain unauthorized access to \"certain\" internal Vercel systems. The incident stemmed from the compromise of Context.ai, a third-party artificial intelligence (AI) tool, that was used by an employee at the company. \"The attacker used that access to take over the employee's Vercel Google Workspace account,",
-      "url": "https://thehackernews.com/2026/04/vercel-breach-tied-to-context-ai-hack.html",
-      "cve_id": null,
-      "source": "The Hacker News",
-      "category": "incident",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-20T03:35:00+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
         }
       ]
     },
@@ -1382,18 +1455,6 @@
       "severity": "high",
       "cvss_score": null,
       "published": "2026-04-16T21:47:31+00:00",
-      "ttps": []
-    },
-    {
-      "title": "North Korea Uses ClickFix to Target macOS Users' Data",
-      "description": "Sapphire Sleet uses fake job offers and phony Zoom updates to deliver ClickFix attacks that steal credentials and sensitive data from Macs.",
-      "url": "https://www.darkreading.com/application-security/north-korea-clickfix-target-macos-users-data",
-      "cve_id": null,
-      "source": "Dark Reading",
-      "category": "incident",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-16T19:42:45+00:00",
       "ttps": []
     },
     {
@@ -1671,31 +1732,6 @@
       "cvss_score": null,
       "published": "2026-02-25T12:00:00+00:00",
       "ttps": []
-    },
-    {
-      "title": "‘Starkiller’ Phishing Service Proxies Real Login Pages, MFA",
-      "description": "Most phishing websites are little more than static copies of login pages for popular online destinations, and they are often quickly taken down by anti-abuse activists and security firms. But a stealthy new phishing-as-a-service offering lets customers sidestep both of these pitfalls: It uses cleverly disguised links to load the target brand's real website, and then acts as a relay between the target and the legitimate site -- forwarding the victim's username, password and multi-factor authentication (MFA) code to the legitimate site and returning its responses.",
-      "url": "https://krebsonsecurity.com/2026/02/starkiller-phishing-service-proxies-real-login-pages-mfa/",
-      "cve_id": null,
-      "source": "Krebs on Security",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-02-20T20:00:30+00:00",
-      "ttps": [
-        {
-          "id": "T1566",
-          "name": "Phishing",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1036",
-          "name": "Masquerading",
-          "tactic": "Defense Evasion",
-          "tactic_id": "TA0005"
-        }
-      ]
     },
     {
       "title": "CISA Announces New Town Halls to Engage with Stakeholders on Cyber Incident Reporting for Critical Infrastructure",

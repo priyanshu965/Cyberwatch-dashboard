@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-22T20:08:56.683640+00:00",
+  "last_updated": "2026-04-22T21:44:34.938091+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-22T20:06:49.156244+00:00",
+      "published": "2026-04-22T21:42:48.187241+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -20,7 +20,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The March 2026 Phishing Email Trends Report highlights a significant shift in threat actor tactics, with trojans making up 21% of attachment-based threats and a notable decrease in phishing attacks using fake pages from 42% to 15% month-over-month. Script-based malware has seen a substantial increase, with HTML at 14% and JavaScript at 11%, indicating a potential rise in exploit kits leveraging these formats. To mitigate these threats, defenders should implement robust email filtering solutions, ensuring they can detect and block malicious attachments, particularly those using compressed files like ZIP, RAR, and 7Z, and document-based threats utilizing PDF, XLS, and DOCX files. Specific remediation steps include updating email clients to the latest versions, such as Microsoft Outlook 2022 or later, and configuring them to block macros from running in documents from untrusted sources. Additionally, educating users about the dangers of phishing emails and the importance of verifying the authenticity of emails before interacting with attachments or links is crucial.",
+      "ai_summary": "The March 2026 Phishing Email Trends Report highlights a significant shift in threat actor tactics, with trojans accounting for 21% of attachment-based threats. Phishing attacks using fake pages decreased from 42% to 15% month-over-month, while script-based malware saw a notable increase, with HTML and JavaScript representing 14% and 11% of threats, respectively. To mitigate these threats, defenders should implement robust email filtering solutions, such as those that can detect and block malicious attachments and URLs, and ensure that employees are educated on how to identify and report suspicious emails. Additionally, organizations should consider implementing a security awareness training program to educate employees on the risks associated with phishing and other social engineering attacks. By taking these steps, defenders can reduce the risk of falling victim to these types of attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 6.5,
       "ai_provider": "groq",
@@ -35,7 +35,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-22T20:06:49.156221+00:00",
+      "published": "2026-04-22T21:42:48.187207+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -44,9 +44,9 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "The newly discovered NGate malware variant targets Android users in Brazil by trojanizing the legitimate HandyPay NFC payment application, likely using AI-generated code. This allows threat actors to relay NFC data from victims' payment cards to attacker-controlled devices, enabling unauthorized ATM withdrawals and payments. The malware also captures and exfiltrates sensitive information, with the attack vector being the installation of the compromised HandyPay app. To remediate, users should uninstall the HandyPay app and install a reputable NFC payment application, ensuring to verify the authenticity of the app through the official app store and checking for updates, such as version 3.4.1 or later, which may include security patches. Additionally, users should monitor their account activity and report any suspicious transactions to their bank.",
+      "ai_summary": "The newly discovered NGate malware variant targets Android users in Brazil by trojanizing the legitimate HandyPay NFC payment application, likely using AI-generated code. This allows threat actors to relay NFC data from victims' payment cards to attacker-controlled devices, enabling unauthorized ATM withdrawals and payments. The malware also captures and exfiltrates sensitive information, with the attack vector being the installation of the compromised HandyPay app. To remediate, users should uninstall the HandyPay app and install a reputable antivirus solution, such as ESET Mobile Security, to detect and remove the malware. Additionally, users should monitor their bank statements for suspicious transactions and consider using two-factor authentication for added security.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Exfiltration]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -59,13 +59,13 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-22T20:06:49.156200+00:00",
+      "published": "2026-04-22T21:42:48.187184+00:00",
       "ttps": [],
       "threat_actors": [
-        "APT38",
-        "Lazarus"
+        "Lazarus",
+        "APT38"
       ],
-      "ai_summary": "The Mach-O Man malware, attributed to the Lazarus Group, targets macOS systems through a sophisticated social engineering campaign. The attack vector involves fake meeting invitations sent via Telegram, redirecting victims to fake collaboration platforms that mimic popular services like Zoom, Microsoft Teams, or Google Meet. Once on these platforms, victims are tricked into executing specific terminal commands, which lead to the installation of the malware. To mitigate this threat, defenders should educate users about the risks of executing unsolicited terminal commands and ensure that all macOS systems are updated to the latest version, with specific attention to securing collaboration and communication tools. Additionally, implementing robust email and messaging filters can help block the initial phishing attempts, and regularly monitoring system logs for suspicious activity can aid in early detection.",
+      "ai_summary": "The Mach-O Man malware, attributed to the Lazarus Group, targets macOS systems through a sophisticated social engineering campaign. The attack vector involves fake meeting invitations sent via Telegram, redirecting victims to fake collaboration platforms that mimic popular services like Zoom, Microsoft Teams, or Google Meet. Once on these platforms, victims are tricked into executing specific terminal commands, potentially leading to the installation of the Mach-O Man malware kit. To mitigate this threat, defenders should educate users about the risks of executing unsolicited terminal commands and ensure that all macOS systems are updated to the latest version, with specific attention to securing collaboration and communication tools. Additionally, implementing robust email and messaging filters can help block initial phishing attempts, and regularly monitoring system logs for suspicious activity can aid in early detection.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1204| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -80,13 +80,13 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-22T20:06:49.156173+00:00",
+      "published": "2026-04-22T21:42:48.187158+00:00",
       "ttps": [],
-      "ai_summary": "A Russian-speaking financially motivated threat actor exploited exposed management ports and weak credentials with single-factor authentication on over 600 FortiGate devices across 55 countries between January and February 2026. The actor leveraged multiple commercial generative AI services throughout the campaign, demonstrating AI-augmented threat actor capabilities. The compromised devices were accessed at scale, highlighting the potential for widespread impact. To remediate, administrators should ensure that management ports are secured, implement multi-factor authentication, and consider implementing AI-powered threat detection tools. Specifically, administrators should update FortiGate devices to version 7.2.2 or later and configure the devices to use secure authentication protocols.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The threat actor, leveraging commercial generative AI services, exploited exposed management ports and weak credentials on FortiGate devices to gain unauthorized access. The campaign, which occurred between January and February 2026, affected over 600 devices across more than 55 countries, highlighting the importance of robust security measures. To mitigate this threat, defenders should immediately disable single-factor authentication and enable multi-factor authentication for all FortiGate devices, ensuring that strong passwords and secure protocols are in place. Additionally, defenders should restrict access to management ports and implement a robust monitoring system to detect suspicious activity. By taking these specific remediation steps, defenders can significantly reduce the risk of similar attacks in the future.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1078| C[Privilege Escalation]:::tactic\n    C -->|T1021| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Same packet, different magic: Hits India's banking sector and Korea geopolitics",
@@ -97,7 +97,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-22T20:06:49.156141+00:00",
+      "published": "2026-04-22T21:42:48.187132+00:00",
       "ttps": [
         {
           "id": "T1059.007",
@@ -124,7 +124,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "A new variant of the LOTUSLITE backdoor, version 1.1, has been identified targeting India's banking sector and South Korean diplomatic circles. The backdoor is delivered via DLL sideloading using legitimate Microsoft-signed executables and initially through CHM files containing malicious JavaScript. This attack vector leverages T1059.007 (JavaScript) and T1574.002 (DLL Side-Loading) tactics. If exploited, the backdoor allows remote attackers to execute arbitrary code and communicate with dynamic DNS-based command-and-control servers over HTTPS, supporting remote shell access via T1071 (Application Layer Protocol) and T1219 (Remote Access Software). To remediate, users should ensure that Microsoft-signed executables are kept up-to-date, specifically version 1.1 or later, and block CHM files from executing, as they are used to deliver the backdoor.",
+      "ai_summary": "A new variant of the LOTUSLITE backdoor, version 1.1, has been identified targeting India's banking sector and South Korean diplomatic circles. The backdoor is delivered via DLL sideloading using legitimate Microsoft-signed executables and initially through CHM files containing malicious JavaScript. The attack vector involves using JavaScript (T1059.007) to sideload malicious DLLs (T1574.002) via legitimate Microsoft-signed executables. If exploited, the backdoor allows remote attackers to access sensitive information and potentially disrupt critical infrastructure. To remediate, users should update to the latest version of Microsoft Office and ensure that all Microsoft-signed executables are up-to-date, and also block CHM files from executing.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1574.002| B[Execution]:::tactic\n    B -->|T1059.007| C[Command and Control]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1219| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -139,7 +139,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-22T20:06:49.156109+00:00",
+      "published": "2026-04-22T21:42:48.187105+00:00",
       "ttps": [
         {
           "id": "T1574.002",
@@ -166,8 +166,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "FudCrypt is a Cryptor-as-a-Service platform that offers subscription-based malware obfuscation for $800 to $2,000 monthly. The service wraps customer payloads in multi-stage deployment packages featuring DLL sideloading, AMSI and ETW interference, silent UAC elevation via CMSTPLUA, and Windows Defender tampering through Group Policy. This allows threat actors to evade detection and maintain persistence on compromised systems. To remediate, administrators should ensure that Windows Defender is configured to block DLL sideloading and that Group Policy is set to prevent Windows Defender tampering. Additionally, systems should be updated to the latest version of Windows and all software should be patched to prevent exploitation of known vulnerabilities.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1574.002| B[Initial Access]:::tactic\n    B -->|T1068| C[Privilege Escalation]:::tactic\n    C -->|T1027| D[Persistence]:::tactic\n    D -->|T1104| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "FudCrypt is a Cryptor-as-a-Service platform that offers subscription-based malware obfuscation for $800 to $2,000 monthly. The service wraps customer payloads in multi-stage deployment packages featuring DLL sideloading, AMSI and ETW interference, silent UAC elevation via CMSTPLUA, and Windows Defender tampering through Group Policy. This allows threat actors to evade detection and execute malicious code on compromised systems. To remediate, administrators should ensure that Windows Defender is configured to block DLL sideloading and that Group Policy is set to prevent Windows Defender tampering. Additionally, systems should be updated to the latest version of Windows to prevent exploitation of known vulnerabilities.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1574.002| B[Initial Access]:::tactic\n    B -->|T1068| C[Privilege Escalation]:::tactic\n    C -->|T1027| D[Command and Control]:::tactic\n    D -->|T1104| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -181,7 +181,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-22T20:06:49.156086+00:00",
+      "published": "2026-04-22T21:42:48.187081+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -196,7 +196,7 @@
           "tactic_id": "TA0003"
         }
       ],
-      "ai_summary": "FormBook malware has been delivered via two phishing campaigns targeting companies in Greece, Spain, Slovenia, Bosnia, and Central America. The campaigns exploit DLL side-loading by using RAR attachments containing legitimate executables and malicious DLL files. If exploited, the malware can steal sensitive data from compromised systems. To remediate, users should update to the latest version of Sandboxie (5.34.1 or later) and Adobe PDF Preview Handler (21.003.20091 or later), and ensure that XZ Utils is not installed. Additionally, users should be cautious when opening RAR attachments and avoid using unknown or untrusted software.",
+      "ai_summary": "FormBook malware is being distributed via two distinct phishing campaigns targeting companies in Greece, Spain, Slovenia, Bosnia, and Central America. The campaigns exploit DLL side-loading by delivering malicious DLL files alongside legitimate executables like Sandboxie ImBox.exe, TikTok desktop, Adobe PDF Preview Handler, and XZ Utils. If exploited, the malware can steal sensitive data from compromised systems. To remediate, users should update to the latest version of Adobe Acrobat (version 20.005.30355 or later) and ensure that the 'LoadLibraryEx' function is not used for loading DLLs from arbitrary paths. Additionally, users should be cautious when opening RAR attachments and avoid executing files from untrusted sources.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1574.002| C[Execution]:::tactic\n    C -->|T1218| D[Command and Control]:::tactic\n    D -->|T1204| E[Data Stolen]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -211,7 +211,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-22T20:06:49.156061+00:00",
+      "published": "2026-04-22T21:42:48.187056+00:00",
       "ttps": [
         {
           "id": "T1555.003",
@@ -256,8 +256,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "A multi-stage malware operation, dubbed TwizAdmin, has been identified, compromising Windows and macOS systems. The threat actors use a FastAPI-based panel with a license key system to manage their malicious activities, including cryptocurrency clipboard hijacking, BIP-39 seed phrase theft, browser credential exfiltration, and ransomware module deployment (crpx0). The operation targets users through exposed C2 panels, such as 103.241.66[.]238:1337, and utilizes multi-stage channels (T1104) and remote access software (T1219) for command and control. To mitigate this threat, defenders should ensure that all systems are running the latest versions of Java and browser software, and implement robust clipboard monitoring and credential protection measures. Additionally, administrators should monitor for suspicious network activity and implement a robust incident response plan.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1041| D[Exfiltration Over C2 Channel]:::tactic\n    D -->|T1555.003| E[Credentials from Web Browsers]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A multi-stage malware operation, dubbed TwizAdmin, has been identified, compromising Windows and macOS systems. The attack involves cryptocurrency clipboard hijacking across eight chains, BIP-39 seed phrase theft, browser credential exfiltration, and ransomware module deployment. The operation utilizes a FastAPI-based panel with a license key system for management. To remediate, users should update to the latest version of their browsers and ensure Java is not installed or is updated to the latest version. Additionally, users should change their browser credentials and monitor their cryptocurrency accounts for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1104| B[Multi-Stage Channels]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1555.003| D[Credentials from Web Browsers]:::tactic\n    D -->|T1115| E[Clipboard Data]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -271,7 +271,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-22T20:06:49.156037+00:00",
+      "published": "2026-04-22T21:42:48.187034+00:00",
       "ttps": [
         {
           "id": "T1486",
@@ -280,8 +280,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Kyber ransomware is a dual-platform threat targeting VMware ESXi virtualization infrastructure and Windows file systems. The ESXi variant, written in C++, specifically targets VMware environments with datastore encryption and VM termination. If exploited, Kyber ransomware can lead to data encryption and loss, affecting organizations that rely on VMware ESXi. To remediate, VMware ESXi users should update to version 7.0U3c or later, and ensure that ESXi hosts are configured to use a secure boot mechanism. Additionally, Windows users should ensure that their systems are running the latest security patches, including KB5009566 or later.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Kyber ransomware has been identified as a dual-platform threat targeting both Windows file systems and VMware ESXi virtualization infrastructure. The ESXi variant, written in C++, specifically targets VMware environments with datastore encryption and VM termination. If exploited, Kyber ransomware can lead to data encryption and loss, with the attackers demanding ransom in exchange for the decryption key. To remediate this threat, VMware ESXi users should ensure they are running version 7.0 Update 3 or later, and Windows users should update to the latest version of Windows 10 or Windows 11. Additionally, it is recommended to enable VMware vSphere Authentication Proxy and configure ESXi firewall rules to block unauthorized access.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -295,7 +295,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-22T20:06:49.155975+00:00",
+      "published": "2026-04-22T21:42:48.187004+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -316,9 +316,117 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The Harvester APT group has developed a highly-evasive Linux version of its GoGra backdoor, leveraging Microsoft Graph API and Outlook mailboxes as a covert command-and-control channel. This allows the attackers to bypass traditional network defenses. The attackers use social engineering with tailored decoy documents to trick victims into executing the backdoor. The backdoor is designed to evade detection by using legitimate Microsoft services. To remediate, administrators should ensure that Microsoft Graph API and Outlook mailboxes are properly secured, and users should be educated on the dangers of opening suspicious documents.",
+      "ai_summary": "The Harvester APT group has developed a highly-evasive Linux version of its GoGra backdoor, leveraging Microsoft Graph API and Outlook mailboxes as a covert command-and-control channel. This allows attackers to bypass traditional network defenses. The attackers use social engineering with tailored decoy documents to trick victims into executing the backdoor. The backdoor is designed to evade detection by using legitimate Microsoft services. To remediate, users should ensure that Microsoft Graph API and Outlook mailboxes are properly configured and monitored for suspicious activity, and that Linux systems are updated to the latest version to prevent exploitation of potential vulnerabilities.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-25204: Deserialization of untrusted data vulnerability in Samsung Open Source Escargot ...",
+      "description": "Deserialization of untrusted data vulnerability in Samsung Open Source Escargot Java Script allows denial of service condition via process abort.\n\nThis issue affects escarogt prior to commit hash \n\n97e8115ab1110bc502b4b5e4a0c689a71520d335",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25204",
+      "cve_id": "CVE-2026-25204",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.2,
+      "published": "2026-04-22T21:42:44.682726+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        },
+        {
+          "id": "T1498",
+          "name": "Network Denial of Service",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-25204 is a deserialization of untrusted data vulnerability in Samsung Open Source Escargot Java Script, affecting versions prior to commit hash 97e8115ab1110bc502b4b5e4a0c689a71520d335. This vulnerability allows a denial of service condition via process abort, which can be exploited by threat actors using T1190 (Exploit Public-Facing Application) and T1649 (Steal or Forge Authentication Certificates) tactics. To remediate this issue, users should update to the latest version of Escargot, specifically commit hash 97e8115ab1110bc502b4b5e4a0c689a71520d335 or later. Additionally, users should ensure that authentication certificates are properly validated and not forged. This vulnerability has a CVSS score of 6.2 and a severity score of 6.0.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1498| D[Network Denial of Service]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-6138: A flaw has been found in Totolink A7100RU 7.4cu.2313_b20191024. The impacted ele...",
+      "description": "A flaw has been found in Totolink A7100RU 7.4cu.2313_b20191024. The impacted element is the function setAccessDeviceCfg of the file /cgi-bin/cstecgi.cgi of the component CGI Handler. This manipulation of the argument mac causes os command injection. The attack can be initiated remotely. The exploit has been published and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6138",
+      "cve_id": "CVE-2026-6138",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-22T21:42:44.682710+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-6138 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU firmware version 7.4cu.2313_b20191024. The flaw is caused by a malicious manipulation of the 'mac' argument in the 'setAccessDeviceCfg' function of the '/cgi-bin/cstecgi.cgi' CGI Handler file, leading to OS command injection. If exploited, an attacker can gain remote access to the device, potentially allowing them to execute arbitrary system commands, modify device settings, or even take control of the device. To remediate this vulnerability, users should update to the latest firmware version, which is 7.4cu.2313_b20200310 or later. Specifically, users should download the latest firmware from the Totolink website, save it to a USB drive, and then follow the device's firmware update instructions. It is essential to ensure that the device is disconnected from the internet during the update process to prevent any potential exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-6137: A vulnerability was detected in Tenda F451 1.0.0.7_cn_svn7958. The affected elem...",
+      "description": "A vulnerability was detected in Tenda F451 1.0.0.7_cn_svn7958. The affected element is the function fromAdvSetWan of the file /goform/AdvSetWan. The manipulation of the argument wanmode/PPPOEPassword results in stack-based buffer overflow. It is possible to launch the attack remotely. The exploit is now public and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6137",
+      "cve_id": "CVE-2026-6137",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-22T21:42:44.682693+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-6137 is a stack-based buffer overflow vulnerability in Tenda F451 1.0.0.7_cn_svn7958's /goform/AdvSetWan function, specifically in the wanmode/PPPOEPassword argument. This vulnerability allows for remote exploitation, and the exploit is now publicly available. If exploited, an attacker can execute arbitrary code on the affected device, potentially leading to data breaches or ransomware attacks. To remediate this vulnerability, users should update to version 1.0.0.8 or later of the Tenda F451 firmware, and ensure that the wanmode/PPPOEPassword argument is properly sanitized. Additionally, users should consider implementing a web application firewall (WAF) to prevent exploitation attempts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-6136: A security vulnerability has been detected in Tenda F451 1.0.0.7_cn_svn7958. Imp...",
+      "description": "A security vulnerability has been detected in Tenda F451 1.0.0.7_cn_svn7958. Impacted is the function frmL7ImForm of the file /goform/L7Im. The manipulation of the argument page leads to stack-based buffer overflow. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6136",
+      "cve_id": "CVE-2026-6136",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-22T21:42:44.682672+00:00",
+      "ttps": [
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "threat_actors": [
+        "APT41"
+      ],
+      "ai_summary": "CVE-2026-6136 is a stack-based buffer overflow vulnerability in Tenda F451 1.0.0.7_cn_svn7958's frmL7ImForm function, exploitable remotely via the page argument. If exploited, an attacker can execute arbitrary code, potentially leading to full system compromise. To remediate, update to version 1.0.0.8 or later, and ensure the /goform/L7Im file is properly configured to prevent exploitation. Additionally, consider implementing a web application firewall (WAF) to block malicious traffic. This vulnerability has a CVSS score of 8.8 and is considered high-severity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -331,7 +439,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-22T20:06:46.436100+00:00",
+      "published": "2026-04-22T21:42:44.682656+00:00",
       "ttps": [
         {
           "id": "T1203",
@@ -344,11 +452,11 @@
       "threat_actors": [
         "APT41"
       ],
-      "ai_summary": "CVE-2026-6135 is a stack-based buffer overflow vulnerability in Tenda F451 1.0.0.7_cn_svn7958, affecting the function fromSetIpBind of the file /goform/SetIpBind. An attacker can exploit this vulnerability by manipulating the argument page from a remote location, leading to potential client execution. This issue has been made publicly available, increasing the risk of attacks. To remediate, users should update to version 1.0.0.8 or later, and ensure the 'allow_remote_access' configuration option is set to 'false'. Additionally, it is recommended to restrict access to the /goform/SetIpBind file to prevent unauthorized manipulation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "CVE-2026-6135 is a stack-based buffer overflow vulnerability in the Tenda F451 1.0.0.7_cn_svn7958 router, specifically in the fromSetIpBind function of the /goform/SetIpBind file. This issue can be exploited remotely by manipulating the 'page' argument, allowing an attacker to execute arbitrary code on the device. If exploited, this vulnerability could lead to unauthorized access and control of the affected router, potentially affecting home networks and small businesses. To remediate this issue, users should update their Tenda F451 router to the latest firmware version, which is expected to be released by the vendor. In the meantime, users can mitigate the risk by disabling remote access to the router and limiting access to the network.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1190| C[Exploitation for Privilege Escalation]:::tactic\n    C -->|T1210| D[Exploitation of Remote Services]:::tactic\n    D -->|T1583| E[Obtain Capabilities]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.8,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "CVE-2026-6134: A security flaw has been discovered in Tenda F451 1.0.0.7_cn_svn7958. This vulne...",
@@ -359,7 +467,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-22T20:06:46.436084+00:00",
+      "published": "2026-04-22T21:42:44.682640+00:00",
       "ttps": [
         {
           "id": "T1203",
@@ -368,12 +476,7 @@
           "tactic_id": "TA0002"
         }
       ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-6134 is a stack-based buffer overflow vulnerability in Tenda F451 1.0.0.7_cn_svn7958, affecting the /goform/qossetting function. An attacker can remotely manipulate the qos argument to trigger the overflow, potentially leading to arbitrary code execution. This vulnerability has been publicly disclosed and exploited, posing a significant risk to users of the affected device. To remediate, users should update to version 1.0.0.8 or later, and ensure that the qossetting function is properly validated to prevent similar attacks. Additionally, administrators should monitor their networks for signs of exploitation and implement additional security measures to prevent unauthorized access.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-6133: A vulnerability was identified in Tenda F451 1.0.0.7_cn_svn7958. This affects th...",
@@ -384,7 +487,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-22T20:06:46.436068+00:00",
+      "published": "2026-04-22T21:42:44.682623+00:00",
       "ttps": [
         {
           "id": "T1203",
@@ -396,12 +499,7 @@
       "epss_score": null,
       "threat_actors": [
         "APT41"
-      ],
-      "ai_summary": "CVE-2026-6133 is a stack-based buffer overflow vulnerability in Tenda F451 1.0.0.7_cn_svn7958's /goform/SafeUrlFilter function, exploitable remotely via manipulation of the argument 'page'. This allows an attacker to execute arbitrary code, potentially leading to full system compromise. To remediate, update to version 1.0.0.8 or later, and ensure the 'SafeUrlFilter' function is properly sanitized to prevent similar attacks. Additionally, consider implementing a web application firewall (WAF) to block suspicious traffic. Users of affected devices should immediately update their firmware to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Exploitation for Client Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      ]
     },
     {
       "title": "CVE-2026-6132: A vulnerability was determined in Totolink A7100RU 7.4cu.2313_b20191024. Affecte...",
@@ -412,14 +510,9 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.8,
-      "published": "2026-04-22T20:06:46.436047+00:00",
+      "published": "2026-04-22T21:42:44.682606+00:00",
       "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-6132 is a critical command injection vulnerability residing in the `setLedCfg` function within the CGI handler of Totolink A7100RU routers, specifically affecting firmware version 7.4cu.2313_b20191024. Exploitation allows remote attackers to execute arbitrary operating system commands by manipulating the 'enable' argument, potentially leading to complete device compromise and network infiltration. Real-world impact includes unauthorized access, data exfiltration, or the router being used as a pivot point for further attacks. Defenders must immediately disable the `setLedCfg` function or apply patches provided by Totolink, if available; otherwise, isolating affected devices and monitoring for suspicious network traffic originating from the router are critical.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
-      "ai_provider": "gemini",
-      "ai_model": "gemini-2.5-flash-lite"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-6131: A vulnerability was found in Totolink A7100RU 7.4cu.2313_b20191024. Affected by ...",
@@ -430,7 +523,7 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": 9.8,
-      "published": "2026-04-22T20:06:46.436032+00:00",
+      "published": "2026-04-22T21:42:44.682585+00:00",
       "ttps": [
         {
           "id": "T1590.004",
@@ -439,12 +532,7 @@
           "tactic_id": "TA0043"
         }
       ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-6131 is a critical remote code execution (RCE) vulnerability in Totolink A7100RU 7.4cu.2313_b20191024, affecting the CGI Handler component's /cgi-bin/cstecgi.cgi file. The vulnerability allows an attacker to inject OS commands via the 'command' argument, which can be exploited remotely. If exploited, this vulnerability can lead to arbitrary code execution, potentially allowing an attacker to gain control of the affected device. To remediate this vulnerability, users should update to Totolink A7100RU 7.4cu.2313_b20230215 or later, which addresses this issue. Additionally, administrators should ensure that the CGI Handler component is properly configured and access controls are in place to prevent unauthorized access.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1590.004| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-6130: A flaw has been found in chatboxai chatbox up to 1.20.0. This impacts the functi...",
@@ -455,7 +543,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.3,
-      "published": "2026-04-22T20:06:46.436009+00:00",
+      "published": "2026-04-22T21:42:44.682543+00:00",
       "ttps": [],
       "epss_score": null,
       "threat_actors": [
@@ -463,77 +551,47 @@
       ]
     },
     {
-      "title": "CVE-2026-6129: A vulnerability was detected in zhayujie chatgpt-on-wechat CowAgent up to 2.0.4....",
-      "description": "A vulnerability was detected in zhayujie chatgpt-on-wechat CowAgent up to 2.0.4. This affects an unknown function of the component Agent Mode Service. Performing a manipulation results in missing authentication. The attack can be initiated remotely. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6129",
-      "cve_id": "CVE-2026-6129",
-      "source": "NVD",
-      "category": "cve",
+      "title": "Apple fixes iOS bug that retained deleted notification data",
+      "description": "Apple has released out-of-band security updates for iPhone and iPad devices to fix a Notification Services flaw that could allow notifications marked for deletion to remain stored on the device. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/apple-fixes-ios-bug-that-retained-deleted-notification-data/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "news",
+      "severity": "low",
+      "cvss_score": null,
+      "published": "2026-04-22T20:58:58+00:00",
+      "ttps": []
+    },
+    {
+      "title": "'The Gentlemen' Rapidly Rises to Ransomware Prominence",
+      "description": "Not nearly as polite as the name suggests, the ransomware gang has impressed researchers with its speed in scaling up operations — and its sophistication.",
+      "url": "https://www.darkreading.com/threat-intelligence/gentlemen-rapidly-rise-ransomware",
+      "cve_id": null,
+      "source": "Dark Reading",
+      "category": "incident",
       "severity": "high",
-      "cvss_score": 7.3,
-      "published": "2026-04-22T20:06:46.435974+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-40396: Varnish Cache 9 before 9.0.1 allows a \"workspace overflow\" denial of service (da...",
-      "description": "Varnish Cache 9 before 9.0.1 allows a \"workspace overflow\" denial of service (daemon panic) after timeout_linger. A malicious client could send an HTTP/1 request, wait long enough until the session releases its worker thread (timeout_linger) and resume traffic before the session is closed (timeout_idle) sending more than one request at once to trigger a pipelining operation between requests. This ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40396",
-      "cve_id": "CVE-2026-40396",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.0,
-      "published": "2026-04-22T20:06:46.435956+00:00",
+      "cvss_score": null,
+      "published": "2026-04-22T20:51:55+00:00",
       "ttps": [
         {
-          "id": "T1498",
-          "name": "Network Denial of Service",
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
           "tactic": "Impact",
           "tactic_id": "TA0040"
         }
-      ],
-      "epss_score": null
+      ]
     },
     {
-      "title": "CVE-2026-40395: Varnish Enterprise before 6.0.16r12 allows a \"workspace overflow\" denial of serv...",
-      "description": "Varnish Enterprise before 6.0.16r12 allows a \"workspace overflow\" denial of service (daemon panic) for shared VCL. The headerplus.write_req0() function from vmod_headerplus updates the underlying req0, which is normally the original read-only request from which req is derived (readable and writable from VCL). This is useful in the active VCL, after amending req, to prepare a refined req0 before sw",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40395",
-      "cve_id": "CVE-2026-40395",
-      "source": "NVD",
-      "category": "cve",
+      "title": "North Korean hackers siphon more than $12 million from crypto users in sprawling campaign",
+      "description": "Researchers said the group stole up to $12 million in cryptocurrency in the first three months of 2026 through malware attacks on personal devices.",
+      "url": "https://therecord.media/north-korean-hackers-siphon-12-million-from-crypto-users",
+      "cve_id": null,
+      "source": "TheRecord Media",
+      "category": "incident",
       "severity": "medium",
-      "cvss_score": 4.0,
-      "published": "2026-04-22T20:06:46.435933+00:00",
-      "ttps": [
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-40394: Varnish Cache 9 before 9.0.1 and Varnish Enterprise before 6.0.16r11 allows a \"w...",
-      "description": "Varnish Cache 9 before 9.0.1 and Varnish Enterprise before 6.0.16r11 allows a \"workspace overflow\" denial of service (daemon panic) for certain amounts of prefetched data. The setup of an HTTP/2 session starts with a speculative HTTP/1 transport, and upon upgrading to h2 the HTTP/1 request is repurposed as stream zero. During the upgrade, a buffer allocation is made to reserve space to send frames",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40394",
-      "cve_id": "CVE-2026-40394",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.0,
-      "published": "2026-04-22T20:06:46.435889+00:00",
-      "ttps": [
-        {
-          "id": "T1498",
-          "name": "Network Denial of Service",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "epss_score": null
+      "cvss_score": null,
+      "published": "2026-04-22T20:48:00+00:00",
+      "ttps": []
     },
     {
       "title": "New Mirai campaign exploits RCE flaw in EoL D-Link routers",
@@ -802,18 +860,6 @@
       "severity": "high",
       "cvss_score": null,
       "published": "2026-04-22T12:45:00+00:00",
-      "ttps": []
-    },
-    {
-      "title": "New Defense Department cyber strategy imminent, official says",
-      "description": "The U.S. Defense Department is crafting a new cyber strategy that will better align with the Trump administration’s plans to more aggressively combat digital adversaries, a senior official told the House Armed Services Committee.",
-      "url": "https://therecord.media/defense-cyber-strategy-warfare",
-      "cve_id": null,
-      "source": "TheRecord Media",
-      "category": "news",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-22T12:30:00+00:00",
       "ttps": []
     },
     {
@@ -1160,25 +1206,6 @@
         }
       ],
       "epss_score": null
-    },
-    {
-      "title": "Over 1,300 Microsoft SharePoint servers vulnerable to spoofing attacks",
-      "description": "Over 1,300 Microsoft SharePoint servers exposed online remain unpatched against a spoofing vulnerability that was exploited as a zero-day and is still being abused in ongoing attacks. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/over-1-300-microsoft-sharepoint-servers-vulnerable-to-ongoing-attacks/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-22T06:53:02+00:00",
-      "ttps": [
-        {
-          "id": "T1213",
-          "name": "Data from Information Repositories",
-          "tactic": "Collection",
-          "tactic_id": "TA0009"
-        }
-      ]
     },
     {
       "title": "ISC Stormcast For Wednesday, April 22nd, 2026 https://isc.sans.edu/podcastdetail/9902, (Wed, Apr 22nd)",
@@ -1543,18 +1570,6 @@
       "severity": "low",
       "cvss_score": null,
       "published": "2026-04-20T02:00:03+00:00",
-      "ttps": []
-    },
-    {
-      "title": "How NIST's Cutback of CVE Handling Impacts Cyber Teams",
-      "description": "Industry and ad hoc coalitions appear poised to help fill the gap created by NIST's decision to cut back on CVE data enrichment.",
-      "url": "https://www.darkreading.com/threat-intelligence/nist-cutbacks-nvd-handling-impacts-cyber-teams",
-      "cve_id": null,
-      "source": "Dark Reading",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-17T19:51:57+00:00",
       "ttps": []
     },
     {
@@ -2011,8 +2026,8 @@
         }
       ],
       "threat_actors": [
-        "LockBit",
-        "Conti"
+        "Conti",
+        "LockBit"
       ]
     },
     {

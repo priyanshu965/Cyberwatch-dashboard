@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-23T11:56:20.591628+00:00",
+  "last_updated": "2026-04-23T13:04:06.141821+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:29.085034+00:00",
+      "published": "2026-04-23T13:02:13.306680+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -32,8 +32,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The Harvester APT group has developed a new Linux version of its GoGra backdoor, leveraging the Microsoft Graph API and Outlook mailboxes as a covert command-and-control channel to bypass traditional network defenses. This backdoor is highly evasive and primarily targets regions such as India and Afghanistan, as indicated by initial VirusTotal submissions. The attackers use social engineering tactics with tailored decoy documents to trick users into executing the malware, which then establishes a connection with the command-and-control server using application layer protocols. To remediate this threat, defenders should implement strict email filtering policies, restrict access to Microsoft Graph API, and monitor for suspicious Outlook mailbox activity. Additionally, users should be cautious when opening documents from unknown sources and ensure their systems are configured to block executable files from being run from temporary folders.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1071| C[Command and Control]:::tactic\n    C -->|T1219| D[Remote Access]:::tactic\n    D -->|T1071| E[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Harvester APT group has developed a new Linux version of its GoGra backdoor, leveraging the Microsoft Graph API and Outlook mailboxes as a covert command-and-control channel to bypass traditional network defenses. This backdoor is highly evasive and primarily targets regions such as India and Afghanistan, as indicated by initial VirusTotal submissions. The attackers use social engineering tactics with tailored decoy documents to trick users into executing the malware, which then establishes a connection with the command-and-control server using application layer protocols. To remediate this threat, defenders should implement strict email filters to block suspicious attachments and URLs, and ensure that all Linux systems are running the latest versions of security software, with specific attention to updating Microsoft Graph API integrations to the latest secure versions. Additionally, network traffic monitoring should be enhanced to detect and block unusual Outlook mailbox activity, particularly focusing on T1071 application layer protocol anomalies.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1071| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:29.085014+00:00",
+      "published": "2026-04-23T13:02:13.306661+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -74,8 +74,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "The malicious campaign involves a trojanized SumatraPDF binary, which is used as the initial attack vector to deploy an AdaptixC2 Beacon and Visual Studio Code on victim systems. The attack exploits user execution (T1204) by tricking users into opening a malicious ZIP archive containing a military-themed document lure, which then uses an archive utility (T1560.001) to extract the malicious payload. Once executed, the shellcode loader communicates with the command and control server using an application layer protocol (T1071), and ultimately encrypts data for impact (T1486), causing significant disruption to the affected systems. To remediate this threat, defenders should immediately block all traffic to known command and control servers, update their antivirus software to detect the trojanized SumatraPDF binary, and apply configuration changes to prevent the execution of unknown or untrusted archives. Additionally, users should be educated to avoid opening suspicious documents or archives from untrusted sources, and to verify the authenticity of software downloads, such as ensuring they are downloading the legitimate SumatraPDF from its official website.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1560.001| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The malicious campaign involves a trojanized SumatraPDF binary, which is used to deploy an AdaptixC2 Beacon and Visual Studio Code on victim systems. The attack vector utilizes a ZIP archive containing a malicious document lure with a military theme, targeting Chinese-speaking individuals. Upon execution, the shellcode loader, similar to previously identified malware, enables the deployment of the AdaptixC2 Beacon, allowing for command and control operations. To remediate this threat, defenders should inspect systems for suspicious SumatraPDF binaries and implement application whitelisting to prevent unauthorized software execution, specifically focusing on versions of SumatraPDF that may be vulnerable to this trojanization. Additionally, monitoring network traffic for unusual application layer protocol activity, as indicated by T1071, can help in early detection of such threats.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Execution]:::tactic\n    B -->|T1560.001| C[Initial Access]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -89,7 +89,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:29.084986+00:00",
+      "published": "2026-04-23T13:02:13.306628+00:00",
       "ttps": [
         {
           "id": "T1566",
@@ -104,9 +104,9 @@
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "The phishing campaign utilizes a fraudulent Adobe-themed website to trick victims into downloading and executing ScreenConnect remote access software, exploiting the T1566 phishing tactic. The threat actors then conduct interactive operations, deploying multiple malicious binaries, including a credential harvesting tool named password.exe, which is executed through T1204 user execution. If exploited, victims may experience unauthorized remote access, data breaches, and credential theft, with potential real-world impact including financial loss and identity theft. To remediate, defenders should block all executable files from untrusted sources, restrict user privileges to prevent unauthorized software installation, and implement a robust email filtering solution to detect and prevent phishing attempts. Additionally, defenders should monitor for suspicious activity related to the ms-phone URI handler and ScreenConnect software.",
+      "ai_summary": "The phishing campaign utilizes a fraudulent Adobe-themed website to trick victims into downloading and executing ScreenConnect remote access software, exploiting the T1566 phishing tactic and T1204 user execution technique. The attack vector involves social engineering, where victims are lured into installing the malicious software, allowing threat actors to establish initial access and conduct interactive operations. If exploited, victims may experience unauthorized remote access, credential harvesting, and potential data breaches, with real-world impact including compromised sensitive information and financial loss. To remediate, defenders should implement robust email filtering, conduct regular security awareness training, and ensure all systems are configured to restrict the execution of unknown or untrusted binaries, specifically blocking the ms-phone URI handler exploitation. Additionally, defenders should monitor for suspicious activity related to ScreenConnect and password.exe, and update their security software to detect and prevent similar phishing attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1210| D[Persistence]:::tactic\n    D -->|T1005| E[Defense Evasion]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -119,7 +119,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:29.084958+00:00",
+      "published": "2026-04-23T13:02:13.306600+00:00",
       "ttps": [
         {
           "id": "T1059.001",
@@ -146,7 +146,7 @@
           "tactic_id": "TA0007"
         }
       ],
-      "ai_summary": "The analyzed threat involves a malicious compiled HTML help (.chm) file, which is delivered via a 7zip compressed file. This .chm file displays a decoy window while executing obfuscated JavaScript code, leveraging T1027 (Obfuscated Files or Information) to evade detection. The JavaScript code then launches PowerShell commands, utilizing T1059.001 (PowerShell), to verify internet connectivity by pinging Google and download additional payloads. To mitigate this threat, defenders should block .chm files at the email gateway and network perimeter, and ensure that PowerShell is configured to only run signed scripts, with the execution policy set to 'AllSigned' or 'RemoteSigned'. Additionally, monitoring for suspicious PowerShell activity, such as unexpected network connections or unusual script executions, can help detect and respond to potential incidents.",
+      "ai_summary": "The analyzed threat involves a malicious compiled HTML help (.chm) file, which is delivered via a 7zip compressed file. This .chm file displays a decoy window while executing obfuscated JavaScript code, leveraging T1027 (Obfuscated Files or Information) to evade detection. The JavaScript code then launches PowerShell commands, utilizing T1059.001 (PowerShell), to verify internet connectivity by pinging Google and download additional payloads. To mitigate this threat, defenders should block .chm files at the email gateway and network perimeter, and ensure that PowerShell is configured to only run signed scripts, with the execution policy set to 'AllSigned' or 'RemoteSigned'. Additionally, monitoring for unusual PowerShell activity, such as unexpected network connections or process creations, can help detect similar attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1016.001| D[Discovery]:::tactic\n    D -->|T1027| E[Defense Evasion]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.8,
       "ai_provider": "groq",
@@ -161,9 +161,9 @@
       "category": "incident",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:29.084932+00:00",
+      "published": "2026-04-23T13:02:13.306574+00:00",
       "ttps": [],
-      "ai_summary": "This threat item involves DPRK-linked fake IT worker infrastructure, which was uncovered after a cryptocurrency researcher identified a suspicious domain. The investigation revealed a concentrated VPN usage pattern associated with IP 163.245.219.19, with Astrill VPN, Mullvad, and Proton VPN being the most prominent. The real-world impact of this threat is the potential for malicious actors to use this infrastructure for illicit activities, such as cryptocurrency theft. To remediate this threat, defenders should monitor VPN usage patterns and block access to suspicious domains. Additionally, organizations should implement strict access controls and conduct regular security audits to prevent similar incidents.",
+      "ai_summary": "This DPRK-linked threat actor uses fake IT worker infrastructure to conduct malicious activities. The actor was identified through a cryptocurrency researcher's investigation of the domain luckyguys[.]site, which was connected to illicit payments. The threat actor's network activity was concentrated in VPN usage, with Astrill VPN (37.5%), Mullvad (32.25%), and Proton VPN (6.25%) being the most prominent. The actor's IP address, 163.245.219[.]19, was used for 30 days of network activity. To remediate this threat, defenders should monitor VPN usage patterns and block access to suspicious domains, such as luckyguys[.]site. Additionally, organizations should implement strict access controls and conduct regular security audits to detect and prevent similar threats.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1041| B[Command and Control]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 4.0,
       "ai_provider": "groq",
@@ -178,7 +178,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:29.084905+00:00",
+      "published": "2026-04-23T13:02:13.306549+00:00",
       "ttps": [
         {
           "id": "T1059.001",
@@ -199,9 +199,9 @@
           "tactic_id": "TA0006"
         }
       ],
-      "ai_summary": "A newly observed ClickFix variant exploits native Windows utilities, specifically cmdkey and regsvr32, for payload delivery. Victims are socially engineered through fake CAPTCHA pages to execute a malicious command via the Windows Run dialog. The single command chains multiple actions: staging credentials using cmdkey, retrieving a remote DLL via regsvr32 from a UNC path. This attack vector allows threat actors to bypass traditional PowerShell-based detection methods. To remediate, ensure that Windows Defender Application Guard is enabled for Internet Explorer and Microsoft Edge, and configure Windows Firewall to block incoming traffic on the UNC path used for DLL retrieval. Additionally, update Windows to the latest version and apply the latest security patches.",
+      "ai_summary": "A newly observed ClickFix variant exploits native Windows utilities, specifically cmdkey and regsvr32, for payload delivery. Victims are socially engineered through fake CAPTCHA pages to execute a malicious command via the Windows Run dialog. The single command chains multiple actions: staging credentials using cmdkey, retrieving a remote DLL via regsvr32 from a UNC path. This attack vector allows threat actors to bypass traditional PowerShell-based detection methods. To remediate, ensure that Windows Defender Application Guard is enabled for Internet Explorer and Microsoft Edge, and configure Windows Firewall to block incoming traffic on the UNC path used for DLL retrieval. Additionally, implement a robust CAPTCHA solution to prevent social engineering attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1218.010| C[Execution]:::tactic\n    C -->|T1555.004| D[Command and Control]:::tactic\n    D -->|T1059.001| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -214,7 +214,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:29.084880+00:00",
+      "published": "2026-04-23T13:02:13.306528+00:00",
       "ttps": [
         {
           "id": "T1195",
@@ -229,8 +229,8 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "A supply chain compromise was discovered in the official Checkmarx KICS Docker repository and VS Code extensions, affecting versions v2.1.20, v2.1.21, and alpine of the Docker images, as well as versions 1.17.0 and 1.19.0 of the VS Code extensions. The attackers introduced unauthorized data exfiltration capabilities, allowing the trojanized KICS binary to collect and encrypt scan reports containing credentials from infrastructure-as-code. This vulnerability allows attackers to steal sensitive information, potentially leading to data breaches and unauthorized access. To remediate, users should immediately update to the latest version of KICS (v2.1.22 or later) and remove any compromised VS Code extensions. Additionally, users should review their Docker images and VS Code extensions for any signs of tampering.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "A supply chain compromise was discovered in the official Checkmarx KICS Docker repository and VS Code extensions. Attackers poisoned Docker Hub images (tags v2.1.20, v2.1.21, alpine) and VS Code extensions (versions 1.17.0, 1.19.0) with unauthorized data exfiltration capabilities. The trojanized KICS binary collects and encrypts scan reports containing credentials from infrastructure-as-code. This allows attackers to steal sensitive information. To remediate, users should immediately update to version 2.1.22 of the KICS Docker image and version 1.20.0 of the VS Code extension. Additionally, users should review their infrastructure-as-code configurations for any potential security risks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -244,7 +244,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:29.084852+00:00",
+      "published": "2026-04-23T13:02:13.306502+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -259,9 +259,9 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "This Linux incident involved simultaneous compromise by at least two threat actors, leveraging OpenAI's Codex AI agent for security remediation. Actor A deployed a cryptominer (T1583.005) mining Monero to a private pool, while Actor B installed a multi-revenue botnet (T1583.005) including XMRig mining, residential proxy services, and bandwidth-selling components with eight different persistence mechanisms. The affected system was a Linux endpoint, and the attack vector is unknown. To remediate, defenders should update to the latest version of the Linux distribution, disable any unused services, and implement a robust security monitoring solution to detect similar incidents. Additionally, consider implementing a more secure alternative to OpenAI's Codex AI agent for security remediation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Initial Access]:::tactic\n    B -->|T1496| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "A Linux endpoint was compromised by at least two distinct threat actors, leveraging a multi-revenue botnet and cryptominer. Actor A deployed a Monero miner to a private pool, while Actor B installed a botnet with XMRig mining, residential proxy services, and bandwidth-selling components. The botnet utilized eight different persistence mechanisms. To remediate, defenders should update the Linux distribution to the latest version, disable any unnecessary services, and remove any suspicious binaries. Additionally, users should review and update their OpenAI Codex AI agent configuration to prevent similar incidents.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1583.005| B[Botnet]:::tactic\n    B -->|T1496| C[Resource Hijacking]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -274,7 +274,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:29.084823+00:00",
+      "published": "2026-04-23T13:02:13.306475+00:00",
       "ttps": [
         {
           "id": "T1078.004",
@@ -295,7 +295,7 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "The npm Packages Hit with TeamPCP-Style CanisterWorm Malware threat involves malicious npm packages compromised with malware exhibiting tradecraft similar to TeamPCP's CanisterWorm campaign. The attack targeted packages including @automagik/genie and pgserve, implementing install-time execution that harvests credentials, environment variables, SSH keys, cloud credentials, browser data, and crypto-wallet artifacts. The payload exfiltrates stolen data over a command and control channel. To remediate, users should immediately uninstall the compromised packages, update npm to version 8.19.2 or later, and configure npm to use a secure registry. Additionally, users should review their package dependencies and update any vulnerable packages to the latest version.",
+      "ai_summary": "The npm Packages Hit with TeamPCP-Style CanisterWorm Malware threat involves malicious npm packages compromised with malware exhibiting tradecraft similar to TeamPCP's CanisterWorm campaign. The attack targeted packages including @automagik/genie and pgserve, implementing install-time execution that harvests credentials, environment variables, SSH keys, cloud credentials, browser data, and crypto-wallet artifacts. The payload exfiltrates stolen data via a command and control channel. To remediate, users should immediately uninstall the compromised packages, update npm to version 8.19.2 or later, and configure npm to use a secure registry. Additionally, developers should audit their dependencies and ensure they are using a secure package manager.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195.001| B[Compromise Software Dependencies]:::tactic\n    B -->|T1078.004| C[Cloud Accounts]:::tactic\n    C -->|T1041| D[Exfiltration Over C2 Channel]:::tactic\n    D -->|T1041| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -310,7 +310,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:29.084789+00:00",
+      "published": "2026-04-23T13:02:13.306441+00:00",
       "ttps": [
         {
           "id": "T1583.005",
@@ -337,7 +337,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Bedep, an ad-fraud botnet active from late 2014 through 2015, exploited the Angler exploit kit to deliver its malware. The botnet employed a sophisticated domain generation algorithm (DGA) that utilized real foreign exchange rates from the European Central Bank combined with advanced group theory mathematics to generate command-and-control domains. Unlike typical DGAs that rely solely on date-based seeds, Bedep's algorithm provided a high degree of randomness and evasion capabilities. To mitigate this threat, defenders should focus on detecting and blocking the Angler exploit kit and its associated command-and-control domains. Specifically, they should update their systems to the latest version of their security software and configure their firewalls to block traffic to known Bedep C2 domains.",
+      "ai_summary": "Bedep, an ad-fraud botnet active from late 2014 through 2015, exploited the Angler exploit kit to deliver its malware. The botnet employed a sophisticated domain generation algorithm (DGA) that utilized real foreign exchange rates from the European Central Bank combined with advanced group theory mathematics to generate command-and-control domains. Unlike typical DGAs that rely solely on date-based seeds, Bedep's algorithm provided a high degree of randomness and evasion capabilities. To remediate this threat, defenders should focus on detecting and blocking the Angler exploit kit and its associated malware. Additionally, monitoring for suspicious domain generation patterns and implementing advanced threat detection tools can help mitigate the risk of Bedep-like attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1588| B[Obtain Capabilities]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1568| D[Dynamic Resolution]:::tactic\n    D -->|T1583.005| E[Botnet]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -352,10 +352,10 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:25.629142+00:00",
+      "published": "2026-04-23T13:02:10.139186+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2026-31415 is a locally triggerable kernel bug in the Linux IPv6 sendmsg ancillary-data path, allowing a malicious local user to panic the kernel via skb_under_panic(), resulting in a denial-of-service (DoS) condition. This vulnerability affects Linux kernel versions prior to 5.15.0-25-generic, and can be exploited by sending a specially crafted IPv6 packet. To remediate this issue, Linux kernel users should update to version 5.15.0-25-generic or later, and ensure that the ipv6 module is properly configured to prevent overflows in ip6_datagram_send_ctl(). Additionally, users should apply the relevant kernel patch to prevent future exploitation. This vulnerability has a severity score of 7.5 due to its potential for local DoS and the ease of exploitation.",
+      "ai_summary": "CVE-2026-31415 is a locally triggerable kernel bug in the Linux IPv6 sendmsg ancillary-data path, allowing a malicious local user to panic the kernel via skb_under_panic(), resulting in a denial-of-service (DoS) condition. This vulnerability affects Linux kernel versions prior to 5.15.0-25-generic, and exploitation occurs when a user sends a specially crafted IPv6 packet with ancillary data. To remediate, update the Linux kernel to version 5.15.0-25-generic or later, and ensure the ipv6 module is loaded with the correct options. Additionally, consider implementing kernel hardening techniques, such as kernel address space layout randomization (KASLR), to mitigate potential exploitation. This vulnerability has a severity score of 7.5 due to its potential for local DoS and the need for kernel updates.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -370,12 +370,12 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-23T11:54:25.629126+00:00",
+      "published": "2026-04-23T13:02:10.139171+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2026-31414 is a vulnerability in the Linux kernel's netfilter module, specifically in the nf_conntrack_expect function. The bug occurs when using nfct_help() without holding a reference to the master conntrack, which is unsafe. If exploited, an attacker could potentially gain elevated privileges or cause a denial-of-service (DoS) condition. To remediate, Linux kernel version 5.19.5 or later should be installed, and the 'netfilter.nf_conntrack_expect_helper' sysctl parameter should be set to 1. Additionally, users should ensure they are running the latest version of their Linux distribution to receive the necessary kernel updates.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Execution]:::tactic\n    B -->|T1068| C[Privilege Escalation]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
+      "ai_summary": "CVE-2026-31414 is a Linux kernel vulnerability in the netfilter module, specifically in the nf_conntrack_expect functionality. The bug occurs when using nfct_help() without holding a reference to the master conntrack, which is unsafe. This vulnerability can be exploited by attackers to potentially gain elevated privileges or disrupt network connectivity. To remediate this issue, Linux kernel version 5.15.0 or later should be installed, and the 'netfilter.nf_conntrack_expect_helper' sysctl parameter should be set to 1. Additionally, users should ensure they are running the latest version of their Linux distribution to receive the necessary kernel updates.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059| B[Command and Control]:::tactic\n    B -->|T1071| C[Execution]:::tactic\n    C -->|T1060| D[Persistence]:::tactic\n    D -->|T1210| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -388,7 +388,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 2.7,
-      "published": "2026-04-23T11:54:25.629110+00:00",
+      "published": "2026-04-23T13:02:10.139154+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -398,7 +398,7 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-36923 is a SQL Injection vulnerability in the Sourcecodester Cab Management System 1.0, specifically in the /cms/admin/bookings/view_booking.php file. An attacker can exploit this vulnerability by sending a malicious request to the affected file, allowing them to inject arbitrary SQL code and potentially extract sensitive data or execute unauthorized actions. If exploited, this vulnerability could allow an attacker to gain unauthorized access to the system, potentially leading to data breaches or other malicious activities. To remediate this vulnerability, users should update to Sourcecodester Cab Management System 1.1 or later, which includes a patch for this issue. Additionally, users should ensure that their web application firewall (WAF) is configured to block SQL Injection attacks.",
+      "ai_summary": "CVE-2026-36923 is a SQL Injection vulnerability in the Sourcecodester Cab Management System 1.0, specifically in the /cms/admin/bookings/view_booking.php file. An attacker can exploit this vulnerability by sending a malicious SQL query, allowing them to extract or modify sensitive data. If exploited, this vulnerability can lead to unauthorized access to user data, potentially resulting in data breaches or privilege escalation. To remediate this vulnerability, update the Sourcecodester Cab Management System to version 1.1 or later, which includes a patch for this issue. Additionally, ensure that the /cms/admin/bookings/view_booking.php file is properly sanitized to prevent future SQL Injection attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 4.5,
       "ai_provider": "groq",
@@ -413,7 +413,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 2.7,
-      "published": "2026-04-23T11:54:25.629090+00:00",
+      "published": "2026-04-23T13:02:10.139133+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -423,7 +423,7 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-36922 is a SQL injection vulnerability in Sourcecodester Cab Management System v1.0, specifically in the /cms/admin/categories/view_category.php file. An attacker can exploit this vulnerability by sending a malicious HTTP request, allowing them to extract or modify sensitive data. If exploited, this vulnerability can lead to unauthorized access to the application's database, potentially resulting in data breaches or privilege escalation. To remediate this vulnerability, update to Sourcecodester Cab Management System v1.1 or later, which has been patched. Additionally, ensure that the application's input validation and sanitization mechanisms are properly configured to prevent similar attacks.",
+      "ai_summary": "CVE-2026-36922 is a SQL injection vulnerability in the Sourcecodester Cab Management System v1.0, specifically in the /cms/admin/categories/view_category.php file. This vulnerability allows an attacker to inject malicious SQL code, potentially leading to unauthorized data access or modification. If exploited, an attacker could gain access to sensitive information, such as user credentials or financial data. To remediate this vulnerability, update the Sourcecodester Cab Management System to version 1.1 or later, which includes a patch for this issue. Additionally, ensure that the /cms/admin/categories/view_category.php file is properly sanitized to prevent future SQL injection attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 4.5,
       "ai_provider": "groq",
@@ -438,7 +438,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 2.7,
-      "published": "2026-04-23T11:54:25.629074+00:00",
+      "published": "2026-04-23T13:02:10.139117+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -448,9 +448,9 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-36920 is a SQL Injection vulnerability in the Sourcecodester Online Reviewer System v1.0, specifically in the /system/system/admins/assessments/examproper/questions-view.php file. An attacker can exploit this vulnerability by sending a malicious SQL query, allowing them to extract or modify sensitive data. This vulnerability affects the Sourcecodester Online Reviewer System v1.0, and exploitation can lead to unauthorized access to sensitive data. To remediate this vulnerability, update to Sourcecodester Online Reviewer System v1.1 or later, and ensure that the /system/system/admins/assessments/examproper/questions-view.php file is properly sanitized to prevent SQL Injection attacks. Additionally, implement a Web Application Firewall (WAF) to detect and prevent future attacks.",
+      "ai_summary": "CVE-2026-36920 is a SQL Injection vulnerability in the Sourcecodester Online Reviewer System v1.0, specifically in the /system/system/admins/assessments/examproper/questions-view.php file. An attacker can exploit this vulnerability by sending a malicious SQL query to the application, potentially allowing them to extract or modify sensitive data. If exploited, this vulnerability could lead to unauthorized access to sensitive information, such as user credentials or exam results. To remediate this vulnerability, administrators should update the Sourcecodester Online Reviewer System to a version that has been patched for this issue, specifically version 1.1 or later. Additionally, it is recommended to implement input validation and sanitization on user-input data to prevent similar SQL Injection attacks in the future.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.0,
+      "severity_score": 4.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -463,7 +463,7 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": 2.7,
-      "published": "2026-04-23T11:54:25.629058+00:00",
+      "published": "2026-04-23T13:02:10.139100+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -483,7 +483,7 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": 2.7,
-      "published": "2026-04-23T11:54:25.629041+00:00",
+      "published": "2026-04-23T13:02:10.139083+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -503,7 +503,7 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": 2.7,
-      "published": "2026-04-23T11:54:25.629024+00:00",
+      "published": "2026-04-23T13:02:10.139065+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -523,7 +523,7 @@
       "category": "cve",
       "severity": "low",
       "cvss_score": 2.7,
-      "published": "2026-04-23T11:54:25.629002+00:00",
+      "published": "2026-04-23T13:02:10.139042+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -543,7 +543,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.1,
-      "published": "2026-04-23T11:54:25.628964+00:00",
+      "published": "2026-04-23T13:02:10.138997+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -555,6 +555,67 @@
       "epss_score": null
     },
     {
+      "title": "Chinese Cybersecurity Firm’s AI Hacking Claims Draw Comparisons to Claude Mythos",
+      "description": "360 Digital Security Group claims to have uncovered 1,000 vulnerabilities using AI, including at the Tianfu Cup hacking contest. The post Chinese Cybersecurity Firm&#8217;s AI Hacking Claims Draw Comparisons to Claude Mythos appeared first on SecurityWeek.",
+      "url": "https://www.securityweek.com/chinese-cybersecurity-firms-ai-hacking-claims-draw-comparisons-to-claude-mythos/",
+      "cve_id": null,
+      "source": "SecurityWeek",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-23T12:36:45+00:00",
+      "ttps": []
+    },
+    {
+      "title": "UK warns of Chinese hackers using proxy networks to evade detection",
+      "description": "The United Kingdom's National Cyber Security Centre (NCSC-UK) and international partners warned that China-nexus hackers are increasingly using large-scale proxy networks of hijacked consumer devices to evade detection and disguise their malicious activity. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/uk-warns-of-chinese-hackers-using-botnets-of-hijacked-consumer-devices-to-evade-detection/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-23T12:28:39+00:00",
+      "ttps": [
+        {
+          "id": "T1036",
+          "name": "Masquerading",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        },
+        {
+          "id": "T1562",
+          "name": "Impair Defenses",
+          "tactic": "Defense Evasion",
+          "tactic_id": "TA0005"
+        }
+      ]
+    },
+    {
+      "title": "New GopherWhisper APT group abuses Outlook, Slack, Discord for comms",
+      "description": "A previously undocumented state-backed threat actor named GopherWhisper is using a Go-based custom toolkit and legitimate services like Microsoft 365 Outlook, Slack, and Discord in attacks against government entities. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/new-gopherwhisper-apt-group-abuses-outlook-slack-discord-for-comms/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-23T12:06:18+00:00",
+      "ttps": []
+    },
+    {
+      "title": "[Webinar] Mythos Reality Check: Beating Automated Exploitation at AI Speed",
+      "description": "Imagine a world where hackers don't sleep, don't take breaks, and find weak spots in your systems instantly. Well, that world is already here. Thanks to AI, attackers are now launching automated, large-scale exploits faster than ever before. The time you have to fix a vulnerability before it gets attacked is shrinking to zero. We call this the Collapsing Exploit Window, and it means your",
+      "url": "https://thehackernews.com/2026/04/webinar-mythos-reality-check-beating.html",
+      "cve_id": null,
+      "source": "The Hacker News",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-23T12:03:00+00:00",
+      "ttps": []
+    },
+    {
       "title": "Rilian Raises $17.5 Million for AI-Native Security Orchestration",
       "description": "The company will hire new talent and expand operations across the US and other allied countries. The post Rilian Raises $17.5 Million for AI-Native Security Orchestration appeared first on SecurityWeek.",
       "url": "https://www.securityweek.com/rilian-raises-17-5-million-for-ai-native-security-orchestration/",
@@ -564,6 +625,18 @@
       "severity": "medium",
       "cvss_score": null,
       "published": "2026-04-23T11:45:30+00:00",
+      "ttps": []
+    },
+    {
+      "title": "Project Glasswing Proved AI Can Find the Bugs. Who's Going to Fix Them?",
+      "description": "Last week, Anthropic announced Project Glasswing, an AI model so effective at discovering software vulnerabilities that they took the extraordinary step of postponing its public release. Instead, the company has given access to Apple, Microsoft, Google, Amazon, and a coalition of others to find and patch bugs before adversaries can. Mythos Preview, the model that led to Project Glasswing, found",
+      "url": "https://thehackernews.com/2026/04/project-glasswing-proved-ai-can-find.html",
+      "cve_id": null,
+      "source": "The Hacker News",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-23T11:30:00+00:00",
       "ttps": []
     },
     {
@@ -1012,6 +1085,18 @@
       ]
     },
     {
+      "title": "Electricity Is a Growing Area of Cyber Risk",
+      "description": "IT has long been concerned about ensuring systems receive the right amount of electricity. Cyberattackers are realizing they can manipulate voltage fluctuations for their purposes, too.",
+      "url": "https://www.darkreading.com/cyber-risk/electricity-growing-area-cyber-risk",
+      "cve_id": null,
+      "source": "Dark Reading",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-22T14:25:07+00:00",
+      "ttps": []
+    },
+    {
       "title": "Inside Caller-as-a-Service Fraud: The Scam Economy Has a Hiring Process",
       "description": "Fraud operations now operate like call centers, complete with hiring, training, and performance tracking. Flare reveals how cybercriminals manage \"Caller-as-a-Service\" operations like a professional sales team. [...]",
       "url": "https://www.bleepingcomputer.com/news/security/inside-caller-as-a-service-fraud-the-scam-economy-has-a-hiring-process/",
@@ -1124,34 +1209,6 @@
       ]
     },
     {
-      "title": "Mirai Botnet Targets Flaw in Discontinued D-Link Routers",
-      "description": "The exploitation of the command injection vulnerability started one year after public disclosure and PoC exploit code publication. The post Mirai Botnet Targets Flaw in Discontinued D-Link Routers appeared first on SecurityWeek.",
-      "url": "https://www.securityweek.com/mirai-botnet-targets-flaw-in-discontinued-d-link-routers/",
-      "cve_id": null,
-      "source": "SecurityWeek",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-22T11:44:07+00:00",
-      "ttps": [
-        {
-          "id": "T1583.005",
-          "name": "Botnet",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1486",
-          "name": "Data Encrypted for Impact",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "threat_actors": [
-        "Conti"
-      ]
-    },
-    {
       "title": "Lotus Wiper Malware Targets Venezuelan Energy Systems in Destructive Attack",
       "description": "Cybersecurity researchers have discovered a previously undocumented data wiper that has been used in attacks targeting Venezuela at the end of last year and the start of 2026. Dubbed Lotus Wiper, the novel file wiper has been used in a destructive campaign targeting the energy and utilities sector in Venezuela, per findings from Kaspersky. \"Two batch scripts are responsible for initiating the",
       "url": "https://thehackernews.com/2026/04/lotus-wiper-malware-targets-venezuelan.html",
@@ -1181,97 +1238,6 @@
       "cvss_score": null,
       "published": "2026-04-22T10:41:36+00:00",
       "ttps": []
-    },
-    {
-      "title": "Microsoft traces Universal Print issues to Graph API code change",
-      "description": "Microsoft says that an ongoing Universal Print sharing issue that prevents users from creating some printer shares is due to a Microsoft Graph API code change. [...]",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-graph-api-code-change-causes-universal-print-share-issues/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-22T10:15:09+00:00",
-      "ttps": []
-    },
-    {
-      "title": "New GoGra malware for Linux uses Microsoft Graph API for comms",
-      "description": "A Linux variant of the GoGra backdoor uses legitimate Microsoft infrastructure, relying on an Outlook inbox for stealthy payload delivery. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/new-gogra-malware-for-linux-uses-microsoft-graph-api-for-comms/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-22T10:00:00+00:00",
-      "ttps": [
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        }
-      ]
-    },
-    {
-      "title": "Microsoft Patches Critical ASP.NET Core CVE-2026-40372 Privilege Escalation Bug",
-      "description": "Microsoft has released out-of-band updates to address a security vulnerability in ASP.NET Core that could allow an attacker to escalate privileges. The vulnerability, tracked as CVE-2026-40372, carries a CVSS score of 9.1 out of 10.0. It's rated Important in severity. An anonymous researcher has been credited with discovering and reporting the flaw. \"Improper verification of cryptographic",
-      "url": "https://thehackernews.com/2026/04/microsoft-patches-critical-aspnet-core.html",
-      "cve_id": "CVE-2026-40372",
-      "source": "The Hacker News",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": null,
-      "published": "2026-04-22T09:29:00+00:00",
-      "ttps": [
-        {
-          "id": "T1068",
-          "name": "Exploitation for Privilege Escalation",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "Mustang Panda’s New LOTUSLITE Variant Targets India Banks, South Korea Policy Circles",
-      "description": "Cybersecurity researchers have discovered a new variant of a known malware called LOTUSLITE that's distributed via a theme related to India's banking sector. \"The backdoor communicates with a dynamic DNS-based command-and-control server over HTTPS and supports remote shell access, file operations, and session management, indicating a continued espionage-focused capability set rather than",
-      "url": "https://thehackernews.com/2026/04/mustang-pandas-new-lotuslite-variant.html",
-      "cve_id": null,
-      "source": "The Hacker News",
-      "category": "news",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-22T07:58:00+00:00",
-      "ttps": [
-        {
-          "id": "T1071",
-          "name": "Application Layer Protocol",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        },
-        {
-          "id": "T1219",
-          "name": "Remote Access Software",
-          "tactic": "Command & Control",
-          "tactic_id": "TA0011"
-        },
-        {
-          "id": "T1486",
-          "name": "Data Encrypted for Impact",
-          "tactic": "Impact",
-          "tactic_id": "TA0040"
-        }
-      ],
-      "threat_actors": [
-        "Conti"
-      ]
     },
     {
       "title": "ISC Stormcast For Wednesday, April 22nd, 2026 https://isc.sans.edu/podcastdetail/9902, (Wed, Apr 22nd)",
@@ -1497,18 +1463,6 @@
           "tactic_id": "TA0008"
         }
       ]
-    },
-    {
-      "title": "Serial-to-IP Devices Hide Thousands of Old &amp; New Bugs",
-      "description": "The OT devices that translate machine talk into Internet-speak are riddled with vulnerabilities and more frequently targeted for attacks, researchers say.",
-      "url": "https://www.darkreading.com/ics-ot-security/serial-ip-devices-thousands-of-bugs",
-      "cve_id": null,
-      "source": "Dark Reading",
-      "category": "incident",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-20T21:00:00+00:00",
-      "ttps": []
     },
     {
       "title": "Handling the CVE Flood With EPSS, (Mon, Apr 20th)",
@@ -1971,8 +1925,8 @@
         }
       ],
       "threat_actors": [
-        "LockBit",
-        "Conti"
+        "Conti",
+        "LockBit"
       ]
     },
     {

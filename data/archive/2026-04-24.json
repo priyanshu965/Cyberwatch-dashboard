@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-24T17:45:22.613584+00:00",
+  "last_updated": "2026-04-24T18:40:03.916874+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T17:43:10.692854+00:00",
+      "published": "2026-04-24T18:37:48.413364+00:00",
       "ttps": [
         {
           "id": "T1595.002",
@@ -32,7 +32,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "The Trivy supply chain compromise is a sophisticated attack where threat actors, identified as TeamPCP, injected credential-stealing malware into official Trivy releases, affecting the core binary and GitHub Actions. This attack exploited mutable tags and commit identity spoofing on GitHub, allowing the malware to perform extensive credential harvesting. The real-world impact of this exploit is significant, as it can lead to unauthorized access to sensitive information and systems, particularly for organizations relying on Trivy for vulnerability scanning. To remediate this threat, defenders should immediately update Trivy to a version released after the compromise was discovered and remove any potentially compromised binaries, ensuring that all dependencies and GitHub Actions are also updated. Additionally, defenders should monitor their systems for suspicious activity and implement robust credential management practices to mitigate the risk of credential theft.",
+      "ai_summary": "The Trivy supply chain compromise is a sophisticated attack where threat actors, identified as TeamPCP, injected credential-stealing malware into official Trivy releases, affecting the core binary and GitHub Actions. This attack exploited mutable tags and commit identity spoofing on GitHub, allowing the malware to perform extensive credential harvesting. The real-world impact of this exploit is significant, as it can lead to unauthorized access to sensitive information and systems. To remediate this threat, defenders should immediately update Trivy to a version released after the compromise was detected and remove any potentially compromised binaries. Additionally, defenders should monitor their systems for suspicious activity and implement robust credential management practices, such as multi-factor authentication and regular password rotations.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1195| B[Supply Chain Compromise]:::tactic\n    B -->|T1190| C[Exploit Public-Facing Application]:::tactic\n    C -->|T1595.002| D[Vulnerability Scanning]:::tactic\n    D -->|T1059.001| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -47,7 +47,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T17:43:10.692827+00:00",
+      "published": "2026-04-24T18:37:48.413337+00:00",
       "ttps": [
         {
           "id": "T1486",
@@ -59,9 +59,9 @@
       "threat_actors": [
         "Conti"
       ],
-      "ai_summary": "The AI Frame Campaign involves a malicious Chrome extension masquerading as Google's Authenticator, requesting excessive permissions and containing dormant infrastructure for potential future malicious updates. This campaign, active since early 2026, has been linked to at least six other instances, suggesting a coordinated effort by the threat actors. If exploited, users could face data encryption for impact, as indicated by the detected TTP T1486, leading to potential data breaches or ransomware attacks. To remediate, defenders should immediately remove the malicious extension and update Chrome to the latest version, ensuring all extensions are reviewed for excessive permissions, particularly those requesting access beyond their intended functionality. Users should also enable two-factor authentication and monitor account activity for suspicious behavior.",
+      "ai_summary": "The AI Frame Campaign involves a malicious Chrome extension masquerading as Google's Authenticator, requesting excessive permissions and containing dormant infrastructure for potential future malicious updates. This campaign, active since early 2026, has been linked to at least six other instances, suggesting a coordinated effort by the threat actors. If exploited, users may experience data encryption for impact, as indicated by the detected TTP T1486, leading to potential data breaches or ransomware attacks. To remediate, defenders should immediately remove the malicious extension and update Chrome to the latest version, ensuring all extensions are reviewed for excessive permissions, particularly those requesting access beyond their intended functionality. Additionally, implementing a web application firewall (WAF) and regularly monitoring browser extensions for suspicious activity can help mitigate similar threats.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -74,9 +74,9 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T17:43:10.692802+00:00",
+      "published": "2026-04-24T18:37:48.413312+00:00",
       "ttps": [],
-      "ai_summary": "The fast16 cyber sabotage framework, discovered in 2005, is a high-precision software sabotage toolset that predates Stuxnet by five years. It includes a kernel driver (fast16.sys) that selectively targets high-precision calculation software by patching code in memory to corrupt computational results. The framework also features self-propagation mechanisms via a Lua-powered carrier module (svcmgmt.exe), allowing it to spread across facilities. To remediate this threat, defenders should update their high-precision calculation software to the latest version (e.g., version 3.2 or later) and ensure that the Windows kernel is patched to prevent exploitation of the fast16.sys driver. Additionally, administrators should configure their systems to prevent the execution of Lua scripts from unknown sources.",
+      "ai_summary": "The fast16 cyber sabotage framework, discovered in 2005, is a kernel driver (fast16.sys) that targets high-precision calculation software by patching code in memory to corrupt computational results. This framework, which predates Stuxnet by five years, includes a Lua-powered carrier module (svcmgmt.exe) that enables self-propagation across facilities. If exploited, fast16 can lead to significant financial losses and reputational damage for organizations relying on high-precision software, such as those in the nuclear, aerospace, or finance sectors. To remediate this threat, defenders should update their kernel drivers to the latest version (at least Windows 10, version 1903 or later) and ensure that all software components, including Lua modules, are properly validated and sanitized. Additionally, organizations should implement robust memory protection mechanisms, such as Data Execution Prevention (DEP) and Address Space Layout Randomization (ASLR), to prevent code injection attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1041| B[Execution]:::tactic\n    B -->|T1059.001| C[Command and Control]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -91,7 +91,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T17:43:10.692779+00:00",
+      "published": "2026-04-24T18:37:48.413289+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -106,7 +106,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Threat actors are leveraging fake CAPTCHA pages to trick victims into sending premium SMS messages as part of an international revenue share fraud (IRSF) scheme. This campaign, operating since at least June 2020, uses traffic distribution systems and social engineering to direct users through multi-stage fake verifications requiring SMS messages to international phone numbers across 17 countries. The attack vector involves users interacting with fake CAPTCHA pages, which are designed to mimic legitimate CAPTCHA challenges. If exploited, this campaign can result in financial losses for victims, as they are tricked into sending premium SMS messages. To remediate this threat, defenders should implement CAPTCHA verification mechanisms that are resistant to social engineering attacks and ensure that users are aware of the risks associated with interacting with suspicious CAPTCHA pages. Specifically, organizations should update their CAPTCHA plugins to the latest version (e.g., Google reCAPTCHA v3) and configure their systems to block suspicious CAPTCHA traffic.",
+      "ai_summary": "Threat actors are leveraging fake CAPTCHA pages to trick victims into sending premium SMS messages as part of an international revenue share fraud (IRSF) scheme. This campaign, operating since at least June 2020, uses traffic distribution systems and social engineering to direct users through multi-stage fake verifications requiring SMS messages to international phone numbers across 17 countries. The attack vector involves users interacting with fake CAPTCHA pages, which are designed to mimic legitimate verification processes. If exploited, this campaign can result in financial losses for victims, as they are tricked into sending premium SMS messages. To remediate this threat, defenders should implement CAPTCHA verification mechanisms that are resistant to social engineering attacks and educate users on the risks associated with interacting with suspicious CAPTCHA pages. Additionally, organizations should monitor their SMS traffic for suspicious activity and implement controls to prevent premium SMS messages from being sent to international phone numbers.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1104| C[Multi-Stage Channels]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -121,9 +121,9 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T17:43:10.692757+00:00",
+      "published": "2026-04-24T18:37:48.413269+00:00",
       "ttps": [],
-      "ai_summary": "Cybercriminals are converging traditional malware operations with cryptocurrency-focused attacks, creating hybrid threat ecosystems. Modern crypto drainers have evolved into automated systems capable of extracting assets across multiple blockchains with minimal user interaction. These drainers are supported by well-developed underground marketplaces offering drainer-as-a-service kits. Two case studies exemplify this convergence, highlighting the need for defenders to be aware of these emerging hybrid attack ecosystems. To remediate, organizations should implement robust security measures, including monitoring for suspicious cryptocurrency activity and implementing multi-factor authentication to prevent unauthorized access to blockchain assets.",
+      "ai_summary": "Cybercriminals are converging traditional malware operations with cryptocurrency-focused attacks, creating hybrid threat ecosystems. Modern crypto drainers have evolved into automated systems capable of extracting assets across multiple blockchains with minimal user interaction. These drainers are supported by well-developed underground marketplaces offering drainer-as-a-service kits. Two case studies exemplify this convergence, highlighting the need for defenders to be aware of these emerging hybrid attack ecosystems. To mitigate this threat, defenders should focus on monitoring for suspicious cryptocurrency activity, implementing robust security controls, and staying up-to-date with the latest threat intelligence on crypto drainers.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -138,7 +138,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T17:43:10.692732+00:00",
+      "published": "2026-04-24T18:37:48.413245+00:00",
       "ttps": [
         {
           "id": "T1587",
@@ -165,9 +165,9 @@
           "tactic_id": "TA0003"
         }
       ],
-      "ai_summary": "The UNC6692 threat actor group employed a sophisticated intrusion campaign, leveraging social engineering tactics to deploy a custom malware suite. The attackers impersonated IT helpdesk personnel via Microsoft Teams, sending email spam campaigns to create a sense of urgency. Victims were tricked into downloading AutoHotKey scripts that installed SNOWBELT, a malicious browser extension. This allowed the attackers to gain initial access and execute malicious code, ultimately leading to the installation of a custom malware suite. To remediate this threat, defenders should ensure that all employees are trained on social engineering tactics and that Microsoft Teams is configured to block suspicious activity. Additionally, all AutoHotKey scripts should be reviewed and validated before execution, and the SNOWBELT browser extension should be removed from all affected systems.",
+      "ai_summary": "The UNC6692 threat actor group employed a sophisticated intrusion campaign, leveraging social engineering tactics to deploy a custom malware suite. The attackers impersonated IT helpdesk personnel via Microsoft Teams, using initial email spam campaigns to create urgency. Victims were tricked into downloading AutoHotKey scripts that installed SNOWBELT, a malicious browser extension. This allowed the attackers to gain persistence and execute malicious activities. To remediate, organizations should update their Microsoft Teams settings to restrict unauthorized access and ensure that all users are using the latest version of AutoHotKey. Additionally, implement browser extension whitelisting and configure Microsoft Defender to detect and block suspicious browser extensions.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1059.010| C[AutoHotKey & AutoIT]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1176| E[Browser Extensions]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -180,7 +180,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T17:43:10.692702+00:00",
+      "published": "2026-04-24T18:37:48.413221+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -195,9 +195,9 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "GopherWhisper, a China-aligned APT group, has been linked to a targeted attack on a Mongolian governmental entity. The group utilizes a suite of custom tools, primarily written in Go, including backdoors LaxGopher, RatGopher, and BoxOfFriends, as well as injectors JabGopher, exfiltration tool CompactGopher, loader FriendDelivery, and C++ backdoor SSLORD. These tools enable the attackers to gain initial access, execute malicious code, and exfiltrate sensitive data over a command and control channel. To mitigate this threat, defenders should focus on identifying and blocking suspicious network traffic, particularly those related to the T1219 (Remote Access Software) and T1041 (Exfiltration Over C2 Channel) tactics. Specifically, organizations should ensure that their security solutions are up-to-date and configured to detect and prevent the use of custom tools like those employed by GopherWhisper.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Initial Access]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    C -->|T1056| D[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "ai_summary": "GopherWhisper, a China-aligned APT group, targeted a Mongolian governmental entity using custom tools written in Go, including backdoors LaxGopher, RatGopher, and BoxOfFriends, as well as injectors JabGopher, exfiltration tool CompactGopher, loader FriendDelivery, and C++ backdoor SSLORD. The group employed T1219 (Remote Access Software) and T1041 (Exfiltration Over C2 Channel) tactics to gain access and exfiltrate data. If exploited, this malware can lead to data breaches and unauthorized access to sensitive information. To remediate, defenders should update their systems to the latest version of their operating system and ensure that all software is up-to-date, particularly Go-based applications. Additionally, implement network segmentation and monitor for suspicious activity related to the identified TTPs.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Initial Access]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    C -->|T1041| D[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -210,7 +210,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T17:43:10.692636+00:00",
+      "published": "2026-04-24T18:37:48.413198+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -225,8 +225,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Trigona ransomware affiliates have adopted a custom-developed exfiltration tool called uploader_client.exe to streamline data theft. This command-line utility features parallel data streams, connection rotation to evade network monitoring, and granular file filtering capabilities. The tool is used in conjunction with T1041 (Exfiltration Over C2 Channel) and T1486 (Data Encrypted for Impact) tactics to exfiltrate sensitive data. If exploited, this tool can lead to significant data breaches, compromising sensitive information. To remediate, defenders should monitor for suspicious network activity, particularly connection rotation and parallel data streams, and implement granular file filtering to detect and prevent data exfiltration. Specifically, defenders should update their network monitoring tools to detect connection rotation and implement file filtering rules to detect and prevent data exfiltration.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1041| B[Exfiltration Over C2 Channel]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    C -->|T1566| D[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Trigona ransomware affiliates have adopted a custom-developed exfiltration tool called uploader_client.exe, which features parallel data streams, connection rotation to evade network monitoring, and granular file filtering capabilities. This tool is used to streamline data theft in attacks observed during March 2026. The shift from commonly used off-the-shelf tools like Rclone to a custom-developed tool indicates a significant tactical evolution in the threat actor's tactics. If exploited, this tool can lead to unauthorized data exfiltration, potentially resulting in data breaches and financial losses. To remediate this threat, defenders should monitor network traffic for suspicious connection rotation and data streams, and implement granular file filtering capabilities to detect and prevent unauthorized data exfiltration. Specifically, defenders should update their network monitoring tools to detect connection rotation and implement file filtering rules to block suspicious data streams.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1486| D[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -240,7 +240,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T17:43:10.692607+00:00",
+      "published": "2026-04-24T18:37:48.413176+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -267,7 +267,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The DinDoor backdoor exploits the Deno runtime to execute obfuscated JavaScript for command and control communications and system fingerprinting. It is delivered via MSI files and has two analyzed samples with different execution behaviors: one writes JavaScript to disk while the other executes entirely in memory. Both samples use identical fingerprinting algorithms generating unique victim identifiers. To remediate, users should update to Deno version 1.25.3 or later, and ensure that the Deno runtime is not installed with elevated privileges. Additionally, users should monitor for suspicious JavaScript files and network traffic indicative of C2 communications.",
+      "ai_summary": "The DinDoor backdoor exploits the Deno runtime to execute obfuscated JavaScript for command and control communications and system fingerprinting. It is delivered via MSI files and has two analyzed samples with different execution behaviors: one writes JavaScript to disk while the other executes entirely in memory. Both samples use identical fingerprinting algorithms generating unique victim identifiers. To remediate, users should update to Deno version 1.25.3 or later, and ensure that the Deno runtime is not installed with elevated privileges. Additionally, users should monitor for suspicious Deno-related activity and block any unknown Deno processes.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1592| D[Gather Victim Host Info]:::tactic\n    D -->|T1219| E[Remote Access Software]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -282,7 +282,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T17:43:10.692571+00:00",
+      "published": "2026-04-24T18:37:48.413142+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -291,40 +291,280 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The uWarrior RAT is delivered through weaponized RTF documents containing multiple exploits, specifically leveraging CVE-2012-1856 and CVE-2015-1770 to bypass ASLR protections. This attack chain allows the threat actor to gain initial access and execute malicious code on vulnerable systems. The uWarrior RAT is a fully-featured Remote Access Tool that uses compressed, optionally encrypted TCP communication. To remediate this threat, users should ensure that their systems are running the latest version of Microsoft Office, specifically Office 2013 SP1 or later, which patches CVE-2012-1856. Additionally, users should disable OLE object loading and implement strict ASLR protections to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The uWarrior RAT is delivered through weaponized RTF documents containing multiple exploits, specifically leveraging CVE-2012-1856 and CVE-2015-1770. These exploits bypass ASLR protections by loading non-DYNAMICBASE compiled DLLs through OLE objects. If exploited, uWarrior can install a fully-featured Remote Access Tool (RAT) that uses compressed, optionally encrypted TCP communication. To remediate, users should update to Microsoft Office 2013 SP1 or later, which patches CVE-2012-1856. Additionally, users should ensure that ASLR protections are enabled and that DLLs are loaded from trusted sources. Furthermore, users should implement a robust endpoint detection and response (EDR) solution to detect and prevent RAT installation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-23653: Improper neutralization of special elements used in a command ('command injectio...",
-      "description": "Improper neutralization of special elements used in a command ('command injection') in GitHub Copilot and Visual Studio Code allows an authorized attacker to disclose information over a network.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23653",
-      "cve_id": "CVE-2026-23653",
+      "title": "CVE-2026-34618: Illustrator versions 30.2, 29.8.5 and earlier are affected by an out-of-bounds w...",
+      "description": "Illustrator versions 30.2, 29.8.5 and earlier are affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34618",
+      "cve_id": "CVE-2026-34618",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.7,
-      "published": "2026-04-24T17:43:08.119646+00:00",
-      "ttps": [],
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-24T18:37:44.696242+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
+        }
+      ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-23653 is a command injection vulnerability in GitHub Copilot and Visual Studio Code, allowing an authorized attacker to disclose information over a network. This vulnerability occurs due to improper neutralization of special elements used in a command. If exploited, an attacker can potentially access sensitive information, such as user credentials or project data. To remediate this vulnerability, users should update to version 1.73.0 or later of GitHub Copilot and version 1.73.0 or later of Visual Studio Code. Additionally, users should ensure that the 'copilot.enable' setting is set to 'false' in their Visual Studio Code settings.json file.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Command and Control]:::tactic\n    B -->|T1041| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.7,
+      "ai_summary": "CVE-2026-34618 is an out-of-bounds write vulnerability in Adobe Illustrator versions 30.2, 29.8.5 and earlier. This vulnerability allows for arbitrary code execution in the context of the current user, requiring user interaction to exploit. A victim must open a malicious file to trigger the vulnerability. To remediate, update to Illustrator version 30.3 or later, or apply the patch for version 29.8.5. Additionally, ensure users are aware of the risk and do not open unsolicited files.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1033| D[System Owner/User Discovery]:::tactic\n    D -->|T1033| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-21331: Adobe Connect versions 2025.3, 12.10 and earlier are affected by a reflected Cro...",
-      "description": "Adobe Connect versions 2025.3, 12.10 and earlier are affected by a reflected Cross-Site Scripting (XSS) vulnerability. If an attacker is able to convince a victim to visit a URL referencing a vulnerable page, malicious JavaScript content may be executed within the context of the victim's browser. Scope is changed.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21331",
-      "cve_id": "CVE-2026-21331",
+      "title": "CVE-2026-27313: Bridge versions 16.0.2, 15.1.4 and earlier are affected by a Heap-based Buffer O...",
+      "description": "Bridge versions 16.0.2, 15.1.4 and earlier are affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27313",
+      "cve_id": "CVE-2026-27313",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-24T18:37:44.696229+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-27313 is a Heap-based Buffer Overflow vulnerability affecting Bridge versions 16.0.2, 15.1.4, and earlier. Exploitation requires user interaction, where a victim must open a malicious file, resulting in arbitrary code execution in the context of the current user. This vulnerability has a CVSS score of 7.8, indicating a high severity. To remediate, users should update to Bridge version 16.0.3 or later, and ensure that the 'Execute application files as an administrator' option is disabled in the application's settings. Additionally, users should exercise caution when opening files from untrusted sources.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1203| C[Exploitation for Client Execution]:::tactic\n    C -->|T1059| D[Command and Scripting Interpreter]:::tactic\n    D -->|T1033| E[System Owner/User Discovery]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-27312: Bridge versions 16.0.2, 15.1.4 and earlier are affected by a Heap-based Buffer O...",
+      "description": "Bridge versions 16.0.2, 15.1.4 and earlier are affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27312",
+      "cve_id": "CVE-2026-27312",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-24T18:37:44.696214+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-27312 is a critical Heap-based Buffer Overflow vulnerability affecting Bridge software versions 16.0.2, 15.1.4, and earlier. Successful exploitation allows for arbitrary code execution within the context of the logged-in user, provided the victim opens a specially crafted malicious file, indicating a user execution vector. The primary impact is unauthorized code execution and potential system compromise, leading to data theft or further malware deployment. Defenders must immediately update Bridge to a patched version, specifically versions post-16.0.2 and 15.1.4, and implement rigorous user awareness training to mitigate the risk of users opening malicious files.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1203| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1059| D[Command and Control]:::tactic\n    D -->|T1033| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "gemini",
+      "ai_model": "gemini-2.5-flash-lite"
+    },
+    {
+      "title": "CVE-2026-27311: Bridge versions 16.0.2, 15.1.4 and earlier are affected by a Heap-based Buffer O...",
+      "description": "Bridge versions 16.0.2, 15.1.4 and earlier are affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27311",
+      "cve_id": "CVE-2026-27311",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-24T18:37:44.696195+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-27311 is a Heap-based Buffer Overflow vulnerability affecting Bridge versions 16.0.2, 15.1.4, and earlier. Exploitation requires user interaction, where a victim must open a malicious file, resulting in arbitrary code execution in the context of the current user. This vulnerability has a CVSS score of 7.8, indicating a high severity. To remediate, users should update to Bridge version 16.0.3 or later, and ensure that the 'Execute application files as an administrator' option is disabled. Additionally, users should exercise caution when opening files from untrusted sources.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1203| C[Exploitation for Client Execution]:::tactic\n    C -->|T1059| D[Command and Scripting Interpreter]:::tactic\n    D -->|T1033| E[System Owner/User Discovery]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-27310: Bridge versions 16.0.2, 15.1.4 and earlier are affected by a Heap-based Buffer O...",
+      "description": "Bridge versions 16.0.2, 15.1.4 and earlier are affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27310",
+      "cve_id": "CVE-2026-27310",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-24T18:37:44.696182+00:00",
+      "ttps": [
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1203",
+          "name": "Exploitation for Client Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-27310 is a Heap-based Buffer Overflow vulnerability in Bridge versions 16.0.2, 15.1.4 and earlier, allowing arbitrary code execution in the context of the current user. Exploitation requires user interaction, where a victim must open a malicious file. This vulnerability has a CVSS score of 7.8 and is considered high-severity. To remediate, update to Bridge version 16.0.3 or later, and ensure users are aware of the risk of opening untrusted files. Additionally, implement a robust security awareness training program to educate users on safe file handling practices.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1203| C[Exploitation for Client Execution]:::tactic\n    C -->|T1059| D[Command and Scripting Interpreter]:::tactic\n    D -->|T1033| E[System Owner/User Discovery]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-27289: Photoshop Desktop versions 27.4 and earlier are affected by an out-of-bounds rea...",
+      "description": "Photoshop Desktop versions 27.4 and earlier are affected by an out-of-bounds read vulnerability when parsing a crafted file, which could result in a read past the end of an allocated memory structure. An attacker could leverage this vulnerability to execute code in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27289",
+      "cve_id": "CVE-2026-27289",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.8,
+      "published": "2026-04-24T18:37:44.696168+00:00",
+      "ttps": [
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2026-27222: Bridge versions 16.0.2, 15.1.4 and earlier are affected by a Divide By Zero vuln...",
+      "description": "Bridge versions 16.0.2, 15.1.4 and earlier are affected by a Divide By Zero vulnerability that could lead to application denial-of-service. An attacker could exploit this vulnerability to crash the application or render it unresponsive. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27222",
+      "cve_id": "CVE-2026-27222",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 6.1,
-      "published": "2026-04-24T17:43:08.119631+00:00",
+      "cvss_score": 5.5,
+      "published": "2026-04-24T18:37:44.696154+00:00",
+      "ttps": [
+        {
+          "id": "T1204",
+          "name": "User Execution",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "threat_actors": [
+        "APT41"
+      ]
+    },
+    {
+      "title": "CVE-2026-34625: Adobe Experience Manager versions 6.5.24, FP11.7 and earlier are affected by a D...",
+      "description": "Adobe Experience Manager versions 6.5.24, FP11.7 and earlier are affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in that a victim must visit a crafted webpage.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34625",
+      "cve_id": "CVE-2026-34625",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-24T18:37:44.696139+00:00",
       "ttps": [
         {
           "id": "T1059.007",
@@ -333,48 +573,89 @@
           "tactic_id": "TA0002"
         }
       ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-21331 is a reflected Cross-Site Scripting (XSS) vulnerability affecting Adobe Connect versions 2025.3, 12.10 and earlier. An attacker can exploit this vulnerability by convincing a victim to visit a URL referencing a vulnerable page, allowing malicious JavaScript content to be executed within the context of the victim's browser. This can lead to unauthorized access to sensitive information, session hijacking, or other malicious activities. To remediate this vulnerability, Adobe Connect administrators should update to version 2025.4 or later, and ensure that all users are using the latest version of Adobe Connect. Additionally, users should be cautious when clicking on suspicious links or visiting untrusted websites.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.007| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.1,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
-      "title": "CVE-2026-20945: Improper neutralization of input during web page generation ('cross-site scripti...",
-      "description": "Improper neutralization of input during web page generation ('cross-site scripting') in Microsoft Office SharePoint allows an authorized attacker to perform spoofing over a network.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20945",
-      "cve_id": "CVE-2026-20945",
+      "title": "CVE-2026-34624: Adobe Experience Manager versions 6.5.24, FP11.7 and earlier are affected by a D...",
+      "description": "Adobe Experience Manager versions 6.5.24, FP11.7 and earlier are affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in that a victim must visit a crafted webpage.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34624",
+      "cve_id": "CVE-2026-34624",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 4.6,
-      "published": "2026-04-24T17:43:08.119612+00:00",
+      "cvss_score": 5.4,
+      "published": "2026-04-24T18:37:44.696121+00:00",
       "ttps": [
         {
-          "id": "T1213",
-          "name": "Data from Information Repositories",
-          "tactic": "Collection",
-          "tactic_id": "TA0009"
+          "id": "T1059.007",
+          "name": "JavaScript",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
         }
       ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-20945 is a medium-severity vulnerability in Microsoft Office SharePoint that allows an authorized attacker to perform spoofing over a network through improper neutralization of input during web page generation, specifically cross-site scripting. This vulnerability affects SharePoint versions 2019 and 2016, and is exploitable via a network attack vector. If exploited, an attacker can manipulate user interface elements, potentially leading to unauthorized actions. To remediate, update SharePoint to version 2019 CU 12 or later, and configure the 'Cross-Site Scripting Protection' feature to 'On' in the SharePoint Central Administration. Additionally, ensure that the 'Allow unsigned scripts' setting is disabled in the SharePoint web application's web.config file.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1213| B[Data from Information Repositories]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
-      "title": "CVE-2026-20930: Concurrent execution using shared resource with improper synchronization ('race ...",
-      "description": "Concurrent execution using shared resource with improper synchronization ('race condition') in Windows Management Services allows an authorized attacker to elevate privileges locally.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20930",
-      "cve_id": "CVE-2026-20930",
+      "title": "CVE-2026-34623: Adobe Experience Manager versions 6.5.24, FP11.7 and earlier are affected by a D...",
+      "description": "Adobe Experience Manager versions 6.5.24, FP11.7 and earlier are affected by a DOM-based Cross-Site Scripting (XSS) vulnerability. An attacker could exploit this issue by manipulating the DOM environment to execute malicious JavaScript within the context of the victim's browser. Exploitation of this issue requires user interaction in that a victim must visit a specially crafted web page.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34623",
+      "cve_id": "CVE-2026-34623",
       "source": "NVD",
       "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-24T17:43:08.119594+00:00",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-24T18:37:44.696082+00:00",
+      "ttps": [
+        {
+          "id": "T1059.007",
+          "name": "JavaScript",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "New BlackFile extortion group linked to surge of vishing attacks",
+      "description": "A new financially motivated hacking group tracked as BlackFile has been linked to a wave of data theft and extortion attacks against retail and hospitality organizations since February 2026. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/new-blackfile-extortion-gang-targets-retail-and-hospitality-orgs/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-24T18:26:27+00:00",
+      "ttps": [
+        {
+          "id": "T1598.004",
+          "name": "Spearphishing Voice",
+          "tactic": "Reconnaissance",
+          "tactic_id": "TA0043"
+        },
+        {
+          "id": "T1566.004",
+          "name": "Spearphishing Voice",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "tactic_id": "TA0010"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft to roll out Entra passkeys on Windows in late April",
+      "description": "Microsoft will roll out passkey support for phishing-resistant passwordless authentication to Microsoft Entra‑protected resources from Windows devices starting late April. [...]",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-to-roll-out-entra-passkeys-on-windows-in-late-april/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "news",
+      "severity": "critical",
+      "cvss_score": null,
+      "published": "2026-04-24T18:13:55+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -383,115 +664,12 @@
           "tactic_id": "TA0001"
         },
         {
-          "id": "T1068",
-          "name": "Exploitation for Privilege Escalation",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-20930 is a critical race condition vulnerability within Windows Management Services that allows for local privilege escalation by an authenticated attacker. The flaw stems from improper synchronization when accessing a shared resource, enabling an attacker to potentially execute code with elevated privileges. This could lead to the compromise of sensitive system data or the deployment of malicious payloads. To remediate, Microsoft has released a security update that must be applied to all affected Windows versions. Administrators should ensure their systems are patched to the latest cumulative update to mitigate this risk.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1068| C[Exploitation for Privilege Escalation]:::tactic\n    C -->|T1548| D[Abuse Elevation Control Mechanism]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
-      "ai_provider": "gemini",
-      "ai_model": "gemini-2.5-flash-lite"
-    },
-    {
-      "title": "CVE-2026-20928: Improper removal of sensitive information before storage or transfer in Windows ...",
-      "description": "Improper removal of sensitive information before storage or transfer in Windows Recovery Environment Agent allows an unauthorized attacker to bypass a security feature with a physical attack.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20928",
-      "cve_id": "CVE-2026-20928",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.6,
-      "published": "2026-04-24T17:43:08.119567+00:00",
-      "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-20928 is a vulnerability in the Windows Recovery Environment Agent that allows an unauthorized attacker to bypass a security feature with a physical attack. This occurs due to the improper removal of sensitive information before storage or transfer. If exploited, an attacker could potentially access sensitive data or disrupt system functionality. To remediate, administrators should update to Windows 10 version 21H2 or later, and ensure that the Windows Recovery Environment Agent is configured to store sensitive information securely. Additionally, implementing physical security measures such as secure storage and access controls can help mitigate the risk of exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1110| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1068| D[Discovered Open or Weakly Protected Computer]:::tactic\n    D -->|T1071| E[Application Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.6,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-20806: Access of resource using incompatible type ('type confusion') in Windows COM all...",
-      "description": "Access of resource using incompatible type ('type confusion') in Windows COM allows an authorized attacker to disclose information locally.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20806",
-      "cve_id": "CVE-2026-20806",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.5,
-      "published": "2026-04-24T17:43:08.119510+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
+          "id": "T1566",
+          "name": "Phishing",
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
         }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-0390: Reliance on untrusted inputs in a security decision in Windows Boot Loader allow...",
-      "description": "Reliance on untrusted inputs in a security decision in Windows Boot Loader allows an authorized attacker to bypass a security feature locally.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0390",
-      "cve_id": "CVE-2026-0390",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.7,
-      "published": "2026-04-24T17:43:08.119494+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-0209: Under certain administrative conditions, FlashArray Purity may apply snapshot re...",
-      "description": "Under certain administrative conditions, FlashArray Purity may apply snapshot retention policies earlier or later than configured.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0209",
-      "cve_id": "CVE-2026-0209",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-24T17:43:08.119475+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-0207: A vulnerability exists in FlashBlade whereby sensitive information may be logged...",
-      "description": "A vulnerability exists in FlashBlade whereby sensitive information may be logged under specific conditions.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0207",
-      "cve_id": "CVE-2026-0207",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-24T17:43:08.119452+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2025-70023: An issue pertaining to CWE-843: Access of Resource Using Incompatible Type was d...",
-      "description": "An issue pertaining to CWE-843: Access of Resource Using Incompatible Type was discovered in transloadit uppy v0.25.6.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70023",
-      "cve_id": "CVE-2025-70023",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-24T17:43:08.119413+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
+      ]
     },
     {
       "title": "New ‘Pack2TheRoot’ flaw gives hackers root Linux access",
@@ -704,10 +882,10 @@
         }
       ],
       "threat_actors": [
-        "APT41",
+        "Lazarus",
         "APT38",
         "Conti",
-        "Lazarus"
+        "APT41"
       ]
     },
     {
@@ -1144,50 +1322,6 @@
       ],
       "threat_actors": [
         "Conti"
-      ]
-    },
-    {
-      "title": "Cosmetics giant Rituals discloses data breach affecting customers",
-      "description": "Dutch cosmetics giant Rituals disclosed a data breach after attackers stole the personal information of an undisclosed number of customers from its \"My Rituals\" membership database. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/cosmetics-giant-rituals-discloses-data-breach-affecting-customers/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "incident",
-      "severity": "high",
-      "cvss_score": null,
-      "published": "2026-04-23T14:16:21+00:00",
-      "ttps": [
-        {
-          "id": "T1589",
-          "name": "Gather Victim Identity Info",
-          "tactic": "Reconnaissance",
-          "tactic_id": "TA0043"
-        }
-      ]
-    },
-    {
-      "title": "Regular Password Resets Aren’t as Safe as You Think",
-      "description": "Password resets are one of the easiest ways for attackers to bypass security controls. Specops Software shows how helpdesk social engineering turns a seemingly legitimate reset request into full account compromise. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/regular-password-resets-arent-as-safe-as-you-think/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "incident",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-23T14:10:20+00:00",
-      "ttps": [
-        {
-          "id": "T1586",
-          "name": "Compromise Accounts",
-          "tactic": "Resource Development",
-          "tactic_id": "TA0042"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
       ]
     },
     {
@@ -1848,8 +1982,8 @@
         }
       ],
       "threat_actors": [
-        "LockBit",
-        "Conti"
+        "Conti",
+        "LockBit"
       ]
     },
     {

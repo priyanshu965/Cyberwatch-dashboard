@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-24T22:34:50.851814+00:00",
+  "last_updated": "2026-04-24T23:34:46.448599+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T22:32:38.752869+00:00",
+      "published": "2026-04-24T23:32:52.661312+00:00",
       "ttps": [
         {
           "id": "T1486",
@@ -23,7 +23,7 @@
       "threat_actors": [
         "Conti"
       ],
-      "ai_summary": "The AI Frame Campaign involves a malicious Chrome extension masquerading as Google's Authenticator, requesting excessive permissions and containing dormant infrastructure for potential future malicious updates. This campaign, active since early 2026, has been linked to at least six other instances, suggesting a coordinated effort by the threat actors. If exploited, users may experience data encryption for impact, as indicated by the detected TTP T1486, leading to potential data breaches or ransomware attacks. To remediate, defenders should immediately remove the malicious extension and update Chrome to the latest version, ensuring all extensions are reviewed for excessive permissions, particularly those requesting access beyond their intended functionality. Additionally, implementing a web application firewall (WAF) and regularly monitoring browser extensions for suspicious activity can help mitigate similar threats.",
+      "ai_summary": "The AI Frame Campaign involves a malicious Chrome extension masquerading as Google's Authenticator application, active since early 2026. This extension requests excessive permissions, indicating a potential for data encryption and exfiltration, as suggested by the detected TTP T1486. The campaign's infrastructure is designed for staged deployment, allowing for malicious updates without requiring additional user approval. To mitigate this threat, defenders should immediately remove the malicious extension and update Chrome to the latest version, ensuring all extensions are reviewed for excessive permissions. Additionally, implementing a web application firewall (WAF) with specific rules to block known malicious extension updates can help prevent similar attacks.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.2,
       "ai_provider": "groq",
@@ -38,10 +38,10 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T22:32:38.752837+00:00",
+      "published": "2026-04-24T23:32:52.661287+00:00",
       "ttps": [],
-      "ai_summary": "The fast16 cyber sabotage framework, discovered in 2005, is a sophisticated toolset that targets high-precision calculation software by corrupting computational results through memory patching. The framework consists of a kernel driver, fast16.sys, which selectively targets specific software, and a Lua-powered carrier module, svcmgmt.exe, that enables self-propagation across facilities. If exploited, this framework could have significant real-world impact, particularly in industries that rely on precise calculations, such as aerospace, finance, or scientific research. To remediate this threat, defenders should implement robust software integrity monitoring, focusing on kernel driver activity and Lua script execution, and ensure that all high-precision software is running with the latest security patches and configurations. Additionally, defenders should conduct regular audits of their software inventory to identify potential vulnerabilities in calculation software.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Execution]:::tactic\n    B -->|T1204| C[Privilege Escalation]:::tactic\n    C -->|T1547| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The fast16 cyber sabotage framework, discovered in 2005, is a sophisticated toolset that targets high-precision calculation software by corrupting computational results through memory patching. This is achieved via the fast16.sys kernel driver, which selectively targets specific software, potentially causing significant disruptions in industries reliant on precise calculations. The framework also includes a Lua-powered carrier module, svcmgmt.exe, facilitating self-propagation across facilities. To defend against such threats, organizations should implement robust software validation and verification processes, ensuring the integrity of critical computational software. Additionally, network segmentation and strict access controls can help mitigate the spread of such malware, with specific emphasis on monitoring and controlling kernel driver installations and Lua script executions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1542| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -55,7 +55,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T22:32:38.752821+00:00",
+      "published": "2026-04-24T23:32:52.661268+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -70,7 +70,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "Threat actors are leveraging fake CAPTCHA pages to trick victims into sending premium SMS messages as part of an international revenue share fraud (IRSF) scheme. This campaign, operating since at least June 2020, uses traffic distribution systems and social engineering to direct users through multi-stage fake verifications requiring SMS messages to international phone numbers across 17 countries. The attack vector involves users being redirected to fake CAPTCHA pages, which prompt them to send SMS messages to international phone numbers. If exploited, this campaign can result in financial losses for victims, with the threat actors receiving revenue from the premium SMS messages. To remediate, users should be cautious when encountering CAPTCHA pages and avoid sending SMS messages to unfamiliar phone numbers. Additionally, organizations should implement CAPTCHA verification mechanisms that are resistant to social engineering attacks and educate users on the risks of premium SMS messages.",
+      "ai_summary": "Threat actors are leveraging fake CAPTCHA pages to trick victims into sending premium SMS messages as part of an international revenue share fraud (IRSF) scheme. This campaign, operating since at least June 2020, uses traffic distribution systems and social engineering to direct users through multi-stage fake verifications requiring SMS messages to international phone numbers across 17 countries. The attack vector involves users interacting with fake CAPTCHA pages, which are designed to mimic legitimate CAPTCHA challenges. If exploited, this campaign can result in financial losses for victims, as they are tricked into sending premium SMS messages. To remediate this threat, defenders should implement CAPTCHA verification mechanisms that are resistant to social engineering attacks and monitor for suspicious SMS traffic.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1104| C[Multi-Stage Channels]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -85,13 +85,13 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T22:32:38.752802+00:00",
+      "published": "2026-04-24T23:32:52.661244+00:00",
       "ttps": [],
-      "ai_summary": "The emerging threat of crypto drainers represents a converging threat ecosystem where cybercriminals merge traditional malware operations with cryptocurrency-focused attacks. Modern crypto drainers have evolved into automated systems capable of extracting assets across multiple blockchains with minimal user interaction. These systems are supported by well-developed underground marketplaces offering drainer-as-a-service kits, making it easier for attackers to launch these types of attacks. The real-world impact of these attacks can be significant, with victims potentially losing substantial amounts of cryptocurrency. To remediate this threat, defenders should focus on monitoring blockchain activity, implementing robust access controls, and staying up-to-date with the latest security patches for their cryptocurrency wallets and exchanges.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The emerging hybrid attack ecosystems pose a significant threat as cybercriminals merge traditional malware operations with cryptocurrency-focused attacks. This convergence enables the creation of automated systems, such as crypto drainers, that can extract assets across multiple blockchains with minimal user interaction. The real-world impact of these attacks can result in substantial financial losses for individuals and organizations, as seen in case studies where attackers have successfully drained cryptocurrency wallets. To remediate these threats, defenders should implement robust security measures, including multi-factor authentication, regular software updates, and the use of reputable antivirus software. Additionally, organizations should consider implementing a cryptocurrency transaction monitoring system to detect and prevent suspicious transactions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Trusted Relationship]:::tactic\n    B -->|T1556| C[Initial Access]:::tactic\n    C -->|T1210| D[Exploitation for Client Execution]:::tactic\n    D -->|T1531| E[Account Access Token]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Snow Flurries: How UNC6692 Employed Social Engineering to Deploy a Custom Malware Suite",
@@ -102,7 +102,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T22:32:38.752782+00:00",
+      "published": "2026-04-24T23:32:52.661220+00:00",
       "ttps": [
         {
           "id": "T1587",
@@ -129,8 +129,8 @@
           "tactic_id": "TA0003"
         }
       ],
-      "ai_summary": "The UNC6692 threat actor group employed a sophisticated intrusion campaign that combined persistent social engineering with custom malware. The attackers impersonated IT helpdesk personnel via Microsoft Teams, leveraging initial email spam campaigns to create urgency. Victims were tricked into downloading AutoHotKey scripts that installed SNOWBELT, a malicious browser extension. This allowed the attackers to gain initial access and execute malicious code, ultimately leading to command and control and impact. To remediate, users should be cautious of unsolicited emails and Microsoft Teams messages, and ensure that all software, including AutoHotKey, is up-to-date. Specifically, users should update to AutoHotKey version 1.1.32.0 or later, and configure Microsoft Teams to block suspicious messages.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1059.010| C[Execution]:::tactic\n    C -->|T1204| D[Command and Control]:::tactic\n    D -->|T1176| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The UNC6692 threat actor group employed a sophisticated intrusion campaign, leveraging social engineering tactics to deploy a custom malware suite. The attackers impersonated IT helpdesk personnel via Microsoft Teams, using initial email spam campaigns to create urgency. Victims were tricked into downloading AutoHotKey scripts that installed SNOWBELT, a malicious browser extension. This exploit affects users of Microsoft Teams and those who interact with suspicious email campaigns. To remediate, users should be cautious of unsolicited emails and verify the authenticity of IT helpdesk personnel before engaging. Additionally, ensure that Microsoft Teams is updated to the latest version, and consider implementing browser extension whitelisting to prevent malicious installations.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1059.010| C[AutoHotKey & AutoIT]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1176| E[Browser Extensions]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -144,7 +144,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T22:32:38.752763+00:00",
+      "published": "2026-04-24T23:32:52.661184+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -159,8 +159,8 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "GopherWhisper, a China-aligned APT group, targeted a Mongolian governmental entity using custom tools written in Go, including backdoors LaxGopher, RatGopher, and BoxOfFriends, as well as injectors JabGopher, exfiltration tool CompactGopher, loader FriendDelivery, and C++ backdoor SSLORD. The group employed T1219 (Remote Access Software) and T1041 (Exfiltration Over C2 Channel) tactics to gain access and exfiltrate data. If exploited, this threat could lead to unauthorized access, data theft, and potential disruption of critical systems. To remediate, defenders should update their systems to the latest version of Go and ensure that all custom tools are removed and replaced with trusted alternatives. Additionally, implement network segmentation and monitor for suspicious activity related to the identified TTPs.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Initial Access]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    C -->|T1041| D[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "GopherWhisper, a China-aligned APT group, targeted a Mongolian governmental entity using custom tools written in Go, including backdoors LaxGopher, RatGopher, and BoxOfFriends, as well as injectors JabGopher, exfiltration tool CompactGopher, loader FriendDelivery, and C++ backdoor SSLORD. The group employed T1219 (Remote Access Software) and T1041 (Exfiltration Over C2 Channel) tactics to gain initial access and exfiltrate data. If exploited, this threat could lead to data breaches and unauthorized access to sensitive information. To remediate, defenders should update their systems to the latest version of their software, particularly those using Go-based tools, and implement strict access controls to prevent lateral movement. Additionally, monitoring for suspicious network activity and implementing a robust incident response plan can help mitigate the impact of this threat.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -174,7 +174,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T22:32:38.752747+00:00",
+      "published": "2026-04-24T23:32:52.661164+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -189,8 +189,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Trigona ransomware affiliates have adopted a custom-developed exfiltration tool called uploader_client.exe to streamline data theft. This command-line utility features parallel data streams, connection rotation to evade network monitoring, and granular file filtering capabilities. The tool is used in conjunction with T1041 (Exfiltration Over C2 Channel) and T1486 (Data Encrypted for Impact) tactics to exfiltrate sensitive data. To remediate, defenders should monitor for suspicious command-line utilities and implement network monitoring to detect connection rotation. Additionally, implement granular file filtering to prevent unauthorized data exfiltration. Specifically, update to the latest version of endpoint detection and response (EDR) tools to detect and block uploader_client.exe.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Exfiltration Over C2 Channel]:::tactic\n    D -->|T1486| E[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Trigona ransomware affiliates have adopted a custom-developed exfiltration tool called uploader_client.exe to streamline data theft. This command-line utility features parallel data streams, connection rotation to evade network monitoring, and granular file filtering capabilities. The tool is used in conjunction with T1041 (Exfiltration Over C2 Channel) and T1486 (Data Encrypted for Impact) tactics to exfiltrate sensitive data. To remediate, defenders should monitor for suspicious command-line utilities and implement network monitoring to detect connection rotation. Additionally, defenders should ensure that all systems are running the latest version of their operating system and have the latest security patches applied.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -204,7 +204,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T22:32:38.752730+00:00",
+      "published": "2026-04-24T23:32:52.661143+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -231,7 +231,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "DinDoor is a Deno-based backdoor delivered via MSI files that exploits the Deno runtime to execute obfuscated JavaScript for command and control communications and system fingerprinting. The backdoor uses identical fingerprinting algorithms generating unique victim identifiers. Two analyzed samples show different execution behaviors: one writes JavaScript to disk while the other executes entirely in memory. If exploited, DinDoor can lead to unauthorized access, data exfiltration, and system compromise. To remediate, users should update to Deno version 1.25.3 or later, and ensure the Deno runtime is not installed with elevated privileges.",
+      "ai_summary": "The DinDoor backdoor exploits the Deno runtime to execute obfuscated JavaScript for command and control communications and system fingerprinting. DinDoor is delivered via MSI files and has been observed in two different execution behaviors: one writes JavaScript to disk while the other executes entirely in memory. Both samples use identical fingerprinting algorithms generating unique victim identifiers. To remediate, users should update to Deno version 1.25.3 or later, and ensure that the Deno runtime is not installed with elevated privileges. Additionally, users should monitor for suspicious MSI file downloads and block any unknown or untrusted sources.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1592| D[Gather Victim Host Info]:::tactic\n    D -->|T1219| E[Remote Access Software]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -244,9 +244,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T22:32:38.752708+00:00",
+      "published": "2026-04-24T23:32:52.661117+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -255,9 +255,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The uWarrior RAT is delivered through weaponized RTF documents containing multiple exploits, leveraging CVE-2012-1856 and CVE-2015-1770 to bypass ASLR protections. This attack chain allows the threat actor to install a fully-featured Remote Access Tool (RAT) on compromised systems. The RAT uses compressed, optionally encrypted TCP communication, posing a significant threat to affected systems. To remediate, users should update their Microsoft Office software to version 2013 SP1 or later, which includes a patch for CVE-2012-1856. Additionally, users should ensure that their systems are running Windows 10 or later, which includes improved ASLR protections.",
+      "ai_summary": "The uWarrior RAT is delivered through weaponized RTF documents containing multiple exploits, specifically leveraging CVE-2012-1856 and CVE-2015-1770 to bypass ASLR protections. This attack chain allows the threat actor to install a fully-featured RAT on vulnerable systems, enabling remote access and potentially leading to data breaches or ransomware attacks. To remediate, users should update their Microsoft Office software to version 2013 SP1 or later, which includes patches for CVE-2012-1856. Additionally, users should ensure that their systems have the latest Windows updates, including those for ASLR protections. Furthermore, users should exercise caution when opening RTF documents from unknown sources and consider implementing additional security measures, such as sandboxing or email filtering.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -270,7 +270,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-24T22:32:38.752681+00:00",
+      "published": "2026-04-24T23:32:52.661084+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -279,78 +279,22 @@
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "The ClickFix Campaigns Targeting Windows and macOS exploit utilizes the ClickFix social engineering technique for initial access, impersonating services like Intuit QuickBooks and Booking.com. This campaign manipulates victims into executing malicious commands within native system tools, bypassing traditional security controls. The affected systems include Windows and macOS, with the attack vector being user execution. To remediate this threat, defenders should ensure that users are educated on the dangers of social engineering tactics and that security controls are implemented to prevent the execution of malicious commands within native system tools. Specifically, defenders should update to the latest version of their operating system and ensure that security software is configured to detect and block suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The ClickFix Campaigns exploit a social engineering technique to manipulate victims into executing malicious commands within native system tools on Windows and macOS. The campaigns impersonate services like Intuit QuickBooks and Booking.com, using T1204 (User Execution) to bypass traditional security controls. If exploited, ClickFix can lead to privilege escalation and data breach, affecting users who interact with the malicious links. To remediate, users should be cautious when clicking on unfamiliar links and ensure that system tools are not used to execute unknown commands. Additionally, administrators should implement strict access controls and monitor system logs for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-27300: Adobe Framemaker versions 2022.8 and earlier are affected by an Access of Uninit...",
-      "description": "Adobe Framemaker versions 2022.8 and earlier are affected by an Access of Uninitialized Pointer vulnerability that could lead to memory exposure. An attacker could leverage this vulnerability to disclose sensitive information. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27300",
-      "cve_id": "CVE-2026-27300",
+      "title": "CVE-2026-39842: OpenRemote is an open-source IoT platform. Versions 1.21.0 and below contain two...",
+      "description": "OpenRemote is an open-source IoT platform. Versions 1.21.0 and below contain two interrelated expression injection vulnerabilities in the rules engine that allow arbitrary code execution on the server. The JavaScript rules engine executes user-supplied scripts via Nashorn's ScriptEngine.eval() without sandboxing, class filtering, or access restrictions, and the authorization check in RulesResource",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39842",
+      "cve_id": "CVE-2026-39842",
       "source": "NVD",
       "category": "cve",
-      "severity": "medium",
-      "cvss_score": 5.5,
-      "published": "2026-04-24T22:32:35.613329+00:00",
-      "ttps": [
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "epss_score": null,
-      "threat_actors": [
-        "APT41"
-      ],
-      "ai_summary": "Adobe Framemaker versions 2022.8 and earlier are vulnerable to an Access of Uninitialized Pointer (CVE-2026-27300) that allows attackers to disclose sensitive information via memory exposure. This vulnerability requires user interaction, where a victim must open a malicious file. To exploit this issue, an attacker would use the T1204 (User Execution) tactic, where they trick the victim into running the malicious file. To remediate this issue, users should update to Adobe Framemaker version 2022.9 or later, and ensure that all files are scanned for malware before opening them. Additionally, users should be cautious when opening files from unknown sources and avoid using outdated software.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-27299: Adobe Framemaker versions 2022.8 and earlier are affected by an Improper Input V...",
-      "description": "Adobe Framemaker versions 2022.8 and earlier are affected by an Improper Input Validation vulnerability that could lead to arbitrary file system read. An attacker could leverage this vulnerability to access sensitive files or data on the system. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27299",
-      "cve_id": "CVE-2026-27299",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.3,
-      "published": "2026-04-24T22:32:35.613319+00:00",
-      "ttps": [
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "epss_score": null,
-      "threat_actors": [
-        "APT41"
-      ],
-      "ai_summary": "CVE-2026-27299 is an Improper Input Validation vulnerability in Adobe Framemaker versions 2022.8 and earlier. An attacker can exploit this issue by tricking a victim into opening a malicious file, allowing them to access sensitive files or data on the system. This vulnerability requires user interaction and has a CVSS score of 6.3. To remediate, update to Adobe Framemaker version 2022.9 or later, and ensure users are cautious when opening files from untrusted sources. Additionally, consider implementing a robust file validation mechanism to prevent similar attacks in the future.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.3,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-27298: Adobe Framemaker versions 2022.8 and earlier are affected by an Access of Resour...",
-      "description": "Adobe Framemaker versions 2022.8 and earlier are affected by an Access of Resource Using Incompatible Type ('Type Confusion') vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27298",
-      "cve_id": "CVE-2026-27298",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-24T22:32:35.613307+00:00",
+      "severity": "critical",
+      "cvss_score": 9.9,
+      "published": "2026-04-24T23:32:48.936191+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -363,245 +307,43 @@
           "name": "Command and Scripting Interpreter",
           "tactic": "Execution",
           "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1033",
-          "name": "System Owner/User Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-27298 is a Type Confusion vulnerability in Adobe Framemaker versions 2022.8 and earlier, allowing arbitrary code execution in the context of the current user. Exploitation requires user interaction, where a victim must open a malicious file. This issue can lead to data breaches, privilege escalation, and ransomware attacks. To remediate, update to Adobe Framemaker version 2022.9 or later, and ensure users are aware of the risk of opening untrusted files. Additionally, implement a robust security awareness training program to educate users on safe file handling practices.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1204| C[User Execution]:::tactic\n    C -->|T1059| D[Command and Scripting Interpreter]:::tactic\n    D -->|T1033| E[System Owner/User Discovery]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-39842 is a critical vulnerability in OpenRemote IoT platform versions 1.21.0 and below, allowing arbitrary code execution on the server via two interrelated expression injection vulnerabilities in the rules engine. The JavaScript rules engine executes user-supplied scripts via Nashorn's ScriptEngine.eval() without sandboxing, class filtering, or access restrictions. This vulnerability can be exploited by an attacker to gain remote code execution, potentially leading to data breaches, ransomware attacks, or other malicious activities. To remediate this vulnerability, users should upgrade to version 1.21.1 or later, and ensure that the rules engine is properly configured to prevent unauthorized script execution. Specifically, users should update the OpenRemote server to version 1.21.1 or later, and configure the rules engine to use a secure scripting engine, such as GraalVM, and enable access restrictions to prevent unauthorized script execution.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.9,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-33806: Impact:\n\nFastify applications using schema.body.content for per-content-type bod...",
+      "description": "Impact:\n\nFastify applications using schema.body.content for per-content-type body validation can have validation bypassed entirely by prepending a space to the Content-Type header. The body is still parsed correctly but schema validation is skipped.\n\nThis is a regression introduced in fastify >= 5.3.2 by the fix for CVE-2025-32442\n\nPatches:\n\nUpgrade to fastify v5.8.5 or later.\n\nWorkarounds:\n\nNone.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33806",
+      "cve_id": "CVE-2026-33806",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "published": "2026-04-24T23:32:48.936177+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-33806 is a critical vulnerability in Fastify applications using schema.body.content for per-content-type body validation. An attacker can bypass validation by prepending a space to the Content-Type header, allowing them to inject malicious data. This vulnerability affects Fastify versions 5.3.2 and later, including the patch for CVE-2025-32442. To remediate, upgrade to Fastify version 5.8.5 or later. This vulnerability has a CVSS score of 7.5 and is considered high-severity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-27297: Adobe Framemaker versions 2022.8 and earlier are affected by an Integer Underflo...",
-      "description": "Adobe Framemaker versions 2022.8 and earlier are affected by an Integer Underflow (Wrap or Wraparound) vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27297",
-      "cve_id": "CVE-2026-27297",
+      "title": "CVE-2026-2834: The Age Verification & Identity Verification by Token of Trust plugin for WordPr...",
+      "description": "The Age Verification & Identity Verification by Token of Trust plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘description’ parameter in all versions up to, and including, 3.32.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user access",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2834",
+      "cve_id": "CVE-2026-2834",
       "source": "NVD",
       "category": "cve",
       "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-24T22:32:35.613291+00:00",
-      "ttps": [
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1033",
-          "name": "System Owner/User Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-27297 is an Integer Underflow vulnerability in Adobe Framemaker versions 2022.8 and earlier, allowing arbitrary code execution in the context of the current user. Exploitation requires user interaction, where a victim must open a malicious file. This vulnerability has a CVSS score of 7.8, indicating a high severity. To remediate, update to Adobe Framemaker version 2022.9 or later, and ensure users are aware of the risk of opening untrusted files. Additionally, consider implementing file validation and sanitization controls to prevent similar attacks. Users of earlier versions should consider disabling the affected feature or using a sandboxed environment to mitigate the risk.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1033| D[System Owner/User Discovery]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-27296: Adobe Framemaker versions 2022.8 and earlier are affected by an Integer Underflo...",
-      "description": "Adobe Framemaker versions 2022.8 and earlier are affected by an Integer Underflow (Wrap or Wraparound) vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27296",
-      "cve_id": "CVE-2026-27296",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-24T22:32:35.613280+00:00",
-      "ttps": [
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1033",
-          "name": "System Owner/User Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-27296, a critical integer underflow vulnerability affecting Adobe FrameMaker versions 2022.8 and earlier, allows for arbitrary code execution when a user opens a specially crafted malicious file. This attack vector, leveraging user interaction for initial access, could lead to the compromise of the current user's context. Threat actors can exploit this to gain a foothold on affected systems, potentially leading to further lateral movement or data exfiltration. To mitigate this threat, users must update Adobe FrameMaker to version 2022.9 or later, which addresses this specific vulnerability and closes the attack vector.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059| C[Execution]:::tactic\n    C -->|T1033| D[Discovery]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
-      "ai_provider": "gemini",
-      "ai_model": "gemini-2.5-flash-lite"
-    },
-    {
-      "title": "CVE-2026-27295: Adobe Framemaker versions 2022.8 and earlier are affected by an out-of-bounds wr...",
-      "description": "Adobe Framemaker versions 2022.8 and earlier are affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27295",
-      "cve_id": "CVE-2026-27295",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-24T22:32:35.613269+00:00",
-      "ttps": [
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1033",
-          "name": "System Owner/User Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-27294: Adobe Framemaker versions 2022.8 and earlier are affected by an out-of-bounds re...",
-      "description": "Adobe Framemaker versions 2022.8 and earlier are affected by an out-of-bounds read vulnerability when parsing a crafted file, which could result in a read past the end of an allocated memory structure. An attacker could leverage this vulnerability to execute code in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27294",
-      "cve_id": "CVE-2026-27294",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-24T22:32:35.613257+00:00",
-      "ttps": [
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1033",
-          "name": "System Owner/User Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-27293: Adobe Framemaker versions 2022.8 and earlier are affected by a Heap-based Buffer...",
-      "description": "Adobe Framemaker versions 2022.8 and earlier are affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27293",
-      "cve_id": "CVE-2026-27293",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-24T22:32:35.613245+00:00",
-      "ttps": [
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1033",
-          "name": "System Owner/User Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-27292: Adobe Framemaker versions 2022.8 and earlier are affected by a Use After Free vu...",
-      "description": "Adobe Framemaker versions 2022.8 and earlier are affected by a Use After Free vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27292",
-      "cve_id": "CVE-2026-27292",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.8,
-      "published": "2026-04-24T22:32:35.613228+00:00",
-      "ttps": [
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1203",
-          "name": "Exploitation for Client Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1033",
-          "name": "System Owner/User Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-27290: Adobe Framemaker versions 2022.8 and earlier are affected by an Untrusted Search...",
-      "description": "Adobe Framemaker versions 2022.8 and earlier are affected by an Untrusted Search Path vulnerability that might allow attackers to execute arbitrary code in the context of the current user. If the application uses a search path to locate critical resources such as programs, then an attacker could modify that search path to point to a malicious program, which the targeted application would then exec",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27290",
-      "cve_id": "CVE-2026-27290",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.6,
-      "published": "2026-04-24T22:32:35.613190+00:00",
+      "cvss_score": 7.2,
+      "published": "2026-04-24T23:32:48.936161+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -610,13 +352,165 @@
           "tactic_id": "TA0001"
         },
         {
-          "id": "T1033",
-          "name": "System Owner/User Discovery",
-          "tactic": "Discovery",
-          "tactic_id": "TA0007"
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "The Age Verification & Identity Verification by Token of Trust plugin for WordPress, versions up to and including 3.32.3, is vulnerable to Stored Cross-Site Scripting (XSS) due to insufficient input sanitization and output escaping in the 'description' parameter. This allows unauthenticated attackers to inject arbitrary web scripts that will execute when a user accesses the affected page. If exploited, an attacker could steal or forge authentication certificates (T1649) and gain unauthorized access to the WordPress site (T1190). To remediate, update the plugin to version 3.33.0 or later, and ensure that the 'description' parameter is properly sanitized and escaped. Additionally, consider implementing a Web Application Firewall (WAF) to detect and block suspicious traffic.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1649| C[Steal or Forge Authentication Certificates]:::tactic\n    C -->|T1059.001| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-2396: The List View Google Calendar plugin for WordPress is vulnerable to Stored Cross...",
+      "description": "The List View Google Calendar plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the event description in all versions up to, and including, 7.4.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level access, to inject arbitrary web scripts in pages that will execute whenever a user accesses an in",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2396",
+      "cve_id": "CVE-2026-2396",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.4,
+      "published": "2026-04-24T23:32:48.936141+00:00",
+      "ttps": [
+        {
+          "id": "T1649",
+          "name": "Steal or Forge Authentication Certificates",
+          "tactic": "Credential Access",
+          "tactic_id": "TA0006"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-2396 is a Stored Cross-Site Scripting (XSS) vulnerability in the List View Google Calendar plugin for WordPress, affecting versions up to 7.4.3. An authenticated attacker with administrator-level access can inject arbitrary web scripts via the event description, which will execute when a user accesses the page. This allows the attacker to steal or forge authentication certificates (T1649), potentially leading to unauthorized access to the WordPress site. To remediate, update the plugin to version 7.4.4 or later, and ensure that the 'wp_kses_allowed_html' filter is properly configured to prevent XSS attacks. Additionally, consider implementing a Web Application Firewall (WAF) to detect and block suspicious traffic.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1649| B[Steal or Forge Authentication Certificates]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.4,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-1555: The WebStack theme for WordPress is vulnerable to arbitrary file uploads due to ...",
+      "description": "The WebStack theme for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the io_img_upload() function in all versions up to, and including, 1.2024. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1555",
+      "cve_id": "CVE-2026-1555",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "critical",
+      "cvss_score": 9.8,
+      "published": "2026-04-24T23:32:48.936126+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-1555 is a critical vulnerability in the WebStack theme for WordPress, affecting all versions up to and including 1.2024. The vulnerability allows unauthenticated attackers to upload arbitrary files on the affected site's server, potentially leading to remote code execution. This makes it possible for attackers to gain unauthorized access to sensitive data, disrupt site operations, or even take control of the server. To remediate this issue, WordPress administrators should update to version 1.2025 or later, which includes a patch for this vulnerability. Additionally, it is recommended to enable the WordPress Filesystem API's file validation feature to prevent similar attacks in the future.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1059.001| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 9.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-1541: The Avada (Fusion) Builder plugin for WordPress is vulnerable to Sensitive Infor...",
+      "description": "The Avada (Fusion) Builder plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 3.15.1. This is due to the plugin's `fusion_get_post_custom_field()` function failing to validate whether metadata keys are protected (underscore-prefixed). This makes it possible for authenticated attackers, with Subscriber-level access and above, to extract protec",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1541",
+      "cve_id": "CVE-2026-1541",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-24T23:32:48.936112+00:00",
+      "ttps": [],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2026-1509: The Avada (Fusion) Builder plugin for WordPress is vulnerable to Arbitrary WordP...",
+      "description": "The Avada (Fusion) Builder plugin for WordPress is vulnerable to Arbitrary WordPress Action Execution in all versions up to, and including, 3.15.1. This is due to the plugin's `output_action_hook()` function accepting user-controlled input to trigger any registered WordPress action hook without proper authorization checks. This makes it possible for authenticated attackers, with Subscriber-level a",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1509",
+      "cve_id": "CVE-2026-1509",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.4,
+      "published": "2026-04-24T23:32:48.936097+00:00",
+      "ttps": [],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2026-1314: The 3D FlipBook – PDF Embedder, PDF Flipbook Viewer, Flipbook Image Gallery plug...",
+      "description": "The 3D FlipBook – PDF Embedder, PDF Flipbook Viewer, Flipbook Image Gallery plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the send_post_pages_json() function in all versions up to, and including, 1.16.17. This makes it possible for unauthenticated attackers to retrieve flipbook page metadata for draft, private and password-protected flipbook",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1314",
+      "cve_id": "CVE-2026-1314",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.3,
+      "published": "2026-04-24T23:32:48.936080+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
         }
       ],
       "epss_score": null
+    },
+    {
+      "title": "CVE-2025-54550: The example example_xcom that was included in airflow documentation implemented ...",
+      "description": "The example example_xcom that was included in airflow documentation implemented unsafe pattern of reading value\nfrom xcom in the way that could be exploited to allow UI user who had access to modify XComs to perform arbitrary\nexecution of code on the worker. Since the UI users are already highly trusted, this is a Low severity vulnerability.\n\nIt does not affect Airflow release - example_dags are n",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54550",
+      "cve_id": "CVE-2025-54550",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.1,
+      "published": "2026-04-24T23:32:48.936057+00:00",
+      "ttps": [],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2025-15470: The Eleganzo theme for WordPress is vulnerable to arbitrary directory deletion d...",
+      "description": "The Eleganzo theme for WordPress is vulnerable to arbitrary directory deletion due to insufficient path validation in the akd_required_plugin_callback function in all versions up to, and including, 1.2. This makes it possible for authenticated attackers, with Subscriber-level access and above, to delete arbitrary directories on the server, including the WordPress root directory.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15470",
+      "cve_id": "CVE-2025-15470",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-24T23:32:48.936015+00:00",
+      "ttps": [],
+      "epss_score": null
+    },
+    {
+      "title": "ADT confirms data breach after ShinyHunters leak threat",
+      "description": "Home security giant ADT has confirmed a data breach after the ShinyHunters extortion group threatened to leak stolen data unless a ransom is paid. [...]",
+      "url": "https://www.bleepingcomputer.com/news/security/adt-confirms-data-breach-after-shinyhunters-leak-threat/",
+      "cve_id": null,
+      "source": "Bleeping Computer",
+      "category": "incident",
+      "severity": "high",
+      "cvss_score": null,
+      "published": "2026-04-24T22:53:14+00:00",
+      "ttps": [
+        {
+          "id": "T1041",
+          "name": "Exfiltration Over C2 Channel",
+          "tactic": "Exfiltration",
+          "tactic_id": "TA0010"
+        }
+      ]
     },
     {
       "title": "Firestarter malware survives Cisco firewall updates, security patches",
@@ -966,10 +860,10 @@
         }
       ],
       "threat_actors": [
-        "APT38",
-        "Lazarus",
         "APT41",
-        "Conti"
+        "APT38",
+        "Conti",
+        "Lazarus"
       ]
     },
     {
@@ -1259,25 +1153,6 @@
           "name": "Botnet",
           "tactic": "Resource Development",
           "tactic_id": "TA0042"
-        }
-      ]
-    },
-    {
-      "title": "Bitwarden CLI npm package compromised to steal developer credentials",
-      "description": "The Bitwarden CLI was briefly compromised after attackers uploaded a malicious @bitwarden/cli package to npm containing a credential-stealing payload capable of spreading to other projects. [...]",
-      "url": "https://www.bleepingcomputer.com/news/security/bitwarden-cli-npm-package-compromised-to-steal-developer-credentials/",
-      "cve_id": null,
-      "source": "Bleeping Computer",
-      "category": "incident",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-23T19:21:01+00:00",
-      "ttps": [
-        {
-          "id": "T1555.005",
-          "name": "Password Managers",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
         }
       ]
     },
@@ -1979,8 +1854,8 @@
         }
       ],
       "threat_actors": [
-        "LockBit",
-        "Conti"
+        "Conti",
+        "LockBit"
       ]
     },
     {

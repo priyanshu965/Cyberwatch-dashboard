@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-25T17:33:10.739178+00:00",
+  "last_updated": "2026-04-25T18:38:58.961812+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T17:31:14.916893+00:00",
+      "published": "2026-04-25T18:37:02.287750+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -26,9 +26,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The international revenue share fraud (IRSF) scheme leverages fake CAPTCHA pages to trick victims into sending premium SMS messages, with threat actors operating since at least June 2020. The campaign utilizes traffic distribution systems and social engineering to direct users through multi-stage fake verifications, requiring SMS messages to international phone numbers across 17 countries. If exploited, victims may incur significant financial losses due to premium SMS charges, with potential long-term effects on their financial security. To remediate, defenders should implement robust user education programs to recognize and avoid fake CAPTCHA pages, and consider implementing SMS filtering solutions to block suspicious messages. Additionally, network traffic monitoring should be implemented to detect and block traffic distribution systems used by threat actors, specifically targeting T1204 and T1104 TTPs.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1104| C[Multi-Stage Channels]:::tactic\n    C -->|T1566| D[Initial Access]:::tactic\n    D -->|T1059.001| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.8,
+      "ai_summary": "The international revenue share fraud (IRSF) scheme leverages fake CAPTCHA pages to trick victims into sending premium SMS messages, with threat actors operating since at least June 2020. This campaign utilizes traffic distribution systems and social engineering to direct users through multi-stage fake verifications, requiring SMS messages to international phone numbers across 17 countries. The attack vector involves user execution (T1204) and multi-stage channels (T1104), with no specific CVE number or CVSS score assigned due to the nature of the social engineering attack. To remediate, defenders should implement robust user education programs to recognize and avoid fake CAPTCHA pages, and consider blocking premium SMS messages to international numbers. Additionally, monitoring for unusual traffic patterns and implementing rate limiting on SMS messages can help mitigate the impact of this campaign.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1104| C[Multi-Stage Channels]:::tactic\n    C -->|T1110| D[On-system Execution]:::tactic\n    D -->|T1586| E[Financial Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -41,10 +41,10 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T17:31:14.916871+00:00",
+      "published": "2026-04-25T18:37:02.287729+00:00",
       "ttps": [],
-      "ai_summary": "The emerging hybrid attack ecosystems pose a significant threat as cybercriminals merge traditional malware operations with cryptocurrency-focused attacks. This convergence enables the creation of automated systems, such as crypto drainers, which can extract assets across multiple blockchains with minimal user interaction. The real-world impact of these attacks can result in substantial financial losses for individuals and organizations, as seen in case studies where attackers have successfully drained cryptocurrency wallets. To remediate these threats, defenders should implement robust security measures, including multi-factor authentication, regular software updates, and the use of reputable antivirus software. Additionally, organizations should consider implementing a blockchain monitoring system to detect and respond to potential crypto drainer attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Trusted Relationship]:::tactic\n    B -->|T1583.001| C[Initial Access]:::tactic\n    C -->|T1210| D[Exploitation for Credential Access]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The emerging hybrid attack ecosystems pose a significant threat as cybercriminals merge traditional malware operations with cryptocurrency-focused attacks. This convergence enables the creation of automated systems, known as crypto drainers, which can extract assets across multiple blockchains with minimal user interaction. The real-world impact of these attacks can result in substantial financial losses for individuals and organizations, as seen in case studies where attackers have successfully drained cryptocurrency wallets. To remediate these threats, defenders should implement robust security measures, such as multi-factor authentication and regular software updates, specifically ensuring that all cryptocurrency wallet software is updated to the latest version, such as Electrum 4.2.1 or later. Additionally, users should be cautious when interacting with links or files from unknown sources, as these can be used as attack vectors for crypto drainers.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1059| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -58,7 +58,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T17:31:14.916846+00:00",
+      "published": "2026-04-25T18:37:02.287705+00:00",
       "ttps": [
         {
           "id": "T1587",
@@ -85,11 +85,11 @@
           "tactic_id": "TA0003"
         }
       ],
-      "ai_summary": "The UNC6692 threat actor employed a sophisticated social engineering campaign to deploy a custom malware suite, leveraging initial email spam campaigns to create urgency and impersonating IT helpdesk personnel via Microsoft Teams. The attackers tricked victims into downloading AutoHotKey scripts that installed SNOWBELT, a malicious browser extension, which was used to gain persistence and control over the compromised systems. The real-world impact of this campaign includes potential data breaches and unauthorized access to sensitive information, affecting organizations that rely on Microsoft Teams and have employees who may fall victim to social engineering tactics. To remediate this threat, defenders should implement robust email filtering and employee education programs, ensuring that employees are aware of the risks associated with unsolicited emails and can identify potential social engineering attempts. Additionally, defenders should monitor their systems for suspicious AutoHotKey script activity and browser extension installations, and consider implementing a browser extension whitelisting policy to prevent the installation of malicious extensions.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1059.010| C[Execution]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1176| E[Browser Extensions]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "ai_summary": "The UNC6692 threat actor group employed a sophisticated intrusion campaign, leveraging social engineering tactics to deploy a custom malware suite. The attackers impersonated IT helpdesk personnel via Microsoft Teams, using initial email spam campaigns to create a sense of urgency. Victims were tricked into downloading AutoHotKey scripts that installed SNOWBELT, a malicious browser extension. This allowed the attackers to gain persistence and execute malicious activities. To remediate, organizations should update their Microsoft Teams configuration to prevent unauthorized access, and ensure that all users are trained on identifying and reporting suspicious emails and messages. Additionally, users should be prohibited from downloading scripts from unknown sources, and browser extensions should be regularly audited for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1059.010| C[AutoHotKey & AutoIT]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1176| E[Browser Extensions]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "GopherWhisper: A burrow full of malware",
@@ -100,7 +100,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T17:31:14.916819+00:00",
+      "published": "2026-04-25T18:37:02.287677+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -115,8 +115,8 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "GopherWhisper, a China-aligned APT group, has been linked to a targeted attack on a Mongolian governmental entity. The group utilizes a suite of custom tools, primarily written in Go, including backdoors LaxGopher, RatGopher, and BoxOfFriends, as well as injectors JabGopher, exfiltration tool CompactGopher, loader FriendDelivery, and C++ backdoor SSLORD. These tools enable the attackers to achieve initial access, execution, and command and control over the compromised systems. If exploited, the malware can lead to data exfiltration and potential privilege escalation. To remediate, defenders should focus on identifying and isolating suspicious network traffic, updating their systems to the latest versions, and implementing robust security configurations to prevent similar attacks in the future.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Initial Access]:::tactic\n    B -->|T1041| C[Command and Control]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "GopherWhisper, a China-aligned APT group, targeted a Mongolian governmental entity using custom tools written in Go, including backdoors LaxGopher, RatGopher, and BoxOfFriends, as well as injectors JabGopher, exfiltration tool CompactGopher, loader FriendDelivery, and C++ backdoor SSLORD. The group employed T1219 (Remote Access Software) and T1041 (Exfiltration Over C2 Channel) tactics to gain access and exfiltrate data. If exploited, this threat could lead to data breaches and unauthorized access to sensitive information. To remediate, defenders should update their systems to the latest version of their software, specifically focusing on removing any suspicious Go-based tools and implementing robust network segmentation to prevent lateral movement. Additionally, implementing robust monitoring and logging capabilities can help detect and respond to similar threats in the future.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -130,7 +130,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T17:31:14.916786+00:00",
+      "published": "2026-04-25T18:37:02.287658+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -145,11 +145,11 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Trigona ransomware affiliates have adopted a custom-developed exfiltration tool called uploader_client.exe, which features parallel data streams, connection rotation to evade network monitoring, and granular file filtering capabilities. This tool has been observed in attacks during March 2026, marking a significant tactical evolution. The custom tool replaces commonly used off-the-shelf tools like Rclone, indicating a shift in tactics. If exploited, the tool can exfiltrate sensitive data over a command and control channel, resulting in data theft. To remediate, defenders should monitor for the uploader_client.exe process and block its execution, and ensure that network monitoring tools are configured to detect connection rotation and parallel data streams.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Exfiltration Over C2 Channel]:::tactic\n    D -->|T1486| E[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The Trigona ransomware affiliates have developed a custom exfiltration tool called uploader_client.exe, which features parallel data streams and connection rotation to evade network monitoring. This tool is used in conjunction with the Trigona ransomware to streamline data theft, allowing the attackers to filter files granularly and exfiltrate sensitive data. The use of this custom tool marks a significant tactical evolution for the Trigona affiliates, indicating a high level of sophistication and adaptability. To defend against this threat, organizations should implement robust network monitoring and detection capabilities, including the use of intrusion detection systems and network traffic analysis tools. Additionally, organizations should ensure that all sensitive data is encrypted and that access to sensitive data is strictly controlled, with measures such as multi-factor authentication and least privilege access.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1041| B[Exfiltration]:::tactic\n    B -->|T1486| C[Impact]:::tactic\n    C -->|T1566| D[Initial Access]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "DinDoor Backdoor: Deno Runtime Abuse and 20 Active C2 Servers",
@@ -160,7 +160,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T17:31:14.916766+00:00",
+      "published": "2026-04-25T18:37:02.287625+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -187,8 +187,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "DinDoor is a Deno-based backdoor delivered via MSI files that exploits the Deno runtime to execute obfuscated JavaScript for command and control communications and system fingerprinting. The backdoor uses identical fingerprinting algorithms generating unique victim identifiers. Two analyzed samples show different execution behaviors: one writes JavaScript to disk while the other executes entirely in memory. If exploited, DinDoor can lead to unauthorized access, data exfiltration, and system compromise. To remediate, users should update to Deno version 1.25.3 or later, and ensure the Deno runtime is not installed with elevated privileges.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1592| D[Gather Victim Host Info]:::tactic\n    D -->|T1219| E[Remote Access Software]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "DinDoor is a Deno-based backdoor delivered via MSI files that exploits the Deno runtime to execute obfuscated JavaScript for command and control communications and system fingerprinting. The backdoor uses identical fingerprinting algorithms generating unique victim identifiers. Two analyzed samples show different execution behaviors: one writes JavaScript to disk while the other executes entirely in memory. If exploited, DinDoor can lead to unauthorized access, data exfiltration, and system compromise. To remediate, users should update to Deno version 1.25.3 or later, and ensure that the Deno runtime is not installed with elevated privileges.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1219| E[Remote Access Software]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -202,7 +202,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T17:31:14.916736+00:00",
+      "published": "2026-04-25T18:37:02.287599+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -211,8 +211,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The uWarrior RAT is delivered through weaponized RTF documents containing multiple exploits, specifically leveraging CVE-2012-1856 and CVE-2015-1770. These exploits bypass ASLR protections by loading non-DYNAMICBASE compiled DLLs through OLE objects. If exploited, the attack chain allows the threat actor to gain remote access to the compromised system, enabling them to execute arbitrary code and potentially steal sensitive information. To remediate this threat, users should ensure that their systems are running the latest version of Microsoft Office, specifically Office 2013 SP1 or later, and apply the necessary patches for CVE-2012-1856 and CVE-2015-1770. Additionally, users should be cautious when opening RTF documents from untrusted sources and consider implementing additional security measures, such as sandboxing or email filtering, to prevent the initial delivery of the uWarrior RAT.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The uWarrior RAT is delivered through weaponized RTF documents containing multiple exploits, specifically leveraging CVE-2012-1856 and CVE-2015-1770. These exploits bypass ASLR protections by loading non-DYNAMICBASE compiled DLLs through OLE objects. If exploited, the attack chain allows the threat actor to gain remote access to the compromised system, enabling them to execute arbitrary code and potentially steal sensitive information. To remediate this threat, users should ensure that their systems are running the latest version of Microsoft Office, specifically Office 2013 SP1 or later, which includes a patch for CVE-2015-1770. Additionally, users should be cautious when opening RTF documents from untrusted sources and consider implementing a sandbox environment for testing suspicious files.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -226,7 +226,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T17:31:14.916710+00:00",
+      "published": "2026-04-25T18:37:02.287573+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -235,9 +235,9 @@
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "The ClickFix Campaigns Targeting Windows and macOS exploit utilizes the ClickFix social engineering technique for initial access, impersonating services like Intuit QuickBooks and Booking.com. This campaign manipulates victims into executing malicious commands within native system tools, bypassing traditional security controls. The affected systems include Windows and macOS, with the attack vector being user execution (T1204). To remediate this threat, defenders should ensure that users are educated on the dangers of social engineering tactics and that system tools are configured to prevent malicious command execution. Additionally, administrators should implement security controls to detect and prevent user execution-based attacks, such as implementing application whitelisting and restricting system tool usage to authorized users.",
+      "ai_summary": "The ClickFix Campaigns exploit a social engineering technique to manipulate victims into executing malicious commands within native system tools on Windows and macOS. The campaigns impersonate services like Intuit QuickBooks and Booking.com, leveraging user execution (T1204) to bypass traditional security controls. If exploited, ClickFix can lead to privilege escalation and data breach, affecting users who interact with the malicious links. To remediate, users should be cautious when clicking on unfamiliar links and ensure that system tools are not modified or executed from untrusted sources. Additionally, administrators should review system logs for suspicious activity and update system tools to the latest versions, specifically focusing on the 'cmd.exe' and 'powershell.exe' tools on Windows.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.0,
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -250,7 +250,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T17:31:14.916681+00:00",
+      "published": "2026-04-25T18:37:02.287544+00:00",
       "ttps": [
         {
           "id": "T1547.006",
@@ -265,8 +265,8 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "The Illuminating VoidLink rootkit framework is a sophisticated Linux malware framework combining Loadable Kernel Modules (LKMs) and eBPF for persistence. Developed by a Chinese-speaking threat actor, VoidLink evolved through four generations, targeting kernels from CentOS 7 to Ubuntu 22.04. The rootkit employs advanced techniques like delayed initialization, runtime key rotation, and a hybrid LKM-eBPF architecture. To remediate, defenders should update to the latest kernel versions (at least 5.15 for CentOS and 5.11 for Ubuntu) and ensure the 'module_blacklist' kernel parameter is set to 'voidlink.ko'. Additionally, enable the 'sysctl' kernel parameter 'kernel.modules_disabled' to prevent LKM loading. Furthermore, monitor system calls and network traffic for suspicious activity related to the 'voidlink' module.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1547.006| B[Kernel Modules and Extensions]:::tactic\n    B -->|T1014| C[Rootkit]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Illuminating VoidLink rootkit framework is a sophisticated Linux malware framework that combines Loadable Kernel Modules (LKMs) and eBPF for persistence. Developed by a Chinese-speaking threat actor, VoidLink has evolved through four generations, targeting kernels from CentOS 7 to Ubuntu 22.04. The rootkit employs advanced techniques like delayed initialization, runtime key rotation, and a hybrid LKM-eBPF architecture. To remediate this threat, defenders should update their Linux kernels to the latest version, specifically CentOS 8 or later, and Ubuntu 22.10 or later. Additionally, they should implement kernel module signing and validation to prevent LKM-based attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1547.006| B[Kernel Modules and Extensions]:::tactic\n    B -->|T1014| C[Rootkit]:::tactic\n    C -->|T1021| D[Remote Services]:::tactic\n    D -->|T1210| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -280,13 +280,135 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T17:31:14.916646+00:00",
+      "published": "2026-04-25T18:37:02.287512+00:00",
       "ttps": [],
-      "ai_summary": "The Kinsing malware has resurfaced, exploiting three CVEs: CVE-2023-46604 in ActiveMQ, CVE-2023-38646 in Metabase, and CVE-2025-55182 in React2Shell. This malware targets Linux systems, downloading and installing a Go-based binary and a stealthy library. If exploited, the malware can lead to data breaches and privilege escalation. To remediate, update ActiveMQ to version 6.17.0 or later, Metabase to version 1.40.0 or later, and React2Shell to version 1.0.0 or later. Additionally, ensure that the staging host at 78.153.140.16 is isolated and cleaned.",
+      "ai_summary": "The Kinsing malware has resurfaced, exploiting three CVEs: CVE-2023-46604 in ActiveMQ, CVE-2023-38646 in Metabase, and CVE-2025-55182 in React2Shell. This malware targets Linux systems, downloading and installing a Go-based binary and a stealthy library. If exploited, the malware can lead to data breaches and privilege escalation. To remediate, update ActiveMQ to version 6.17.0 or later, Metabase to version 1.41.0 or later, and React2Shell to version 1.0.0 or later. Additionally, ensure that the staging host at 78.153.140.16 is isolated and updated.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-40256: Weblate is a web based localization tool. In versions prior to 5.17, repository-...",
+      "description": "Weblate is a web based localization tool. In versions prior to 5.17, repository-boundary validation relies on string prefix checks on resolved absolute paths. In multiple code paths, the check uses startswith against the repository root path. This is not path-segment aware and can be bypassed when the external path shares the same string prefix as the repository path (for example, repo and repo_ou",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40256",
+      "cve_id": "CVE-2026-40256",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.0,
+      "published": "2026-04-25T18:36:57.905691+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-40256 is a vulnerability in Weblate versions prior to 5.17, where repository-boundary validation relies on string prefix checks on resolved absolute paths. This can be bypassed when the external path shares the same string prefix as the repository path. If exploited, an attacker could potentially access sensitive repository data or perform unauthorized actions. To remediate, update to Weblate version 5.17 or later, and ensure that the repository root path is properly configured to prevent path segment unaware prefix checks. Additionally, consider implementing additional security measures such as access controls and monitoring to detect potential attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-39845: Weblate is a web based localization tool. In versions prior to 5.17, the webhook...",
+      "description": "Weblate is a web based localization tool. In versions prior to 5.17, the webhook add-on did not utilize existing SSRF protections. This issue has been fixed in version 5.17. If developers are unable to update immediately, they can disable the webhook add-on as a workaround.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39845",
+      "cve_id": "CVE-2026-39845",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.1,
+      "published": "2026-04-25T18:36:57.905677+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-39845 is a SSRF vulnerability in Weblate versions prior to 5.17. The webhook add-on in Weblate did not utilize existing SSRF protections, allowing an attacker to potentially exploit this issue. If exploited, an attacker could access internal systems or data, potentially leading to data breaches or unauthorized access. To remediate this issue, developers should update to version 5.17 or higher, or disable the webhook add-on as a temporary workaround. This vulnerability has a CVSS score of 4.1, indicating a medium severity risk.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34632: Adobe Photoshop Installer was affected by an Uncontrolled Search Path Element vu...",
+      "description": "Adobe Photoshop Installer was affected by an Uncontrolled Search Path Element vulnerability that could have resulted in arbitrary code execution in the context of the current user. A low-privileged local attacker could have exploited this vulnerability by manipulating the search path used by the application to locate critical resources, potentially causing unauthorized code execution. Exploitation",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34632",
+      "cve_id": "CVE-2026-34632",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.2,
+      "published": "2026-04-25T18:36:57.905662+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1059",
+          "name": "Command and Scripting Interpreter",
+          "tactic": "Execution",
+          "tactic_id": "TA0002"
+        },
+        {
+          "id": "T1033",
+          "name": "System Owner/User Discovery",
+          "tactic": "Discovery",
+          "tactic_id": "TA0007"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "The CVE-2026-34632 vulnerability in Adobe Photoshop Installer is an Uncontrolled Search Path Element (USPE) vulnerability that allows a low-privileged local attacker to manipulate the search path used by the application, potentially leading to arbitrary code execution in the context of the current user. This vulnerability was exploitable via the Adobe Photoshop Installer, which is a public-facing application. If exploited, the attacker could execute unauthorized code, potentially leading to data breaches or ransomware attacks. To remediate this vulnerability, Adobe released an update to version 23.4.2, which addresses the issue. Users should update to this version or later to prevent exploitation. Additionally, administrators should ensure that the search path is properly configured to prevent similar vulnerabilities in the future.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1033| D[System Owner/User Discovery]:::tactic\n    D -->|T1059| E[Command and Scripting Interpreter]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.2,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34393: Weblate is a web based localization tool. In versions prior to 5.17, the user pa...",
+      "description": "Weblate is a web based localization tool. In versions prior to 5.17, the user patching API endpoint didn't properly limit the scope of edits. This issue has been fixed in version 5.17.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34393",
+      "cve_id": "CVE-2026-34393",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 8.8,
+      "published": "2026-04-25T18:36:57.905642+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-34393 is a critical vulnerability in Weblate versions prior to 5.17, allowing an attacker to exploit the user patching API endpoint's lack of proper scope limitation. This issue enables an attacker to make unauthorized edits, potentially leading to data tampering or even complete system compromise. To remediate, update Weblate to version 5.17 or later, ensuring that all users' patching API access is properly restricted. It is also crucial to monitor user activity and implement additional security measures to prevent similar attacks. Furthermore, consider implementing a web application firewall (WAF) to detect and prevent potential exploitation attempts.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34244: Weblate is a web based localization tool. In versions prior to 5.17, a user with...",
+      "description": "Weblate is a web based localization tool. In versions prior to 5.17, a user with the project.edit permission (granted by the per-project \"Administration\" role) can configure machine translation service URLs pointing to arbitrary internal network addresses. During configuration validation, Weblate makes an HTTP request to the attacker-controlled URL and reflects up to 200 characters of the response",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34244",
+      "cve_id": "CVE-2026-34244",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 5.0,
+      "published": "2026-04-25T18:36:57.905627+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-34244 is a vulnerability in Weblate versions prior to 5.17, allowing a user with project.edit permission to configure machine translation service URLs pointing to arbitrary internal network addresses. During configuration validation, Weblate makes an HTTP request to the attacker-controlled URL and reflects up to 200 characters of the response. This allows an attacker to conduct reconnaissance and potentially gain access to internal network resources. To remediate, update Weblate to version 5.17 or later, and ensure that users with project.edit permission are properly vetted and monitored. Additionally, consider implementing additional security measures, such as web application firewalls and network segmentation, to prevent lateral movement.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1598| C[Resource Development]:::tactic\n    C -->|T1071| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-34242: Weblate is a web based localization tool. In versions prior to 5.17, the ZIP dow...",
+      "description": "Weblate is a web based localization tool. In versions prior to 5.17, the ZIP download feature didn't verify downloaded files, potentially  following symlinks outside the repository. This issue has been fixed in version 5.17.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34242",
+      "cve_id": "CVE-2026-34242",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.7,
+      "published": "2026-04-25T18:36:57.905611+00:00",
+      "ttps": [],
+      "epss_score": null
     },
     {
       "title": "CVE-2026-33667: OpenProject is an open-source project management application. In versions prior ...",
@@ -297,7 +419,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.4,
-      "published": "2026-04-25T17:31:10.876968+00:00",
+      "published": "2026-04-25T18:36:57.905595+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -312,12 +434,7 @@
           "tactic_id": "TA0002"
         }
       ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-33667 is a critical vulnerability in OpenProject versions prior to 17.3.0, allowing attackers to bypass 2FA OTP verification through brute-force attacks. The lack of rate limiting, lockout mechanism, or failed-attempt tracking enables attackers to repeatedly attempt 2FA verification without being blocked. This vulnerability can be exploited using T1190 (Exploit Public-Facing Application) and T1204 (User Execution) tactics. To remediate, update to version 17.3.0 or later, and ensure the brute_force_block_after_failed_logins setting is enabled. Additionally, consider implementing additional security measures, such as rate limiting and failed-attempt tracking, to further mitigate the risk of brute-force attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1204| C[User Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-33440: Weblate is a web based localization tool. In versions prior to 5.17, the ALLOWED...",
@@ -328,14 +445,9 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 5.0,
-      "published": "2026-04-25T17:31:10.876953+00:00",
+      "published": "2026-04-25T18:36:57.905578+00:00",
       "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-33440 is a vulnerability in Weblate versions prior to 5.17, where the ALLOWED_ASSET_DOMAINS setting is bypassed due to a misconfiguration issue. This allows an attacker to perform a cross-site scripting (XSS) attack by redirecting users to malicious domains. If exploited, this vulnerability can lead to sensitive information disclosure and potential session hijacking. To remediate, update Weblate to version 5.17 or later, and ensure the ALLOWED_ASSET_DOMAINS setting is properly configured to restrict asset domains. Additionally, consider implementing a web application firewall (WAF) to detect and block suspicious traffic.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Cross-Site Scripting]:::tactic\n    B -->|T1598| C[Sensitive Information Disclosure]:::tactic\n    C -->|T1552| D[Session Hijacking]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-33435: Weblate is a web based localization tool. In versions prior to 5.17, the project...",
@@ -346,7 +458,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.0,
-      "published": "2026-04-25T17:31:10.876938+00:00",
+      "published": "2026-04-25T18:36:57.905559+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -364,12 +476,7 @@
       "epss_score": null,
       "threat_actors": [
         "APT41"
-      ],
-      "ai_summary": "CVE-2026-33435 is a remote code execution vulnerability in Weblate versions prior to 5.17, allowing attackers to exploit public-facing applications (T1190) and execute malicious code via command and scripting interpreters (T1059). If exploited, this vulnerability can lead to data breaches and ransomware attacks. To remediate, update Weblate to version 5.17 or later, or restrict access to the project backup by limiting permissions. Developers can also configure Weblate to exclude Git and Mercurial configuration files from backups. This vulnerability has a CVSS score of 8.0, indicating a high severity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      ]
     },
     {
       "title": "CVE-2026-33220: Weblate is a web based localization tool. In versions prior to 5.17, the transla...",
@@ -380,143 +487,8 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.8,
-      "published": "2026-04-25T17:31:10.876918+00:00",
+      "published": "2026-04-25T18:36:57.905519+00:00",
       "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-33220 is a vulnerability in Weblate versions prior to 5.17, where the translation memory API exposes unintended endpoints without proper access control. This issue allows an attacker to potentially access sensitive information or perform unauthorized actions. To remediate, update to Weblate version 5.17 or later, or disable the translation memory API feature if immediate update is not possible. Note that the CDN add-on is not enabled by default, so disabling the feature should not impact functionality. Developers should prioritize updating to the latest version to ensure security.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1055| B[Command and Control]:::tactic\n    B -->|T1041| C[Execution]:::tactic\n    C -->|T1071| D[Persistence]:::tactic\n    D -->|T1082| E[Discovery]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-6290: Velociraptor versions prior to 0.76.3 contain a vulnerability in the query() plu...",
-      "description": "Velociraptor versions prior to 0.76.3 contain a vulnerability in the query() plugin which allows access to all orgs with the user's current ACL token. This allows an authenticated GUI user with access in one org, to use the query() plugin, in a notebook cell, to run VQL queries on other orgs which they may not have access to. The user's permissions in the other org are\nthe same as the permissions ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6290",
-      "cve_id": "CVE-2026-6290",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.0,
-      "published": "2026-04-25T17:31:10.876904+00:00",
-      "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-6290 is a vulnerability in Velociraptor versions prior to 0.76.3, specifically in the query() plugin, which allows an authenticated GUI user with access in one org to run VQL queries on other orgs they may not have access to. This is due to the plugin's failure to properly validate the user's ACL token, granting access to all orgs. If exploited, an attacker could potentially access sensitive data in other orgs, leading to a data breach. To remediate, users should update to Velociraptor version 0.76.3 or later, and ensure that the query() plugin is properly configured to restrict access to authorized orgs. Additionally, users should review their ACL token permissions to prevent unauthorized access.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-5758: JavaScript is vulnerable to prototype pollution in Mafintosh's protocol-buffers-...",
-      "description": "JavaScript is vulnerable to prototype pollution in Mafintosh's protocol-buffers-schema Version 3.6.0, where an attacker may alter the application logic, bypass security checks, cause a DoS or achieve remote code execution.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5758",
-      "cve_id": "CVE-2026-5758",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-25T17:31:10.876889+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-33214: Weblate is a web based localization tool. In versions prior to 5.17, the transla...",
-      "description": "Weblate is a web based localization tool. In versions prior to 5.17, the translation memory API exposed unintended endpoints, which in turn didn't enforce proper access control. This issue has been fixed in version 5.17. If users are unable to update immediately, they can work around this issue by blocking access to /api/memory/ in the HTTP server, which removes access to this feature.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33214",
-      "cve_id": "CVE-2026-33214",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.3,
-      "published": "2026-04-25T17:31:10.876874+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-33212: Weblate is a web based localization tool. In versions prior to 5.17, the tasks A...",
-      "description": "Weblate is a web based localization tool. In versions prior to 5.17, the tasks API didn't verify user access for pending tasks. This could expose logs of in-progress operations to users who don't have access to given scope. The attacker needs to brute-force the random UUID of the task, so exploiting this is unlikely with the default API rate limits. This issue has been fixed in version 5.17.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33212",
-      "cve_id": "CVE-2026-33212",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "low",
-      "cvss_score": 3.1,
-      "published": "2026-04-25T17:31:10.876858+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-32631: Git for Windows is the Windows port of Git. Versions prior to 2.53.0.windows.3 d...",
-      "description": "Git for Windows is the Windows port of Git. Versions prior to 2.53.0.windows.3 do not have protections that prevent attackers from obtaining a user's NTLM hash. The NTLM hash can be obtained by tricking users into cloning a malicious repository, or checking out a malicious branch, that accesses an attacker-controlled server. By default, NTLM authentication does not need any user interaction. By br",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32631",
-      "cve_id": "CVE-2026-32631",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.4,
-      "published": "2026-04-25T17:31:10.876837+00:00",
-      "ttps": [
-        {
-          "id": "T1003",
-          "name": "OS Credential Dumping",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-30993: Slah CMS v1.5.0 and below was discovered to contain a remote code execution (RCE...",
-      "description": "Slah CMS v1.5.0 and below was discovered to contain a remote code execution (RCE) vulnerability in the session() function at config.php. This vulnerability is exploitable via a crafted input.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30993",
-      "cve_id": "CVE-2026-30993",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-25T17:31:10.876796+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
       "epss_score": null
     },
     {
@@ -986,8 +958,8 @@
         }
       ],
       "threat_actors": [
-        "Lazarus",
         "APT38",
+        "Lazarus",
         "APT41",
         "Conti"
       ]

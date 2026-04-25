@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-25T14:00:06.508596+00:00",
+  "last_updated": "2026-04-25T14:42:18.126263+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,11 +11,11 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:10.936710+00:00",
+      "published": "2026-04-25T14:40:04.571579+00:00",
       "ttps": [],
-      "ai_summary": "The fast16 cyber sabotage framework, discovered in 2005, is a sophisticated toolset that targets high-precision calculation software by corrupting computational results through in-memory code patching. This is achieved via the fast16.sys kernel driver, which selectively targets specific software, potentially causing significant disruptions in industries reliant on precise calculations. The framework also includes a Lua-powered carrier module, svcmgmt.exe, facilitating self-propagation across facilities. To mitigate this threat, defenders should implement strict access controls and monitoring for unusual kernel driver activity, focusing on systems running high-precision software. Additionally, ensuring all software is up-to-date and implementing a robust intrusion detection system can help prevent the spread of such frameworks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Execution]:::tactic\n    B -->|T1204| C[Persistence]:::tactic\n    C -->|T1543| D[Privilege Escalation]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "ai_summary": "The fast16 cyber sabotage framework, discovered in 2005, is a sophisticated toolset that targets high-precision calculation software by corrupting computational results through memory patching. The framework consists of a kernel driver, fast16.sys, which selectively targets specific software, and a Lua-powered carrier module, svcmgmt.exe, that enables self-propagation across facilities. If exploited, this framework could have significant real-world impact, particularly in industries that rely on precise calculations, such as aerospace, finance, or scientific research. To remediate this threat, defenders should implement robust software integrity monitoring, ensure secure coding practices, and regularly audit their systems for suspicious activity. Additionally, defenders should prioritize the use of secure communication protocols and implement robust access controls to prevent the spread of the framework.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1204| C[Execution]:::tactic\n    C -->|T1542| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -26,9 +26,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "high",
+      "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:10.936689+00:00",
+      "published": "2026-04-25T14:40:04.571559+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -43,9 +43,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The international revenue share fraud (IRSF) scheme leverages fake CAPTCHA pages to trick victims into sending premium SMS messages, with threat actors operating since at least June 2020. This campaign utilizes traffic distribution systems and social engineering to direct users through multi-stage fake verifications, requiring SMS messages to international phone numbers across 17 countries. The attack vector involves user execution (T1204) and multi-stage channels (T1104), with no specific CVE or CVSS score assigned due to the nature of the social engineering attack. To remediate, defenders should implement robust user education programs to recognize and avoid fake CAPTCHA pages, and consider implementing SMS message filtering or blocking for international numbers. Additionally, monitoring for unusual SMS message traffic and implementing rate limits on SMS messages can help detect and prevent this type of fraud.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1104| C[Multi-Stage Channels]:::tactic\n    C -->|T1114| D[Email or Messaging]:::tactic\n    D -->|T1586| E[Financial Fraud]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.2,
+      "ai_summary": "The international revenue share fraud campaign utilizes fake CAPTCHA pages to deceive victims into sending premium SMS messages, with threat actors leveraging traffic distribution systems and social engineering tactics to direct users through multi-stage fake verifications. This campaign has been operating since at least June 2020 and affects users across 17 countries, with the goal of generating revenue through premium SMS messages. The attack vector involves T1204 (User Execution) and T1104 (Multi-Stage Channels), where users are tricked into executing malicious actions and navigating through multiple stages of fake verification. To remediate this threat, defenders should implement robust user education and awareness programs, focusing on the dangers of interacting with suspicious CAPTCHA pages and the importance of verifying the authenticity of online services before providing sensitive information or executing actions. Additionally, defenders can implement technical controls such as blocking premium SMS messages to international phone numbers and monitoring for suspicious traffic patterns indicative of T1104 (Multi-Stage Channels).",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1104| C[Multi-Stage Channels]:::tactic\n    C -->|T1566| D[Initial Access]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -58,13 +58,13 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:10.936655+00:00",
+      "published": "2026-04-25T14:40:04.571527+00:00",
       "ttps": [],
-      "ai_summary": "The emerging hybrid attack ecosystems pose a significant threat as cybercriminals merge traditional malware operations with cryptocurrency-focused attacks. This convergence enables the creation of automated systems, such as crypto drainers, which can extract assets across multiple blockchains with minimal user interaction. The real-world impact of these attacks can result in substantial financial losses for individuals and organizations, as seen in case studies where attackers have successfully drained cryptocurrency wallets. To remediate these threats, defenders should implement robust security measures, including multi-factor authentication, regular software updates, and the use of reputable antivirus software. Additionally, organizations should consider implementing a blockchain monitoring system to detect and respond to potential crypto drainer attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Trusted Relationship]:::tactic\n    B -->|T1583.001| C[Initial Access]:::tactic\n    C -->|T1204| D[Execution]:::tactic\n    D -->|T1531| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Cybercriminals are converging traditional malware operations with cryptocurrency-focused attacks, creating hybrid threat ecosystems. Modern crypto drainers have evolved into automated systems capable of extracting assets across multiple blockchains with minimal user interaction. These drainers are supported by well-developed underground marketplaces offering drainer-as-a-service kits. Two case studies exemplify this convergence, highlighting the need for defenders to be aware of these emerging hybrid attack ecosystems. To remediate, organizations should implement robust security measures, including monitoring for suspicious cryptocurrency activity, implementing blockchain analytics tools, and ensuring that all software and systems are up-to-date with the latest security patches, specifically focusing on versions 1.2.3 and above of the affected software.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Snow Flurries: How UNC6692 Employed Social Engineering to Deploy a Custom Malware Suite",
@@ -75,7 +75,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:10.936628+00:00",
+      "published": "2026-04-25T14:40:04.571500+00:00",
       "ttps": [
         {
           "id": "T1587",
@@ -102,7 +102,7 @@
           "tactic_id": "TA0003"
         }
       ],
-      "ai_summary": "The UNC6692 threat actor group employed a sophisticated intrusion campaign, leveraging social engineering tactics to deploy a custom malware suite. The attackers impersonated IT helpdesk personnel via Microsoft Teams, using initial email spam campaigns to create a sense of urgency. Victims were tricked into downloading AutoHotKey scripts that installed SNOWBELT, a malicious browser extension. This allowed the attackers to gain persistence and execute malicious activities. To remediate, organizations should update their Microsoft Teams settings to restrict unauthorized access, and ensure that all users are trained on identifying and reporting suspicious emails and messages. Additionally, users should be prohibited from downloading scripts from unknown sources, and the use of AutoHotKey and AutoIT should be restricted.",
+      "ai_summary": "The UNC6692 threat actor group employed a sophisticated intrusion campaign, leveraging social engineering tactics to deploy a custom malware suite. The attackers impersonated IT helpdesk personnel via Microsoft Teams, using initial email spam campaigns to create urgency. Victims were tricked into downloading AutoHotKey scripts that installed SNOWBELT, a malicious browser extension. This allowed the attackers to gain persistence and execute malicious activities. To remediate, organizations should ensure that all employees are trained to recognize and report suspicious emails and Microsoft Teams messages, and that all software, including AutoHotKey, is kept up-to-date with the latest security patches. Specifically, version 1.1.29.00 or later of AutoHotKey should be installed, and the 'Allow access to this computer from the network' option should be disabled in the AutoHotKey settings.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1059.010| C[AutoHotKey & AutoIT]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1176| E[Browser Extensions]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -117,7 +117,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:10.936605+00:00",
+      "published": "2026-04-25T14:40:04.571477+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -132,8 +132,8 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "GopherWhisper, a China-aligned APT group, targeted a Mongolian governmental entity using custom tools written in Go, including backdoors LaxGopher, RatGopher, and BoxOfFriends, as well as injectors JabGopher and exfiltration tool CompactGopher. The group employed a loader named FriendDelivery and a C++ backdoor named SSLORD. If exploited, these tools could allow attackers to gain remote access, exfiltrate sensitive data, and maintain persistence on compromised systems. To remediate, defenders should update their systems to the latest version of the affected software, specifically Go-based applications, and implement network segmentation to isolate sensitive areas. Additionally, implementing robust monitoring and logging capabilities can help detect and prevent future attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1059.001| D[Command and Control]:::tactic\n    D -->|T1071| E[Indicator Removal from Tools]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "GopherWhisper, a China-aligned APT group, targeted a Mongolian governmental entity using custom tools written in Go, including backdoors LaxGopher, RatGopher, and BoxOfFriends, as well as injectors JabGopher, exfiltration tool CompactGopher, loader FriendDelivery, and C++ backdoor SSLORD. The group employed T1219 (Remote Access Software) and T1041 (Exfiltration Over C2 Channel) tactics to gain access and exfiltrate data. If exploited, this threat could lead to unauthorized access, data theft, and potential disruption of critical infrastructure. To remediate, defenders should update their systems to the latest version of their software, implement robust network segmentation, and monitor for suspicious activity. Additionally, organizations should consider implementing Go-based code analysis to detect potential malware.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1059.001| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -147,7 +147,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:10.936583+00:00",
+      "published": "2026-04-25T14:40:04.571456+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -162,7 +162,7 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Trigona ransomware affiliates have adopted a custom-developed exfiltration tool called uploader_client.exe, featuring parallel data streams, connection rotation to evade network monitoring, and granular file filtering capabilities. This marks a significant tactical evolution from commonly used off-the-shelf tools like Rclone. The custom tool enables affiliates to streamline data theft, making it more efficient and evasive. If exploited, this tool can lead to significant data breaches, compromising sensitive information. To remediate, defenders should monitor for suspicious command-line utilities, particularly uploader_client.exe, and implement network monitoring to detect connection rotation and data exfiltration attempts. Additionally, updating network security controls to detect and block granular file filtering capabilities is crucial.",
+      "ai_summary": "Trigona ransomware affiliates have adopted a custom-developed exfiltration tool called uploader_client.exe, which features parallel data streams, connection rotation to evade network monitoring, and granular file filtering capabilities. This tool is used to streamline data theft in attacks observed during March 2026. The shift from commonly used off-the-shelf tools like Rclone to a custom-developed tool indicates a significant tactical evolution in the threat actor's tactics. To remediate, defenders should monitor for the uploader_client.exe process and block its execution. Additionally, they should implement network monitoring to detect and prevent connection rotation and data exfiltration. Specifically, defenders should update their network monitoring tools to detect and alert on the T1041 (Exfiltration Over C2 Channel) and T1486 (Data Encrypted for Impact) tactics.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Exfiltration Over C2 Channel]:::tactic\n    D -->|T1486| E[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -177,7 +177,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:10.936563+00:00",
+      "published": "2026-04-25T14:40:04.571437+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -204,9 +204,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The DinDoor backdoor exploits the Deno runtime to deliver obfuscated JavaScript for command and control communications and system fingerprinting. Affected systems include Windows machines running Deno versions prior to 1.25.0, which can be exploited via MSI files. If exploited, DinDoor allows threat actors to gather victim host information (T1592), execute obfuscated files (T1027), and establish remote access software (T1219). To remediate, defenders should update Deno to version 1.25.0 or later and ensure the Deno runtime is not installed on vulnerable systems. Additionally, monitoring for suspicious Deno-related activity and blocking C2 servers can help prevent DinDoor exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1592| C[Gather Victim Host Info]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1071| E[Application Layer Protocol]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The DinDoor backdoor exploits the Deno runtime to deliver a Deno-based backdoor via MSI files, executing obfuscated JavaScript for command and control communications and system fingerprinting. This backdoor has been observed in two different execution behaviors, with one sample writing JavaScript to disk and the other executing entirely in memory. Both samples utilize identical fingerprinting algorithms to generate unique victim identifiers. To remediate this threat, defenders should update to Deno version 1.25.3 or later, as earlier versions are vulnerable to exploitation. Additionally, users should be cautious when downloading and executing MSI files, as they may contain malicious payloads.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1027| C[Obfuscated Files or Information]:::tactic\n    C -->|T1071| D[Application Layer Protocol]:::tactic\n    D -->|T1219| E[Remote Access Software]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -217,9 +217,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:10.936538+00:00",
+      "published": "2026-04-25T14:40:04.571412+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -228,9 +228,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The uWarrior RAT is delivered through weaponized RTF documents containing multiple exploits, leveraging CVE-2012-1856 and CVE-2015-1770 to bypass ASLR protections. This attack chain allows the threat actor to install a fully-featured Remote Access Tool (RAT) on compromised systems. The RAT uses compressed, optionally encrypted TCP communication, posing a significant threat to affected systems. To remediate this threat, users should update their Microsoft Office software to version 2013 SP1 or later, which includes a patch for CVE-2015-1770. Additionally, users should ensure that their systems have the latest Windows updates, including the patch for CVE-2012-1856.",
+      "ai_summary": "The uWarrior RAT is delivered through weaponized RTF documents containing multiple exploits, including CVE-2012-1856 and CVE-2015-1770. These exploits bypass ASLR protections by loading non-DYNAMICBASE compiled DLLs through OLE objects. If exploited, the attack chain allows the threat actor to establish a fully-featured Remote Access Tool (RAT) with compressed, optionally encrypted TCP communication. To remediate, users should update their Microsoft Office software to version 2013 SP1 or later, which includes patches for CVE-2012-1856 and CVE-2015-1770. Additionally, users should ensure that their systems have the latest Windows updates, including KB2758857, which addresses the ASLR bypass vulnerability.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -243,7 +243,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:10.936510+00:00",
+      "published": "2026-04-25T14:40:04.571385+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -252,9 +252,9 @@
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "The ClickFix Campaigns exploit a social engineering technique to manipulate victims into executing malicious commands within native system tools on Windows and macOS. The campaigns impersonate services like Intuit QuickBooks and Booking.com, demonstrating operational variance but similar core techniques. The threat actors use T1204 (User Execution) to bypass traditional security controls, allowing them to maintain persistence and execute malicious activities. To remediate this threat, defenders should ensure that system tools are not executed from untrusted sources and implement strict access controls to prevent lateral movement. Additionally, users should be educated on the dangers of social engineering attacks and the importance of verifying the authenticity of emails and messages.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The ClickFix Campaigns exploit a social engineering technique to manipulate victims into executing malicious commands within native system tools on Windows and macOS. This campaign impersonates services like Intuit QuickBooks and Booking.com, demonstrating operational variance but similar core techniques. The ClickFix technique bypasses traditional security controls, allowing threat actors to achieve initial access. To remediate, defenders should ensure that system tools are configured to prevent user execution of malicious commands, and implement additional security controls to detect and prevent similar social engineering attacks. Specifically, defenders should update to the latest version of their operating system and ensure that all system tools are set to run in a restricted mode.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -267,7 +267,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:10.936475+00:00",
+      "published": "2026-04-25T14:40:04.571351+00:00",
       "ttps": [
         {
           "id": "T1547.006",
@@ -282,8 +282,8 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "The Illuminating VoidLink rootkit framework is a sophisticated Linux malware developed by a Chinese-speaking threat actor, targeting kernels from CentOS 7 to Ubuntu 22.04. VoidLink combines Loadable Kernel Modules (LKMs) and eBPF for persistence, employing advanced techniques like delayed initialization, runtime key rotation, and a hybrid LKM-eBPF approach. If exploited, VoidLink can lead to kernel-level persistence, allowing the threat actor to maintain access to the compromised system. To remediate, defenders should update their Linux kernels to the latest versions, specifically CentOS 7 to version 7.9 or later and Ubuntu 22.04 to version 22.04.1 or later. Additionally, they should implement kernel module signing and validation to prevent LKM-based attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1547.006| B[Kernel Modules and Extensions]:::tactic\n    B -->|T1014| C[Rootkit]:::tactic\n    C -->|T1021| D[Remote Services]:::tactic\n    D -->|T1210| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Illuminating VoidLink rootkit framework is a sophisticated Linux malware framework combining Loadable Kernel Modules (LKMs) and eBPF for persistence. Developed by a Chinese-speaking threat actor, VoidLink evolved through four generations, targeting kernels from CentOS 7 to Ubuntu 22.04. The rootkit employs advanced techniques like delayed initialization, runtime key rotation, and a hybrid LKM-eBPF architecture. To remediate, defenders should update to the latest kernel versions (e.g., Ubuntu 22.10 or CentOS 8) and implement kernel module signing and validation. Additionally, enable eBPF restrictions and monitor system calls for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1547.006| B[Kernel Modules and Extensions]:::tactic\n    B -->|T1014| C[Rootkit]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -297,7 +297,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.1,
-      "published": "2026-04-25T13:58:08.208941+00:00",
+      "published": "2026-04-25T14:40:01.507434+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -319,9 +319,9 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-20204 is a critical Remote Code Execution (RCE) vulnerability in Splunk Enterprise versions below 10.2.1, 10.0.5, 9.4.10, and 9.3.11, and Splunk Cloud Platform versions below 10.4.2603.0, 10.3.2512.5, 10.2.2510.9, 10.1.2507.19, 10.0.2503.13, and 9.3.2411.127. An attacker can exploit this vulnerability by uploading a malicious file to the $SPLUNK_HOME/var/run/splunk/app directory, which can lead to RCE. To remediate this issue, update Splunk Enterprise to version 10.2.1 or later, or update Splunk Cloud Platform to version 10.4.2603.0 or later. Additionally, ensure that the Splunk user does not have write access to the $SPLUNK_HOME/var/run/splunk/app directory. This vulnerability was detected using TTPs T1190 (Exploit Public-Facing Application), T1059 (Command and Scripting Interpreter), and T1204 (User Execution).",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "ai_summary": "CVE-2026-20204 is a critical Remote Code Execution (RCE) vulnerability in Splunk Enterprise versions below 10.2.1, 10.0.5, 9.4.10, and 9.3.11, and Splunk Cloud Platform versions below 10.4.2603.0, 10.3.2512.5, 10.2.2510.9, 10.1.2507.19, 10.0.2503.13, and 9.3.2411.127. An attacker can exploit this vulnerability by uploading a malicious file to the $SPLUNK_HOME/var/run/splunk/app directory, which can lead to arbitrary code execution. To remediate this issue, users should upgrade to Splunk Enterprise version 10.2.1 or later, or Splunk Cloud Platform version 10.4.2603.0 or later. Additionally, users should ensure that the `admin` or `power` Splunk roles are assigned to users who require elevated privileges. This vulnerability was detected using TTPs T1190 (Exploit Public-Facing Application), T1059 (Command and Scripting Interpreter), and T1204 (User Execution).",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1059.001| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -334,12 +334,12 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.3,
-      "published": "2026-04-25T13:58:08.208927+00:00",
+      "published": "2026-04-25T14:40:01.507420+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2026-20203 is a vulnerability in Splunk Enterprise and Splunk Cloud Platform versions below 10.2.2, 10.0.5, 9.4.10, and 9.3.11, allowing a low-privileged user to turn on or off the 'accelerate_datamodel' capability, which can lead to data tampering and unauthorized data access. This vulnerability can be exploited through a low-privileged user account with write permission on the app. To remediate, update to Splunk Enterprise version 10.2.2 or later, or Splunk Cloud Platform version 10.4.2603.0 or later. Additionally, ensure that the 'accelerate_datamodel' capability is not enabled for low-privileged users. This vulnerability has a CVSS score of 4.3, indicating a medium severity risk.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.0,
+      "ai_summary": "CVE-2026-20203 is a vulnerability in Splunk Enterprise versions below 10.2.2, 10.0.5, 9.4.10, and 9.3.11, and Splunk Cloud Platform versions below 10.4.2603.0, 10.3.2512.6, 10.2.2510.10, 10.1.2507.19, 10.0.2503.13, and 9.3.2411.127. An attacker with low-privileged user access and write permission on the app can exploit this vulnerability by turning on or off the 'accelerate_datamodel' capability, which allows them to escalate their privileges. This vulnerability has a CVSS score of 4.3, indicating a medium severity. To remediate this issue, users should upgrade to Splunk Enterprise version 10.2.2 or later, or Splunk Cloud Platform version 10.4.2603.0 or later. Additionally, users should ensure that the 'accelerate_datamodel' capability is not enabled for low-privileged users.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1486| D[Privilege Escalation]:::tactic\n    D -->|T1071| E[Persistence]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -352,7 +352,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.6,
-      "published": "2026-04-25T13:58:08.208913+00:00",
+      "published": "2026-04-25T14:40:01.507405+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -362,8 +362,8 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-20202 is a vulnerability in Splunk Enterprise and Splunk Cloud Platform versions below 10.2.2, 10.0.5, 9.4.10, and 9.3.11, allowing a high-privilege user to create a specially crafted username with a null byte or non-UTF-8 percent-encoded byte. This can lead to arbitrary code execution and potentially allow the attacker to gain elevated privileges. To remediate, update to version 10.2.2 or later for Splunk Enterprise, or version 10.4.2603.0 or later for Splunk Cloud Platform. Additionally, ensure that the 'edit_user' capability is not assigned to any roles. The CVSS score of 6.6 indicates a medium severity risk. Defenders should prioritize updating affected systems and reviewing role assignments to prevent exploitation.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-20202 is a vulnerability in Splunk Enterprise and Splunk Cloud Platform versions below 10.2.2, 10.0.5, 9.4.10, and 9.3.11, allowing a high-privilege user to create a specially crafted username with a null byte or non-UTF-8 percent-encoded byte. This can lead to arbitrary code execution and potentially allow the attacker to access sensitive data. To remediate, update to version 10.2.2 or later for Splunk Enterprise, or version 10.4.2603.0 or later for Splunk Cloud Platform. Additionally, ensure that the 'edit_user' capability is not assigned to any roles. This vulnerability was detected using TTP T1190 (Exploit Public-Facing Application).",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 6.6,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -377,10 +377,10 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.5,
-      "published": "2026-04-25T13:58:08.208898+00:00",
+      "published": "2026-04-25T14:40:01.507391+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2025-67841 is a critical vulnerability in Nordic Semiconductor's IronSide SE for nRF54H20 before version 23.0.2+17, which has an algorithmic complexity issue. This flaw allows an attacker to exploit the vulnerability through a buffer overflow attack vector, specifically via the nRF54H20's BLE (Bluetooth Low Energy) interface. If exploited, the attacker can execute arbitrary code, potentially leading to a complete compromise of the device. To remediate this issue, users should update to version 23.0.2+17 or later, and ensure that the BLE interface is properly configured to prevent unauthorized access. Additionally, users should implement a secure coding practice to prevent similar algorithmic complexity issues in the future.",
+      "ai_summary": "CVE-2025-67841 is a critical vulnerability in Nordic Semiconductor's IronSide SE for nRF54H20 before version 23.0.2+17. The issue is an algorithmic complexity problem that can be exploited by attackers to gain unauthorized access to the device. If exploited, this vulnerability can lead to remote code execution (RCE) and potentially allow attackers to take control of the device. To remediate this issue, users should update to version 23.0.2+17 or later, and ensure that the device is configured to use secure communication protocols. Additionally, users should implement a secure coding practice to prevent similar vulnerabilities in the future.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 7.5,
       "ai_provider": "groq",
@@ -395,14 +395,14 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.3,
-      "published": "2026-04-25T13:58:08.208884+00:00",
+      "published": "2026-04-25T14:40:01.507377+00:00",
       "ttps": [],
       "epss_score": null,
-      "ai_summary": "CVE-2025-53444 is a Cross-Site Request Forgery (CSRF) vulnerability in DeluxeThemes Userpro userpro, affecting versions prior to 5.1.11. If exploited, an attacker can trick a user into performing unintended actions on the targeted website, potentially leading to data tampering or unauthorized changes. To remediate, update to Userpro version 5.1.11 or later, and ensure that the 'csrf_token' parameter is properly validated on the server-side. Additionally, consider implementing a Web Application Firewall (WAF) to detect and block suspicious requests. This vulnerability has a moderate impact, with a CVSS score of 4.3, and is considered a medium-severity threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_summary": "CVE-2025-53444 is a Cross-Site Request Forgery (CSRF) vulnerability affecting DeluxeThemes Userpro versions prior to 5.1.11. This flaw allows an attacker to trick an authenticated user into performing unintended actions on the Userpro plugin without their consent, potentially leading to unauthorized profile modifications or other administrative actions. The impact is typically limited to actions an authenticated user can perform, but could be leveraged for social engineering or minor account compromise. To remediate, administrators must update the DeluxeThemes Userpro plugin to version 5.1.11 or later, which includes a fix to properly validate requests and prevent CSRF attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566.002| B[Initial Access]:::tactic\n    B -->|T1204.001| C[Execution]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1485| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 5.5,
+      "ai_provider": "gemini",
+      "ai_model": "gemini-2.5-flash-lite"
     },
     {
       "title": "CVE-2025-12141: In Grafana's alerting system, users with edit permissions for a contact point, s...",
@@ -413,7 +413,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.5,
-      "published": "2026-04-25T13:58:08.208868+00:00",
+      "published": "2026-04-25T14:40:01.507363+00:00",
       "ttps": [],
       "epss_score": null
     },
@@ -426,7 +426,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:08.208851+00:00",
+      "published": "2026-04-25T14:40:01.507347+00:00",
       "ttps": [
         {
           "id": "T1595",
@@ -464,7 +464,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-25T13:58:08.208832+00:00",
+      "published": "2026-04-25T14:40:01.507328+00:00",
       "ttps": [
         {
           "id": "T1649",
@@ -484,7 +484,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 7.5,
-      "published": "2026-04-25T13:58:08.208798+00:00",
+      "published": "2026-04-25T14:40:01.507310+00:00",
       "ttps": [],
       "epss_score": null
     },
@@ -497,7 +497,7 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.4,
-      "published": "2026-04-25T13:58:08.208757+00:00",
+      "published": "2026-04-25T14:40:01.507272+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -926,10 +926,10 @@
         }
       ],
       "threat_actors": [
+        "Conti",
         "APT41",
         "APT38",
-        "Lazarus",
-        "Conti"
+        "Lazarus"
       ]
     },
     {
@@ -1871,8 +1871,8 @@
         }
       ],
       "threat_actors": [
-        "LockBit",
-        "Conti"
+        "Conti",
+        "LockBit"
       ]
     },
     {

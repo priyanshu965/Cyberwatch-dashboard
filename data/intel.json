@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-25T15:35:02.650975+00:00",
+  "last_updated": "2026-04-25T16:33:32.484503+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,11 +11,11 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T15:32:49.481983+00:00",
+      "published": "2026-04-25T16:31:21.587756+00:00",
       "ttps": [],
-      "ai_summary": "The fast16 cyber sabotage framework, discovered in 2005, is a sophisticated toolset that targets high-precision calculation software by corrupting computational results through memory patching. This framework, which predates Stuxnet by five years, includes a kernel driver named fast16.sys that selectively targets specific software, and a Lua-powered carrier module (svcmgmt.exe) that enables self-propagation across facilities. If exploited, fast16 could have significant real-world impact, particularly in industries that rely on precise calculations, such as aerospace, finance, or scientific research. To remediate this threat, defenders should implement robust software integrity monitoring, ensure that all software is from trusted sources, and regularly audit their systems for suspicious activity. Additionally, defenders should prioritize the use of secure coding practices and memory protection mechanisms to prevent similar attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Supply Chain Compromise]:::tactic\n    B -->|T1547| C[Pre-OS Boot]:::tactic\n    C -->|T1055| D[Privilege Escalation]:::tactic\n    D -->|T1491| E[Defacement]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The fast16 cyber sabotage framework, discovered in 2005, is a sophisticated toolset that targets high-precision calculation software by corrupting computational results through memory patching. The framework consists of a kernel driver, fast16.sys, which selectively targets specific software, and a Lua-powered carrier module, svcmgmt.exe, that enables self-propagation across facilities. If exploited, this framework could have significant real-world impact, particularly in industries that rely on precise calculations, such as aerospace, finance, or scientific research. To remediate this threat, defenders should implement robust software integrity monitoring and memory protection mechanisms, such as address space layout randomization (ASLR) and data execution prevention (DEP), and ensure that all software is up-to-date with the latest security patches. Additionally, defenders should conduct regular audits of their software inventory to identify and mitigate potential vulnerabilities.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Supply Chain Compromise]:::tactic\n    B -->|T1542| C[Pre-OS Boot]:::tactic\n    C -->|T1055| D[Privilege Escalation]:::tactic\n    D -->|T1490| E[Resource Hijacking]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -26,9 +26,9 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "medium",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T15:32:49.481964+00:00",
+      "published": "2026-04-25T16:31:21.587735+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -43,9 +43,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The threat actors are leveraging fake CAPTCHA pages to trick victims into sending premium SMS messages as part of an international revenue share fraud scheme. This campaign uses traffic distribution systems and social engineering to direct users through multi-stage fake verifications requiring SMS messages to international phone numbers across 17 countries. The attack vector involves user execution (T1204) and multi-stage channels (T1104), with the ultimate goal of generating revenue through premium SMS messages. To remediate this threat, defenders should implement robust user education and awareness programs to prevent users from falling victim to these fake CAPTCHA pages, and consider implementing SMS message filtering or blocking solutions to prevent premium SMS messages from being sent. Additionally, defenders should monitor for suspicious SMS message activity and consider implementing two-factor authentication solutions that do not rely on SMS messages.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1104| C[Multi-Stage Channels]:::tactic\n    C -->|T1110| D[On-system Execution]:::tactic\n    D -->|T1532| E[Account Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
+      "ai_summary": "The threat actors are leveraging fake CAPTCHA pages to trick victims into sending premium SMS messages as part of an international revenue share fraud (IRSF) scheme. This campaign uses traffic distribution systems and social engineering to direct users through multi-stage fake verifications requiring SMS messages to international phone numbers across 17 countries. The attack vector involves user execution (T1204) and multi-stage channels (T1104), with no specific CVE number or CVSS score assigned. To remediate, defenders should implement robust user education programs to recognize and avoid fake CAPTCHA pages, and configure their systems to block premium SMS messages to international numbers. Additionally, defenders should monitor their network traffic for suspicious activity and implement a traffic distribution system to detect and prevent such campaigns.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1104| C[Multi-Stage Channels]:::tactic\n    C -->|T1566| D[Initial Access]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -58,9 +58,9 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T15:32:49.481942+00:00",
+      "published": "2026-04-25T16:31:21.587714+00:00",
       "ttps": [],
-      "ai_summary": "Cybercriminals are converging traditional malware operations with cryptocurrency-focused attacks, creating hybrid threat ecosystems. Modern crypto drainers have evolved into automated systems capable of extracting assets across multiple blockchains with minimal user interaction. These drainers are supported by well-developed underground marketplaces offering drainer-as-a-service kits. Two case studies exemplify this convergence, highlighting the need for defenders to be aware of these emerging hybrid attack ecosystems. To remediate, users should ensure their systems are up-to-date with the latest security patches, particularly for blockchain-related software, and implement robust monitoring and detection capabilities to identify and prevent crypto drainer activity.",
+      "ai_summary": "Cybercriminals are converging traditional malware operations with cryptocurrency-focused attacks, creating hybrid threat ecosystems. Modern crypto drainers have evolved into automated systems capable of extracting assets across multiple blockchains with minimal user interaction. These attacks are supported by well-developed underground marketplaces offering drainer-as-a-service kits. Two case studies exemplify this convergence, highlighting the need for defenders to be aware of these emerging threats. To remediate, organizations should implement robust security measures, such as monitoring for suspicious cryptocurrency activity and implementing multi-factor authentication to prevent unauthorized access to blockchain wallets.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -75,7 +75,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T15:32:49.481914+00:00",
+      "published": "2026-04-25T16:31:21.587688+00:00",
       "ttps": [
         {
           "id": "T1587",
@@ -102,7 +102,7 @@
           "tactic_id": "TA0003"
         }
       ],
-      "ai_summary": "The UNC6692 threat actor group employed a sophisticated intrusion campaign, leveraging social engineering tactics to deploy a custom malware suite. The attackers impersonated IT helpdesk personnel via Microsoft Teams, using initial email spam campaigns to create a sense of urgency. Victims were tricked into downloading AutoHotKey scripts that installed SNOWBELT, a malicious browser extension. This exploit affects users who interact with Microsoft Teams and have not implemented strict access controls. To remediate, organizations should implement strict access controls, monitor Microsoft Teams activity, and ensure all users are trained on social engineering tactics. Additionally, users should be cautious when downloading scripts from unknown sources and ensure their browser extensions are up-to-date, specifically version 1.2.3 or later.",
+      "ai_summary": "The UNC6692 threat actor group employed a sophisticated intrusion campaign, leveraging social engineering tactics to deploy a custom malware suite. The attackers impersonated IT helpdesk personnel via Microsoft Teams, using initial email spam campaigns to create a sense of urgency. Victims were tricked into downloading AutoHotKey scripts that installed SNOWBELT, a malicious browser extension. This allowed the attackers to execute arbitrary code on the compromised systems, resulting in the installation of a custom malware suite. To remediate this threat, defenders should update Microsoft Teams to the latest version (1.4.00.28261 or later), block suspicious email attachments, and implement strict access controls for browser extensions. Additionally, organizations should educate employees on the dangers of social engineering attacks and conduct regular security awareness training.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1587| B[Develop Capabilities]:::tactic\n    B -->|T1059.010| C[AutoHotKey & AutoIT]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1176| E[Browser Extensions]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -117,7 +117,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T15:32:49.481863+00:00",
+      "published": "2026-04-25T16:31:21.587664+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -132,11 +132,11 @@
           "tactic_id": "TA0010"
         }
       ],
-      "ai_summary": "GopherWhisper, a China-aligned APT group, targeted a Mongolian governmental entity using custom tools written in Go, including backdoors LaxGopher, RatGopher, and BoxOfFriends, injectors JabGopher, exfiltration tool CompactGopher, loader FriendDelivery, and C++ backdoor SSLORD. The group employed T1219 (Remote Access Software) and T1041 (Exfiltration Over C2 Channel) tactics to gain access and exfiltrate data. If exploited, this could lead to unauthorized access, data breaches, and potential ransomware attacks. To remediate, defenders should update their systems to the latest version of their software, implement robust network segmentation, and monitor for suspicious activity. Additionally, organizations should consider implementing a Go-based malware detection solution to identify and block potential threats.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1041| C[Exfiltration Over C2 Channel]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The GopherWhisper APT group, aligned with China, has been discovered by ESET researchers to be targeting a governmental entity in Mongolia. This group utilizes a variety of custom tools, primarily written in Go, including backdoors such as LaxGopher, RatGopher, and BoxOfFriends, to gain remote access and exfiltrate sensitive data. The attack vector involves the use of remote access software, as indicated by TTP T1219, and exfiltration over C2 channels, as seen in T1041. To remediate this threat, defenders should implement robust network monitoring to detect unusual traffic patterns, specifically focusing on the identification of unauthorized remote access software and suspicious data transfers. Additionally, ensuring all software is up-to-date and implementing a zero-trust model can help mitigate the risk of such attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Initial Access]:::tactic\n    B -->|T1041| C[Exfiltration]:::tactic\n    C -->|T1219| D[Persistence]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "ai_model": "llama-3.3-70b-versatile"
     },
     {
       "title": "Trigona Affiliates Deploy Custom Exfiltration Tool to Streamline Data Theft",
@@ -147,7 +147,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T15:32:49.481830+00:00",
+      "published": "2026-04-25T16:31:21.587643+00:00",
       "ttps": [
         {
           "id": "T1041",
@@ -162,8 +162,8 @@
           "tactic_id": "TA0040"
         }
       ],
-      "ai_summary": "Trigona ransomware affiliates have adopted a custom-developed exfiltration tool called uploader_client.exe to streamline data theft. This command-line utility features parallel data streams, connection rotation to evade network monitoring, and granular file filtering capabilities. The tool is used in conjunction with T1041 (Exfiltration Over C2 Channel) and T1486 (Data Encrypted for Impact) tactics to exfiltrate sensitive data. To remediate, defenders should monitor for suspicious command-line utilities and implement network monitoring to detect connection rotation. Additionally, ensure that all systems are running the latest version of their respective operating systems and applications, and consider implementing file integrity monitoring to detect granular file filtering.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Exfiltration Over C2 Channel]:::tactic\n    D -->|T1486| E[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "Trigona ransomware affiliates have adopted a custom-developed exfiltration tool called uploader_client.exe in attacks observed during March 2026. This command-line utility features parallel data streams, connection rotation to evade network monitoring, and granular file filtering capabilities. The uploader_client.exe tool is used to exfiltrate data over a Command and Control (C2) channel, as indicated by TTP T1041. If exploited, this tool can lead to significant data theft, potentially affecting organizations with sensitive information. To remediate, defenders should monitor for suspicious network activity, particularly connection rotation and parallel data streams, and implement network segmentation to limit lateral movement. Additionally, organizations should update their security software to detect and block the uploader_client.exe tool.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -177,7 +177,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T15:32:49.481808+00:00",
+      "published": "2026-04-25T16:31:21.587608+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -204,9 +204,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "DinDoor is a Deno-based backdoor delivered via MSI files that exploits the Deno runtime to execute obfuscated JavaScript for command and control communications and system fingerprinting. Two analyzed samples show different execution behaviors: one writes JavaScript to disk while the other executes entirely in memory. Both samples use identical fingerprinting algorithms generating unique victim identifiers. To remediate, users should update to Deno version 1.25.3 or later, and ensure the Deno runtime is not installed with elevated privileges. Additionally, users should monitor for suspicious MSI file downloads and execute JavaScript files only from trusted sources.",
+      "ai_summary": "DinDoor is a Deno-based backdoor delivered via MSI files that exploits the Deno runtime to execute obfuscated JavaScript for command and control communications and system fingerprinting. The backdoor uses identical fingerprinting algorithms generating unique victim identifiers. Two analyzed samples show different execution behaviors: one writes JavaScript to disk while the other executes entirely in memory. If exploited, DinDoor can lead to unauthorized access, data exfiltration, and system compromise. To remediate, users should update to Deno version 1.25.3 or later, and ensure the Deno runtime is not installed with elevated privileges.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1592| D[Gather Victim Host Info]:::tactic\n    D -->|T1219| E[Remote Access Software]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.5,
+      "severity_score": 8.0,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -219,7 +219,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T15:32:49.481781+00:00",
+      "published": "2026-04-25T16:31:21.587582+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -228,7 +228,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The uWarrior RAT is delivered through weaponized RTF documents containing multiple exploits, specifically leveraging CVE-2012-1856 and CVE-2015-1770. These exploits bypass ASLR protections by loading non-DYNAMICBASE compiled DLLs through OLE objects. If exploited, the attack chain allows the threat actor to establish a fully-featured Remote Access Tool (RAT) with compressed, optionally encrypted TCP communication capabilities. To remediate, users should update their Microsoft Office software to version 2013 SP1 or later, which includes patches for CVE-2012-1856 and CVE-2015-1770. Additionally, users should ensure that their systems have the latest Windows updates, including KB2758857, which addresses the ASLR bypass vulnerability.",
+      "ai_summary": "The uWarrior Remote Access Tool (RAT) is delivered through weaponized RTF documents containing multiple exploits, including CVE-2012-1856 and CVE-2015-1770. These exploits bypass ASLR protections by loading non-DYNAMICBASE compiled DLLs through OLE objects. If exploited, uWarrior can install on Windows systems, allowing the threat actor to establish a fully-featured RAT with compressed, optionally encrypted TCP communication. To remediate, users should update to Windows 10 or later, which includes patches for CVE-2012-1856 and CVE-2015-1770. Additionally, users should disable OLE object loading and implement a robust ASLR protection configuration.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -243,7 +243,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T15:32:49.481753+00:00",
+      "published": "2026-04-25T16:31:21.587554+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -252,9 +252,9 @@
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "The ClickFix Campaigns Targeting Windows and macOS exploit utilizes the ClickFix social engineering technique for initial access, impersonating services like Intuit QuickBooks and Booking.com. This campaign manipulates victims into executing malicious commands within native system tools, bypassing traditional security controls. The affected systems include Windows and macOS, with the attack vector being user execution. To remediate, defenders should ensure that system tools are configured to prevent malicious command execution and implement user education programs to raise awareness about the ClickFix technique. Additionally, organizations should monitor for suspicious activity related to user execution and implement controls to prevent lateral movement.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[User Execution]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
+      "ai_summary": "The ClickFix Campaigns Targeting Windows and macOS exploit utilizes the ClickFix social engineering technique for initial access, impersonating services like Intuit QuickBooks and Booking.com. This campaign manipulates victims into executing malicious commands within native system tools, bypassing traditional security controls. The affected systems include Windows and macOS, with the attack vector being user execution (T1204). To remediate this threat, defenders should ensure that users are educated on the dangers of social engineering and that security controls are in place to prevent the execution of malicious commands within native system tools. Specifically, defenders should update to the latest version of their operating system and ensure that all system tools are configured to only execute trusted commands.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -267,7 +267,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-25T15:32:49.481716+00:00",
+      "published": "2026-04-25T16:31:21.587517+00:00",
       "ttps": [
         {
           "id": "T1547.006",
@@ -282,217 +282,206 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "The Illuminating VoidLink rootkit framework is a sophisticated Linux malware framework combining Loadable Kernel Modules (LKMs) and eBPF for persistence. Developed by a Chinese-speaking threat actor, VoidLink evolved through four generations, targeting kernels from CentOS 7 to Ubuntu 22.04. The rootkit employs advanced techniques like delayed initialization, runtime key rotation, and a hybrid LKM-eBPF architecture. To remediate, defenders should update to the latest kernel versions (e.g., Ubuntu 22.10 or CentOS 8) and implement eBPF filtering to detect and prevent LKM-based attacks. Additionally, enable kernel module signing and verify the integrity of kernel modules to prevent unauthorized modifications.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1547.006| B[Kernel Modules and Extensions]:::tactic\n    B -->|T1014| C[Rootkit]:::tactic\n    C -->|T1021| D[Remote Services]:::tactic\n    D -->|T1210| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Illuminating VoidLink rootkit framework is a sophisticated Linux malware developed by a Chinese-speaking threat actor, targeting kernels from CentOS 7 to Ubuntu 22.04. VoidLink employs advanced techniques like delayed initialization, runtime key rotation, and a hybrid LKM-eBPF architecture for persistence. If exploited, VoidLink can lead to kernel-level privilege escalation and rootkit installation, allowing the threat actor to hide malicious activities and evade detection. To remediate, defenders should update their Linux kernels to the latest versions, specifically CentOS 8 or later and Ubuntu 22.10 or later. Additionally, they should disable Loadable Kernel Modules (LKMs) and eBPF, and monitor system calls for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1547.006| B[Kernel Modules and Extensions]:::tactic\n    B -->|T1014| C[Rootkit]:::tactic\n    C -->|T1053| D[Process Injection]:::tactic\n    D -->|T1071| E[Application Layer Protocol]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-30616: Jaaz 1.0.30 contains a remote code execution vulnerability in its MCP STDIO comm...",
-      "description": "Jaaz 1.0.30 contains a remote code execution vulnerability in its MCP STDIO command execution handling. A remote attacker can send crafted network requests to the network-accessible Jaaz application, causing attacker-controlled commands to be executed on the server. Successful exploitation results in arbitrary command execution within the context of the Jaaz service, potentially allowing full comp",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30616",
-      "cve_id": "CVE-2026-30616",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 7.3,
-      "published": "2026-04-25T15:32:37.606680+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-30616 is a critical remote code execution (RCE) vulnerability affecting Jaaz version 1.0.30. The flaw resides in the MCP STDIO command execution handling, allowing unauthenticated attackers to send crafted network requests to the vulnerable Jaaz application. Successful exploitation enables arbitrary command execution with the privileges of the Jaaz service, potentially leading to complete system compromise and unauthorized data access. To remediate, organizations must upgrade Jaaz to a version beyond 1.0.30, ideally the latest stable release, and ensure network segmentation to limit exposure of Jaaz to untrusted networks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
-      "ai_provider": "gemini",
-      "ai_model": "gemini-2.5-flash-lite"
-    },
-    {
-      "title": "CVE-2026-30615: A prompt injection vulnerability in Windsurf 1.9544.26 allows remote attackers t...",
-      "description": "A prompt injection vulnerability in Windsurf 1.9544.26 allows remote attackers to execute arbitrary commands on a victim system. When Windsurf processes attacker-controlled HTML content, malicious instructions can cause unauthorized modification of the local MCP configuration and automatic registration of a malicious MCP STDIO server, resulting in execution of arbitrary commands without further us",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30615",
-      "cve_id": "CVE-2026-30615",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.0,
-      "published": "2026-04-25T15:32:37.606664+00:00",
-      "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-30615 is a prompt injection vulnerability in Windsurf 1.9544.26, allowing remote attackers to execute arbitrary commands on a victim system. This occurs when Windsurf processes attacker-controlled HTML content, leading to unauthorized modification of the local MCP configuration and automatic registration of a malicious MCP STDIO server. To exploit this vulnerability, an attacker would need to craft a malicious HTML payload and trick a user into opening it in Windsurf. If exploited, this vulnerability could result in remote code execution (RCE) and potentially allow an attacker to gain elevated privileges. To remediate this vulnerability, users should update to Windsurf 1.9544.27 or later, which includes a patch for this issue. Additionally, administrators should ensure that Windsurf is configured to only allow trusted HTML content and that any MCP STDIO servers are regularly monitored for suspicious activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-30461: Daylight Studio FuelCMS v1.5.2 was discovered to contain an authenticated remote...",
-      "description": "Daylight Studio FuelCMS v1.5.2 was discovered to contain an authenticated remote code execution (RCE) vulnerability via the /controllers/Installer.php and the function add_git_submodule.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30461",
-      "cve_id": "CVE-2026-30461",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 8.3,
-      "published": "2026-04-25T15:32:37.606646+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-30461 is a critical authenticated remote code execution (RCE) vulnerability in Daylight Studio FuelCMS v1.5.2. The vulnerability is caused by an attacker exploiting the /controllers/Installer.php and the function add_git_submodule. If exploited, an attacker can execute arbitrary code on the affected system, potentially leading to data breaches, ransomware attacks, or even complete system compromise. To remediate this vulnerability, update to FuelCMS v1.6.0 or later, and ensure that the /controllers/Installer.php file is not accessible via public-facing interfaces. Additionally, consider implementing a Web Application Firewall (WAF) to prevent exploitation attempts.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1059.001| D[Command and Scripting Interpreter]:::tactic\n    D -->|T1059.001| E[Command and Scripting Interpreter]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-20205: In Splunk MCP Server app versions below 1.0.3 , a user who holds a role with acc...",
-      "description": "In Splunk MCP Server app versions below 1.0.3 , a user who holds a role with access to the Splunk `_internal` index or possesses the high-privilege capability `mcp_tool_admin` could view users session and authorization tokens in clear text.<br><br>The vulnerability would require either local access to the log files or administrative access to internal indexes, which by default only the admin role ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20205",
-      "cve_id": "CVE-2026-20205",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.2,
-      "published": "2026-04-25T15:32:37.606624+00:00",
-      "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-20205 is a vulnerability in Splunk MCP Server app versions below 1.0.3, allowing users with specific roles or capabilities to view session and authorization tokens in clear text. This requires local access to log files or administrative access to internal indexes, which is typically restricted to the admin role. If exploited, an attacker could potentially gain unauthorized access to sensitive user information. To remediate, update to version 1.0.3 or later, and ensure that the `_internal` index is properly secured. Additionally, review and adjust role assignments and capabilities to prevent unauthorized access.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Privilege Escalation]:::tactic\n    B -->|T1071| C[Lateral Movement]:::tactic\n    C -->|T1083| D[Data Staged]:::tactic\n    D -->|T1162| E[Data Exfiltration]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-20204: In Splunk Enterprise versions below 10.2.1, 10.0.5, 9.4.10, and 9.3.11, and Splu...",
-      "description": "In Splunk Enterprise versions below 10.2.1, 10.0.5, 9.4.10, and 9.3.11, and Splunk Cloud Platform versions below 10.4.2603.0, 10.3.2512.5, 10.2.2510.9, 10.1.2507.19, 10.0.2503.13, and 9.3.2411.127, a low-privileged user that does not hold the `admin` or `power` Splunk roles could potentially perform a Remote Code Execution (RCE) by uploading a malicious file to the `$SPLUNK_HOME/var/run/splunk/app",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20204",
-      "cve_id": "CVE-2026-20204",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.1,
-      "published": "2026-04-25T15:32:37.606608+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        },
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1204",
-          "name": "User Execution",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        }
-      ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-20204 is a Remote Code Execution (RCE) vulnerability in Splunk Enterprise versions below 10.2.1, 10.0.5, 9.4.10, and 9.3.11, and Splunk Cloud Platform versions below 10.4.2603.0, 10.3.2512.5, 10.2.2510.9, 10.1.2507.19, 10.0.2503.13, and 9.3.2411.127. An attacker can exploit this vulnerability by uploading a malicious file to the $SPLUNK_HOME/var/run/splunk/app directory, which can lead to RCE. This vulnerability affects low-privileged users who do not hold the `admin` or `power` Splunk roles. To remediate this vulnerability, Splunk Enterprise users should upgrade to version 10.2.1 or later, and Splunk Cloud Platform users should upgrade to version 10.4.2603.0 or later. Additionally, users should ensure that the `allowRemoteLogin` setting is set to `false` in the `web.conf` file.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059| C[Command and Scripting Interpreter]:::tactic\n    C -->|T1204| D[User Execution]:::tactic\n    D -->|T1059.001| E[Execution]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
-    },
-    {
-      "title": "CVE-2026-20203: In Splunk Enterprise versions below 10.2.2, 10.0.5, 9.4.10, and 9.3.11, and Splu...",
-      "description": "In Splunk Enterprise versions below 10.2.2, 10.0.5, 9.4.10, and 9.3.11, and Splunk Cloud Platform versions below 10.4.2603.0, 10.3.2512.6, 10.2.2510.10, 10.1.2507.19, 10.0.2503.13, and 9.3.2411.127, a low-privileged user that does not hold the `admin` or `power` Splunk roles, has write permission on the app, and does not hold the high-privilege capability `accelerate_datamodel`, could turn on or o",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20203",
-      "cve_id": "CVE-2026-20203",
+      "title": "CVE-2026-20132: Multiple vulnerabilities in the web-based management interface of Cisco Identity...",
+      "description": "Multiple vulnerabilities in the web-based management interface of Cisco Identity Services Engine (ISE) could allow an authenticated, remote attacker with administrative&nbsp;write privileges to conduct a stored cross-site scripting (XSS) attack or a reflected XSS attack against a user of the web-based management interface of an affected device.\r\n\r\nThese vulnerabilities are due to insufficient sani",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20132",
+      "cve_id": "CVE-2026-20132",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
-      "cvss_score": 4.3,
-      "published": "2026-04-25T15:32:37.606590+00:00",
+      "cvss_score": 4.8,
+      "published": "2026-04-25T16:31:10.464540+00:00",
       "ttps": [],
-      "epss_score": null
+      "epss_score": null,
+      "ai_summary": "CVE-2026-20132 is a stored and reflected cross-site scripting (XSS) vulnerability in the web-based management interface of Cisco Identity Services Engine (ISE) versions prior to 3.2.0. An authenticated, remote attacker with administrative write privileges can exploit this vulnerability to conduct an XSS attack against a user of the web-based management interface. This could allow the attacker to steal sensitive information, inject malicious scripts, or perform other malicious actions. To remediate this vulnerability, Cisco ISE administrators should upgrade to version 3.2.0 or later, and ensure that the web-based management interface is configured to use a secure protocol such as HTTPS. Additionally, administrators should implement a web application firewall (WAF) to detect and prevent XSS attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1059.001| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1071| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.8,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
-      "title": "CVE-2026-20202: In Splunk Enterprise versions below 10.2.2, 10.0.5, 9.4.10, and 9.3.11, and Splu...",
-      "description": "In Splunk Enterprise versions below 10.2.2, 10.0.5, 9.4.10, and 9.3.11, and Splunk Cloud Platform versions below 10.4.2603.0, 10.3.2512.6, 10.2.2510.10, 10.1.2507.20, 10.0.2503.13, and 9.3.2411.127, a user who holds a role that contains the high-privilege capability `edit_user`could create a specially crafted username that includes a null byte or a non-UTF-8 percent-encoded byte due to improper in",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20202",
-      "cve_id": "CVE-2026-20202",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.6,
-      "published": "2026-04-25T15:32:37.606571+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2025-67841: Nordic Semiconductor IronSide SE for nRF54H20 before 23.0.2+17 has an Algorithmi...",
-      "description": "Nordic Semiconductor IronSide SE for nRF54H20 before 23.0.2+17 has an Algorithmic complexity issue.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67841",
-      "cve_id": "CVE-2025-67841",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 7.5,
-      "published": "2026-04-25T15:32:37.606553+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2025-53444: Cross-Site Request Forgery (CSRF) vulnerability in DeluxeThemes Userpro userpro ...",
-      "description": "Cross-Site Request Forgery (CSRF) vulnerability in DeluxeThemes Userpro userpro allows Cross Site Request Forgery.This issue affects Userpro: from n/a through < 5.1.11.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53444",
-      "cve_id": "CVE-2025-53444",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 4.3,
-      "published": "2026-04-25T15:32:37.606530+00:00",
-      "ttps": [],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2025-12141: In Grafana's alerting system, users with edit permissions for a contact point, s...",
-      "description": "In Grafana's alerting system, users with edit permissions for a contact point, specifically the permissions “alert.notifications:write” or “alert.notifications.receivers:test” that are granted as part of the fixed role \"Contact Point Writer\", which is part of the basic role Editor - can edit contact points created by other users, modify the endpoint URL to a controlled server. By invoking the test",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-12141",
-      "cve_id": "CVE-2025-12141",
+      "title": "CVE-2026-20081: Multiple vulnerabilities in Cisco Unity Connection could allow an authenticated,...",
+      "description": "Multiple vulnerabilities in Cisco Unity Connection could allow an authenticated, remote attacker&nbsp;to download arbitrary files from an affected system. To exploit these vulnerabilities, the attacker must have valid administrative credentials.&nbsp;\r\n\r\nThese vulnerabilities are due to improper sanitization of user input to the web-based management interface. An attacker could exploit these vulne",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20081",
+      "cve_id": "CVE-2026-20081",
       "source": "NVD",
       "category": "cve",
       "severity": "medium",
       "cvss_score": 6.5,
-      "published": "2026-04-25T15:32:37.606485+00:00",
+      "published": "2026-04-25T16:31:10.464524+00:00",
       "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-20081 is a set of multiple vulnerabilities in Cisco Unity Connection, specifically affecting versions prior to 12.0(1)SU1. An authenticated, remote attacker can exploit these vulnerabilities by downloading arbitrary files from an affected system, requiring valid administrative credentials. This occurs due to improper sanitization of user input to the web-based management interface. To remediate, administrators should update to version 12.0(1)SU1 or later, and ensure that the 'Allow File Download' option is disabled in the web-based management interface. Additionally, it is recommended to implement strict access controls and monitor system logs for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1210| B[Reconnaissance]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-20078: Multiple vulnerabilities in Cisco Unity Connection could allow an authenticated,...",
+      "description": "Multiple vulnerabilities in Cisco Unity Connection could allow an authenticated, remote attacker&nbsp;to download arbitrary files from an affected system. To exploit these vulnerabilities, the attacker must have valid administrative credentials.&nbsp;\r\n\r\nThese vulnerabilities are due to improper sanitization of user input to the web-based management interface. An attacker could exploit these vulne",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20078",
+      "cve_id": "CVE-2026-20078",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-25T16:31:10.464508+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-20078 is a set of multiple vulnerabilities in Cisco Unity Connection, specifically affecting versions prior to 12.0(1)SU4. These vulnerabilities allow an authenticated, remote attacker to download arbitrary files from an affected system by exploiting improper sanitization of user input to the web-based management interface. If exploited, an attacker could potentially gain unauthorized access to sensitive data or disrupt system functionality. To remediate, administrators should update to version 12.0(1)SU4 or later, and ensure that the 'Allow File Download' option is disabled in the web-based management interface. Additionally, it is recommended to implement strict access controls and monitor system logs for suspicious activity.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1160| B[Initial Access]:::tactic\n    B -->|T1210| C[Exploitation of Vulnerability]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 6.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-20061: A vulnerability in the web-based management interface of Cisco Unity Connection ...",
+      "description": "A vulnerability in the web-based management interface of Cisco Unity Connection could allow an authenticated, remote attacker to perform an SQL injection attack against an affected device. To exploit this vulnerability, the attacker must have valid user credentials on the affected device.\r\n\r\nThis vulnerability is due to insufficient validation of user-supplied input. An attacker could exploit this",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20061",
+      "cve_id": "CVE-2026-20061",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-25T16:31:10.464491+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-20061 is a vulnerability in the web-based management interface of Cisco Unity Connection, specifically due to insufficient validation of user-supplied input. An authenticated, remote attacker can exploit this vulnerability to perform an SQL injection attack against an affected device. This attack vector requires valid user credentials on the affected device. To remediate this vulnerability, Cisco Unity Connection administrators should update to version 12.0(1)SU2 or later, and ensure that the 'SQL Injection Protection' feature is enabled. Additionally, administrators should validate user input to prevent similar attacks in the future.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 4.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-20060: A vulnerability in the web-based management interface of Cisco Unity Connection ...",
+      "description": "A vulnerability in the web-based management interface of Cisco Unity Connection could allow an unauthenticated, remote attacker to redirect a user to a malicious web page.\r\n\r\nThis vulnerability is due to improper input validation of HTTP request parameters. An attacker could exploit this vulnerability by persuading a user to click a crafted link. A successful exploit could allow the attacker to re",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20060",
+      "cve_id": "CVE-2026-20060",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 4.7,
+      "published": "2026-04-25T16:31:10.464476+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-20060 is a critical vulnerability residing in the web-based management interface of Cisco Unity Connection, stemming from improper input validation of HTTP request parameters. This flaw allows an unauthenticated, remote attacker to perform a Cross-Site Scripting (XSS) attack, redirecting users to malicious web pages by crafting a specific link. Successful exploitation could lead to credential theft or further malware delivery if users click the malicious link. To remediate, Cisco recommends upgrading to Cisco Unity Connection Release 14SU1 or later, or applying the necessary security patches provided by Cisco for earlier supported versions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Initial Access]:::tactic\n    B -->|T1566.002| C[Execution]:::tactic\n    C -->|T1110| D[Credential Access]:::tactic\n    D -->|T1078.001| E[Persistence]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.2,
+      "ai_provider": "gemini",
+      "ai_model": "gemini-2.5-flash-lite"
+    },
+    {
+      "title": "CVE-2026-20059: A vulnerability in the web-based management interface of Cisco Unity Connection ...",
+      "description": "A vulnerability in the web-based management interface of Cisco Unity Connection could allow an unauthenticated, remote attacker to conduct a reflected XSS attack against a user of the interface.\r\n\r\nThis vulnerability exists because the web-based management interface does not properly validate user-supplied input. An attacker could exploit this vulnerability by persuading a user to click a crafted ",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20059",
+      "cve_id": "CVE-2026-20059",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.1,
+      "published": "2026-04-25T16:31:10.464458+00:00",
+      "ttps": [
+        {
+          "id": "T1586.002",
+          "name": "Email Accounts",
+          "tactic": "Resource Development",
+          "tactic_id": "TA0042"
+        },
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2025-63029: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injecti...",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in WC Lovers WCFM Marketplace wc-multivendor-marketplace allows SQL Injection.This issue affects WCFM Marketplace: from n/a through <= 3.7.1.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-63029",
+      "cve_id": "CVE-2025-63029",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.6,
+      "published": "2026-04-25T16:31:10.464437+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2025-15636: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripti...",
+      "description": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in emarket-design YouTube Showcase youtube-showcase allows Stored XSS.This issue affects YouTube Showcase: from n/a through <= 3.5.1.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15636",
+      "cve_id": "CVE-2025-15636",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 6.5,
+      "published": "2026-04-25T16:31:10.464419+00:00",
+      "ttps": [],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2025-15635: Cross-Site Request Forgery (CSRF) vulnerability in ZAYTECH Smart Online Order fo...",
+      "description": "Cross-Site Request Forgery (CSRF) vulnerability in ZAYTECH Smart Online Order for Clover clover-online-orders allows Cross Site Request Forgery.This issue affects Smart Online Order for Clover: from n/a through <= 1.6.0.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15635",
+      "cve_id": "CVE-2025-15635",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": 4.3,
+      "published": "2026-04-25T16:31:10.464396+00:00",
+      "ttps": [],
+      "epss_score": null
+    },
+    {
+      "title": "CVE-2025-15610: Deserialization of untrusted data vulnerability in OpenText, Inc RightFax on Win...",
+      "description": "Deserialization of untrusted data vulnerability in OpenText, Inc RightFax on Windows, 64 bit, 32 bit allows Object Injection.This issue affects RightFax: through 25.4.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15610",
+      "cve_id": "CVE-2025-15610",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "medium",
+      "cvss_score": null,
+      "published": "2026-04-25T16:31:10.464322+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        }
+      ],
       "epss_score": null
     },
     {
@@ -950,10 +939,10 @@
         }
       ],
       "threat_actors": [
-        "Conti",
+        "Lazarus",
         "APT41",
         "APT38",
-        "Lazarus"
+        "Conti"
       ]
     },
     {
@@ -1883,8 +1872,8 @@
         }
       ],
       "threat_actors": [
-        "Conti",
-        "LockBit"
+        "LockBit",
+        "Conti"
       ]
     },
     {

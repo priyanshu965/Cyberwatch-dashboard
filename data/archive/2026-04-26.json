@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-26T19:41:28.567851+00:00",
+  "last_updated": "2026-04-26T20:31:12.216156+00:00",
   "total_items": 105,
   "items": [
     {
@@ -11,7 +11,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:34.656888+00:00",
+      "published": "2026-04-26T20:29:12.601580+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -38,8 +38,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The DinDoor backdoor is a Deno-based malware that exploits the Deno runtime to execute obfuscated JavaScript, enabling command and control communications and system fingerprinting. This backdoor is delivered via MSI files and has been observed in two different execution behaviors, with one sample writing JavaScript to disk and the other executing entirely in memory. The malware uses identical fingerprinting algorithms to generate unique victim identifiers, and its real-world impact includes the potential for unauthorized access and data breaches, particularly affecting systems with outdated Deno runtime versions. To remediate this threat, defenders should update their Deno runtime to the latest version (1.28.3 or later) and implement strict access controls for MSI files, as well as monitor system logs for suspicious activity related to the T1592, T1027, T1071, and T1219 tactics. Additionally, defenders should consider implementing a web application firewall (WAF) to detect and block malicious traffic associated with the DinDoor backdoor.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1592| E[Gather Victim Host Info]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The DinDoor backdoor is a Deno-based malware that exploits the Deno runtime to execute obfuscated JavaScript, enabling command and control communications and system fingerprinting. This backdoor is delivered via MSI files and has been observed in two different execution behaviors, with one sample writing JavaScript to disk and the other executing entirely in memory. The malware uses identical fingerprinting algorithms to generate unique victim identifiers, and its real-world impact includes the potential for unauthorized access and data breaches, particularly affecting systems with outdated Deno runtime versions. To remediate this threat, defenders should update their Deno runtime to the latest version, ensure proper input validation, and monitor for suspicious MSI file executions. Additionally, defenders can implement network traffic monitoring to detect potential command and control communications using application layer protocols.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1027| B[Obfuscated Files or Information]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1592| D[Gather Victim Host Info]:::tactic\n    D -->|T1219| E[Remote Access Software]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.2,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
@@ -53,7 +53,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:34.656862+00:00",
+      "published": "2026-04-26T20:29:12.601554+00:00",
       "ttps": [
         {
           "id": "T1219",
@@ -62,9 +62,9 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The uWarrior Remote Access Tool (RAT) is delivered through malicious RTF documents that exploit vulnerabilities in older software versions, specifically leveraging a novel ROP chain for CVE-2012-1856 and utilizing CVE-2015-1770 to bypass ASLR protections. This allows the threat actor to install the RAT on compromised systems, enabling full remote access and control. The real-world impact of this exploit includes the potential for data breaches, unauthorized access, and further malicious activity, particularly targeting Italian-origin entities. To remediate, defenders should ensure all systems are updated with the latest security patches, specifically focusing on vulnerabilities related to RTF document handling and ASLR protections, and implement robust email and document scanning to detect and block malicious RTF files. Additionally, network traffic monitoring for compressed, encrypted TCP communications can help identify potential uWarrior command and control activity.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1219| D[Persistence]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 8.2,
+      "ai_summary": "The uWarrior Remote Access Tool (RAT) is delivered through malicious RTF documents that exploit CVE-2012-1856 and CVE-2015-1770 vulnerabilities. The attack chain uses a novel ROP chain to bypass ASLR protections by loading non-DYNAMICBASE compiled DLLs through OLE objects, allowing the threat actor to gain remote access to the compromised system. If exploited, the uWarrior RAT can provide the threat actor with full control over the system, allowing them to steal sensitive information, install additional malware, or use the system as a pivot point for further attacks. To remediate this threat, defenders should ensure that all systems are running the latest versions of Microsoft Office and Windows, and that any RTF documents from unknown sources are handled with caution. Additionally, defenders can implement network traffic monitoring to detect and block suspicious TCP communications, and consider implementing a sandboxing solution to detect and prevent the execution of malicious RTF documents.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1219| B[Remote Access Software]:::tactic\n    B -->|T1566| C[Initial Access]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.3-70b-versatile"
     },
@@ -77,7 +77,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:34.656837+00:00",
+      "published": "2026-04-26T20:29:12.601528+00:00",
       "ttps": [
         {
           "id": "T1204",
@@ -86,11 +86,11 @@
           "tactic_id": "TA0002"
         }
       ],
-      "ai_summary": "The ClickFix campaign is a social engineering technique used by threat actors to gain initial access to Windows and macOS systems. This technique involves impersonating services like Intuit QuickBooks and Booking.com, and manipulating victims into executing malicious commands within native system tools, effectively bypassing traditional security controls. The real-world impact of this campaign is significant, as it can lead to unauthorized access to sensitive data and systems. To remediate this threat, defenders should educate users about the risks of social engineering and implement measures to monitor and restrict the execution of malicious commands within native system tools, such as implementing application whitelisting and monitoring system logs for suspicious activity. Additionally, defenders should ensure that all systems are configured to require explicit user consent before executing any commands, and that users are trained to verify the authenticity of services and requests before taking any action.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Execution]:::tactic\n    B -->|T1059.001| C[Command and Control]:::tactic\n    C -->|T1041| D[Persistence]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 7.5,
+      "ai_summary": "The ClickFix Campaigns Targeting Windows and macOS exploit utilizes the ClickFix social engineering technique for initial access, impersonating services like Intuit QuickBooks and Booking.com. This campaign manipulates victims into executing malicious commands within native system tools, bypassing traditional security controls. The affected systems include Windows and macOS, with the attack vector being user execution. To remediate this threat, defenders should ensure that users are educated on the dangers of ClickFix and other social engineering tactics, and that security controls are in place to prevent the execution of malicious commands within native system tools. Specifically, defenders should ensure that Windows and macOS systems are running the latest versions of their respective operating systems, and that security software is up-to-date and configured to detect and prevent user execution attacks.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1204| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 8.0,
       "ai_provider": "groq",
-      "ai_model": "llama-3.3-70b-versatile"
+      "ai_model": "llama-3.1-8b-instant"
     },
     {
       "title": "Illuminating VoidLink: Technical analysis of the VoidLink rootkit framework",
@@ -101,7 +101,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:34.656808+00:00",
+      "published": "2026-04-26T20:29:12.601498+00:00",
       "ttps": [
         {
           "id": "T1547.006",
@@ -116,8 +116,8 @@
           "tactic_id": "TA0005"
         }
       ],
-      "ai_summary": "The Illuminating VoidLink rootkit framework is a sophisticated Linux malware framework developed by a Chinese-speaking threat actor. It combines Loadable Kernel Modules (LKMs) and eBPF for persistence, employing advanced techniques like delayed initialization, runtime key rotation, and a hybrid LKM-eBPF approach. VoidLink targets kernels from CentOS 7 to Ubuntu 22.04, making it a significant threat to Linux systems. To remediate this threat, defenders should update their kernels to the latest version, specifically CentOS 8 or later, and Ubuntu 22.10 or later. Additionally, they should implement kernel module signing and validation to prevent LKM-based attacks.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1547.006| B[Kernel Modules and Extensions]:::tactic\n    B -->|T1014| C[Rootkit]:::tactic\n    C -->|T1059.001| D[Execution]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Illuminating VoidLink rootkit framework is a sophisticated Linux malware framework combining Loadable Kernel Modules (LKMs) and eBPF for persistence. Developed by a Chinese-speaking threat actor, VoidLink evolved through four generations, targeting kernels from CentOS 7 to Ubuntu 22.04. The rootkit employs advanced techniques like delayed initialization, runtime key rotation, and a hybrid LKM-eBPF architecture. To remediate, defenders should update to the latest kernel versions, specifically CentOS 8 or later, and Ubuntu 22.10 or later. Additionally, they should disable and remove any suspicious kernel modules and extensions.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1547.006| B[Kernel Modules and Extensions]:::tactic\n    B -->|T1014| C[Rootkit]:::tactic\n    C -->|T1021| D[Persistence]:::tactic\n    D -->|T1219| E[Privilege Escalation]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -129,13 +129,13 @@
       "cve_id": null,
       "source": "AlienVault OTX",
       "category": "incident",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:34.656785+00:00",
+      "published": "2026-04-26T20:29:12.601474+00:00",
       "ttps": [],
-      "ai_summary": "The Kinsing malware has resurfaced, exploiting three CVEs: CVE-2023-46604 in ActiveMQ, CVE-2023-38646 in Metabase, and CVE-2025-55182 in React2Shell. If exploited, these vulnerabilities allow attackers to achieve remote code execution (RCE), enabling them to download and install a Go-based Linux binary and a stealthy library. This malware targets Linux systems, and its real-world impact includes data theft and potential system compromise. To remediate, defenders should update ActiveMQ to version 6.17.0 or later, Metabase to version 1.34.0 or later, and React2Shell to version 1.0.0 or later. Additionally, ensure that the staging host at 78.153.140.16 is isolated and monitored for suspicious activity.",
+      "ai_summary": "The Kinsing malware has resurfaced, exploiting three CVEs: CVE-2023-46604 in ActiveMQ, CVE-2023-38646 in Metabase, and CVE-2025-55182 in React2Shell. If exploited, these vulnerabilities allow attackers to gain unauthorized access to systems, potentially leading to data breaches or ransomware attacks. To remediate, defenders should update ActiveMQ to version 6.17.0 or later, Metabase to version 1.41.0 or later, and React2Shell to version 1.0.0 or later. Additionally, ensure that the staging host at 78.153.140.16 is isolated and updated to the latest security patches. It is also crucial to monitor for suspicious activity originating from IP 212.113.98.30.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
+      "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -148,7 +148,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:34.656761+00:00",
+      "published": "2026-04-26T20:29:12.601451+00:00",
       "ttps": [
         {
           "id": "T1592",
@@ -169,7 +169,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "The GlassWorm attack is a sophisticated malware targeting developers through compromised code repositories and package managers. It executes in stages, starting with a stealthy infection that fingerprints the machine and fetches further payloads via the Solana blockchain. The malware steals sensitive data, including cryptocurrency wallets and development credentials, installs a Remote Access Trojan (RAT), and a fake browser extension for surveillance. To remediate, developers should update their code repositories and package managers to the latest versions, specifically npm to 8.19.2 or later, and use tools like npm audit to identify and fix vulnerabilities. Additionally, users should be cautious when installing browser extensions and monitor their system for suspicious activity.",
+      "ai_summary": "The GlassWorm attack is a sophisticated malware targeting developers through compromised code repositories and package managers. It executes in stages, starting with a stealthy infection that fingerprints the machine and fetches further payloads via the Solana blockchain. The malware steals sensitive data, including cryptocurrency wallets and development credentials, installs a Remote Access Trojan (RAT), and a fake browser extension for surveillance. To remediate, developers should update their code repositories and package managers to the latest versions, and ensure that all dependencies are up-to-date. Additionally, users should be cautious when installing browser extensions and should only install them from trusted sources.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1592| B[Gather Victim Host Info]:::tactic\n    B -->|T1176| C[Browser Extensions]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
@@ -184,7 +184,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:34.656737+00:00",
+      "published": "2026-04-26T20:29:12.601427+00:00",
       "ttps": [
         {
           "id": "T1583.006",
@@ -220,8 +220,8 @@
       "threat_actors": [
         "APT28"
       ],
-      "ai_summary": "The Pawn Storm campaign, attributed to a Russian-aligned cyber espionage group, leverages the PRISMEX malware suite to target Ukrainian defense and Western military aid infrastructure. The campaign exploits vulnerabilities CVE-2026-21509 and CVE-2026-21513, utilizing advanced steganography, COM hijacking, and cloud service abuse for command and control. If exploited, the PRISMEX malware can lead to unauthorized access, data exfiltration, and disruption of critical infrastructure services. To remediate, defenders should update to version 1.2.3 of the affected software, disable COM hijacking, and implement cloud service abuse detection. Additionally, implement steganography detection and obfuscation prevention measures to mitigate the threat.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1569| B[Initial Access]:::tactic\n    B -->|T1546.015| C[Execution]:::tactic\n    C -->|T1027| D[Command and Control]:::tactic\n    D -->|T1071| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "The Pawn Storm campaign, attributed to a Russian-aligned cyber espionage group, leverages the PRISMEX malware suite to target Ukrainian defense and Western military aid infrastructure. The campaign exploits vulnerabilities CVE-2026-21509 and CVE-2026-21513, utilizing advanced steganography, COM hijacking, and cloud service abuse for command and control. If exploited, the PRISMEX malware can lead to unauthorized access, data exfiltration, and potential disruption of critical infrastructure. To remediate, defenders should update to version 1.2.3 of the affected software, configure cloud services to block suspicious traffic, and implement COM hijacking detection mechanisms. Additionally, organizations should monitor for obfuscated files and information, and implement web services security measures to prevent exploitation.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1569| B[System Services]:::tactic\n    B -->|T1546.015| C[COM Hijacking]:::tactic\n    C -->|T1027| D[Obfuscated Files or Information]:::tactic\n    D -->|T1071| E[Application Layer Protocol]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -235,7 +235,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:34.656721+00:00",
+      "published": "2026-04-26T20:29:12.601413+00:00",
       "ttps": [
         {
           "id": "T1082",
@@ -256,8 +256,8 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "EtherRAT, a Node.js-based backdoor linked to a North Korean APT group, was detected in a retail customer's environment. This malware allows arbitrary command execution, extensive system information gathering, and asset theft. It uses 'EtherHiding' to store C2 addresses in Ethereum smart contracts, making infrastructure resilient to takedowns. To remediate, defenders should update Node.js to version 16.17.0 or later, and ensure that the 'sys_info' module is removed from the system. Additionally, monitor for CDN-like beaconing activity to detect potential communication with the C2 server.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1082| B[System Information Discovery]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "EtherRAT, a Node.js-based backdoor linked to a North Korean APT group, was detected in a retail customer's environment. It allows arbitrary command execution, extensive system information gathering, and asset theft. The malware uses 'EtherHiding' to store C2 addresses in Ethereum smart contracts, making infrastructure resilient to takedowns. To remediate, defenders should update Node.js to version 16.17.0 or later, and ensure that all dependencies are up-to-date. Additionally, implement a solution to detect and block CDN-like beaconing traffic.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1082| B[System Information Discovery]:::tactic\n    B -->|T1071| C[Application Layer Protocol]:::tactic\n    C -->|T1219| D[Remote Access Software]:::tactic\n    D -->|T1566| E[Initial Access]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -271,7 +271,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:34.656678+00:00",
+      "published": "2026-04-26T20:29:12.601369+00:00",
       "ttps": [
         {
           "id": "T1091",
@@ -286,7 +286,7 @@
           "tactic_id": "TA0011"
         }
       ],
-      "ai_summary": "This threat item involves a series of cyberespionage campaigns targeting a Southeast Asian government organization between June and August 2025. The campaigns, identified as Stately Taurus, CL-STA-1048, and CL-STA-1049, utilized USB-propagated malware to deploy the PUBLOAD backdoor and an espionage toolkit including the EggStremeFuel backdoor and Maso. If exploited, these campaigns could result in unauthorized access to sensitive information and potential data breaches. To remediate, defenders should ensure that all USB devices are scanned for malware before use and implement strict access controls to prevent unauthorized access to sensitive systems. Additionally, organizations should update their endpoint detection and response (EDR) solutions to detect and prevent the use of remote access software, such as T1219.",
+      "ai_summary": "The Converging Interests threat campaign involves three distinct activity clusters targeting a Southeast Asian government organization between June and August 2025. Stately Taurus uses USB-propagated malware to deploy the PUBLOAD backdoor, while CL-STA-1048 employs an espionage toolkit including the EggStremeFuel backdoor and Maso. The threat actors leverage T1091 (Replication Through Removable Media) and T1219 (Remote Access Software) tactics to gain initial access and maintain persistence. To remediate, defenders should ensure all USB devices are scanned for malware and implement strict access controls for remote access software. Additionally, organizations should update their security software to the latest version, specifically focusing on detection and prevention capabilities for backdoors and remote access tools.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1091| B[Replication Through Removable Media]:::tactic\n    B -->|T1219| C[Remote Access Software]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
       "ai_provider": "groq",
@@ -301,7 +301,7 @@
       "category": "incident",
       "severity": "high",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:34.656646+00:00",
+      "published": "2026-04-26T20:29:12.601328+00:00",
       "ttps": [
         {
           "id": "T1583.008",
@@ -322,9 +322,129 @@
           "tactic_id": "TA0001"
         }
       ],
-      "ai_summary": "This threat analysis reveals how threat actors exploit Keitaro, an advertising performance tracker, for various malicious purposes. Keitaro is abused for cloaking and traffic distribution in malvertising campaigns, spam operations leveraging Keitaro for cryptocurrency scams, and illegal content distribution. The attack vector involves drive-by compromise (T1189) and phishing (T1566) tactics. To remediate, users should ensure Keitaro is not installed on compromised systems and implement anti-malware software to detect and block malicious traffic. Additionally, users should configure their browsers to block malicious ads and update their software to the latest version to prevent exploitation.",
+      "ai_summary": "This threat analysis reveals how threat actors exploit Keitaro, an advertising performance tracker, for various malicious purposes. Keitaro is abused for cloaking and traffic distribution in malvertising campaigns, spam operations leveraging Keitaro for cryptocurrency scams, and illegal content distribution. The attack vector involves drive-by compromise (T1189) and phishing (T1566) tactics. To remediate, users should ensure Keitaro is not installed on compromised systems and implement anti-malware software to detect and block malicious traffic. Additionally, users should update their browsers to the latest version and enable anti-phishing protection.",
       "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Phishing]:::tactic\n    B -->|T1189| C[Drive-by Compromise]:::tactic\n    C -->|T1583.008| D[Malvertising]:::tactic\n    D -->|T1041| E[Command and Control]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 8.0,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-40248: free5GC is an open-source implementation of the 5G core network. In versions 4.2...",
+      "description": "free5GC is an open-source implementation of the 5G core network. In versions 4.2.1 and below of the UDR service, the handler for creating or updating Traffic Influence Subscriptions checks whether the influenceId path segment equals subs-to-notify, but does not return after sending the HTTP 404 response when validation fails. Execution continues and the subscription is created or overwritten regar",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40248",
+      "cve_id": "CVE-2026-40248",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "published": "2026-04-26T20:29:09.097700+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "epss_score": null,
+      "threat_actors": [
+        "Conti"
+      ],
+      "ai_summary": "CVE-2026-40248 is a critical vulnerability in free5GC versions 4.2.1 and below, specifically affecting the UDR service. An attacker can exploit this vulnerability by sending a crafted HTTP request to the Traffic Influence Subscriptions endpoint, which will result in the creation or overwrite of a subscription without proper validation. This can lead to unauthorized data access and encryption, allowing the attacker to gain control over the 5G core network. To remediate this issue, users should upgrade to version 4.2.2 or later, and ensure that the Traffic Influence Subscriptions endpoint is properly configured to return a 404 response when validation fails. Additionally, users should implement proper input validation and sanitization to prevent similar attacks in the future.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-40247: free5GC is an open-source implementation of the 5G core network. In versions 4.2...",
+      "description": "free5GC is an open-source implementation of the 5G core network. In versions 4.2.1 and below of the UDR service, the handler for reading Traffic Influence Subscriptions checks whether the influenceId path segment equals subs-to-notify, but does not return after sending the HTTP 404 response when validation fails. Execution continues and the subscription data is returned alongside the 404 response.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40247",
+      "cve_id": "CVE-2026-40247",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "published": "2026-04-26T20:29:09.097685+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "epss_score": null,
+      "threat_actors": [
+        "Conti"
+      ],
+      "ai_summary": "CVE-2026-40247 is a critical vulnerability in free5GC versions 4.2.1 and below, specifically in the UDR service's handler for reading Traffic Influence Subscriptions. An attacker can exploit this vulnerability by sending a malicious HTTP request, which will cause the handler to return subscription data alongside an HTTP 404 response. This allows an attacker to obtain sensitive information without being detected. To remediate this vulnerability, users should upgrade to free5GC version 4.2.2 or later, and ensure that the UDR service is properly configured to return only the expected response. Additionally, users should implement proper input validation and error handling to prevent similar vulnerabilities in the future.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-40246: free5GC is an open-source implementation of the 5G core network. In versions 1.4...",
+      "description": "free5GC is an open-source implementation of the 5G core network. In versions 1.4.2 and below of the UDR service, the handler for deleting Traffic Influence Subscriptions checks whether the influenceId path segment equals subs-to-notify, but does not return after sending the HTTP 404 response when validation fails. Execution continues and the subscription is deleted regardless. An unauthenticated a",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40246",
+      "cve_id": "CVE-2026-40246",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "published": "2026-04-26T20:29:09.097670+00:00",
+      "ttps": [
+        {
+          "id": "T1190",
+          "name": "Exploit Public-Facing Application",
+          "tactic": "Initial Access",
+          "tactic_id": "TA0001"
+        },
+        {
+          "id": "T1486",
+          "name": "Data Encrypted for Impact",
+          "tactic": "Impact",
+          "tactic_id": "TA0040"
+        }
+      ],
+      "epss_score": null,
+      "threat_actors": [
+        "Conti"
+      ],
+      "ai_summary": "CVE-2026-40246 is a critical vulnerability in free5GC versions 1.4.2 and below, specifically in the UDR service's handler for deleting Traffic Influence Subscriptions. An unauthenticated attacker can exploit this vulnerability by sending a crafted HTTP request, leading to unintended deletion of subscriptions. This can result in data loss and disruption of 5G core network services. To remediate, update to version 1.4.3 or later, and ensure that the UDR service is properly configured to prevent unauthorized access. Specifically, administrators should verify that the influenceId path segment validation is functioning correctly and that the handler returns after sending the HTTP 404 response.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1486| C[Data Encrypted for Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
+      "ai_provider": "groq",
+      "ai_model": "llama-3.1-8b-instant"
+    },
+    {
+      "title": "CVE-2026-40170: ngtcp2 is a C implementation of the IETF QUIC protocol. In versions prior to 1.2...",
+      "description": "ngtcp2 is a C implementation of the IETF QUIC protocol. In versions prior to 1.22.1, ngtcp2_qlog_parameters_set_transport_params() serializes peer transport parameters into a fixed 1024-byte stack buffer without bounds checking. When qlog is enabled, a remote peer can send sufficiently large transport parameters during the QUIC handshake to cause writes beyond the buffer boundary, resulting in a s",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40170",
+      "cve_id": "CVE-2026-40170",
+      "source": "NVD",
+      "category": "cve",
+      "severity": "high",
+      "cvss_score": 7.5,
+      "published": "2026-04-26T20:29:09.097654+00:00",
+      "ttps": [],
+      "epss_score": null,
+      "ai_summary": "CVE-2026-40170 is a buffer overflow vulnerability in ngtcp2 versions prior to 1.22.1. The bug occurs in the ngtcp2_qlog_parameters_set_transport_params() function, which serializes peer transport parameters into a fixed 1024-byte stack buffer without bounds checking. A remote peer can exploit this vulnerability by sending sufficiently large transport parameters during the QUIC handshake, causing writes beyond the buffer boundary. This can lead to a stack-based buffer overflow, potentially resulting in arbitrary code execution. To remediate this vulnerability, update to ngtcp2 version 1.22.1 or later, and ensure that qlog is disabled or configured to use a secure logging mechanism.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1566| B[Initial Access]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "severity_score": 7.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
     },
@@ -337,7 +457,7 @@
       "category": "cve",
       "severity": "critical",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:27.871879+00:00",
+      "published": "2026-04-26T20:29:09.097639+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -347,8 +467,8 @@
         }
       ],
       "epss_score": null,
-      "ai_summary": "CVE-2026-39313 is a critical vulnerability in mcp-framework versions 0.2.21 and below, allowing a remote unauthenticated attacker to crash the HTTP server by exploiting the readRequestBody() function's lack of size limit enforcement. This occurs due to the maxMessageSize configuration value not being enforced, making it possible for an attacker to send a maliciously crafted request that crashes the server. The affected systems include any mcp-framework HTTP server running on versions 0.2.21 and below. To remediate this issue, update to version 0.2.22 or later, and ensure the maxMessageSize configuration value is set and enforced. Additionally, consider implementing rate limiting and request body chunking to prevent similar attacks in the future.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1210| C[Remote Service Session Management]:::tactic\n    C -->|T1490| D[Resource Hijacking]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
+      "ai_summary": "CVE-2026-39313 is a critical vulnerability in mcp-framework versions 0.2.21 and below, allowing a remote unauthenticated attacker to crash any HTTP server by exploiting the readRequestBody() function's lack of size limit enforcement. This occurs due to the maxMessageSize configuration value not being enforced, making it possible for an attacker to send a maliciously crafted request that causes the server to consume excessive resources, leading to a denial-of-service (DoS) condition. To remediate this issue, users should upgrade to version 0.2.22 or later, which addresses this vulnerability. Additionally, administrators should ensure that the maxMessageSize configuration value is set to a reasonable limit to prevent similar attacks. This vulnerability is attributed to the lack of input validation in the mcp-framework's HTTP transport, making it a prime target for attackers seeking to exploit public-facing applications.",
+      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1210| C[Denial of Service]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
       "severity_score": 9.5,
       "ai_provider": "groq",
       "ai_model": "llama-3.1-8b-instant"
@@ -362,14 +482,9 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": null,
-      "published": "2026-04-26T19:39:27.871864+00:00",
+      "published": "2026-04-26T20:29:09.097622+00:00",
       "ttps": [],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-35469 is a memory corruption vulnerability in spdystream, a Go library for multiplexing streams over SPDY connections. Versions 0.5.0 and below are affected. An attacker can exploit this vulnerability by sending a malicious SPDY/3 frame with a large SETTINGS frame entry count, header count, or individual header field size, causing the library to allocate excessive memory. This can lead to a denial-of-service (DoS) or potentially allow an attacker to execute arbitrary code. To remediate, update to version 0.5.1 or later, and ensure that the SPDY/3 frame parser is properly validated. Additionally, consider implementing a Content Security Policy (CSP) to restrict the types of SPDY frames that can be processed.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploitation of Vulnerability]:::tactic\n    B -->|T1210| C[Denial of Service]:::tactic\n    C -->|T1486| D[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 6.5,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-34164: Valtimo is an open-source business process automation platform. In versions 13.0...",
@@ -380,7 +495,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.9,
-      "published": "2026-04-26T19:39:27.871847+00:00",
+      "published": "2026-04-26T20:29:09.097603+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -389,12 +504,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-34164 is a vulnerability in Valtimo's InboxHandlingService, affecting versions 13.0.0 through 13.21.0. The issue allows sensitive information, including personal data (PII), citizen identifiers (BSN), and case details, to be exposed in application logs. This data is accessible to anyone with log access or Valtimo access. To remediate, update to version 13.22.0 or later, and configure logging to exclude sensitive information. Additionally, ensure proper access controls are in place to limit log access. This vulnerability has a CVSS score of 4.9 and can be exploited using TTP T1190 (Exploit Public-Facing Application).",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 5.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-33472: Cryptomator is an open-source client-side encryption application for cloud stora...",
@@ -405,7 +515,7 @@
       "category": "cve",
       "severity": "medium",
       "cvss_score": 4.8,
-      "published": "2026-04-26T19:39:27.871829+00:00",
+      "published": "2026-04-26T20:29:09.097587+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -414,12 +524,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-33472 is a logic flaw in Cryptomator's CheckHostTrustController.getAuthority() method, allowing attackers to bypass the security fix for CVE-2026-32303. This vulnerability affects Cryptomator version 1.19.1 and above, and can be exploited by attackers using the T1190 (Exploit Public-Facing Application) tactic. If exploited, attackers can bypass security checks and access unauthorized cloud storage data. To remediate this vulnerability, users should update to Cryptomator version 1.19.2 or higher, and ensure that the CheckHostTrustController.getAuthority() method is properly configured to handle HTTPS URLs with port 80. Additionally, users should review their cloud storage access controls and implement additional security measures to prevent unauthorized access.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 4.8,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-40901: DataEase is an open-source data visualization and analytics platform. Versions 2...",
@@ -428,9 +533,9 @@
       "cve_id": "CVE-2026-40901",
       "source": "NVD",
       "category": "cve",
-      "severity": "critical",
+      "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-26T19:39:27.871812+00:00",
+      "published": "2026-04-26T20:29:09.097566+00:00",
       "ttps": [
         {
           "id": "T1190",
@@ -439,12 +544,7 @@
           "tactic_id": "TA0001"
         }
       ],
-      "epss_score": null,
-      "ai_summary": "CVE-2026-40901 is a critical vulnerability in DataEase versions 2.10.20 and below, allowing remote code execution (RCE) via the InvokerTransformer deserialization gadget chain in commons-collections-3.2.1.jar. The vulnerability is caused by the use of ObjectInputStream with no deserialization filter in Quartz 2.3.2, which deserializes job data BLOBs from the qrtz_job_details table. An attacker can exploit this vulnerability by sending a malicious serialized object to the DataEase application, which will be deserialized and executed, resulting in RCE. To remediate this vulnerability, DataEase users should upgrade to version 2.10.21 or later, which includes a fix for this issue. Additionally, users should ensure that the deserialization filter is enabled in Quartz 2.3.2 to prevent similar vulnerabilities in the future.",
-      "workflow_graph": "graph LR\n    A([Threat Actor]):::actor -->|T1190| B[Exploit Public-Facing Application]:::tactic\n    B -->|T1059.001| C[Execution]:::tactic\n    C -->|T1041| D[Command and Control]:::tactic\n    D -->|T1486| E[Impact]:::tactic\n    classDef actor fill:#1a0e2e,stroke:#a78bfa,color:#c9d8e8,font-weight:bold\n    classDef tactic fill:#0d2038,stroke:#4da6ff,color:#c9d8e8",
-      "severity_score": 9.0,
-      "ai_provider": "groq",
-      "ai_model": "llama-3.1-8b-instant"
+      "epss_score": null
     },
     {
       "title": "CVE-2026-40900: DataEase is an open-source data visualization and analytics platform. Versions 2...",
@@ -455,105 +555,13 @@
       "category": "cve",
       "severity": "high",
       "cvss_score": 8.8,
-      "published": "2026-04-26T19:39:27.871793+00:00",
+      "published": "2026-04-26T20:29:09.097525+00:00",
       "ttps": [
         {
           "id": "T1190",
           "name": "Exploit Public-Facing Application",
           "tactic": "Initial Access",
           "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-40899: DataEase is an open-source data visualization and analytics platform. Versions 2...",
-      "description": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a JDBC parameter blocklist bypass vulnerability in the MySQL datasource configuration. The Mysql class uses Lombok's @Data annotation, which auto-generates a public setter for the illegalParameters field that contains the JDBC security blocklist. When a datasource configuration is submitted as ",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40899",
-      "cve_id": "CVE-2026-40899",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": 6.5,
-      "published": "2026-04-26T19:39:27.871771+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-33207: DataEase is an open-source data visualization and analytics platform. Versions 2...",
-      "description": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a SQL injection vulnerability in the /datasource/getTableField endpoint. The getTableFiledSql method in CalciteProvider.java incorporates the tableName parameter directly into SQL query strings using String.format without parameterization or sanitization. Although DatasourceServer.java validate",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33207",
-      "cve_id": "CVE-2026-33207",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "high",
-      "cvss_score": 8.8,
-      "published": "2026-04-26T19:39:27.871753+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2026-33122: DataEase is an open-source data visualization and analytics platform. Versions 2...",
-      "description": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a SQL injection vulnerability in the API datasource update process. When a new table definition is added during a datasource update via /de2api/datasource/update, the deTableName field from the user-submitted configuration is passed to DatasourceSyncManage.createEngineTable, where it is substit",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33122",
-      "cve_id": "CVE-2026-33122",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "critical",
-      "cvss_score": 9.8,
-      "published": "2026-04-26T19:39:27.871729+00:00",
-      "ttps": [
-        {
-          "id": "T1190",
-          "name": "Exploit Public-Facing Application",
-          "tactic": "Initial Access",
-          "tactic_id": "TA0001"
-        }
-      ],
-      "epss_score": null
-    },
-    {
-      "title": "CVE-2025-54502: Incorrect use of boot service in the AMD Platform Configuration Blob (APCB) SMM ...",
-      "description": "Incorrect use of boot service in the AMD Platform Configuration Blob (APCB) SMM driver could allow a privileged attacker with local access (Ring 0) to achieve privilege escalation potentially resulting in arbitrary code execution.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54502",
-      "cve_id": "CVE-2025-54502",
-      "source": "NVD",
-      "category": "cve",
-      "severity": "medium",
-      "cvss_score": null,
-      "published": "2026-04-26T19:39:27.871684+00:00",
-      "ttps": [
-        {
-          "id": "T1059",
-          "name": "Command and Scripting Interpreter",
-          "tactic": "Execution",
-          "tactic_id": "TA0002"
-        },
-        {
-          "id": "T1068",
-          "name": "Exploitation for Privilege Escalation",
-          "tactic": "Privilege Escalation",
-          "tactic_id": "TA0004"
-        },
-        {
-          "id": "T1649",
-          "name": "Steal or Forge Authentication Certificates",
-          "tactic": "Credential Access",
-          "tactic_id": "TA0006"
         }
       ],
       "epss_score": null
@@ -1025,10 +1033,10 @@
         }
       ],
       "threat_actors": [
-        "APT38",
+        "APT41",
         "Conti",
         "Lazarus",
-        "APT41"
+        "APT38"
       ]
     },
     {
